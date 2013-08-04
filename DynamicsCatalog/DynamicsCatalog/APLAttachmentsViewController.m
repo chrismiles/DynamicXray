@@ -119,11 +119,11 @@
     UICollisionBehavior* collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[self.square1]];
 
     CGPoint squareCenterPoint = CGPointMake(self.square1.center.x, self.square1.center.y - 100.0);
-    CGPoint attachmentPoint = CGPointMake(-25.0, -25.0);
+    UIOffset attachmentPoint = UIOffsetMake(-25.0, -25.0);
     /*
      By default, an attachment behavior uses the center of a view. By using a small offset, we get a more interesting effect which will cause the view to have rotation movement when dragging the attachment.
      */
-    UIAttachmentBehavior* attachmentBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.square1 point:attachmentPoint attachedToAnchor:squareCenterPoint];
+    UIAttachmentBehavior* attachmentBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.square1 offsetFromCenter:attachmentPoint attachedToAnchor:squareCenterPoint];
     
     collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
 
