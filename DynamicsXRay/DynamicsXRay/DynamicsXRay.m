@@ -8,6 +8,7 @@
 
 #import "DynamicsXRay.h"
 #import "DXRDynamicsXRayView.h"
+//#import "NSObject+CMObjectIntrospection.h" // Only needed during development
 
 @interface DynamicsXRay ()
 
@@ -59,7 +60,7 @@
 {
     //NSLog(@"visualiseAttachmentBehavior: %@", attachmentBehavior);
     
-    //[attachmentBehavior dynamicsXRayObjectDebuggingDumpInfo];
+    //[attachmentBehavior CMObjectIntrospectionDumpInfo]; // Only needed during development
     
     //id anchorPoint = [attachmentBehavior valueForKey:@"anchorPoint"];
     NSValue *anchorPointAValue = [attachmentBehavior valueForKey:@"anchorPointA"];
