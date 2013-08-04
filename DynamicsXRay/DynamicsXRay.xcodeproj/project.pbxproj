@@ -16,6 +16,7 @@
 		83849DCE17AE022300D6DD3C /* libDynamicsXRay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83849DB617AE022300D6DD3C /* libDynamicsXRay.a */; };
 		83849DD417AE022300D6DD3C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83849DD217AE022300D6DD3C /* InfoPlist.strings */; };
 		83849DD617AE022300D6DD3C /* DynamicsXRayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DD517AE022300D6DD3C /* DynamicsXRayTests.m */; };
+		83849DE117AE02DB00D6DD3C /* DXRDynamicsXRayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DE017AE02DB00D6DD3C /* DXRDynamicsXRayView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		83849DD117AE022300D6DD3C /* DynamicsXRayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DynamicsXRayTests-Info.plist"; sourceTree = "<group>"; };
 		83849DD317AE022300D6DD3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		83849DD517AE022300D6DD3C /* DynamicsXRayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicsXRayTests.m; sourceTree = "<group>"; };
+		83849DDF17AE02DB00D6DD3C /* DXRDynamicsXRayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXRayView.h; sourceTree = "<group>"; };
+		83849DE017AE02DB00D6DD3C /* DXRDynamicsXRayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXRayView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,7 @@
 				83849DB717AE022300D6DD3C /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		83849DB717AE022300D6DD3C /* Products */ = {
 			isa = PBXGroup;
@@ -112,6 +116,8 @@
 			children = (
 				83849DBE17AE022300D6DD3C /* DynamicsXRay.h */,
 				83849DC017AE022300D6DD3C /* DynamicsXRay.m */,
+				83849DDF17AE02DB00D6DD3C /* DXRDynamicsXRayView.h */,
+				83849DE017AE02DB00D6DD3C /* DXRDynamicsXRayView.m */,
 				83849DBC17AE022300D6DD3C /* Supporting Files */,
 			);
 			path = DynamicsXRay;
@@ -187,6 +193,7 @@
 		83849DAE17AE022300D6DD3C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = DXR;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Chris Miles";
 			};
@@ -225,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83849DC117AE022300D6DD3C /* DynamicsXRay.m in Sources */,
+				83849DE117AE02DB00D6DD3C /* DXRDynamicsXRayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

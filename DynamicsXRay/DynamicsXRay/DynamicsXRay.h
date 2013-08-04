@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import UIKit;
 
-@interface DynamicsXRay : NSObject
+@interface DynamicsXRay : UIDynamicBehavior
 
 @end
