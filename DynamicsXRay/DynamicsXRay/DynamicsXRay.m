@@ -45,18 +45,26 @@
 	[keyWindow addSubview:self.xrayView];
     }
     
-    NSArray *behaviors = dynamicAnimator.behaviors;
+    [self introspectBehaviors:dynamicAnimator.behaviors];
+}
+
+- (void)introspectBehaviors:(NSArray *)behaviors
+{
     for (UIDynamicBehavior *behavior in behaviors) {
 	if ([behavior isKindOfClass:[UIAttachmentBehavior class]]) {
 	    [self visualiseAttachmentBehavior:(UIAttachmentBehavior *)behavior];
 	}
+        
+        if ([behavior.childBehaviors count] > 0) {
+            [self introspectBehaviors:behavior.childBehaviors];
+        }
     }
-    
 }
 
 - (void)visualiseAttachmentBehavior:(UIAttachmentBehavior *)attachmentBehavior
 {
     //[attachmentBehavior CMObjectIntrospectionDumpInfo]; // Only needed during development
+    //[self.dynamicAnimator CMObjectIntrospectionDumpInfo]; // Only needed during development
     
     //id anchorPoint = [attachmentBehavior valueForKey:@"anchorPoint"];
     NSValue *anchorPointAValue = [attachmentBehavior valueForKey:@"anchorPointA"];
@@ -69,13 +77,24 @@
     
     id<UIDynamicItem> item = attachmentBehavior.items[0];
     
-    CGPoint anchorPoint = [self.xrayView convertPoint:attachmentBehavior.anchorPoint fromView:self.dynamicAnimator.referenceView];
+    // TODO: need reference to collection view layout + collection view...
+    
+    UIView *referenceView = self.dynamicAnimator.referenceView;
+    if (referenceView == nil) {
+        UICollectionViewLayout *referenceSystem = [self.dynamicAnimator valueForKey:@"referenceSystem"];
+        if ([referenceSystem respondsToSelector:@selector(collectionView)]) {
+            referenceView = referenceSystem.collectionView;
+        }
+    }
+    
+    ZAssert(referenceView != nil, @"dynamicAnimator.referenceView is nil");
+    CGPoint anchorPoint = [self.xrayView convertPoint:attachmentBehavior.anchorPoint fromView:referenceView];
     
     CGPoint attachmentPoint = item.center;
     anchorPointA = CGPointApplyAffineTransform(anchorPointA, item.transform);
     attachmentPoint.x += anchorPointA.x;
     attachmentPoint.y += anchorPointA.y;
-    attachmentPoint = [self.xrayView convertPoint:attachmentPoint fromView:self.dynamicAnimator.referenceView];
+    attachmentPoint = [self.xrayView convertPoint:attachmentPoint fromView:referenceView];
     
     BOOL isSpring = (attachmentBehavior.frequency > 0.0);
     
