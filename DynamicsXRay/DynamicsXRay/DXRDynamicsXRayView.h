@@ -10,6 +10,6 @@
 
 @interface DXRDynamicsXRayView : UIView
 
-- (void)drawAttachmentFromAnchor:(CGPoint)anchorPoint toPoint:(CGPoint)attachmentPoint isSpring:(BOOL)isSpring;
+- (void)drawAttachmentFromAnchor:(CGPoint)anchorPoint toPoint:(CGPoint)attachmentPoint length:(CGFloat)length isSpring:(BOOL)isSpring;
 
 @end

@@ -7,10 +7,13 @@
 //
 
 #import "DXRDynamicsXRayView.h"
+#import "DXRDynamicsXRayItemAttachment.h"
+#import "DXRDynamicsXRayUtil.h"
+
 
 @interface DXRDynamicsXRayView ()
 
-@property (strong, nonatomic) NSMutableArray *elementsToDraw;
+@property (strong, nonatomic) NSMutableArray *dynamicItemsToDraw;
 
 @end
 
@@ -21,39 +24,61 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-	_elementsToDraw = [NSMutableArray array];
+	_dynamicItemsToDraw = [NSMutableArray array];
+        
+	self.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.1f];
+	self.userInteractionEnabled = NO;
     }
     return self;
 }
 
-- (void)drawAttachmentFromAnchor:(CGPoint)anchorPoint toPoint:(CGPoint)attachmentPoint isSpring:(BOOL)isSpring
+- (void)drawAttachmentFromAnchor:(CGPoint)anchorPoint toPoint:(CGPoint)attachmentPoint length:(CGFloat)length isSpring:(BOOL)isSpring
 {
-    // TODO: custom class would be better here
-    NSDictionary *element = @{@"type": @"attachment", @"anchorPoint": [NSValue valueWithCGPoint:anchorPoint], @"attachmentPoint": [NSValue valueWithCGPoint:attachmentPoint]};
-    
-    [self.elementsToDraw addObject:element];
+    DXRDynamicsXRayItemAttachment *attachment = [[DXRDynamicsXRayItemAttachment alloc] initWithAnchorPoint:anchorPoint attachmentPoint:attachmentPoint length:length isSpring:isSpring];
+    [self.dynamicItemsToDraw addObject:attachment];
     
     [self setNeedsDisplay];
 }
+
+
+#pragma mark - Drawing
 
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef c = UIGraphicsGetCurrentContext();
     
-    [[UIColor redColor] set];
+    [[[UIColor blueColor] colorWithAlphaComponent:0.6f] set];
     
-    for (NSDictionary *element in self.elementsToDraw) {
-	// TODO: handles ONLY attachments
-	
-	CGPoint anchorPoint = [element[@"anchorPoint"] CGPointValue];
-	CGPoint attachmentPoint = [element[@"attachmentPoint"] CGPointValue];
-	
-	CGContextMoveToPoint(c, anchorPoint.x, anchorPoint.y);
-	CGContextAddLineToPoint(c, attachmentPoint.x, attachmentPoint.y);
-	CGContextStrokePath(c);
+    for (DXRDynamicsXRayItem *item in self.dynamicItemsToDraw) {
+        [self dispatchItemDraw:item context:c];
     }
     
-    [self.elementsToDraw removeAllObjects];
+    [self.dynamicItemsToDraw removeAllObjects];
+}
+
+- (void)dispatchItemDraw:(DXRDynamicsXRayItem *)item context:(CGContextRef)context
+{
+    if ([item isKindOfClass:[DXRDynamicsXRayItemAttachment class]]) {
+        [self drawAttachmentItem:(DXRDynamicsXRayItemAttachment *)item context:context];
+    }
+}
+
+- (void)drawAttachmentItem:(DXRDynamicsXRayItemAttachment *)item context:(CGContextRef)context
+{
+    CGContextMoveToPoint(context, item.anchorPoint.x, item.anchorPoint.y);
+    
+    if (item.isSpring) {
+        // Spring attachments are drawn as dashed lines
+        CGFloat lineLength = DXRCGPointDistance(item.anchorPoint, item.attachmentPoint);
+        CGFloat itemLength = (item.length > 0 ? item.length : 1.0f);
+        CGFloat lineDiff = lineLength / itemLength;
+        CGFloat dashSize = fmaxf(0.5f, 3.0f * lineDiff);
+        const CGFloat dashPattern[2] = {dashSize, dashSize};
+        CGContextSetLineDash(context, 3, dashPattern, 2);
+    }
+    
+    CGContextAddLineToPoint(context, item.attachmentPoint.x, item.attachmentPoint.y);
+    CGContextStrokePath(context);
 }
 
 @end

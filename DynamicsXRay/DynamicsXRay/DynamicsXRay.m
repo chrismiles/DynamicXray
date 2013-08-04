@@ -23,8 +23,6 @@
     self = [super init];
     if (self) {
 	_xrayView = [[DXRDynamicsXRayView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-	_xrayView.backgroundColor = [[UIColor yellowColor] colorWithAlphaComponent:0.5];
-	_xrayView.userInteractionEnabled = NO;
 	
 	__weak DynamicsXRay *weakSelf = self;
         self.action = ^{
@@ -58,8 +56,6 @@
 
 - (void)visualiseAttachmentBehavior:(UIAttachmentBehavior *)attachmentBehavior
 {
-    //NSLog(@"visualiseAttachmentBehavior: %@", attachmentBehavior);
-    
     //[attachmentBehavior CMObjectIntrospectionDumpInfo]; // Only needed during development
     
     //id anchorPoint = [attachmentBehavior valueForKey:@"anchorPoint"];
@@ -69,6 +65,8 @@
     CGPoint anchorPointA = CGPointZero;
     if (anchorPointAValue) anchorPointA = [anchorPointAValue CGPointValue];
     
+    // TODO: support attachments from item to item
+    
     id<UIDynamicItem> item = attachmentBehavior.items[0];
     
     CGPoint anchorPoint = [self.xrayView convertPoint:attachmentBehavior.anchorPoint fromView:self.dynamicAnimator.referenceView];
@@ -77,12 +75,11 @@
     anchorPointA = CGPointApplyAffineTransform(anchorPointA, item.transform);
     attachmentPoint.x += anchorPointA.x;
     attachmentPoint.y += anchorPointA.y;
-    
     attachmentPoint = [self.xrayView convertPoint:attachmentPoint fromView:self.dynamicAnimator.referenceView];
     
-    BOOL isSpring = NO; // TODO
+    BOOL isSpring = (attachmentBehavior.frequency > 0.0);
     
-    [self.xrayView drawAttachmentFromAnchor:anchorPoint toPoint:attachmentPoint isSpring:isSpring];
+    [self.xrayView drawAttachmentFromAnchor:anchorPoint toPoint:attachmentPoint length:attachmentBehavior.length isSpring:isSpring];
 }
 
 @end
