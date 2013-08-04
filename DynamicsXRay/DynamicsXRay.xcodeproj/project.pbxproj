@@ -19,6 +19,12 @@
 		83849DE117AE02DB00D6DD3C /* DXRDynamicsXRayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DE017AE02DB00D6DD3C /* DXRDynamicsXRayView.m */; };
 		83849DE517AE043300D6DD3C /* NSObject+CMObjectIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DE417AE043300D6DD3C /* NSObject+CMObjectIntrospection.m */; };
 		83849DE717AE069400D6DD3C /* DynamicsXRay.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DBE17AE022300D6DD3C /* DynamicsXRay.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83849DEC17AE103D00D6DD3C /* DXRDynamicsXRayItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DEA17AE103D00D6DD3C /* DXRDynamicsXRayItem.h */; };
+		83849DED17AE103D00D6DD3C /* DXRDynamicsXRayItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DEB17AE103D00D6DD3C /* DXRDynamicsXRayItem.m */; };
+		83849DF117AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DEF17AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.h */; };
+		83849DF217AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DF017AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.m */; };
+		83849DF517AE242A00D6DD3C /* DXRDynamicsXRayUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DF317AE242A00D6DD3C /* DXRDynamicsXRayUtil.h */; };
+		83849DF617AE242A00D6DD3C /* DXRDynamicsXRayUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DF417AE242A00D6DD3C /* DXRDynamicsXRayUtil.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +66,12 @@
 		83849DE017AE02DB00D6DD3C /* DXRDynamicsXRayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXRayView.m; sourceTree = "<group>"; };
 		83849DE317AE043300D6DD3C /* NSObject+CMObjectIntrospection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CMObjectIntrospection.h"; sourceTree = "<group>"; };
 		83849DE417AE043300D6DD3C /* NSObject+CMObjectIntrospection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CMObjectIntrospection.m"; sourceTree = "<group>"; };
+		83849DEA17AE103D00D6DD3C /* DXRDynamicsXRayItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXRayItem.h; sourceTree = "<group>"; };
+		83849DEB17AE103D00D6DD3C /* DXRDynamicsXRayItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXRayItem.m; sourceTree = "<group>"; };
+		83849DEF17AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXRayItemAttachment.h; sourceTree = "<group>"; };
+		83849DF017AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXRayItemAttachment.m; sourceTree = "<group>"; };
+		83849DF317AE242A00D6DD3C /* DXRDynamicsXRayUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXRayUtil.h; sourceTree = "<group>"; };
+		83849DF417AE242A00D6DD3C /* DXRDynamicsXRayUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXRayUtil.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +135,9 @@
 				83849DC017AE022300D6DD3C /* DynamicsXRay.m */,
 				83849DDF17AE02DB00D6DD3C /* DXRDynamicsXRayView.h */,
 				83849DE017AE02DB00D6DD3C /* DXRDynamicsXRayView.m */,
+				83849DF317AE242A00D6DD3C /* DXRDynamicsXRayUtil.h */,
+				83849DF417AE242A00D6DD3C /* DXRDynamicsXRayUtil.m */,
+				83849DEE17AE104200D6DD3C /* Items */,
 				83849DBC17AE022300D6DD3C /* Supporting Files */,
 			);
 			path = DynamicsXRay;
@@ -163,6 +178,17 @@
 			path = Libraries;
 			sourceTree = "<group>";
 		};
+		83849DEE17AE104200D6DD3C /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				83849DEA17AE103D00D6DD3C /* DXRDynamicsXRayItem.h */,
+				83849DEB17AE103D00D6DD3C /* DXRDynamicsXRayItem.m */,
+				83849DEF17AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.h */,
+				83849DF017AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.m */,
+			);
+			name = Items;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -170,7 +196,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83849DEC17AE103D00D6DD3C /* DXRDynamicsXRayItem.h in Headers */,
+				83849DF117AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.h in Headers */,
 				83849DE717AE069400D6DD3C /* DynamicsXRay.h in Headers */,
+				83849DF517AE242A00D6DD3C /* DXRDynamicsXRayUtil.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +287,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				83849DE517AE043300D6DD3C /* NSObject+CMObjectIntrospection.m in Sources */,
+				83849DF217AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.m in Sources */,
+				83849DED17AE103D00D6DD3C /* DXRDynamicsXRayItem.m in Sources */,
 				83849DC117AE022300D6DD3C /* DynamicsXRay.m in Sources */,
+				83849DF617AE242A00D6DD3C /* DXRDynamicsXRayUtil.m in Sources */,
 				83849DE117AE02DB00D6DD3C /* DXRDynamicsXRayView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
