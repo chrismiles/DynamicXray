@@ -23,6 +23,7 @@
 		28E53D56175BF6EE009B735C /* APLInstantaneousPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E53D55175BF6EE009B735C /* APLInstantaneousPushViewController.m */; };
 		28E53D59175BFABC009B735C /* APLContinuousPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E53D58175BFABC009B735C /* APLContinuousPushViewController.m */; };
 		28E53D5C175C07C4009B735C /* APLItemPropertiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E53D5B175C07C4009B735C /* APLItemPropertiesViewController.m */; };
+		83849DE917AE06A000D6DD3C /* libDynamicsXRay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83849DE817AE06A000D6DD3C /* libDynamicsXRay.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		28E53D58175BFABC009B735C /* APLContinuousPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLContinuousPushViewController.m; sourceTree = "<group>"; };
 		28E53D5A175C07C4009B735C /* APLItemPropertiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLItemPropertiesViewController.h; sourceTree = "<group>"; };
 		28E53D5B175C07C4009B735C /* APLItemPropertiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLItemPropertiesViewController.m; sourceTree = "<group>"; };
+		83849DE817AE06A000D6DD3C /* libDynamicsXRay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDynamicsXRay.a; path = "../../../../Library/Developer/Xcode/DerivedData/DynamicsXRay-gbmdfpjpsnunjvenkedrhmxwiykt/Build/Products/Debug-iphoneos/libDynamicsXRay.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83849DE917AE06A000D6DD3C /* libDynamicsXRay.a in Frameworks */,
 				2806C645175BE66C00827B6B /* CoreGraphics.framework in Frameworks */,
 				2806C647175BE66C00827B6B /* UIKit.framework in Frameworks */,
 				2806C643175BE66C00827B6B /* Foundation.framework in Frameworks */,
@@ -92,6 +95,7 @@
 		2806C641175BE66C00827B6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				83849DE817AE06A000D6DD3C /* libDynamicsXRay.a */,
 				2806C642175BE66C00827B6B /* Foundation.framework */,
 				2806C644175BE66C00827B6B /* CoreGraphics.framework */,
 				2806C646175BE66C00827B6B /* UIKit.framework */,
@@ -315,6 +319,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DynamicsCatalog/DynamicsCatalog-Prefix.pch";
 				INFOPLIST_FILE = "DynamicsCatalog/DynamicsCatalog-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/DynamicsXRay-gbmdfpjpsnunjvenkedrhmxwiykt/Build/Products/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -328,6 +336,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DynamicsCatalog/DynamicsCatalog-Prefix.pch";
 				INFOPLIST_FILE = "DynamicsCatalog/DynamicsCatalog-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/DynamicsXRay-gbmdfpjpsnunjvenkedrhmxwiykt/Build/Products/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

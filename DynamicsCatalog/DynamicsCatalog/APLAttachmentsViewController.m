@@ -96,6 +96,7 @@
  */
 
 #import "APLAttachmentsViewController.h"
+#import <DynamicsXRay/DynamicsXRay.h>
 
 @interface APLAttachmentsViewController ()
 
@@ -135,6 +136,9 @@
     self.animator = animator;
 
     self.attachmentBehavior = attachmentBehavior;
+    
+    DynamicsXRay *xray = [[DynamicsXRay alloc] init];
+    [animator addBehavior:xray];
 }
 
 

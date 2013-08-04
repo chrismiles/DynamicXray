@@ -96,6 +96,7 @@
  */
 
 #import "APLGravityViewController.h"
+#import <DynamicsXRay/DynamicsXRay.h>
 
 @interface APLGravityViewController ()
 
@@ -116,6 +117,9 @@
     UIGravityBehavior* gravityBeahvior = [[UIGravityBehavior alloc] initWithItems:@[self.square1]];
     [animator addBehavior:gravityBeahvior];
     self.animator = animator;
+    
+    DynamicsXRay *xray = [[DynamicsXRay alloc] init];
+    [animator addBehavior:xray];
 }
 
 

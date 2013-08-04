@@ -98,6 +98,7 @@
  */
 
 #import "APLContinuousPushViewController.h"
+#import <DynamicsXRay/DynamicsXRay.h>
 
 @interface APLContinuousPushViewController ()
 
@@ -126,6 +127,9 @@
     [animator addBehavior:pushBehavior];
     self.pushBehavior = pushBehavior;
     
+    DynamicsXRay *xray = [[DynamicsXRay alloc] init];
+    [animator addBehavior:xray];
+
     self.animator = animator;
 
     self.vectorView.center = CGPointMake(CGRectGetMidX(self.view.bounds), CGRectGetMidY(self.view.bounds));

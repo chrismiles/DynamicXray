@@ -18,6 +18,7 @@
 		83849DD617AE022300D6DD3C /* DynamicsXRayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DD517AE022300D6DD3C /* DynamicsXRayTests.m */; };
 		83849DE117AE02DB00D6DD3C /* DXRDynamicsXRayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DE017AE02DB00D6DD3C /* DXRDynamicsXRayView.m */; };
 		83849DE517AE043300D6DD3C /* NSObject+CMObjectIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DE417AE043300D6DD3C /* NSObject+CMObjectIntrospection.m */; };
+		83849DE717AE069400D6DD3C /* DynamicsXRay.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DBE17AE022300D6DD3C /* DynamicsXRay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +165,17 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		83849DE617AE068B00D6DD3C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83849DE717AE069400D6DD3C /* DynamicsXRay.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		83849DB517AE022300D6DD3C /* DynamicsXRay */ = {
 			isa = PBXNativeTarget;
@@ -172,6 +184,7 @@
 				83849DB217AE022300D6DD3C /* Sources */,
 				83849DB317AE022300D6DD3C /* Frameworks */,
 				83849DB417AE022300D6DD3C /* CopyFiles */,
+				83849DE617AE068B00D6DD3C /* Headers */,
 			);
 			buildRules = (
 			);
