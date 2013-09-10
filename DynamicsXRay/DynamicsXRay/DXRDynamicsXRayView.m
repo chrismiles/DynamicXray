@@ -65,6 +65,13 @@
 
 - (void)drawAttachmentItem:(DXRDynamicsXRayItemAttachment *)item context:(CGContextRef)context
 {
+    CGFloat anchorCircleRadius = 2.0f;
+    CGContextAddEllipseInRect(context, CGRectMake(item.anchorPoint.x - anchorCircleRadius, item.anchorPoint.y - anchorCircleRadius, anchorCircleRadius*2.0f, anchorCircleRadius*2.0f));
+    CGContextDrawPath(context, kCGPathFill);
+    
+    CGContextAddEllipseInRect(context, CGRectMake(item.attachmentPoint.x - anchorCircleRadius, item.attachmentPoint.y - anchorCircleRadius, anchorCircleRadius*2.0f, anchorCircleRadius*2.0f));
+    CGContextDrawPath(context, kCGPathStroke);
+    
     CGContextMoveToPoint(context, item.anchorPoint.x, item.anchorPoint.y);
     
     if (item.isSpring) {
