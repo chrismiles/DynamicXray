@@ -74,6 +74,8 @@
     
     CGContextMoveToPoint(context, item.anchorPoint.x, item.anchorPoint.y);
     
+    CGContextSaveGState(context);
+    
     if (item.isSpring) {
         // Spring attachments are drawn as dashed lines
         CGFloat lineLength = DXRCGPointDistance(item.anchorPoint, item.attachmentPoint);
@@ -86,6 +88,8 @@
     
     CGContextAddLineToPoint(context, item.attachmentPoint.x, item.attachmentPoint.y);
     CGContextStrokePath(context);
+    
+    CGContextRestoreGState(context);
 }
 
 @end
