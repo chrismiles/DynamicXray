@@ -8,6 +8,7 @@
 
 #import "DXRDynamicsXRayView.h"
 #import "DXRDynamicsXRayItemAttachment.h"
+#import "DXRDynamicsXRayItemBoundaryCollision.h"
 #import "DXRDynamicsXRayUtil.h"
 
 
@@ -40,17 +41,27 @@
     [self setNeedsDisplay];
 }
 
+- (void)drawBoundsCollisionBoundaryWithRect:(CGRect)boundaryRect
+{
+    DXRDynamicsXRayItemBoundaryCollision *collision = [[DXRDynamicsXRayItemBoundaryCollision alloc] initWithBoundaryRect:boundaryRect];
+    [self.dynamicItemsToDraw addObject:collision];
+    
+    [self setNeedsDisplay];
+}
+
 
 #pragma mark - Drawing
 
 - (void)drawRect:(CGRect)rect
 {
-    CGContextRef c = UIGraphicsGetCurrentContext();
+    CGContextRef context = UIGraphicsGetCurrentContext();
     
     [[[UIColor blueColor] colorWithAlphaComponent:0.6f] set];
     
     for (DXRDynamicsXRayItem *item in self.dynamicItemsToDraw) {
-        [self dispatchItemDraw:item context:c];
+        CGContextSaveGState(context);
+        [self dispatchItemDraw:item context:context];
+        CGContextRestoreGState(context);
     }
     
     [self.dynamicItemsToDraw removeAllObjects];
@@ -60,6 +71,9 @@
 {
     if ([item isKindOfClass:[DXRDynamicsXRayItemAttachment class]]) {
         [self drawAttachmentItem:(DXRDynamicsXRayItemAttachment *)item context:context];
+    }
+    else if ([item isKindOfClass:[DXRDynamicsXRayItemBoundaryCollision class]]) {
+        [self drawBoundaryCollisionItem:(DXRDynamicsXRayItemBoundaryCollision *)item context:context];
     }
 }
 
@@ -90,6 +104,14 @@
     CGContextStrokePath(context);
     
     CGContextRestoreGState(context);
+}
+
+- (void)drawBoundaryCollisionItem:(DXRDynamicsXRayItemBoundaryCollision *)item context:(CGContextRef)context
+{
+    CGContextSetStrokeColorWithColor(context, [[[UIColor yellowColor] colorWithAlphaComponent:0.5f] CGColor]);
+    CGContextSetLineWidth(context, 2.0f);
+    CGContextAddRect(context, item.boundaryRect);
+    CGContextDrawPath(context, kCGPathStroke);
 }
 
 @end

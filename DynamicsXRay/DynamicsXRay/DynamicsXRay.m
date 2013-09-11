@@ -10,11 +10,13 @@
 #import "DXRDynamicsXRayView.h"
 //#import "NSObject+CMObjectIntrospection.h" // Only needed during development
 
+
 @interface DynamicsXRay ()
 
 @property (strong, nonatomic) DXRDynamicsXRayView *xrayView;
 
 @end
+
 
 @implementation DynamicsXRay
 
@@ -54,7 +56,12 @@
 	if ([behavior isKindOfClass:[UIAttachmentBehavior class]]) {
 	    [self visualiseAttachmentBehavior:(UIAttachmentBehavior *)behavior];
 	}
+	else if ([behavior isKindOfClass:[UICollisionBehavior class]]) {
+	    [self visualiseCollisionBehavior:(UICollisionBehavior *)behavior];
+	}
         
+        /* Introspect any child behaviors.
+         */
         if ([behavior.childBehaviors count] > 0) {
             [self introspectBehaviors:behavior.childBehaviors];
         }
@@ -99,6 +106,22 @@
     BOOL isSpring = (attachmentBehavior.frequency > 0.0);
     
     [self.xrayView drawAttachmentFromAnchor:anchorPoint toPoint:attachmentPoint length:attachmentBehavior.length isSpring:isSpring];
+}
+
+- (void)visualiseCollisionBehavior:(UICollisionBehavior *)collisionBehavior
+{
+    //[collisionBehavior CMObjectIntrospectionDumpInfo]; // Only needed during development
+
+    // TODO: boundaries by identifier
+    //NSArray *boundaryIdentifiers = collisionBehavior.boundaryIdentifiers;
+    //DLog(@"boundaryIdentifiers: %@", boundaryIdentifiers);
+    
+    if (collisionBehavior.translatesReferenceBoundsIntoBoundary) {
+        UIView *referenceView = collisionBehavior.dynamicAnimator.referenceView;
+        CGRect referenceBoundaryFrame = referenceView.frame;
+        CGRect boundaryRect = [self.xrayView convertRect:referenceBoundaryFrame fromView:referenceView.superview];
+        [self.xrayView drawBoundsCollisionBoundaryWithRect:boundaryRect];
+    }
 }
 
 @end

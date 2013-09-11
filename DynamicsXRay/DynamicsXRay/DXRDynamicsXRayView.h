@@ -12,4 +12,6 @@
 
 - (void)drawAttachmentFromAnchor:(CGPoint)anchorPoint toPoint:(CGPoint)attachmentPoint length:(CGFloat)length isSpring:(BOOL)isSpring;
 
+- (void)drawBoundsCollisionBoundaryWithRect:(CGRect)boundaryRect;
+
 @end
