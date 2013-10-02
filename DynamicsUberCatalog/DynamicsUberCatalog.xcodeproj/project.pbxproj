@@ -12,7 +12,7 @@
 		2806C647175BE66C00827B6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2806C646175BE66C00827B6B /* UIKit.framework */; };
 		2806C64D175BE66C00827B6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2806C64B175BE66C00827B6B /* InfoPlist.strings */; };
 		2806C64F175BE66C00827B6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2806C64E175BE66C00827B6B /* main.m */; };
-		2806C653175BE66C00827B6B /* APLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2806C652175BE66C00827B6B /* APLAppDelegate.m */; };
+		2806C653175BE66C00827B6B /* DUCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2806C652175BE66C00827B6B /* DUCAppDelegate.m */; };
 		2806C656175BE66C00827B6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2806C654175BE66C00827B6B /* Main.storyboard */; };
 		2806C65B175BE66C00827B6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2806C65A175BE66C00827B6B /* Images.xcassets */; };
 		2806C679175BE9B900827B6B /* APLGravityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2806C678175BE9B900827B6B /* APLGravityViewController.m */; };
@@ -32,16 +32,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2806C63F175BE66C00827B6B /* DynamicsCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicsCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2806C63F175BE66C00827B6B /* DynamicsUberCatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicsUberCatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2806C642175BE66C00827B6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2806C644175BE66C00827B6B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2806C646175BE66C00827B6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		2806C64A175BE66C00827B6B /* DynamicsCatalog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DynamicsCatalog-Info.plist"; sourceTree = "<group>"; };
+		2806C64A175BE66C00827B6B /* DynamicsUberCatalog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DynamicsUberCatalog-Info.plist"; sourceTree = "<group>"; };
 		2806C64C175BE66C00827B6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2806C64E175BE66C00827B6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		2806C650175BE66C00827B6B /* DynamicsCatalog-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DynamicsCatalog-Prefix.pch"; sourceTree = "<group>"; };
-		2806C651175BE66C00827B6B /* APLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APLAppDelegate.h; sourceTree = "<group>"; };
-		2806C652175BE66C00827B6B /* APLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APLAppDelegate.m; sourceTree = "<group>"; };
+		2806C650175BE66C00827B6B /* DynamicsUberCatalog-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DynamicsUberCatalog-Prefix.pch"; sourceTree = "<group>"; };
+		2806C651175BE66C00827B6B /* DUCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DUCAppDelegate.h; sourceTree = "<group>"; };
+		2806C652175BE66C00827B6B /* DUCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DUCAppDelegate.m; sourceTree = "<group>"; };
 		2806C655175BE66C00827B6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2806C65A175BE66C00827B6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2806C677175BE9B900827B6B /* APLGravityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLGravityViewController.h; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		2806C636175BE66C00827B6B = {
 			isa = PBXGroup;
 			children = (
-				2806C648175BE66C00827B6B /* DynamicsCatalog */,
+				2806C648175BE66C00827B6B /* DynamicsUberCatalog */,
 				2806C641175BE66C00827B6B /* Frameworks */,
 				2806C640175BE66C00827B6B /* Products */,
 			);
@@ -100,7 +100,7 @@
 		2806C640175BE66C00827B6B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2806C63F175BE66C00827B6B /* DynamicsCatalog.app */,
+				2806C63F175BE66C00827B6B /* DynamicsUberCatalog.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,27 +116,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2806C648175BE66C00827B6B /* DynamicsCatalog */ = {
+		2806C648175BE66C00827B6B /* DynamicsUberCatalog */ = {
 			isa = PBXGroup;
 			children = (
 				83584CDB17F8E06700F09FF1 /* Apple Samples */,
 				83584CDC17F8E0A400F09FF1 /* Traer Physics Samples */,
 				2806C654175BE66C00827B6B /* Main.storyboard */,
-				2806C651175BE66C00827B6B /* APLAppDelegate.h */,
-				2806C652175BE66C00827B6B /* APLAppDelegate.m */,
+				2806C651175BE66C00827B6B /* DUCAppDelegate.h */,
+				2806C652175BE66C00827B6B /* DUCAppDelegate.m */,
 				2806C65A175BE66C00827B6B /* Images.xcassets */,
 				2806C649175BE66C00827B6B /* Supporting Files */,
 			);
-			path = DynamicsCatalog;
+			path = DynamicsUberCatalog;
 			sourceTree = "<group>";
 		};
 		2806C649175BE66C00827B6B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2806C64A175BE66C00827B6B /* DynamicsCatalog-Info.plist */,
+				2806C64A175BE66C00827B6B /* DynamicsUberCatalog-Info.plist */,
 				2806C64B175BE66C00827B6B /* InfoPlist.strings */,
 				2806C64E175BE66C00827B6B /* main.m */,
-				2806C650175BE66C00827B6B /* DynamicsCatalog-Prefix.pch */,
+				2806C650175BE66C00827B6B /* DynamicsUberCatalog-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -192,9 +192,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2806C63E175BE66C00827B6B /* DynamicsCatalog */ = {
+		2806C63E175BE66C00827B6B /* DynamicsUberCatalog */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2806C671175BE66C00827B6B /* Build configuration list for PBXNativeTarget "DynamicsCatalog" */;
+			buildConfigurationList = 2806C671175BE66C00827B6B /* Build configuration list for PBXNativeTarget "DynamicsUberCatalog" */;
 			buildPhases = (
 				2806C63B175BE66C00827B6B /* Sources */,
 				2806C63C175BE66C00827B6B /* Frameworks */,
@@ -204,9 +204,9 @@
 			);
 			dependencies = (
 			);
-			name = DynamicsCatalog;
+			name = DynamicsUberCatalog;
 			productName = DynamicsCatalog;
-			productReference = 2806C63F175BE66C00827B6B /* DynamicsCatalog.app */;
+			productReference = 2806C63F175BE66C00827B6B /* DynamicsUberCatalog.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -219,7 +219,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Chris Miles";
 			};
-			buildConfigurationList = 2806C63A175BE66C00827B6B /* Build configuration list for PBXProject "DynamicsCatalog" */;
+			buildConfigurationList = 2806C63A175BE66C00827B6B /* Build configuration list for PBXProject "DynamicsUberCatalog" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -232,7 +232,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2806C63E175BE66C00827B6B /* DynamicsCatalog */,
+				2806C63E175BE66C00827B6B /* DynamicsUberCatalog */,
 			);
 		};
 /* End PBXProject section */
@@ -263,7 +263,7 @@
 				28E53D59175BFABC009B735C /* APLContinuousPushViewController.m in Sources */,
 				83584CE617F8E17F00F09FF1 /* DCSpringyRopeLayer.m in Sources */,
 				28E53D5C175C07C4009B735C /* APLItemPropertiesViewController.m in Sources */,
-				2806C653175BE66C00827B6B /* APLAppDelegate.m in Sources */,
+				2806C653175BE66C00827B6B /* DUCAppDelegate.m in Sources */,
 				83584CE317F8E16B00F09FF1 /* DCSpringyRopeView.m in Sources */,
 				2806C682175BF05700827B6B /* APLCollisionsGravitySpringViewController.m in Sources */,
 				83584CDF17F8E0D300F09FF1 /* DCSpringyRopeViewController.m in Sources */,
@@ -379,14 +379,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DynamicsCatalog/DynamicsCatalog-Prefix.pch";
-				INFOPLIST_FILE = "DynamicsCatalog/DynamicsCatalog-Info.plist";
+				GCC_PREFIX_HEADER = "DynamicsUberCatalog/DynamicsUberCatalog-Prefix.pch";
+				INFOPLIST_FILE = "DynamicsUberCatalog/DynamicsUberCatalog-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/DynamicsXRay-gbmdfpjpsnunjvenkedrhmxwiykt/Build/Products/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DynamicsUberCatalog;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -397,14 +397,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DynamicsCatalog/DynamicsCatalog-Prefix.pch";
-				INFOPLIST_FILE = "DynamicsCatalog/DynamicsCatalog-Info.plist";
+				GCC_PREFIX_HEADER = "DynamicsUberCatalog/DynamicsUberCatalog-Prefix.pch";
+				INFOPLIST_FILE = "DynamicsUberCatalog/DynamicsUberCatalog-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/DynamicsXRay-gbmdfpjpsnunjvenkedrhmxwiykt/Build/Products/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DynamicsUberCatalog;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -412,7 +412,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2806C63A175BE66C00827B6B /* Build configuration list for PBXProject "DynamicsCatalog" */ = {
+		2806C63A175BE66C00827B6B /* Build configuration list for PBXProject "DynamicsUberCatalog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2806C66F175BE66C00827B6B /* Debug */,
@@ -421,7 +421,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2806C671175BE66C00827B6B /* Build configuration list for PBXNativeTarget "DynamicsCatalog" */ = {
+		2806C671175BE66C00827B6B /* Build configuration list for PBXNativeTarget "DynamicsUberCatalog" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2806C672175BE66C00827B6B /* Debug */,

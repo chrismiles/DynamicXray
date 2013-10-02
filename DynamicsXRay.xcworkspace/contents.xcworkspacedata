@@ -5,6 +5,6 @@
       location = "group:DynamicsXRay/DynamicsXRay.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:DynamicsCatalog/DynamicsCatalog.xcodeproj">
+      location = "group:DynamicsUberCatalog/DynamicsUberCatalog.xcodeproj">
    </FileRef>
 </Workspace>
