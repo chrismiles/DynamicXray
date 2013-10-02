@@ -36,7 +36,4 @@
 
 @property (nonatomic, retain) UILabel *fpsLabel;
 
-- (void)startAnimation;
-- (void)stopAnimation;
-
 @end

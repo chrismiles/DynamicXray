@@ -68,7 +68,6 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 @property (assign, nonatomic) float spring_length;
 @property (assign, nonatomic) NSUInteger subdivisions;
 
-@property (assign, nonatomic) CGPoint handle;
 @property (assign, nonatomic) BOOL isDragging;
 @property (assign, nonatomic) CGSize lastSize;
 
@@ -80,6 +79,8 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 @property (strong, nonatomic) UIGravityBehavior *gravityBehavior;
 @property (strong, nonatomic) NSArray *particles;
 @property (strong, nonatomic) UIAttachmentBehavior *anchorSpringBehavior;
+@property (strong, nonatomic) CMSpringyRopeParticle *handleParticle;
+@property (strong, nonatomic) UIAttachmentBehavior *handleSpringBehavior;
 
 // FPS
 @property (assign, nonatomic) double fps_prev_time;
@@ -97,7 +98,6 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	self.contentsScale = [UIScreen mainScreen].scale;
 	
 	_lastSize = self.bounds.size;
-	_handle = CGPointZero;
 	
 	_spring_length = 25.0;
 	_subdivisions = 8;
@@ -132,42 +132,8 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
     if (self.particles == nil) [self generateParticles];
 }
 
-#pragma mark - Animation Start/Stop
 
-- (void)startAnimation
-{
-
-}
-
-- (void)stopAnimation
-{
-
-}
-
-- (void)drawFrame
-{
-    if (self.motionManager.isDeviceMotionActive) {
-        CMAcceleration gravity = self.motionManager.deviceMotion.gravity;
-	CGVector gravityVector = CGVectorMake((float)(gravity.x) * self.gravityScale, (float)(-gravity.y) * self.gravityScale);
-	self.gravityBehavior.gravityDirection = gravityVector;
-    }
-    
-    [self setNeedsDisplay];      // draw layer
-    
-    /* FPS */
-    if (self.fpsLabel) {
-	double curr_time = CACurrentMediaTime();
-	if (curr_time - self.fps_prev_time >= 0.2) {
-	    double delta = (curr_time - self.fps_prev_time) / self.fps_count;
-	    self.fpsLabel.text = [NSString stringWithFormat:@"%0.0f fps", 1.0/delta];
-	    self.fps_prev_time = curr_time;
-	    self.fps_count = 1;
-	}
-	else {
-	    self.fps_count++;
-	}
-    }
-}
+#pragma mark - Set Up Physics
 
 - (void)generateParticles
 {
@@ -189,8 +155,10 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	[self.gravityBehavior addItem:p];
     }
     
-    for (NSUInteger i=0; i<[particles count]-1; i++)  {
-//	[s makeSpringBetweenParticleA:[particles objectAtIndex:i] particleB:[particles objectAtIndex:i+1] springConstant:0.5f damping:0.2f restLength:sub_len];
+    self.handleParticle = [particles lastObject];
+    NSUInteger particlesMaxIndex = [particles count] - 1;
+    
+    for (NSUInteger i=0; i<particlesMaxIndex; i++)  {
 	if (i == 0) {
 	    UIAttachmentBehavior *anchorSpringBehavior = [[UIAttachmentBehavior alloc] initWithItem:particles[i] attachedToAnchor:anchorPoint];
 	    anchorSpringBehavior.length = sub_len;
@@ -205,12 +173,17 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	springBehavior.frequency = CMSpringyRopeFrequency;
 	springBehavior.damping = CMSpringyRopeDamping;
 	[self.animator addBehavior:springBehavior];
+	
+	if (i == particlesMaxIndex - 1) {
+	    self.handleSpringBehavior = springBehavior;
+	}
     }
     
     [self.animator addBehavior:particleBehavior];
     
     self.particles = particles;
 }
+
 
 
 #pragma mark - Custom property accessors
@@ -244,23 +217,23 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 
 - (void)touchBeganAtLocation:(CGPoint)location
 {
-    if (CGPointDistance(location, self.handle) <= 40.0f) {
+    if (CGPointDistance(location, self.handleParticle.center) <= 40.0f) {
+	[self moveHandleToLocation:location];
 	self.isDragging = YES;
-	self.handle = location;
     }
 }
 
 - (void)touchMovedAtLocation:(CGPoint)location
 {
     if (self.isDragging) {
-	self.handle = location;
+	[self moveHandleToLocation:location];
     }
 }
 
 - (void)touchEndedAtLocation:(CGPoint)location
 {
     if (self.isDragging) {
-	self.handle = location;
+	[self moveHandleToLocation:location];
 	self.isDragging = NO;
     }
 }
@@ -269,6 +242,81 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 {
     if (self.isDragging) {
 	self.isDragging = NO;
+    }
+}
+
+
+#pragma mark - Dragging
+
+- (void)setIsDragging:(BOOL)isDragging
+{
+    if (isDragging != _isDragging) {
+	[self.animator removeBehavior:self.handleSpringBehavior];
+	
+	NSUInteger particlesMaxIndex = [self.particles count] - 1;
+	float sub_len = self.spring_length / self.subdivisions;
+	
+	UIAttachmentBehavior *springBehavior;
+	
+	if (isDragging) {
+	    // Create item<->anchor spring behavior
+	    
+	    springBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.particles[particlesMaxIndex-1]
+						       attachedToAnchor:self.handleParticle.center];
+	}
+	else {
+	    // Create item<->item spring behavior
+	    
+	    [self.animator updateItemUsingCurrentState:self.handleParticle];
+	    
+	    springBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.particles[particlesMaxIndex-1]
+							 attachedToItem:self.handleParticle];
+	}
+	
+	springBehavior.length = sub_len;
+	springBehavior.frequency = CMSpringyRopeFrequency;
+	springBehavior.damping = CMSpringyRopeDamping;
+	[self.animator addBehavior:springBehavior];
+	self.handleSpringBehavior = springBehavior;
+	
+	_isDragging = isDragging;
+    }
+}
+
+
+#pragma mark - Move Handle
+
+- (void)moveHandleToLocation:(CGPoint)location
+{
+    self.handleParticle.center = location;
+    self.handleSpringBehavior.anchorPoint = location;
+}
+
+
+#pragma mark - Draw Frame
+
+- (void)drawFrame
+{
+    if (self.motionManager.isDeviceMotionActive) {
+        CMAcceleration gravity = self.motionManager.deviceMotion.gravity;
+	CGVector gravityVector = CGVectorMake((float)(gravity.x) * self.gravityScale, (float)(-gravity.y) * self.gravityScale);
+	self.gravityBehavior.gravityDirection = gravityVector;
+    }
+    
+    [self setNeedsDisplay];      // draw layer
+    
+    /* FPS */
+    if (self.fpsLabel) {
+	double curr_time = CACurrentMediaTime();
+	if (curr_time - self.fps_prev_time >= 0.2) {
+	    double delta = (curr_time - self.fps_prev_time) / self.fps_count;
+	    self.fpsLabel.text = [NSString stringWithFormat:@"%0.0f fps", 1.0/delta];
+	    self.fps_prev_time = curr_time;
+	    self.fps_count = 1;
+	}
+	else {
+	    self.fps_count++;
+	}
     }
 }
 
@@ -282,24 +330,12 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
         self.lastSize = self.bounds.size;
     }
 
-    CMSpringyRopeParticle *p = self.particles[self.subdivisions-1];
-    if (!self.isDragging) {
-	
-	self.handle = CGPointMake(p.center.x, p.center.y);
-    } else {
-	
-//	p.position = CMTPVector3DMake(self.handle.x, self.handle.y, 0.0f);
-	p.center = CGPointMake(self.handle.x, self.handle.y);
-	[self.animator updateItemUsingCurrentState:p];
-    }
-    
     CGMutablePathRef path = CGPathCreateMutable();
     
     CGPoint anchorPoint = self.anchorSpringBehavior.anchorPoint;
-//    p = [particles objectAtIndex:0];
     CGPathMoveToPoint(path, NULL, anchorPoint.x, anchorPoint.y);
     for (NSUInteger i=0; i<[self.particles count]; i++) {
-	p = [self.particles objectAtIndex:i];
+	CMSpringyRopeParticle *p = [self.particles objectAtIndex:i];
 	CGPathAddLineToPoint(path, NULL, p.center.x, p.center.y);
     }
     
@@ -308,13 +344,14 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
     if (self.smoothed) {
 	bezierPath = smoothedPath(bezierPath, 8);
     }
-//    [bezierPath stroke];
+    //    [bezierPath stroke]; // CMDEBUGGING disabled stroke
     UIGraphicsPopContext();
     
     CGPathRelease(path);
     
     // Draw handle
-    CGContextAddEllipseInRect(ctx, CGRectMake(self.handle.x-CMSpringyRopeLayerHandleRadius, self.handle.y-CMSpringyRopeLayerHandleRadius, CMSpringyRopeLayerHandleRadius*2, CMSpringyRopeLayerHandleRadius*2));
+    CGPoint handlePoint = self.handleParticle.center;
+    CGContextAddEllipseInRect(ctx, CGRectMake(handlePoint.x-CMSpringyRopeLayerHandleRadius, handlePoint.y-CMSpringyRopeLayerHandleRadius, CMSpringyRopeLayerHandleRadius*2, CMSpringyRopeLayerHandleRadius*2));
     CGContextStrokePath(ctx);
 }
 

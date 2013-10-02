@@ -36,9 +36,6 @@
 @property (nonatomic, assign, readonly) BOOL isDeviceMotionAvailable;
 @property (nonatomic, assign) BOOL smoothed;
 
-- (void)startAnimation;
-- (void)stopAnimation;
-
 - (void)touchBeganAtLocation:(CGPoint)location;
 - (void)touchMovedAtLocation:(CGPoint)location;
 - (void)touchEndedAtLocation:(CGPoint)location;

@@ -52,19 +52,6 @@
 }
 
 
-#pragma mark - Animation Start/Stop
-
-- (void)startAnimation
-{
-    [self.springyRopeLayer startAnimation];
-}
-
-- (void)stopAnimation
-{
-    [self.springyRopeLayer stopAnimation];
-}
-
-
 #pragma mark - FPS Label
 
 - (void)setFpsLabel:(UILabel *)fpsLabel
