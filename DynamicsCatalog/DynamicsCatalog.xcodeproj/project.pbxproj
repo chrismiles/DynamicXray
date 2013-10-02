@@ -23,6 +23,11 @@
 		28E53D56175BF6EE009B735C /* APLInstantaneousPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E53D55175BF6EE009B735C /* APLInstantaneousPushViewController.m */; };
 		28E53D59175BFABC009B735C /* APLContinuousPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E53D58175BFABC009B735C /* APLContinuousPushViewController.m */; };
 		28E53D5C175C07C4009B735C /* APLItemPropertiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E53D5B175C07C4009B735C /* APLItemPropertiesViewController.m */; };
+		83584CDF17F8E0D300F09FF1 /* DCSpringyRopeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CDE17F8E0D300F09FF1 /* DCSpringyRopeViewController.m */; };
+		83584CE317F8E16B00F09FF1 /* DCSpringyRopeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CE217F8E16A00F09FF1 /* DCSpringyRopeView.m */; };
+		83584CE617F8E17F00F09FF1 /* DCSpringyRopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CE517F8E17F00F09FF1 /* DCSpringyRopeLayer.m */; };
+		83584CE917F8E1B600F09FF1 /* DCSpringyRopeSmoothedPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CE817F8E1B600F09FF1 /* DCSpringyRopeSmoothedPath.m */; };
+		83584CF717F99F2700F09FF1 /* DCSpringyRopeParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CF617F99F2700F09FF1 /* DCSpringyRopeParticle.m */; };
 		83849DE917AE06A000D6DD3C /* libDynamicsXRay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83849DE817AE06A000D6DD3C /* libDynamicsXRay.a */; };
 /* End PBXBuildFile section */
 
@@ -49,13 +54,22 @@
 		2806C681175BF05700827B6B /* APLCollisionsGravitySpringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLCollisionsGravitySpringViewController.m; sourceTree = "<group>"; };
 		2806C683175BF34C00827B6B /* APLSnapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLSnapViewController.h; sourceTree = "<group>"; };
 		2806C684175BF34C00827B6B /* APLSnapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLSnapViewController.m; sourceTree = "<group>"; };
-		28E53D53175BF68B009B735C /* ReadMe.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = ReadMe.txt; sourceTree = "<group>"; };
 		28E53D54175BF6EE009B735C /* APLInstantaneousPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLInstantaneousPushViewController.h; sourceTree = "<group>"; };
 		28E53D55175BF6EE009B735C /* APLInstantaneousPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLInstantaneousPushViewController.m; sourceTree = "<group>"; };
 		28E53D57175BFABC009B735C /* APLContinuousPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLContinuousPushViewController.h; sourceTree = "<group>"; };
 		28E53D58175BFABC009B735C /* APLContinuousPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLContinuousPushViewController.m; sourceTree = "<group>"; };
 		28E53D5A175C07C4009B735C /* APLItemPropertiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLItemPropertiesViewController.h; sourceTree = "<group>"; };
 		28E53D5B175C07C4009B735C /* APLItemPropertiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLItemPropertiesViewController.m; sourceTree = "<group>"; };
+		83584CDD17F8E0D300F09FF1 /* DCSpringyRopeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSpringyRopeViewController.h; sourceTree = "<group>"; };
+		83584CDE17F8E0D300F09FF1 /* DCSpringyRopeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCSpringyRopeViewController.m; sourceTree = "<group>"; };
+		83584CE117F8E16A00F09FF1 /* DCSpringyRopeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSpringyRopeView.h; sourceTree = "<group>"; };
+		83584CE217F8E16A00F09FF1 /* DCSpringyRopeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCSpringyRopeView.m; sourceTree = "<group>"; };
+		83584CE417F8E17F00F09FF1 /* DCSpringyRopeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSpringyRopeLayer.h; sourceTree = "<group>"; };
+		83584CE517F8E17F00F09FF1 /* DCSpringyRopeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCSpringyRopeLayer.m; sourceTree = "<group>"; };
+		83584CE717F8E1B600F09FF1 /* DCSpringyRopeSmoothedPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSpringyRopeSmoothedPath.h; sourceTree = "<group>"; };
+		83584CE817F8E1B600F09FF1 /* DCSpringyRopeSmoothedPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCSpringyRopeSmoothedPath.m; sourceTree = "<group>"; };
+		83584CF517F99F2700F09FF1 /* DCSpringyRopeParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSpringyRopeParticle.h; sourceTree = "<group>"; };
+		83584CF617F99F2700F09FF1 /* DCSpringyRopeParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCSpringyRopeParticle.m; sourceTree = "<group>"; };
 		83849DE817AE06A000D6DD3C /* libDynamicsXRay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDynamicsXRay.a; path = "../../../../Library/Developer/Xcode/DerivedData/DynamicsXRay-gbmdfpjpsnunjvenkedrhmxwiykt/Build/Products/Debug-iphoneos/libDynamicsXRay.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,7 +91,6 @@
 		2806C636175BE66C00827B6B = {
 			isa = PBXGroup;
 			children = (
-				28E53D53175BF68B009B735C /* ReadMe.txt */,
 				2806C648175BE66C00827B6B /* DynamicsCatalog */,
 				2806C641175BE66C00827B6B /* Frameworks */,
 				2806C640175BE66C00827B6B /* Products */,
@@ -106,22 +119,8 @@
 		2806C648175BE66C00827B6B /* DynamicsCatalog */ = {
 			isa = PBXGroup;
 			children = (
-				2806C677175BE9B900827B6B /* APLGravityViewController.h */,
-				2806C678175BE9B900827B6B /* APLGravityViewController.m */,
-				2806C67A175BEB2B00827B6B /* APLCollisionGravityViewController.h */,
-				2806C67B175BEB2B00827B6B /* APLCollisionGravityViewController.m */,
-				2806C67D175BEC5B00827B6B /* APLAttachmentsViewController.h */,
-				2806C67E175BEC5B00827B6B /* APLAttachmentsViewController.m */,
-				2806C680175BF05700827B6B /* APLCollisionsGravitySpringViewController.h */,
-				2806C681175BF05700827B6B /* APLCollisionsGravitySpringViewController.m */,
-				2806C683175BF34C00827B6B /* APLSnapViewController.h */,
-				2806C684175BF34C00827B6B /* APLSnapViewController.m */,
-				28E53D54175BF6EE009B735C /* APLInstantaneousPushViewController.h */,
-				28E53D55175BF6EE009B735C /* APLInstantaneousPushViewController.m */,
-				28E53D57175BFABC009B735C /* APLContinuousPushViewController.h */,
-				28E53D58175BFABC009B735C /* APLContinuousPushViewController.m */,
-				28E53D5A175C07C4009B735C /* APLItemPropertiesViewController.h */,
-				28E53D5B175C07C4009B735C /* APLItemPropertiesViewController.m */,
+				83584CDB17F8E06700F09FF1 /* Apple Samples */,
+				83584CDC17F8E0A400F09FF1 /* Traer Physics Samples */,
 				2806C654175BE66C00827B6B /* Main.storyboard */,
 				2806C651175BE66C00827B6B /* APLAppDelegate.h */,
 				2806C652175BE66C00827B6B /* APLAppDelegate.m */,
@@ -140,6 +139,54 @@
 				2806C650175BE66C00827B6B /* DynamicsCatalog-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		83584CDB17F8E06700F09FF1 /* Apple Samples */ = {
+			isa = PBXGroup;
+			children = (
+				2806C677175BE9B900827B6B /* APLGravityViewController.h */,
+				2806C678175BE9B900827B6B /* APLGravityViewController.m */,
+				2806C67A175BEB2B00827B6B /* APLCollisionGravityViewController.h */,
+				2806C67B175BEB2B00827B6B /* APLCollisionGravityViewController.m */,
+				2806C67D175BEC5B00827B6B /* APLAttachmentsViewController.h */,
+				2806C67E175BEC5B00827B6B /* APLAttachmentsViewController.m */,
+				2806C680175BF05700827B6B /* APLCollisionsGravitySpringViewController.h */,
+				2806C681175BF05700827B6B /* APLCollisionsGravitySpringViewController.m */,
+				2806C683175BF34C00827B6B /* APLSnapViewController.h */,
+				2806C684175BF34C00827B6B /* APLSnapViewController.m */,
+				28E53D54175BF6EE009B735C /* APLInstantaneousPushViewController.h */,
+				28E53D55175BF6EE009B735C /* APLInstantaneousPushViewController.m */,
+				28E53D57175BFABC009B735C /* APLContinuousPushViewController.h */,
+				28E53D58175BFABC009B735C /* APLContinuousPushViewController.m */,
+				28E53D5A175C07C4009B735C /* APLItemPropertiesViewController.h */,
+				28E53D5B175C07C4009B735C /* APLItemPropertiesViewController.m */,
+			);
+			name = "Apple Samples";
+			sourceTree = "<group>";
+		};
+		83584CDC17F8E0A400F09FF1 /* Traer Physics Samples */ = {
+			isa = PBXGroup;
+			children = (
+				83584CE017F8E10300F09FF1 /* Springy Rope */,
+			);
+			name = "Traer Physics Samples";
+			sourceTree = "<group>";
+		};
+		83584CE017F8E10300F09FF1 /* Springy Rope */ = {
+			isa = PBXGroup;
+			children = (
+				83584CE417F8E17F00F09FF1 /* DCSpringyRopeLayer.h */,
+				83584CE517F8E17F00F09FF1 /* DCSpringyRopeLayer.m */,
+				83584CF517F99F2700F09FF1 /* DCSpringyRopeParticle.h */,
+				83584CF617F99F2700F09FF1 /* DCSpringyRopeParticle.m */,
+				83584CE717F8E1B600F09FF1 /* DCSpringyRopeSmoothedPath.h */,
+				83584CE817F8E1B600F09FF1 /* DCSpringyRopeSmoothedPath.m */,
+				83584CE117F8E16A00F09FF1 /* DCSpringyRopeView.h */,
+				83584CE217F8E16A00F09FF1 /* DCSpringyRopeView.m */,
+				83584CDD17F8E0D300F09FF1 /* DCSpringyRopeViewController.h */,
+				83584CDE17F8E0D300F09FF1 /* DCSpringyRopeViewController.m */,
+			);
+			name = "Springy Rope";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,9 +215,9 @@
 		2806C637175BE66C00827B6B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = APL;
+				CLASSPREFIX = DC;
 				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = "Apple Inc.";
+				ORGANIZATIONNAME = "Chris Miles";
 			};
 			buildConfigurationList = 2806C63A175BE66C00827B6B /* Build configuration list for PBXProject "DynamicsCatalog" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -209,12 +256,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2806C67C175BEB2B00827B6B /* APLCollisionGravityViewController.m in Sources */,
+				83584CE917F8E1B600F09FF1 /* DCSpringyRopeSmoothedPath.m in Sources */,
+				83584CF717F99F2700F09FF1 /* DCSpringyRopeParticle.m in Sources */,
 				2806C685175BF34C00827B6B /* APLSnapViewController.m in Sources */,
 				2806C679175BE9B900827B6B /* APLGravityViewController.m in Sources */,
 				28E53D59175BFABC009B735C /* APLContinuousPushViewController.m in Sources */,
+				83584CE617F8E17F00F09FF1 /* DCSpringyRopeLayer.m in Sources */,
 				28E53D5C175C07C4009B735C /* APLItemPropertiesViewController.m in Sources */,
 				2806C653175BE66C00827B6B /* APLAppDelegate.m in Sources */,
+				83584CE317F8E16B00F09FF1 /* DCSpringyRopeView.m in Sources */,
 				2806C682175BF05700827B6B /* APLCollisionsGravitySpringViewController.m in Sources */,
+				83584CDF17F8E0D300F09FF1 /* DCSpringyRopeViewController.m in Sources */,
 				2806C64F175BE66C00827B6B /* main.m in Sources */,
 				2806C67F175BEC5B00827B6B /* APLAttachmentsViewController.m in Sources */,
 				28E53D56175BF6EE009B735C /* APLInstantaneousPushViewController.m in Sources */,
@@ -276,7 +328,12 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
 				SDKROOT = iphoneos;
+				WARNING_CFLAGS = (
+					"-Wextra",
+					"-Wall",
+				);
 			};
 			name = Debug;
 		};
@@ -306,8 +363,13 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				WARNING_CFLAGS = (
+					"-Wextra",
+					"-Wall",
+				);
 			};
 			name = Release;
 		};
