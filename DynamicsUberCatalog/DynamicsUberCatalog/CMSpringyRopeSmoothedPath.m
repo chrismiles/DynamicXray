@@ -1,6 +1,6 @@
 //
-//  DCSpringyRopeSmoothedPath.m
-//  DynamicsCatalog
+//  CMSpringyRopeSmoothedPath.m
+//  DynamicsUberCatalog
 //
 //  Created by Chris Miles on 30/09/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
@@ -27,7 +27,7 @@
 //  THE SOFTWARE.
 //
 
-#import "DCSpringyRopeSmoothedPath.h"
+#import "CMSpringyRopeSmoothedPath.h"
 
 #define POINT(_INDEX_) [(NSValue *)[points objectAtIndex:_INDEX_] CGPointValue]
 #define VALUE(_INDEX_) [NSValue valueWithCGPoint:points[_INDEX_]]

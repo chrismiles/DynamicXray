@@ -1,6 +1,6 @@
 //
-//  DCSpringyRopeLayer.m
-//  DynamicsCatalog
+//  CMSpringyRopeLayer.m
+//  DynamicsUberCatalog
 //
 //  Created by Chris Miles on 30/09/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
@@ -27,9 +27,9 @@
 //  THE SOFTWARE.
 //
 
-#import "DCSpringyRopeLayer.h"
-#import "DCSpringyRopeParticle.h"
-#import "DCSpringyRopeSmoothedPath.h"
+#import "CMSpringyRopeLayer.h"
+#import "CMSpringyRopeParticle.h"
+#import "CMSpringyRopeSmoothedPath.h"
 @import CoreMotion;
 
 #import <DynamicsXRay/DynamicsXRay.h>
@@ -38,15 +38,15 @@
 /*
     Physics Configuration
  */
-static CGFloat const DCSpringyRopeDamping = 1.0f;
-static CGFloat const DCSpringyRopeFrequency = 5.0f;
-static CGFloat const DCSpringyRopeParticleDensity = 0.5f;
-static CGFloat const DCSpringyRopeParticleResistance = 0.5f;
+static CGFloat const CMSpringyRopeDamping = 1.0f;
+static CGFloat const CMSpringyRopeFrequency = 5.0f;
+static CGFloat const CMSpringyRopeParticleDensity = 0.5f;
+static CGFloat const CMSpringyRopeParticleResistance = 0.5f;
 
 /*
     Visual Configuration
  */
-static CGFloat const DCSpringyRopeLayerHandleRadius = 5.0f;
+static CGFloat const CMSpringyRopeLayerHandleRadius = 5.0f;
 
 
 /*
@@ -61,9 +61,9 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 
 
 /*
-    DCSpringyRopeLayer
+    CMSpringyRopeLayer
  */
-@interface DCSpringyRopeLayer ()
+@interface CMSpringyRopeLayer ()
 
 @property (assign, nonatomic) float spring_length;
 @property (assign, nonatomic) NSUInteger subdivisions;
@@ -88,7 +88,7 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 @end
 
 
-@implementation DCSpringyRopeLayer
+@implementation CMSpringyRopeLayer
 
 - (id)init
 {
@@ -109,9 +109,9 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	_gravityBehavior = [[UIGravityBehavior alloc] initWithItems:nil];
 	_gravityBehavior.gravityDirection = CGVectorMake(0, 1.0f);
 	
-	__weak DCSpringyRopeLayer *weakSelf = self;
+	__weak CMSpringyRopeLayer *weakSelf = self;
 	_gravityBehavior.action = ^{
-	    __strong DCSpringyRopeLayer *strongSelf = weakSelf;
+	    __strong CMSpringyRopeLayer *strongSelf = weakSelf;
 	    [strongSelf drawFrame];
 	};
 	[_animator addBehavior:_gravityBehavior];
@@ -176,14 +176,14 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
     CGPoint anchorPoint = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetHeight(self.bounds)*0.2f);
     
     UIDynamicItemBehavior *particleBehavior = [[UIDynamicItemBehavior alloc] initWithItems:nil];
-    particleBehavior.density = DCSpringyRopeParticleDensity;
-    particleBehavior.resistance = DCSpringyRopeParticleResistance;
+    particleBehavior.density = CMSpringyRopeParticleDensity;
+    particleBehavior.resistance = CMSpringyRopeParticleResistance;
     
     NSUInteger subdivisions = self.subdivisions;
     
     float sub_len = self.spring_length / subdivisions;
     for (NSUInteger i=1; i<=subdivisions; i++) {
-	DCSpringyRopeParticle *p = [[DCSpringyRopeParticle alloc] initWithCenterPosition:CGPointMake(anchorPoint.x, anchorPoint.y + i*sub_len)];
+	CMSpringyRopeParticle *p = [[CMSpringyRopeParticle alloc] initWithCenterPosition:CGPointMake(anchorPoint.x, anchorPoint.y + i*sub_len)];
 	[particles addObject:p];
 	[particleBehavior addItem:p];
 	[self.gravityBehavior addItem:p];
@@ -194,16 +194,16 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	if (i == 0) {
 	    UIAttachmentBehavior *anchorSpringBehavior = [[UIAttachmentBehavior alloc] initWithItem:particles[i] attachedToAnchor:anchorPoint];
 	    anchorSpringBehavior.length = sub_len;
-	    anchorSpringBehavior.frequency = DCSpringyRopeFrequency;
-	    anchorSpringBehavior.damping = DCSpringyRopeDamping;
+	    anchorSpringBehavior.frequency = CMSpringyRopeFrequency;
+	    anchorSpringBehavior.damping = CMSpringyRopeDamping;
 	    [self.animator addBehavior:anchorSpringBehavior];
 	    self.anchorSpringBehavior = anchorSpringBehavior;
 	}
 	
 	UIAttachmentBehavior *springBehavior = [[UIAttachmentBehavior alloc] initWithItem:particles[i] attachedToItem:particles[i+1]];
 	springBehavior.length = sub_len;
-	springBehavior.frequency = DCSpringyRopeFrequency;
-	springBehavior.damping = DCSpringyRopeDamping;
+	springBehavior.frequency = CMSpringyRopeFrequency;
+	springBehavior.damping = CMSpringyRopeDamping;
 	[self.animator addBehavior:springBehavior];
     }
     
@@ -282,7 +282,7 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
         self.lastSize = self.bounds.size;
     }
 
-    DCSpringyRopeParticle *p = self.particles[self.subdivisions-1];
+    CMSpringyRopeParticle *p = self.particles[self.subdivisions-1];
     if (!self.isDragging) {
 	
 	self.handle = CGPointMake(p.center.x, p.center.y);
@@ -314,7 +314,7 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
     CGPathRelease(path);
     
     // Draw handle
-    CGContextAddEllipseInRect(ctx, CGRectMake(self.handle.x-DCSpringyRopeLayerHandleRadius, self.handle.y-DCSpringyRopeLayerHandleRadius, DCSpringyRopeLayerHandleRadius*2, DCSpringyRopeLayerHandleRadius*2));
+    CGContextAddEllipseInRect(ctx, CGRectMake(self.handle.x-CMSpringyRopeLayerHandleRadius, self.handle.y-CMSpringyRopeLayerHandleRadius, CMSpringyRopeLayerHandleRadius*2, CMSpringyRopeLayerHandleRadius*2));
     CGContextStrokePath(ctx);
 }
 

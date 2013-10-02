@@ -1,6 +1,6 @@
 //
-//  DCSpringyRopeViewController.m
-//  DynamicsCatalog
+//  CMSpringyRopeViewController.m
+//  DynamicsUberCatalog
 //
 //  Created by Chris Miles on 30/09/13.
 //  Copyright (c) 2013 Apple Inc. All rights reserved.
@@ -26,14 +26,14 @@
 //  THE SOFTWARE.
 //
 
-#import "DCSpringyRopeViewController.h"
-#import "DCSpringyRopeView.h"
+#import "CMSpringyRopeViewController.h"
+#import "CMSpringyRopeView.h"
 
-@interface DCSpringyRopeViewController ()
+@interface CMSpringyRopeViewController ()
 
 @end
 
-@implementation DCSpringyRopeViewController
+@implementation CMSpringyRopeViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -64,9 +64,9 @@
 //    [self.springyRopeView setFpsLabel:self.fpsLabel];
 }
 
-- (DCSpringyRopeView *)springyRopeView
+- (CMSpringyRopeView *)springyRopeView
 {
-    return (DCSpringyRopeView *)self.view;
+    return (CMSpringyRopeView *)self.view;
 }
 
 @end

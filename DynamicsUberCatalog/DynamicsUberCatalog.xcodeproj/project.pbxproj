@@ -23,11 +23,11 @@
 		28E53D56175BF6EE009B735C /* APLInstantaneousPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E53D55175BF6EE009B735C /* APLInstantaneousPushViewController.m */; };
 		28E53D59175BFABC009B735C /* APLContinuousPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E53D58175BFABC009B735C /* APLContinuousPushViewController.m */; };
 		28E53D5C175C07C4009B735C /* APLItemPropertiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E53D5B175C07C4009B735C /* APLItemPropertiesViewController.m */; };
-		83584CDF17F8E0D300F09FF1 /* DCSpringyRopeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CDE17F8E0D300F09FF1 /* DCSpringyRopeViewController.m */; };
-		83584CE317F8E16B00F09FF1 /* DCSpringyRopeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CE217F8E16A00F09FF1 /* DCSpringyRopeView.m */; };
-		83584CE617F8E17F00F09FF1 /* DCSpringyRopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CE517F8E17F00F09FF1 /* DCSpringyRopeLayer.m */; };
-		83584CE917F8E1B600F09FF1 /* DCSpringyRopeSmoothedPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CE817F8E1B600F09FF1 /* DCSpringyRopeSmoothedPath.m */; };
-		83584CF717F99F2700F09FF1 /* DCSpringyRopeParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CF617F99F2700F09FF1 /* DCSpringyRopeParticle.m */; };
+		83584CDF17F8E0D300F09FF1 /* CMSpringyRopeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CDE17F8E0D300F09FF1 /* CMSpringyRopeViewController.m */; };
+		83584CE317F8E16B00F09FF1 /* CMSpringyRopeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CE217F8E16A00F09FF1 /* CMSpringyRopeView.m */; };
+		83584CE617F8E17F00F09FF1 /* CMSpringyRopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CE517F8E17F00F09FF1 /* CMSpringyRopeLayer.m */; };
+		83584CE917F8E1B600F09FF1 /* CMSpringyRopeSmoothedPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CE817F8E1B600F09FF1 /* CMSpringyRopeSmoothedPath.m */; };
+		83584CF717F99F2700F09FF1 /* CMSpringyRopeParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CF617F99F2700F09FF1 /* CMSpringyRopeParticle.m */; };
 		83849DE917AE06A000D6DD3C /* libDynamicsXRay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83849DE817AE06A000D6DD3C /* libDynamicsXRay.a */; };
 /* End PBXBuildFile section */
 
@@ -60,16 +60,16 @@
 		28E53D58175BFABC009B735C /* APLContinuousPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLContinuousPushViewController.m; sourceTree = "<group>"; };
 		28E53D5A175C07C4009B735C /* APLItemPropertiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLItemPropertiesViewController.h; sourceTree = "<group>"; };
 		28E53D5B175C07C4009B735C /* APLItemPropertiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLItemPropertiesViewController.m; sourceTree = "<group>"; };
-		83584CDD17F8E0D300F09FF1 /* DCSpringyRopeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSpringyRopeViewController.h; sourceTree = "<group>"; };
-		83584CDE17F8E0D300F09FF1 /* DCSpringyRopeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCSpringyRopeViewController.m; sourceTree = "<group>"; };
-		83584CE117F8E16A00F09FF1 /* DCSpringyRopeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSpringyRopeView.h; sourceTree = "<group>"; };
-		83584CE217F8E16A00F09FF1 /* DCSpringyRopeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCSpringyRopeView.m; sourceTree = "<group>"; };
-		83584CE417F8E17F00F09FF1 /* DCSpringyRopeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSpringyRopeLayer.h; sourceTree = "<group>"; };
-		83584CE517F8E17F00F09FF1 /* DCSpringyRopeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCSpringyRopeLayer.m; sourceTree = "<group>"; };
-		83584CE717F8E1B600F09FF1 /* DCSpringyRopeSmoothedPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSpringyRopeSmoothedPath.h; sourceTree = "<group>"; };
-		83584CE817F8E1B600F09FF1 /* DCSpringyRopeSmoothedPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCSpringyRopeSmoothedPath.m; sourceTree = "<group>"; };
-		83584CF517F99F2700F09FF1 /* DCSpringyRopeParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSpringyRopeParticle.h; sourceTree = "<group>"; };
-		83584CF617F99F2700F09FF1 /* DCSpringyRopeParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCSpringyRopeParticle.m; sourceTree = "<group>"; };
+		83584CDD17F8E0D300F09FF1 /* CMSpringyRopeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeViewController.h; sourceTree = "<group>"; };
+		83584CDE17F8E0D300F09FF1 /* CMSpringyRopeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeViewController.m; sourceTree = "<group>"; };
+		83584CE117F8E16A00F09FF1 /* CMSpringyRopeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeView.h; sourceTree = "<group>"; };
+		83584CE217F8E16A00F09FF1 /* CMSpringyRopeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeView.m; sourceTree = "<group>"; };
+		83584CE417F8E17F00F09FF1 /* CMSpringyRopeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeLayer.h; sourceTree = "<group>"; };
+		83584CE517F8E17F00F09FF1 /* CMSpringyRopeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeLayer.m; sourceTree = "<group>"; };
+		83584CE717F8E1B600F09FF1 /* CMSpringyRopeSmoothedPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeSmoothedPath.h; sourceTree = "<group>"; };
+		83584CE817F8E1B600F09FF1 /* CMSpringyRopeSmoothedPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeSmoothedPath.m; sourceTree = "<group>"; };
+		83584CF517F99F2700F09FF1 /* CMSpringyRopeParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeParticle.h; sourceTree = "<group>"; };
+		83584CF617F99F2700F09FF1 /* CMSpringyRopeParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeParticle.m; sourceTree = "<group>"; };
 		83849DE817AE06A000D6DD3C /* libDynamicsXRay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDynamicsXRay.a; path = "../../../../Library/Developer/Xcode/DerivedData/DynamicsXRay-gbmdfpjpsnunjvenkedrhmxwiykt/Build/Products/Debug-iphoneos/libDynamicsXRay.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -175,16 +175,16 @@
 		83584CE017F8E10300F09FF1 /* Springy Rope */ = {
 			isa = PBXGroup;
 			children = (
-				83584CE417F8E17F00F09FF1 /* DCSpringyRopeLayer.h */,
-				83584CE517F8E17F00F09FF1 /* DCSpringyRopeLayer.m */,
-				83584CF517F99F2700F09FF1 /* DCSpringyRopeParticle.h */,
-				83584CF617F99F2700F09FF1 /* DCSpringyRopeParticle.m */,
-				83584CE717F8E1B600F09FF1 /* DCSpringyRopeSmoothedPath.h */,
-				83584CE817F8E1B600F09FF1 /* DCSpringyRopeSmoothedPath.m */,
-				83584CE117F8E16A00F09FF1 /* DCSpringyRopeView.h */,
-				83584CE217F8E16A00F09FF1 /* DCSpringyRopeView.m */,
-				83584CDD17F8E0D300F09FF1 /* DCSpringyRopeViewController.h */,
-				83584CDE17F8E0D300F09FF1 /* DCSpringyRopeViewController.m */,
+				83584CE417F8E17F00F09FF1 /* CMSpringyRopeLayer.h */,
+				83584CE517F8E17F00F09FF1 /* CMSpringyRopeLayer.m */,
+				83584CF517F99F2700F09FF1 /* CMSpringyRopeParticle.h */,
+				83584CF617F99F2700F09FF1 /* CMSpringyRopeParticle.m */,
+				83584CE717F8E1B600F09FF1 /* CMSpringyRopeSmoothedPath.h */,
+				83584CE817F8E1B600F09FF1 /* CMSpringyRopeSmoothedPath.m */,
+				83584CE117F8E16A00F09FF1 /* CMSpringyRopeView.h */,
+				83584CE217F8E16A00F09FF1 /* CMSpringyRopeView.m */,
+				83584CDD17F8E0D300F09FF1 /* CMSpringyRopeViewController.h */,
+				83584CDE17F8E0D300F09FF1 /* CMSpringyRopeViewController.m */,
 			);
 			name = "Springy Rope";
 			sourceTree = "<group>";
@@ -256,17 +256,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				2806C67C175BEB2B00827B6B /* APLCollisionGravityViewController.m in Sources */,
-				83584CE917F8E1B600F09FF1 /* DCSpringyRopeSmoothedPath.m in Sources */,
-				83584CF717F99F2700F09FF1 /* DCSpringyRopeParticle.m in Sources */,
+				83584CE917F8E1B600F09FF1 /* CMSpringyRopeSmoothedPath.m in Sources */,
+				83584CF717F99F2700F09FF1 /* CMSpringyRopeParticle.m in Sources */,
 				2806C685175BF34C00827B6B /* APLSnapViewController.m in Sources */,
 				2806C679175BE9B900827B6B /* APLGravityViewController.m in Sources */,
 				28E53D59175BFABC009B735C /* APLContinuousPushViewController.m in Sources */,
-				83584CE617F8E17F00F09FF1 /* DCSpringyRopeLayer.m in Sources */,
+				83584CE617F8E17F00F09FF1 /* CMSpringyRopeLayer.m in Sources */,
 				28E53D5C175C07C4009B735C /* APLItemPropertiesViewController.m in Sources */,
 				2806C653175BE66C00827B6B /* DUCAppDelegate.m in Sources */,
-				83584CE317F8E16B00F09FF1 /* DCSpringyRopeView.m in Sources */,
+				83584CE317F8E16B00F09FF1 /* CMSpringyRopeView.m in Sources */,
 				2806C682175BF05700827B6B /* APLCollisionsGravitySpringViewController.m in Sources */,
-				83584CDF17F8E0D300F09FF1 /* DCSpringyRopeViewController.m in Sources */,
+				83584CDF17F8E0D300F09FF1 /* CMSpringyRopeViewController.m in Sources */,
 				2806C64F175BE66C00827B6B /* main.m in Sources */,
 				2806C67F175BEC5B00827B6B /* APLAttachmentsViewController.m in Sources */,
 				28E53D56175BF6EE009B735C /* APLInstantaneousPushViewController.m in Sources */,

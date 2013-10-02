@@ -1,6 +1,6 @@
 //
-//  DCSpringyRopeView.h
-//  DynamicsCatalog
+//  CMSpringyRopeSmoothedPath.h
+//  DynamicsUberCatalog
 //
 //  Created by Chris Miles on 30/09/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
@@ -28,15 +28,4 @@
 
 @import UIKit;
 
-@interface DCSpringyRopeView : UIView
-
-@property (nonatomic, assign) BOOL gravityByDeviceMotionEnabled;
-@property (nonatomic, assign, readonly) BOOL isDeviceMotionAvailable;
-@property (nonatomic, assign) BOOL smoothed;
-
-@property (nonatomic, retain) UILabel *fpsLabel;
-
-- (void)startAnimation;
-- (void)stopAnimation;
-
-@end
+UIBezierPath *smoothedPath(UIBezierPath *bpath, int granularity);

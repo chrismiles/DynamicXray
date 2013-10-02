@@ -1,6 +1,6 @@
 //
-//  DCSpringyRopeParticle.m
-//  DynamicsCatalog
+//  CMSpringyRopeParticle.h
+//  DynamicsUberCatalog
 //
 //  Created by Chris Miles on 30/09/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
@@ -24,22 +24,10 @@
 //  THE SOFTWARE.
 //
 
-#import "DCSpringyRopeParticle.h"
+#import <Foundation/Foundation.h>
 
-@implementation DCSpringyRopeParticle
+@interface CMSpringyRopeParticle : NSObject <UIDynamicItem>
 
-@synthesize bounds=_bounds;
-@synthesize center=_center;
-@synthesize transform=_transform;
-
-- (id)initWithCenterPosition:(CGPoint)center
-{
-    self = [super init];
-    if (self) {
-        _center = center;
-	_bounds = CGRectMake(0, 0, 1.0f, 1.0f);
-    }
-    return self;
-}
+- (id)initWithCenterPosition:(CGPoint)center;
 
 @end

@@ -1,6 +1,6 @@
 //
-//  DCSpringyRopeView.m
-//  DynamicsCatalog
+//  CMSpringyRopeView.m
+//  DynamicsUberCatalog
 //
 //  Created by Chris Miles on 30/09/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
@@ -26,15 +26,15 @@
 //  THE SOFTWARE.
 //
 
-#import "DCSpringyRopeView.h"
-#import "DCSpringyRopeLayer.h"
+#import "CMSpringyRopeView.h"
+#import "CMSpringyRopeLayer.h"
 
 
-@implementation DCSpringyRopeView
+@implementation CMSpringyRopeView
 
 + (Class)layerClass
 {
-    return [DCSpringyRopeLayer class];
+    return [CMSpringyRopeLayer class];
 }
 
 - (id)initWithCoder:(NSCoder *)coder
@@ -46,9 +46,9 @@
     return self;
 }
 
-- (DCSpringyRopeLayer *)springyRopeLayer
+- (CMSpringyRopeLayer *)springyRopeLayer
 {
-    return (DCSpringyRopeLayer *)self.layer;
+    return (CMSpringyRopeLayer *)self.layer;
 }
 
 

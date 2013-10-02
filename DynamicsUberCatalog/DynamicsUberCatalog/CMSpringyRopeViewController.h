@@ -1,9 +1,9 @@
 //
-//  DCSpringyRopeSmoothedPath.h
-//  DynamicsCatalog
+//  CMSpringyRopeViewController.h
+//  DynamicsUberCatalog
 //
 //  Created by Chris Miles on 30/09/13.
-//  Copyright (c) 2013 Chris Miles. All rights reserved.
+//  Copyright (c) 2013 Apple Inc. All rights reserved.
 //
 //  Based on CMTraerPhysics demo by Chris Miles, https://github.com/chrismiles/CMTraerPhysics
 //
@@ -26,6 +26,8 @@
 //  THE SOFTWARE.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
-UIBezierPath *smoothedPath(UIBezierPath *bpath, int granularity);
+@interface CMSpringyRopeViewController : UIViewController
+
+@end

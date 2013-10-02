@@ -1,12 +1,11 @@
 //
-//  DCSpringyRopeLayer.h
-//  DynamicsCatalog
+//  CMSpringyRopeView.h
+//  DynamicsUberCatalog
 //
 //  Created by Chris Miles on 30/09/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 //  Based on CMTraerPhysics demo by Chris Miles, https://github.com/chrismiles/CMTraerPhysics
-//  Based on traerAS3 example by Arnaud Icard, https://github.com/sqrtof5/traerAS3
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -27,21 +26,17 @@
 //  THE SOFTWARE.
 //
 
-@import QuartzCore;
+@import UIKit;
 
-@interface DCSpringyRopeLayer : CALayer
+@interface CMSpringyRopeView : UIView
 
-@property (nonatomic, retain) UILabel *fpsLabel;
 @property (nonatomic, assign) BOOL gravityByDeviceMotionEnabled;
 @property (nonatomic, assign, readonly) BOOL isDeviceMotionAvailable;
 @property (nonatomic, assign) BOOL smoothed;
 
+@property (nonatomic, retain) UILabel *fpsLabel;
+
 - (void)startAnimation;
 - (void)stopAnimation;
-
-- (void)touchBeganAtLocation:(CGPoint)location;
-- (void)touchMovedAtLocation:(CGPoint)location;
-- (void)touchEndedAtLocation:(CGPoint)location;
-- (void)touchCancelledAtLocation:(CGPoint)location;
 
 @end

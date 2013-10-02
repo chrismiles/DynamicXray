@@ -288,8 +288,8 @@
         <!--Springy Rope View Controller - Springy Rope-->
         <scene sceneID="MOa-UF-jIe">
             <objects>
-                <viewController id="Nbc-EQ-RHv" customClass="DCSpringyRopeViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zfh-uW-Wjx" customClass="DCSpringyRopeView">
+                <viewController id="Nbc-EQ-RHv" customClass="CMSpringyRopeViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zfh-uW-Wjx" customClass="CMSpringyRopeView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
