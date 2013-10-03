@@ -220,7 +220,7 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
     }
 }
 
-- (BOOL)gravityByDeviceMotionEnabled
+- (BOOL)isGravityByDeviceMotionEnabled
 {
     return [self.motionManager isDeviceMotionActive];
 }

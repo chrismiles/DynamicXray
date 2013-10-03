@@ -71,12 +71,18 @@
     NSMutableArray *toolbarItems = [NSMutableArray array];
     [toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:smoothToggleView]];
     [toolbarItems addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
+    if ([self.springyRopeView isDeviceMotionAvailable]) {
+        CMLabelledSwitch *accelerometerToggleView = [[CMLabelledSwitch alloc] initWithFrame:CGRectZero];
+        accelerometerToggleView.text = @"Accel";
+        [accelerometerToggleView sizeToFit];
+        [accelerometerToggleView.embeddedSwitch addTarget:self action:@selector(accelerometerToggleAction:) forControlEvents:UIControlEventValueChanged];
+        
+	[toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:accelerometerToggleView]];
+        [toolbarItems addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
+    }
     [toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:self.fpsLabel]];
     [toolbarItems addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
     [toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:xrayToggleView]];
-//    if ([self.springyRopeView isDeviceMotionAvailable]) {
-//	[toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:self.accelerometerToggleView]];
-//    }
     
     self.toolbarItems = toolbarItems;
     [self.navigationController setToolbarHidden:NO animated:YES];
@@ -97,6 +103,11 @@
 - (void)xrayToggleAction:(UISwitch *)toggleSwitch
 {
     [self.springyRopeView setDynamicsXRayEnabled:toggleSwitch.isOn];
+}
+
+- (void)accelerometerToggleAction:(UISwitch *)toggleSwitch
+{
+    [self.springyRopeView setGravityByDeviceMotionEnabled:toggleSwitch.isOn];
 }
 
 @end

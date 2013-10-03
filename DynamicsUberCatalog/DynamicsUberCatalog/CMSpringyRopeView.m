@@ -87,9 +87,9 @@
     [self.springyRopeLayer setGravityByDeviceMotionEnabled:gravityByDeviceMotionEnabled];
 }
 
-- (BOOL)gravityByDeviceMotionEnabled
+- (BOOL)isGravityByDeviceMotionEnabled
 {
-    return [self.springyRopeLayer gravityByDeviceMotionEnabled];
+    return [self.springyRopeLayer isGravityByDeviceMotionEnabled];
 }
 
 - (BOOL)isDynamicsXRayEnabled
