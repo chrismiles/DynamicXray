@@ -29,8 +29,12 @@
 #import "CMSpringyRopeViewController.h"
 #import "CMSpringyRopeView.h"
 
+#import "CMLabelledSwitch.h"
+
+
 @interface CMSpringyRopeViewController ()
 
+@property (strong, nonatomic) CMLabelledSwitch *smoothToggleView;
 @property (strong, nonatomic) UILabel *fpsLabel;
 
 @end
@@ -55,8 +59,13 @@
     self.fpsLabel.text = @"00 fps";
     [self.fpsLabel sizeToFit];
     
+    self.smoothToggleView = [[CMLabelledSwitch alloc] initWithFrame:CGRectZero];
+    self.smoothToggleView.text = @"Smooth";
+    [self.smoothToggleView sizeToFit];
+    [self.smoothToggleView.embeddedSwitch addTarget:self action:@selector(smoothToggleAction:) forControlEvents:UIControlEventValueChanged];
+    
     NSMutableArray *toolbarItems = [NSMutableArray array];
-//    [toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:self.smoothToggleView]];
+    [toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:self.smoothToggleView]];
     [toolbarItems addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
     [toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:self.fpsLabel]];
     [toolbarItems addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
@@ -73,6 +82,11 @@
 - (CMSpringyRopeView *)springyRopeView
 {
     return (CMSpringyRopeView *)self.view;
+}
+
+- (void)smoothToggleAction:(UISwitch *)toggleSwitch
+{
+    [self.springyRopeView setSmoothed:toggleSwitch.isOn];
 }
 
 @end

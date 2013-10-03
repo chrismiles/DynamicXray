@@ -23,6 +23,7 @@
 		28E53D56175BF6EE009B735C /* APLInstantaneousPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E53D55175BF6EE009B735C /* APLInstantaneousPushViewController.m */; };
 		28E53D59175BFABC009B735C /* APLContinuousPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E53D58175BFABC009B735C /* APLContinuousPushViewController.m */; };
 		28E53D5C175C07C4009B735C /* APLItemPropertiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E53D5B175C07C4009B735C /* APLItemPropertiesViewController.m */; };
+		830DA09B17FD7E8D00A24B39 /* CMLabelledSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 830DA09A17FD7E8D00A24B39 /* CMLabelledSwitch.m */; };
 		83584CDF17F8E0D300F09FF1 /* CMSpringyRopeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CDE17F8E0D300F09FF1 /* CMSpringyRopeViewController.m */; };
 		83584CE317F8E16B00F09FF1 /* CMSpringyRopeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CE217F8E16A00F09FF1 /* CMSpringyRopeView.m */; };
 		83584CE617F8E17F00F09FF1 /* CMSpringyRopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CE517F8E17F00F09FF1 /* CMSpringyRopeLayer.m */; };
@@ -60,6 +61,8 @@
 		28E53D58175BFABC009B735C /* APLContinuousPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLContinuousPushViewController.m; sourceTree = "<group>"; };
 		28E53D5A175C07C4009B735C /* APLItemPropertiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLItemPropertiesViewController.h; sourceTree = "<group>"; };
 		28E53D5B175C07C4009B735C /* APLItemPropertiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLItemPropertiesViewController.m; sourceTree = "<group>"; };
+		830DA09917FD7E8D00A24B39 /* CMLabelledSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMLabelledSwitch.h; sourceTree = "<group>"; };
+		830DA09A17FD7E8D00A24B39 /* CMLabelledSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMLabelledSwitch.m; sourceTree = "<group>"; };
 		83584CDD17F8E0D300F09FF1 /* CMSpringyRopeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeViewController.h; sourceTree = "<group>"; };
 		83584CDE17F8E0D300F09FF1 /* CMSpringyRopeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeViewController.m; sourceTree = "<group>"; };
 		83584CE117F8E16A00F09FF1 /* CMSpringyRopeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeView.h; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				2806C648175BE66C00827B6B /* DynamicsUberCatalog */,
+				830DA09717FD7E6400A24B39 /* Libraries */,
 				2806C641175BE66C00827B6B /* Frameworks */,
 				2806C640175BE66C00827B6B /* Products */,
 			);
@@ -139,6 +143,23 @@
 				2806C650175BE66C00827B6B /* DynamicsUberCatalog-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		830DA09717FD7E6400A24B39 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				830DA09817FD7E6400A24B39 /* CMLabelledSwitch */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		830DA09817FD7E6400A24B39 /* CMLabelledSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				830DA09917FD7E8D00A24B39 /* CMLabelledSwitch.h */,
+				830DA09A17FD7E8D00A24B39 /* CMLabelledSwitch.m */,
+			);
+			path = CMLabelledSwitch;
 			sourceTree = "<group>";
 		};
 		83584CDB17F8E06700F09FF1 /* Apple Samples */ = {
@@ -259,6 +280,7 @@
 				83584CE917F8E1B600F09FF1 /* CMSpringyRopeSmoothedPath.m in Sources */,
 				83584CF717F99F2700F09FF1 /* CMSpringyRopeParticle.m in Sources */,
 				2806C685175BF34C00827B6B /* APLSnapViewController.m in Sources */,
+				830DA09B17FD7E8D00A24B39 /* CMLabelledSwitch.m in Sources */,
 				2806C679175BE9B900827B6B /* APLGravityViewController.m in Sources */,
 				28E53D59175BFABC009B735C /* APLContinuousPushViewController.m in Sources */,
 				83584CE617F8E17F00F09FF1 /* CMSpringyRopeLayer.m in Sources */,
