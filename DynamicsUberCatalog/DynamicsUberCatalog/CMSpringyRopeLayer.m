@@ -253,42 +253,47 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 - (void)setIsDragging:(BOOL)isDragging
 {
     if (isDragging != _isDragging) {
-	[self.animator removeBehavior:self.handleSpringBehavior];
-	
-	NSUInteger particlesMaxIndex = [self.particles count] - 1;
-	float sub_len = self.spring_length / self.subdivisions;
-	
-	UIAttachmentBehavior *springBehavior;
-	
-	if (isDragging) {
-	    // Create item<->anchor spring behavior
-	    
-	    springBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.particles[particlesMaxIndex-1]
-						       attachedToAnchor:self.handleParticle.center];
-	    
-	    [self.gravityBehavior removeItem:self.handleParticle];
-	    [self.particleBehavior removeItem:self.handleParticle];
-	}
-	else {
-	    // Create item<->item spring behavior
-	    
-	    [self.animator updateItemUsingCurrentState:self.handleParticle];
-	    
-	    springBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.particles[particlesMaxIndex-1]
-							 attachedToItem:self.handleParticle];
-	    
-	    [self.gravityBehavior addItem:self.handleParticle];
-	    [self.particleBehavior addItem:self.handleParticle];
-	}
-	
-	springBehavior.length = sub_len;
-	springBehavior.frequency = CMSpringyRopeFrequency;
-	springBehavior.damping = CMSpringyRopeDamping;
-	[self.animator addBehavior:springBehavior];
-	self.handleSpringBehavior = springBehavior;
+	[self updateDynamicsWithHandleParticleDragging:isDragging];
 	
 	_isDragging = isDragging;
     }
+}
+
+- (void)updateDynamicsWithHandleParticleDragging:(BOOL)isDragging
+{
+    [self.animator removeBehavior:self.handleSpringBehavior];
+    
+    NSUInteger particlesMaxIndex = [self.particles count] - 1;
+    float sub_len = self.spring_length / self.subdivisions;
+    
+    UIAttachmentBehavior *springBehavior;
+    
+    if (isDragging) {
+	// Create item<->anchor spring behavior
+	
+	springBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.particles[particlesMaxIndex-1]
+						   attachedToAnchor:self.handleParticle.center];
+	
+	[self.gravityBehavior removeItem:self.handleParticle];
+	[self.particleBehavior removeItem:self.handleParticle];
+    }
+    else {
+	// Create item<->item spring behavior
+	
+	[self.animator updateItemUsingCurrentState:self.handleParticle];
+	
+	springBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.particles[particlesMaxIndex-1]
+						     attachedToItem:self.handleParticle];
+	
+	[self.gravityBehavior addItem:self.handleParticle];
+	[self.particleBehavior addItem:self.handleParticle];
+    }
+    
+    springBehavior.length = sub_len;
+    springBehavior.frequency = CMSpringyRopeFrequency;
+    springBehavior.damping = CMSpringyRopeDamping;
+    [self.animator addBehavior:springBehavior];
+    self.handleSpringBehavior = springBehavior;
 }
 
 
