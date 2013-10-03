@@ -92,6 +92,16 @@
     return [self.springyRopeLayer gravityByDeviceMotionEnabled];
 }
 
+- (BOOL)isDynamicsXRayEnabled
+{
+    return [self.springyRopeLayer isDynamicsXRayEnabled];
+}
+
+- (void)setDynamicsXRayEnabled:(BOOL)dynamicsXRayEnabled
+{
+    [self.springyRopeLayer setDynamicsXRayEnabled:dynamicsXRayEnabled];
+}
+
 
 #pragma mark - Handle touches
 

@@ -84,6 +84,7 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 @property (strong, nonatomic) CMSpringyRopeParticle *handleParticle;
 @property (strong, nonatomic) UIAttachmentBehavior *handleSpringBehavior;
 @property (strong, nonatomic) UIDynamicItemBehavior *particleBehavior;
+@property (strong, nonatomic) DynamicsXRay *dynamicsXRay;
 
 // FPS
 @property (assign, nonatomic) double fps_prev_time;
@@ -124,14 +125,6 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	_particleBehavior.resistance = CMSpringyRopeParticleResistance;
 	
 	[_animator addBehavior:_particleBehavior];
-
-	/*
-	    Dynamics Xray
-	 */
-	/*
-	DynamicsXRay *xray = [[DynamicsXRay alloc] init];
-	[_animator addBehavior:xray];
-	 */
     }
     return self;
 }
@@ -230,6 +223,27 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 - (BOOL)gravityByDeviceMotionEnabled
 {
     return [self.motionManager isDeviceMotionActive];
+}
+
+- (BOOL)isDynamicsXRayEnabled
+{
+    return (self.dynamicsXRay != nil);
+}
+
+- (void)setDynamicsXRayEnabled:(BOOL)dynamicsXRayEnabled
+{
+    if (dynamicsXRayEnabled) {
+        if (self.dynamicsXRay == nil) {
+            self.dynamicsXRay = [[DynamicsXRay alloc] init];
+            [self.animator addBehavior:self.dynamicsXRay];
+        }
+    }
+    else {
+        if (self.dynamicsXRay) {
+            [self.animator removeBehavior:self.dynamicsXRay];
+            self.dynamicsXRay = nil;
+        }
+    }
 }
 
 

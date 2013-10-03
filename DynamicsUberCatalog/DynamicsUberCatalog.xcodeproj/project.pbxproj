@@ -99,7 +99,10 @@
 				2806C641175BE66C00827B6B /* Frameworks */,
 				2806C640175BE66C00827B6B /* Products */,
 			);
+			indentWidth = 4;
 			sourceTree = "<group>";
+			tabWidth = 8;
+			usesTabs = 0;
 		};
 		2806C640175BE66C00827B6B /* Products */ = {
 			isa = PBXGroup;
