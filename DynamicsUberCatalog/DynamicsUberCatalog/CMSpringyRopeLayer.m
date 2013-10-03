@@ -39,14 +39,16 @@
     Physics Configuration
  */
 static CGFloat const CMSpringyRopeDamping = 1.0f;
-static CGFloat const CMSpringyRopeFrequency = 5.0f;
+static CGFloat const CMSpringyRopeFrequency = 6.0f;
 static CGFloat const CMSpringyRopeParticleDensity = 0.5f;
 static CGFloat const CMSpringyRopeParticleResistance = 0.5f;
 
 /*
     Visual Configuration
  */
-static CGFloat const CMSpringyRopeLayerHandleRadius = 5.0f;
+static CGFloat const CMSpringyRopeLength = 35.0f;
+static NSUInteger const CMSpringyRopeSubdivisons = 10;
+static CGFloat const CMSpringyRopeHandleRadius = 5.0f;
 
 
 /*
@@ -65,7 +67,7 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
  */
 @interface CMSpringyRopeLayer ()
 
-@property (assign, nonatomic) float spring_length;
+@property (assign, nonatomic) float rope_length;
 @property (assign, nonatomic) NSUInteger subdivisions;
 
 @property (assign, nonatomic) BOOL isDragging;
@@ -100,8 +102,8 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	
 	_lastSize = self.bounds.size;
 	
-	_spring_length = 25.0;
-	_subdivisions = 8;
+	_rope_length = CMSpringyRopeLength;
+	_subdivisions = CMSpringyRopeSubdivisons;
 	
 	_motionManager = [[CMMotionManager alloc] init];
         _motionManager.deviceMotionUpdateInterval = 0.02; // 50 Hz
@@ -126,8 +128,10 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	/*
 	    Dynamics Xray
 	 */
+	/*
 	DynamicsXRay *xray = [[DynamicsXRay alloc] init];
 	[_animator addBehavior:xray];
+	 */
     }
     return self;
 }
@@ -150,7 +154,7 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
     
     NSUInteger subdivisions = self.subdivisions;
     
-    float sub_len = self.spring_length / subdivisions;
+    float sub_len = self.rope_length / subdivisions;
     for (NSUInteger i=1; i<=subdivisions; i++) {
 	CMSpringyRopeParticle *p = [[CMSpringyRopeParticle alloc] initWithCenterPosition:CGPointMake(anchorPoint.x, anchorPoint.y + i*sub_len)];
 	[particles addObject:p];
@@ -195,7 +199,7 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 
 - (void)configureSpringBehavior:(UIAttachmentBehavior *)springBehavior
 {
-    float sub_len = self.spring_length / self.subdivisions;
+    float sub_len = self.rope_length / self.subdivisions;
     springBehavior.length = sub_len;
     springBehavior.frequency = CMSpringyRopeFrequency;
     springBehavior.damping = CMSpringyRopeDamping;
@@ -368,14 +372,14 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
     if (self.smoothed) {
 	bezierPath = smoothedPath(bezierPath, 8);
     }
-    //    [bezierPath stroke]; // CMDEBUGGING disabled stroke
+    [bezierPath stroke];
     UIGraphicsPopContext();
     
     CGPathRelease(path);
     
     // Draw handle
     CGPoint handlePoint = self.handleParticle.center;
-    CGContextAddEllipseInRect(ctx, CGRectMake(handlePoint.x-CMSpringyRopeLayerHandleRadius, handlePoint.y-CMSpringyRopeLayerHandleRadius, CMSpringyRopeLayerHandleRadius*2, CMSpringyRopeLayerHandleRadius*2));
+    CGContextAddEllipseInRect(ctx, CGRectMake(handlePoint.x-CMSpringyRopeHandleRadius, handlePoint.y-CMSpringyRopeHandleRadius, CMSpringyRopeHandleRadius*2, CMSpringyRopeHandleRadius*2));
     CGContextStrokePath(ctx);
 }
 
