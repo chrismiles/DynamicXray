@@ -81,6 +81,7 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 @property (strong, nonatomic) UIAttachmentBehavior *anchorSpringBehavior;
 @property (strong, nonatomic) CMSpringyRopeParticle *handleParticle;
 @property (strong, nonatomic) UIAttachmentBehavior *handleSpringBehavior;
+@property (strong, nonatomic) UIDynamicItemBehavior *particleBehavior;
 
 // FPS
 @property (assign, nonatomic) double fps_prev_time;
@@ -116,6 +117,12 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	};
 	[_animator addBehavior:_gravityBehavior];
 	
+	_particleBehavior = [[UIDynamicItemBehavior alloc] initWithItems:nil];
+	_particleBehavior.density = CMSpringyRopeParticleDensity;
+	_particleBehavior.resistance = CMSpringyRopeParticleResistance;
+	
+	[_animator addBehavior:_particleBehavior];
+
 	/*
 	    Dynamics Xray
 	 */
@@ -141,17 +148,14 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
     
     CGPoint anchorPoint = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetHeight(self.bounds)*0.2f);
     
-    UIDynamicItemBehavior *particleBehavior = [[UIDynamicItemBehavior alloc] initWithItems:nil];
-    particleBehavior.density = CMSpringyRopeParticleDensity;
-    particleBehavior.resistance = CMSpringyRopeParticleResistance;
-    
     NSUInteger subdivisions = self.subdivisions;
     
     float sub_len = self.spring_length / subdivisions;
     for (NSUInteger i=1; i<=subdivisions; i++) {
 	CMSpringyRopeParticle *p = [[CMSpringyRopeParticle alloc] initWithCenterPosition:CGPointMake(anchorPoint.x, anchorPoint.y + i*sub_len)];
 	[particles addObject:p];
-	[particleBehavior addItem:p];
+	
+	[self.particleBehavior addItem:p];
 	[self.gravityBehavior addItem:p];
     }
     
@@ -178,8 +182,6 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	    self.handleSpringBehavior = springBehavior;
 	}
     }
-    
-    [self.animator addBehavior:particleBehavior];
     
     self.particles = particles;
 }
@@ -263,6 +265,9 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	    
 	    springBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.particles[particlesMaxIndex-1]
 						       attachedToAnchor:self.handleParticle.center];
+	    
+	    [self.gravityBehavior removeItem:self.handleParticle];
+	    [self.particleBehavior removeItem:self.handleParticle];
 	}
 	else {
 	    // Create item<->item spring behavior
@@ -271,6 +276,9 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	    
 	    springBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.particles[particlesMaxIndex-1]
 							 attachedToItem:self.handleParticle];
+	    
+	    [self.gravityBehavior addItem:self.handleParticle];
+	    [self.particleBehavior addItem:self.handleParticle];
 	}
 	
 	springBehavior.length = sub_len;
@@ -290,6 +298,8 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 {
     self.handleParticle.center = location;
     self.handleSpringBehavior.anchorPoint = location;
+    
+    [self.animator updateItemUsingCurrentState:self.handleParticle];
 }
 
 
