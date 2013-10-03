@@ -164,19 +164,10 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
     
     for (NSUInteger i=0; i<particlesMaxIndex; i++)  {
 	if (i == 0) {
-	    UIAttachmentBehavior *anchorSpringBehavior = [[UIAttachmentBehavior alloc] initWithItem:particles[i] attachedToAnchor:anchorPoint];
-	    anchorSpringBehavior.length = sub_len;
-	    anchorSpringBehavior.frequency = CMSpringyRopeFrequency;
-	    anchorSpringBehavior.damping = CMSpringyRopeDamping;
-	    [self.animator addBehavior:anchorSpringBehavior];
-	    self.anchorSpringBehavior = anchorSpringBehavior;
+	    self.anchorSpringBehavior = [self addSpringBehaviorWithItem:particles[i] attachedToAnchor:anchorPoint];
 	}
 	
-	UIAttachmentBehavior *springBehavior = [[UIAttachmentBehavior alloc] initWithItem:particles[i] attachedToItem:particles[i+1]];
-	springBehavior.length = sub_len;
-	springBehavior.frequency = CMSpringyRopeFrequency;
-	springBehavior.damping = CMSpringyRopeDamping;
-	[self.animator addBehavior:springBehavior];
+	UIAttachmentBehavior *springBehavior = [self addSpringBehaviorWithItem:particles[i] attachedToItem:particles[i+1]];
 	
 	if (i == particlesMaxIndex - 1) {
 	    self.handleSpringBehavior = springBehavior;
@@ -186,6 +177,29 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
     self.particles = particles;
 }
 
+- (UIAttachmentBehavior *)addSpringBehaviorWithItem:(id<UIDynamicItem>)item attachedToAnchor:(CGPoint)anchorPoint
+{
+    UIAttachmentBehavior *springBehavior = [[UIAttachmentBehavior alloc] initWithItem:item attachedToAnchor:anchorPoint];
+    [self configureSpringBehavior:springBehavior];
+    [self.animator addBehavior:springBehavior];
+    return springBehavior;
+}
+
+- (UIAttachmentBehavior *)addSpringBehaviorWithItem:(id<UIDynamicItem>)itemA attachedToItem:(id<UIDynamicItem>)itemB
+{
+    UIAttachmentBehavior *springBehavior = [[UIAttachmentBehavior alloc] initWithItem:itemA attachedToItem:itemB];
+    [self configureSpringBehavior:springBehavior];
+    [self.animator addBehavior:springBehavior];
+    return springBehavior;
+}
+
+- (void)configureSpringBehavior:(UIAttachmentBehavior *)springBehavior
+{
+    float sub_len = self.spring_length / self.subdivisions;
+    springBehavior.length = sub_len;
+    springBehavior.frequency = CMSpringyRopeFrequency;
+    springBehavior.damping = CMSpringyRopeDamping;
+}
 
 
 #pragma mark - Custom property accessors
@@ -264,15 +278,14 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
     [self.animator removeBehavior:self.handleSpringBehavior];
     
     NSUInteger particlesMaxIndex = [self.particles count] - 1;
-    float sub_len = self.spring_length / self.subdivisions;
     
     UIAttachmentBehavior *springBehavior;
     
     if (isDragging) {
 	// Create item<->anchor spring behavior
 	
-	springBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.particles[particlesMaxIndex-1]
-						   attachedToAnchor:self.handleParticle.center];
+	springBehavior = [self addSpringBehaviorWithItem:self.particles[particlesMaxIndex-1]
+				     attachedToAnchor:self.handleParticle.center];
 	
 	[self.gravityBehavior removeItem:self.handleParticle];
 	[self.particleBehavior removeItem:self.handleParticle];
@@ -281,18 +294,14 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	// Create item<->item spring behavior
 	
 	[self.animator updateItemUsingCurrentState:self.handleParticle];
-	
-	springBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.particles[particlesMaxIndex-1]
-						     attachedToItem:self.handleParticle];
+
+	springBehavior = [self addSpringBehaviorWithItem:self.particles[particlesMaxIndex-1]
+				       attachedToItem:self.handleParticle];
 	
 	[self.gravityBehavior addItem:self.handleParticle];
 	[self.particleBehavior addItem:self.handleParticle];
     }
     
-    springBehavior.length = sub_len;
-    springBehavior.frequency = CMSpringyRopeFrequency;
-    springBehavior.damping = CMSpringyRopeDamping;
-    [self.animator addBehavior:springBehavior];
     self.handleSpringBehavior = springBehavior;
 }
 
