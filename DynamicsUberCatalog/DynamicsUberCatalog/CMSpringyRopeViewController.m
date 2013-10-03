@@ -31,7 +31,10 @@
 
 @interface CMSpringyRopeViewController ()
 
+@property (strong, nonatomic) UILabel *fpsLabel;
+
 @end
+
 
 @implementation CMSpringyRopeViewController
 
@@ -47,21 +50,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.fpsLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.fpsLabel.text = @"00 fps";
+    [self.fpsLabel sizeToFit];
     
-    // TODO
-//    NSMutableArray *toolbarItems = [NSMutableArray array];
+    NSMutableArray *toolbarItems = [NSMutableArray array];
 //    [toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:self.smoothToggleView]];
-//    [toolbarItems addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
-//    [toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:self.fpsLabel]];
-//    [toolbarItems addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
+    [toolbarItems addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
+    [toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:self.fpsLabel]];
+    [toolbarItems addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
 //    if ([self.springyRopeView isDeviceMotionAvailable]) {
 //	[toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:self.accelerometerToggleView]];
 //    }
-//    
-//    self.toolbarItems = toolbarItems;
+    
+    self.toolbarItems = toolbarItems;
     [self.navigationController setToolbarHidden:NO animated:YES];
     
-//    [self.springyRopeView setFpsLabel:self.fpsLabel];
+    [self.springyRopeView setFpsLabel:self.fpsLabel];
 }
 
 - (CMSpringyRopeView *)springyRopeView
