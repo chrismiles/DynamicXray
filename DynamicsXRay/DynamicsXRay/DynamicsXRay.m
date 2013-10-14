@@ -21,6 +21,9 @@
 #endif
 
 
+static UIWindow *xrayWindow = nil;
+
+
 @interface DynamicsXRay ()
 
 @property (weak, nonatomic) UIView *referenceView;
@@ -35,13 +38,26 @@
 {
     self = [super init];
     if (self) {
-	_xrayView = [[DXRDynamicsXRayView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-	
-	__weak DynamicsXRay *weakSelf = self;
+        // Create a single shared UIWindow
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            if (xrayWindow == nil) {
+                CGRect screenBounds = [[UIScreen mainScreen] bounds];
+                xrayWindow = [[UIWindow alloc] initWithFrame:screenBounds];
+                xrayWindow.windowLevel = UIWindowLevelAlert;
+                xrayWindow.userInteractionEnabled = NO;
+            }
+        });
+
+        _xrayView = [[DXRDynamicsXRayView alloc] initWithFrame:xrayWindow.bounds];
+        [xrayWindow addSubview:_xrayView];
+        [xrayWindow setHidden:NO];
+
+        __weak DynamicsXRay *weakSelf = self;
         self.action = ^{
-	    __strong DynamicsXRay *strongSelf = weakSelf;
-	    [strongSelf introspectDynamicAnimator:strongSelf.dynamicAnimator];
-	};
+            __strong DynamicsXRay *strongSelf = weakSelf;
+            [strongSelf introspectDynamicAnimator:strongSelf.dynamicAnimator];
+        };
     }
     return self;
 }
@@ -58,12 +74,6 @@
 #endif
 
     [self findReferenceView];
-    
-    if (self.xrayView.superview == nil) {
-	UIWindow *keyWindow = [[UIApplication sharedApplication] keyWindow];
-	[keyWindow addSubview:self.xrayView];
-    }
-    
     [self introspectBehaviors:dynamicAnimator.behaviors];
 }
 
@@ -138,29 +148,71 @@
         anchorPointA = CGPointApplyAffineTransform(anchorPointA, itemA.transform);
         anchorPoint.x += anchorPointA.x;
         anchorPoint.y += anchorPointA.y;
-        anchorPoint = [self.xrayView convertPoint:anchorPoint fromView:self.referenceView];
+        anchorPoint = [self convertPointFromReferenceView:anchorPoint];
         
         attachmentPoint = itemB.center;
         anchorPointB = CGPointApplyAffineTransform(anchorPointB, itemB.transform);
         attachmentPoint.x += anchorPointB.x;
         attachmentPoint.y += anchorPointB.y;
-        attachmentPoint = [self.xrayView convertPoint:attachmentPoint fromView:self.referenceView];
+        attachmentPoint = [self convertPointFromReferenceView:attachmentPoint];
     }
     else {
         // Anchor to Item
         
-        anchorPoint = [self.xrayView convertPoint:attachmentBehavior.anchorPoint fromView:self.referenceView];
+        anchorPoint = [self convertPointFromReferenceView:attachmentBehavior.anchorPoint];
         
         attachmentPoint = itemA.center;
         anchorPointA = CGPointApplyAffineTransform(anchorPointA, itemA.transform);
         attachmentPoint.x += anchorPointA.x;
         attachmentPoint.y += anchorPointA.y;
-        attachmentPoint = [self.xrayView convertPoint:attachmentPoint fromView:self.referenceView];
+        attachmentPoint = [self convertPointFromReferenceView:attachmentPoint];
     }
     
     BOOL isSpring = (attachmentBehavior.frequency > 0.0);
     
     [self.xrayView drawAttachmentFromAnchor:anchorPoint toPoint:attachmentPoint length:attachmentBehavior.length isSpring:isSpring];
+}
+
+- (CGPoint)convertPointFromReferenceView:(CGPoint)point
+{
+    UIWindow *appWindow = [UIApplication sharedApplication].keyWindow;
+    CGPoint result;
+
+    if (self.referenceView) {
+        result = [self.referenceView convertPoint:point toView:nil];
+    }
+    else {
+        result = [self pointTransformedFromDeviceOrientation:point];
+    }
+
+    result = [xrayWindow convertPoint:result fromWindow:appWindow];
+
+    return result;
+}
+
+- (CGPoint)pointTransformedFromDeviceOrientation:(CGPoint)point
+{
+    CGPoint result;
+    CGSize windowSize = [UIApplication sharedApplication].keyWindow.bounds.size;
+    UIInterfaceOrientation statusBarOrientation = [UIApplication sharedApplication].statusBarOrientation;
+
+    if (statusBarOrientation == UIInterfaceOrientationLandscapeRight) {
+        result.x = windowSize.width - point.y;
+        result.y = point.x;
+    }
+    else if (statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+        result.x = windowSize.width - point.x;
+        result.y = windowSize.height - point.y;
+    }
+    else if (statusBarOrientation == UIInterfaceOrientationLandscapeLeft) {
+        result.x = point.y;
+        result.y = windowSize.height - point.x;
+    }
+    else {
+        result = point;
+    }
+
+    return result;
 }
 
 - (void)visualiseCollisionBehavior:(UICollisionBehavior *)collisionBehavior
