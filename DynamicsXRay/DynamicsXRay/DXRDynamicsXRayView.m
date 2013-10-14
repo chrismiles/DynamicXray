@@ -28,7 +28,7 @@
     if (self) {
 	_dynamicItemsToDraw = [NSMutableArray array];
         
-	self.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.1f];
+	self.backgroundColor = [UIColor clearColor];
 	self.userInteractionEnabled = NO;
     }
     return self;
