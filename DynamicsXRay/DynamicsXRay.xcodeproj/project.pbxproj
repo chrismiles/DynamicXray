@@ -43,6 +43,10 @@
 		83849DF217AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DF017AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.m */; };
 		83849DF517AE242A00D6DD3C /* DXRDynamicsXRayUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DF317AE242A00D6DD3C /* DXRDynamicsXRayUtil.h */; };
 		83849DF617AE242A00D6DD3C /* DXRDynamicsXRayUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DF417AE242A00D6DD3C /* DXRDynamicsXRayUtil.m */; };
+		83B61354180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B61352180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.h */; };
+		83B61355180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B61353180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.m */; };
+		83B61358180BBDC10006BBA3 /* DXRDynamicsXRayItemGravity+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B61356180BBDC10006BBA3 /* DXRDynamicsXRayItemGravity+DXRDrawing.h */; };
+		83B61359180BBDC10006BBA3 /* DXRDynamicsXRayItemGravity+DXRDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B61357180BBDC10006BBA3 /* DXRDynamicsXRayItemGravity+DXRDrawing.m */; };
 		83FA2B2717FC290E0022DEAB /* DXRDynamicsXRayItemAttachment+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83FA2B2517FC290E0022DEAB /* DXRDynamicsXRayItemAttachment+DXRDrawing.h */; };
 		83FA2B2817FC290E0022DEAB /* DXRDynamicsXRayItemAttachment+DXRDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FA2B2617FC290E0022DEAB /* DXRDynamicsXRayItemAttachment+DXRDrawing.m */; };
 		83FA2B2D17FC2CD60022DEAB /* DXRDynamicsXRayItemBoundaryCollision+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83FA2B2B17FC2CD60022DEAB /* DXRDynamicsXRayItemBoundaryCollision+DXRDrawing.h */; };
@@ -103,6 +107,10 @@
 		83849DF017AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXRayItemAttachment.m; sourceTree = "<group>"; };
 		83849DF317AE242A00D6DD3C /* DXRDynamicsXRayUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXRayUtil.h; sourceTree = "<group>"; };
 		83849DF417AE242A00D6DD3C /* DXRDynamicsXRayUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXRayUtil.m; sourceTree = "<group>"; };
+		83B61352180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXRayItemGravity.h; sourceTree = "<group>"; };
+		83B61353180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXRayItemGravity.m; sourceTree = "<group>"; };
+		83B61356180BBDC10006BBA3 /* DXRDynamicsXRayItemGravity+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicsXRayItemGravity+DXRDrawing.h"; sourceTree = "<group>"; };
+		83B61357180BBDC10006BBA3 /* DXRDynamicsXRayItemGravity+DXRDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRDynamicsXRayItemGravity+DXRDrawing.m"; sourceTree = "<group>"; };
 		83FA2B2517FC290E0022DEAB /* DXRDynamicsXRayItemAttachment+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicsXRayItemAttachment+DXRDrawing.h"; sourceTree = "<group>"; };
 		83FA2B2617FC290E0022DEAB /* DXRDynamicsXRayItemAttachment+DXRDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRDynamicsXRayItemAttachment+DXRDrawing.m"; sourceTree = "<group>"; };
 		83FA2B2917FC29A30022DEAB /* DXRDynamicsXRayItemDrawing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXRayItemDrawing.h; sourceTree = "<group>"; };
@@ -227,11 +235,23 @@
 			children = (
 				83FA2B2417FC28E30022DEAB /* Attachment Items */,
 				83FA2B2A17FC2CA50022DEAB /* Boundary Collision Items */,
+				83B61351180BBD2E0006BBA3 /* Gravity Items */,
 				83849DEA17AE103D00D6DD3C /* DXRDynamicsXRayItem.h */,
 				83849DEB17AE103D00D6DD3C /* DXRDynamicsXRayItem.m */,
 				83FA2B2917FC29A30022DEAB /* DXRDynamicsXRayItemDrawing.h */,
 			);
 			name = Items;
+			sourceTree = "<group>";
+		};
+		83B61351180BBD2E0006BBA3 /* Gravity Items */ = {
+			isa = PBXGroup;
+			children = (
+				83B61352180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.h */,
+				83B61353180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.m */,
+				83B61356180BBDC10006BBA3 /* DXRDynamicsXRayItemGravity+DXRDrawing.h */,
+				83B61357180BBDC10006BBA3 /* DXRDynamicsXRayItemGravity+DXRDrawing.m */,
+			);
+			name = "Gravity Items";
 			sourceTree = "<group>";
 		};
 		83FA2B2417FC28E30022DEAB /* Attachment Items */ = {
@@ -269,6 +289,8 @@
 				83584D0F17FC201600F09FF1 /* NSObject+CMObjectIntrospection.h in Headers */,
 				83849DE717AE069400D6DD3C /* DynamicsXRay.h in Headers */,
 				83FA2B2D17FC2CD60022DEAB /* DXRDynamicsXRayItemBoundaryCollision+DXRDrawing.h in Headers */,
+				83B61354180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.h in Headers */,
+				83B61358180BBDC10006BBA3 /* DXRDynamicsXRayItemGravity+DXRDrawing.h in Headers */,
 				83849DF517AE242A00D6DD3C /* DXRDynamicsXRayUtil.h in Headers */,
 				83437B9417E0010E00518141 /* DXRDynamicsXRayItemBoundaryCollision.h in Headers */,
 			);
@@ -390,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83B61355180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.m in Sources */,
 				83849DF217AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.m in Sources */,
 				83FA2B2E17FC2CD60022DEAB /* DXRDynamicsXRayItemBoundaryCollision+DXRDrawing.m in Sources */,
 				83849DED17AE103D00D6DD3C /* DXRDynamicsXRayItem.m in Sources */,
@@ -399,6 +422,7 @@
 				83849DE117AE02DB00D6DD3C /* DXRDynamicsXRayView.m in Sources */,
 				83437B9517E0010E00518141 /* DXRDynamicsXRayItemBoundaryCollision.m in Sources */,
 				83584D1017FC201600F09FF1 /* NSObject+CMObjectIntrospection.m in Sources */,
+				83B61359180BBDC10006BBA3 /* DXRDynamicsXRayItemGravity+DXRDrawing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

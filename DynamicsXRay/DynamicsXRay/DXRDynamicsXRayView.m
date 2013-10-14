@@ -10,6 +10,7 @@
 #import "DXRDynamicsXRayItemDrawing.h"
 #import "DXRDynamicsXRayItemAttachment.h"
 #import "DXRDynamicsXRayItemBoundaryCollision.h"
+#import "DXRDynamicsXRayItemGravity.h"
 
 
 @interface DXRDynamicsXRayView ()
@@ -36,19 +37,27 @@
 - (void)drawAttachmentFromAnchor:(CGPoint)anchorPoint toPoint:(CGPoint)attachmentPoint length:(CGFloat)length isSpring:(BOOL)isSpring
 {
     DXRDynamicsXRayItemAttachment *attachment = [[DXRDynamicsXRayItemAttachment alloc] initWithAnchorPoint:anchorPoint attachmentPoint:attachmentPoint length:length isSpring:isSpring];
-    [self.dynamicItemsToDraw addObject:attachment];
-    
-    [self setNeedsDisplay];
+    [self itemNeedsDrawing:attachment];
 }
 
 - (void)drawBoundsCollisionBoundaryWithRect:(CGRect)boundaryRect
 {
     DXRDynamicsXRayItemBoundaryCollision *collision = [[DXRDynamicsXRayItemBoundaryCollision alloc] initWithBoundaryRect:boundaryRect];
-    [self.dynamicItemsToDraw addObject:collision];
-    
-    [self setNeedsDisplay];
+    [self itemNeedsDrawing:collision];
 }
 
+- (void)drawGravityBehaviorWithMagnitude:(CGFloat)magnitude angle:(CGFloat)angle
+{
+    DXRDynamicsXRayItemGravity *gravity = [[DXRDynamicsXRayItemGravity alloc] initWithGravityMagnitude:magnitude angle:angle];
+    [self itemNeedsDrawing:gravity];
+}
+
+- (void)itemNeedsDrawing:(DXRDynamicsXRayItem *)item
+{
+    [self.dynamicItemsToDraw addObject:item];
+
+    [self setNeedsDisplay];
+}
 
 #pragma mark - Drawing
 

@@ -110,7 +110,10 @@ static UIWindow *xrayWindow = nil;
 	else if ([behavior isKindOfClass:[UICollisionBehavior class]]) {
 	    [self visualiseCollisionBehavior:(UICollisionBehavior *)behavior];
 	}
-        
+	else if ([behavior isKindOfClass:[UIGravityBehavior class]]) {
+	    [self visualiseGravityBehavior:(UIGravityBehavior *)behavior];
+	}
+
         /* Introspect any child behaviors.
          */
         if ([behavior.childBehaviors count] > 0) {
@@ -118,6 +121,8 @@ static UIWindow *xrayWindow = nil;
         }
     }
 }
+
+#pragma mark - Attachment Behavior
 
 - (void)visualiseAttachmentBehavior:(UIAttachmentBehavior *)attachmentBehavior
 {
@@ -173,6 +178,32 @@ static UIWindow *xrayWindow = nil;
     [self.xrayView drawAttachmentFromAnchor:anchorPoint toPoint:attachmentPoint length:attachmentBehavior.length isSpring:isSpring];
 }
 
+
+#pragma mark - Collision Behavior
+
+- (void)visualiseCollisionBehavior:(UICollisionBehavior *)collisionBehavior
+{
+    // TODO: boundaries by identifier
+    //NSArray *boundaryIdentifiers = collisionBehavior.boundaryIdentifiers;
+    //DLog(@"boundaryIdentifiers: %@", boundaryIdentifiers);
+
+    if (collisionBehavior.translatesReferenceBoundsIntoBoundary) {
+        UIView *referenceView = collisionBehavior.dynamicAnimator.referenceView;
+        CGRect referenceBoundaryFrame = referenceView.frame;
+        CGRect boundaryRect = [self.xrayView convertRect:referenceBoundaryFrame fromView:referenceView.superview];
+        [self.xrayView drawBoundsCollisionBoundaryWithRect:boundaryRect];
+    }
+}
+
+
+- (void)visualiseGravityBehavior:(UIGravityBehavior *)gravityBehavior
+{
+    [self.xrayView drawGravityBehaviorWithMagnitude:gravityBehavior.magnitude angle:gravityBehavior.angle];
+}
+
+
+#pragma mark - Coordinate Conversion
+
 - (CGPoint)convertPointFromReferenceView:(CGPoint)point
 {
     UIWindow *appWindow = [UIApplication sharedApplication].keyWindow;
@@ -215,18 +246,5 @@ static UIWindow *xrayWindow = nil;
     return result;
 }
 
-- (void)visualiseCollisionBehavior:(UICollisionBehavior *)collisionBehavior
-{
-    // TODO: boundaries by identifier
-    //NSArray *boundaryIdentifiers = collisionBehavior.boundaryIdentifiers;
-    //DLog(@"boundaryIdentifiers: %@", boundaryIdentifiers);
-    
-    if (collisionBehavior.translatesReferenceBoundsIntoBoundary) {
-        UIView *referenceView = collisionBehavior.dynamicAnimator.referenceView;
-        CGRect referenceBoundaryFrame = referenceView.frame;
-        CGRect boundaryRect = [self.xrayView convertRect:referenceBoundaryFrame fromView:referenceView.superview];
-        [self.xrayView drawBoundsCollisionBoundaryWithRect:boundaryRect];
-    }
-}
 
 @end

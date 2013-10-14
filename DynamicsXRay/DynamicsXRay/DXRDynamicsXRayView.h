@@ -14,4 +14,6 @@
 
 - (void)drawBoundsCollisionBoundaryWithRect:(CGRect)boundaryRect;
 
+- (void)drawGravityBehaviorWithMagnitude:(CGFloat)magnitude angle:(CGFloat)angle;
+
 @end
