@@ -8,6 +8,7 @@
 
 #import "DynamicsXRay.h"
 #import "DXRDynamicsXRayView.h"
+#import "DXRDynamicsXRayWindowController.h"
 
 /*
     Enable one or both of these macro definitons to dump object information.
@@ -21,13 +22,14 @@
 #endif
 
 
-static UIWindow *xrayWindow = nil;
+static DXRDynamicsXRayWindowController *xrayWindowController = nil;
 
 
 @interface DynamicsXRay ()
 
 @property (weak, nonatomic) UIView *referenceView;
 @property (strong, nonatomic) DXRDynamicsXRayView *xrayView;
+@property (strong, nonatomic) UIWindow *xrayWindow;
 
 @end
 
@@ -41,17 +43,17 @@ static UIWindow *xrayWindow = nil;
         // Create a single shared UIWindow
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            if (xrayWindow == nil) {
-                CGRect screenBounds = [[UIScreen mainScreen] bounds];
-                xrayWindow = [[UIWindow alloc] initWithFrame:screenBounds];
-                xrayWindow.windowLevel = UIWindowLevelAlert;
-                xrayWindow.userInteractionEnabled = NO;
+            if (xrayWindowController == nil) {
+                xrayWindowController = [[DXRDynamicsXRayWindowController alloc] init];
             }
         });
 
-        _xrayView = [[DXRDynamicsXRayView alloc] initWithFrame:xrayWindow.bounds];
-        [xrayWindow addSubview:_xrayView];
-        [xrayWindow setHidden:NO];
+        // Grab a strong reference to the shared XRay window (a new one is created on demand if needed)
+        self.xrayWindow = xrayWindowController.xrayWindow;
+
+        _xrayView = [[DXRDynamicsXRayView alloc] initWithFrame:self.xrayWindow.bounds];
+        [self.xrayWindow addSubview:_xrayView];
+        [self.xrayWindow setHidden:NO];
 
         __weak DynamicsXRay *weakSelf = self;
         self.action = ^{
@@ -196,6 +198,8 @@ static UIWindow *xrayWindow = nil;
 }
 
 
+#pragma mark - Gravity Behavior
+
 - (void)visualiseGravityBehavior:(UIGravityBehavior *)gravityBehavior
 {
     [self.xrayView drawGravityBehaviorWithMagnitude:gravityBehavior.magnitude angle:gravityBehavior.angle];
@@ -216,7 +220,7 @@ static UIWindow *xrayWindow = nil;
         result = [self pointTransformedFromDeviceOrientation:point];
     }
 
-    result = [xrayWindow convertPoint:result fromWindow:appWindow];
+    result = [self.xrayWindow convertPoint:result fromWindow:appWindow];
 
     return result;
 }
