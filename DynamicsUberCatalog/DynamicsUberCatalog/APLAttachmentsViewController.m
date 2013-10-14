@@ -142,11 +142,16 @@
 }
 
 
--(IBAction)handleAttachmentGesture:(UIPanGestureRecognizer*)gesture
+- (void)viewDidLayoutSubviews
 {
-    [self.attachmentBehavior setAnchorPoint:[gesture locationInView:self.view]];
+    [super viewDidLayoutSubviews];
+
     self.redSquare.center = self.attachmentBehavior.anchorPoint;
 }
 
+- (IBAction)handleAttachmentGesture:(UIPanGestureRecognizer*)gesture
+{
+    [self.attachmentBehavior setAnchorPoint:[gesture locationInView:self.view]];
+}
 
 @end

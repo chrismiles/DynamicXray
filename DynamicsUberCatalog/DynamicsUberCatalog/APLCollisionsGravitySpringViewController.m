@@ -142,8 +142,14 @@
     [self.animator addBehavior:xray];
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
 
--(IBAction)handleSpringAttachmentGesture:(UIPanGestureRecognizer*)gesture
+    self.redSquare.center = self.attachmentBehavior.anchorPoint;
+}
+
+- (IBAction)handleSpringAttachmentGesture:(UIPanGestureRecognizer*)gesture
 {
     [self.attachmentBehavior setAnchorPoint:[gesture locationInView:self.view]];
     self.redSquare.center = self.attachmentBehavior.anchorPoint;
