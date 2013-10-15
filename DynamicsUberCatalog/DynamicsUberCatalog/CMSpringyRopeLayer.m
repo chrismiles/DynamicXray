@@ -235,6 +235,7 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
     if (dynamicsXRayEnabled) {
         if (self.dynamicsXRay == nil) {
             self.dynamicsXRay = [[DynamicsXRay alloc] init];
+            self.dynamicsXRay.crossFade = 0;
             [self.animator addBehavior:self.dynamicsXRay];
         }
     }

@@ -25,11 +25,21 @@
 static DXRDynamicsXRayWindowController *xrayWindowController = nil;
 
 
-@interface DynamicsXRay ()
+@interface DynamicsXRay () {
+    CGFloat _crossFade;
+}
 
 @property (weak, nonatomic) UIView *referenceView;
 @property (strong, nonatomic) DXRDynamicsXRayView *xrayView;
 @property (strong, nonatomic) UIWindow *xrayWindow;
+
+@end
+
+
+@interface DynamicsXRay (XRayVisualStyleInternals)
+
+- (void)updateWindowTransparencyLevels;
+- (void)resetWindowTransparencyLevels;
 
 @end
 
@@ -55,6 +65,8 @@ static DXRDynamicsXRayWindowController *xrayWindowController = nil;
         [self.xrayWindow addSubview:_xrayView];
         [self.xrayWindow setHidden:NO];
 
+        [self updateWindowTransparencyLevels];
+
         __weak DynamicsXRay *weakSelf = self;
         self.action = ^{
             __strong DynamicsXRay *strongSelf = weakSelf;
@@ -67,7 +79,12 @@ static DXRDynamicsXRayWindowController *xrayWindowController = nil;
 - (void)dealloc
 {
     [self.xrayView removeFromSuperview];
+
+    [self resetWindowTransparencyLevels];
 }
+
+
+#pragma mark - Introspect Dynamic Behavior
 
 - (void)introspectDynamicAnimator:(UIDynamicAnimator *)dynamicAnimator
 {
@@ -250,5 +267,49 @@ static DXRDynamicsXRayWindowController *xrayWindowController = nil;
     return result;
 }
 
+
+@end
+
+
+
+@implementation DynamicsXRay (XRayVisualStyle)
+
+
+#pragma mark - Cross Fade
+
+- (void)setCrossFade:(CGFloat)crossFade
+{
+    _crossFade = crossFade;
+    [self updateWindowTransparencyLevels];
+}
+
+- (CGFloat)crossFade
+{
+    return _crossFade;
+}
+
+- (void)updateWindowTransparencyLevels
+{
+    CGFloat xrayWindowAlpha = 1.0f;
+    CGFloat appWindowAlpha = 1.0f;
+
+    if (self.crossFade > 0) {
+        appWindowAlpha = 1.0f - self.crossFade;
+    }
+    else {
+        xrayWindowAlpha = 1.0f + self.crossFade;
+    }
+
+    UIWindow *appWindow = [UIApplication sharedApplication].keyWindow;
+    appWindow.alpha = appWindowAlpha;
+
+    self.xrayWindow.alpha = xrayWindowAlpha;
+}
+
+- (void)resetWindowTransparencyLevels
+{
+    UIWindow *appWindow = [UIApplication sharedApplication].keyWindow;
+    appWindow.alpha = 1.0f;
+}
 
 @end
