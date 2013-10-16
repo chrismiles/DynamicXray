@@ -39,7 +39,6 @@ static DXRDynamicsXRayWindowController *xrayWindowController = nil;
 @interface DynamicsXRay (XRayVisualStyleInternals)
 
 - (void)updateWindowTransparencyLevels;
-- (void)resetWindowTransparencyLevels;
 
 @end
 
@@ -79,8 +78,6 @@ static DXRDynamicsXRayWindowController *xrayWindowController = nil;
 - (void)dealloc
 {
     [self.xrayView removeFromSuperview];
-
-    [self resetWindowTransparencyLevels];
 }
 
 
@@ -291,25 +288,18 @@ static DXRDynamicsXRayWindowController *xrayWindowController = nil;
 - (void)updateWindowTransparencyLevels
 {
     CGFloat xrayWindowAlpha = 1.0f;
-    CGFloat appWindowAlpha = 1.0f;
+    UIColor *backgroundColor;
 
     if (self.crossFade > 0) {
-        appWindowAlpha = 1.0f - self.crossFade;
+        backgroundColor = [UIColor colorWithWhite:1.0f alpha:fabsf(self.crossFade)];
     }
     else {
+        backgroundColor = [UIColor clearColor];
         xrayWindowAlpha = 1.0f + self.crossFade;
     }
 
-    UIWindow *appWindow = [UIApplication sharedApplication].keyWindow;
-    appWindow.alpha = appWindowAlpha;
-
     self.xrayWindow.alpha = xrayWindowAlpha;
-}
-
-- (void)resetWindowTransparencyLevels
-{
-    UIWindow *appWindow = [UIApplication sharedApplication].keyWindow;
-    appWindow.alpha = 1.0f;
+    self.xrayWindow.backgroundColor = backgroundColor;
 }
 
 @end
