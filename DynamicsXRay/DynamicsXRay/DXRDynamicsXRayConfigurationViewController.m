@@ -8,6 +8,7 @@
 
 #import "DXRDynamicsXRayConfigurationViewController.h"
 #import "DynamicsXRay.h"
+#import "DXRDynamicsXRayWindowController.h"
 
 
 @interface DXRDynamicsXRayConfigurationViewController ()
@@ -33,12 +34,18 @@
     [super viewDidLoad];
 
     self.view.backgroundColor = [[UIColor yellowColor] colorWithAlphaComponent:0.8f];
+
+    UIButton *dismissButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    dismissButton.frame = self.view.bounds;
+    dismissButton.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    [dismissButton addTarget:self action:@selector(dismissAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:dismissButton];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)dismissAction:(__unused id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    DXRDynamicsXRayWindowController *xrayWindowController = (DXRDynamicsXRayWindowController *)self.parentViewController;
+    [xrayWindowController dismissConfigViewController];
 }
 
 @end

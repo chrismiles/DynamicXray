@@ -11,7 +11,7 @@
 @class DXRDynamicsXRayConfigurationViewController;
 
 
-@interface DXRDynamicsXRayWindowController : NSObject
+@interface DXRDynamicsXRayWindowController : UIViewController
 
 /** Returns a weak references UIWindow.
  

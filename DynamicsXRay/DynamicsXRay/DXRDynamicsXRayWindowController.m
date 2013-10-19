@@ -71,6 +71,8 @@
         else {
             [self.window addSubview:dynamicsXRayViewController.view];
         }
+
+        [self addChildViewController:dynamicsXRayViewController];
     }
 }
 
@@ -92,6 +94,10 @@
         [configViewController.view setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
 
         [self.window addSubview:configViewController.view];
+
+        [self addChildViewController:configViewController];
+
+        [self.window setUserInteractionEnabled:YES];
     }
     else {
         NSLog(@"Warning: attempt to present a DynamicsXray Configuration view when one is already visible.");
@@ -102,6 +108,8 @@
 {
     [self.configurationViewController.view removeFromSuperview];
     self.configurationViewController = nil;
+
+    [self.window setUserInteractionEnabled:NO];
 }
 
 @end
