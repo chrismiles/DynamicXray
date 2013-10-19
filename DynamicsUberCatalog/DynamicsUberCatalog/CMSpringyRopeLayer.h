@@ -42,4 +42,6 @@
 - (void)touchEndedAtLocation:(CGPoint)location;
 - (void)touchCancelledAtLocation:(CGPoint)location;
 
+- (void)presentDynamicsXrayConfigViewController;
+
 @end

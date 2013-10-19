@@ -8,7 +8,10 @@
 
 #import "DynamicsXRay.h"
 #import "DXRDynamicsXRayView.h"
+#import "DXRDynamicsXRayViewController.h"
 #import "DXRDynamicsXRayWindowController.h"
+#import "DXRDynamicsXRayConfigurationViewController+Private.h"
+
 
 /*
     Enable one or both of these macro definitons to dump object information.
@@ -22,7 +25,7 @@
 #endif
 
 
-static DXRDynamicsXRayWindowController *xrayWindowController = nil;
+static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
 
 @interface DynamicsXRay () {
@@ -30,7 +33,7 @@ static DXRDynamicsXRayWindowController *xrayWindowController = nil;
 }
 
 @property (weak, nonatomic) UIView *referenceView;
-@property (strong, nonatomic) DXRDynamicsXRayView *xrayView;
+@property (strong, nonatomic) DXRDynamicsXRayViewController *xrayViewController;
 @property (strong, nonatomic) UIWindow *xrayWindow;
 
 @end
@@ -52,16 +55,17 @@ static DXRDynamicsXRayWindowController *xrayWindowController = nil;
         // Create a single shared UIWindow
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
-            if (xrayWindowController == nil) {
-                xrayWindowController = [[DXRDynamicsXRayWindowController alloc] init];
+            if (sharedXrayWindowController == nil) {
+                sharedXrayWindowController = [[DXRDynamicsXRayWindowController alloc] init];
             }
         });
 
         // Grab a strong reference to the shared XRay window (a new one is created on demand if needed)
-        self.xrayWindow = xrayWindowController.xrayWindow;
+        self.xrayWindow = sharedXrayWindowController.xrayWindow;
 
-        _xrayView = [[DXRDynamicsXRayView alloc] initWithFrame:self.xrayWindow.bounds];
-        [self.xrayWindow addSubview:_xrayView];
+        _xrayViewController = [[DXRDynamicsXRayViewController alloc] initWithNibName:nil bundle:nil];
+
+        [sharedXrayWindowController presentDynamicsXRayViewController:_xrayViewController];
         [self.xrayWindow setHidden:NO];
 
         [self updateWindowTransparencyLevels];
@@ -77,7 +81,8 @@ static DXRDynamicsXRayWindowController *xrayWindowController = nil;
 
 - (void)dealloc
 {
-    [self.xrayView removeFromSuperview];
+    [sharedXrayWindowController dismissDynamicsXRayViewController:self.xrayViewController];
+    [sharedXrayWindowController dismissConfigViewController];
 }
 
 
@@ -191,7 +196,7 @@ static DXRDynamicsXRayWindowController *xrayWindowController = nil;
     
     BOOL isSpring = (attachmentBehavior.frequency > 0.0);
     
-    [self.xrayView drawAttachmentFromAnchor:anchorPoint toPoint:attachmentPoint length:attachmentBehavior.length isSpring:isSpring];
+    [self.xrayViewController.xrayView drawAttachmentFromAnchor:anchorPoint toPoint:attachmentPoint length:attachmentBehavior.length isSpring:isSpring];
 }
 
 
@@ -206,8 +211,8 @@ static DXRDynamicsXRayWindowController *xrayWindowController = nil;
     if (collisionBehavior.translatesReferenceBoundsIntoBoundary) {
         UIView *referenceView = collisionBehavior.dynamicAnimator.referenceView;
         CGRect referenceBoundaryFrame = referenceView.frame;
-        CGRect boundaryRect = [self.xrayView convertRect:referenceBoundaryFrame fromView:referenceView.superview];
-        [self.xrayView drawBoundsCollisionBoundaryWithRect:boundaryRect];
+        CGRect boundaryRect = [self.xrayViewController.xrayView convertRect:referenceBoundaryFrame fromView:referenceView.superview];
+        [self.xrayViewController.xrayView drawBoundsCollisionBoundaryWithRect:boundaryRect];
     }
 }
 
@@ -216,7 +221,7 @@ static DXRDynamicsXRayWindowController *xrayWindowController = nil;
 
 - (void)visualiseGravityBehavior:(UIGravityBehavior *)gravityBehavior
 {
-    [self.xrayView drawGravityBehaviorWithMagnitude:gravityBehavior.magnitude angle:gravityBehavior.angle];
+    [self.xrayViewController.xrayView drawGravityBehaviorWithMagnitude:gravityBehavior.magnitude angle:gravityBehavior.angle];
 }
 
 
@@ -300,6 +305,18 @@ static DXRDynamicsXRayWindowController *xrayWindowController = nil;
 
     self.xrayWindow.alpha = xrayWindowAlpha;
     self.xrayWindow.backgroundColor = backgroundColor;
+}
+
+@end
+
+
+@implementation DynamicsXRay (XRayUserInterface)
+
+- (void)presentConfigurationViewController
+{
+    DXRDynamicsXRayConfigurationViewController *configViewController = [[DXRDynamicsXRayConfigurationViewController alloc] initWithDynamicsXRay:self];
+
+    [sharedXrayWindowController presentConfigViewController:configViewController];
 }
 
 @end

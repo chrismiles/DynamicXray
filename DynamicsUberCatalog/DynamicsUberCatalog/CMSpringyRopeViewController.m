@@ -63,11 +63,8 @@
     [smoothToggleView sizeToFit];
     [smoothToggleView.embeddedSwitch addTarget:self action:@selector(smoothToggleAction:) forControlEvents:UIControlEventValueChanged];
     
-    CMLabelledSwitch *xrayToggleView = [[CMLabelledSwitch alloc] initWithFrame:CGRectZero];
-    xrayToggleView.text = @"XRay";
-    [xrayToggleView sizeToFit];
-    [xrayToggleView.embeddedSwitch addTarget:self action:@selector(xrayToggleAction:) forControlEvents:UIControlEventValueChanged];
-    
+    UIBarButtonItem *xrayItem = [[UIBarButtonItem alloc] initWithTitle:@"XRay" style:UIBarButtonItemStyleBordered target:self action:@selector(xrayAction:)];
+
     NSMutableArray *toolbarItems = [NSMutableArray array];
     [toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:smoothToggleView]];
     [toolbarItems addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
@@ -82,12 +79,14 @@
     }
     [toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:self.fpsLabel]];
     [toolbarItems addObject:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil]];
-    [toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:xrayToggleView]];
-    
+    [toolbarItems addObject:xrayItem];
+
     self.toolbarItems = toolbarItems;
     [self.navigationController setToolbarHidden:NO animated:YES];
     
     [self.springyRopeView setFpsLabel:self.fpsLabel];
+
+    [self.springyRopeView setDynamicsXRayEnabled:YES];
 }
 
 - (CMSpringyRopeView *)springyRopeView
@@ -100,14 +99,14 @@
     [self.springyRopeView setSmoothed:toggleSwitch.isOn];
 }
 
-- (void)xrayToggleAction:(UISwitch *)toggleSwitch
-{
-    [self.springyRopeView setDynamicsXRayEnabled:toggleSwitch.isOn];
-}
-
 - (void)accelerometerToggleAction:(UISwitch *)toggleSwitch
 {
     [self.springyRopeView setGravityByDeviceMotionEnabled:toggleSwitch.isOn];
+}
+
+- (void)xrayAction:(__unused id)sender
+{
+    [self.springyRopeView presentDynamicsXrayConfigViewController];
 }
 
 @end

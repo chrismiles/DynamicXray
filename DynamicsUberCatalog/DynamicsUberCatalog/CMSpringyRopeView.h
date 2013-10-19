@@ -37,4 +37,6 @@
 
 @property (nonatomic, retain) UILabel *fpsLabel;
 
+- (void)presentDynamicsXrayConfigViewController;
+
 @end

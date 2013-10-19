@@ -247,6 +247,11 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
     }
 }
 
+- (void)presentDynamicsXrayConfigViewController
+{
+    [self.dynamicsXRay presentConfigurationViewController];
+}
+
 
 #pragma mark - Handle touches
 

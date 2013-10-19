@@ -102,6 +102,11 @@
     [self.springyRopeLayer setDynamicsXRayEnabled:dynamicsXRayEnabled];
 }
 
+- (void)presentDynamicsXrayConfigViewController
+{
+    [self.springyRopeLayer presentDynamicsXrayConfigViewController];
+}
+
 
 #pragma mark - Handle touches
 

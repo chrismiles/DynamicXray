@@ -7,6 +7,9 @@
 //
 
 @import UIKit;
+@class DXRDynamicsXRayViewController;
+@class DXRDynamicsXRayConfigurationViewController;
+
 
 @interface DXRDynamicsXRayWindowController : NSObject
 
@@ -18,5 +21,28 @@
     call a new window will be created and returned.
  */
 @property (weak, nonatomic, readonly) UIWindow *xrayWindow;
+
+/** Adds a DXRDynamicsXRayViewController's view to the window and makes it visible.
+ 
+    Note that dynamics Xray views are always added below any configuration view.
+ */
+- (void)presentDynamicsXRayViewController:(DXRDynamicsXRayViewController *)dynamicsXRayViewController;
+
+/** Removes a DXRDynamicsXRayViewController's view from the window.
+ */
+- (void)dismissDynamicsXRayViewController:(DXRDynamicsXRayViewController *)xrayViewController;
+
+/** Adds a DXRDynamicsXRayConfigurationViewController's view to the window.
+ 
+    Only one configuration view can be visible at a time. Attempts to present another
+    configuration view when one is already present will be ignored.
+    
+    Note that configuration views will always be added on top of dynamics xray views.
+ */
+- (void)presentConfigViewController:(DXRDynamicsXRayConfigurationViewController *)configViewController;
+
+/** Dismiss the DXRDynamicsXRayConfigurationViewController's view if one is visible.
+ */
+- (void)dismissConfigViewController;
 
 @end

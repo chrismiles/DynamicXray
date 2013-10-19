@@ -11,6 +11,13 @@
 @end
 
 
+@interface DynamicsXRay (XRayUserInterface)
+
+- (void)presentConfigurationViewController;
+
+@end
+
+
 @interface DynamicsXRay (XRayVisualStyle)
 
 /** Controls the opacity of both the XRay overlay and the application windows.
