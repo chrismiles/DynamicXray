@@ -86,10 +86,22 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 }
 
 
+#pragma mark - Active
+
+- (void)setActive:(BOOL)active
+{
+    _active = active;
+
+    self.xrayWindow.hidden = (active == NO);
+}
+
+
 #pragma mark - Introspect Dynamic Behavior
 
 - (void)introspectDynamicAnimator:(UIDynamicAnimator *)dynamicAnimator
 {
+    if ([self isActive] == NO) return;
+
 #ifdef DYNAMIC_ANIMATOR_OBJECT_INTROSPECTION
     [dynamicAnimator CMObjectIntrospectionDumpInfo];
 #endif

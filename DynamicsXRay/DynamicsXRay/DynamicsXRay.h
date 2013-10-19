@@ -8,6 +8,8 @@
 
 @interface DynamicsXRay : UIDynamicBehavior
 
+@property (assign, nonatomic, getter = isActive) BOOL active;
+
 @end
 
 
@@ -34,6 +36,6 @@
     *    0: App window opacity: 1.0; XRay overlay window opacity: 1.0
     *  1.0: App window opacity:   0; XRay overlay window opacity: 1.0
  */
-@property (nonatomic, assign) CGFloat crossFade;
+@property (assign, nonatomic) CGFloat crossFade;
 
 @end
