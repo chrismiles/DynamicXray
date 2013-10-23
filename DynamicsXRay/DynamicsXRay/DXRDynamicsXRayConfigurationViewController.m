@@ -67,7 +67,21 @@
     [activeToggleSwitch sizeToFit];
     [activeToggleSwitch setOn:self.dynamicsXRay.isActive];
     [activeToggleSwitch addTarget:self action:@selector(activeToggleAction:) forControlEvents:UIControlEventValueChanged];
+
+    UILabel *activeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    activeLabel.text = @"Active";
+    [activeLabel sizeToFit];
+
     [containerView addSubview:activeToggleSwitch];
+    [containerView addSubview:activeLabel];
+
+    activeToggleSwitch.translatesAutoresizingMaskIntoConstraints = NO;
+    activeLabel.translatesAutoresizingMaskIntoConstraints = NO;
+
+    NSDictionary *layoutViews = NSDictionaryOfVariableBindings(activeToggleSwitch, activeLabel);
+    [containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[activeToggleSwitch]-[activeLabel]-(>=20)-|" options:0 metrics:nil views:layoutViews]];
+    [containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[activeToggleSwitch]-(>=20)-|" options:0 metrics:nil views:layoutViews]];
+    [containerView addConstraint:[NSLayoutConstraint constraintWithItem:activeLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:activeToggleSwitch attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0]];
 
     return containerView;
 }
