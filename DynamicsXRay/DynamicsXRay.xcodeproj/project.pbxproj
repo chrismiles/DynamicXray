@@ -48,6 +48,8 @@
 		83849DF217AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DF017AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.m */; };
 		83849DF517AE242A00D6DD3C /* DXRDynamicsXRayUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DF317AE242A00D6DD3C /* DXRDynamicsXRayUtil.h */; };
 		83849DF617AE242A00D6DD3C /* DXRDynamicsXRayUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DF417AE242A00D6DD3C /* DXRDynamicsXRayUtil.m */; };
+		8392287C181885070047F7C4 /* DXRDynamicsXRayConfigurationViewController+Controls.h in Headers */ = {isa = PBXBuildFile; fileRef = 8392287A181885070047F7C4 /* DXRDynamicsXRayConfigurationViewController+Controls.h */; };
+		8392287D181885070047F7C4 /* DXRDynamicsXRayConfigurationViewController+Controls.m in Sources */ = {isa = PBXBuildFile; fileRef = 8392287B181885070047F7C4 /* DXRDynamicsXRayConfigurationViewController+Controls.m */; };
 		83B61354180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B61352180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.h */; };
 		83B61355180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B61353180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.m */; };
 		83B61358180BBDC10006BBA3 /* DXRDynamicsXRayItemGravity+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B61356180BBDC10006BBA3 /* DXRDynamicsXRayItemGravity+DXRDrawing.h */; };
@@ -119,6 +121,9 @@
 		83849DF017AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXRayItemAttachment.m; sourceTree = "<group>"; };
 		83849DF317AE242A00D6DD3C /* DXRDynamicsXRayUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXRayUtil.h; sourceTree = "<group>"; };
 		83849DF417AE242A00D6DD3C /* DXRDynamicsXRayUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXRayUtil.m; sourceTree = "<group>"; };
+		8392287A181885070047F7C4 /* DXRDynamicsXRayConfigurationViewController+Controls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicsXRayConfigurationViewController+Controls.h"; sourceTree = "<group>"; };
+		8392287B181885070047F7C4 /* DXRDynamicsXRayConfigurationViewController+Controls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRDynamicsXRayConfigurationViewController+Controls.m"; sourceTree = "<group>"; };
+		8392287E181885440047F7C4 /* DXRDynamicsXRayConfigurationViewController_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXRayConfigurationViewController_Internal.h; sourceTree = "<group>"; };
 		83B61352180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXRayItemGravity.h; sourceTree = "<group>"; };
 		83B61353180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXRayItemGravity.m; sourceTree = "<group>"; };
 		83B61356180BBDC10006BBA3 /* DXRDynamicsXRayItemGravity+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicsXRayItemGravity+DXRDrawing.h"; sourceTree = "<group>"; };
@@ -160,6 +165,9 @@
 			children = (
 				8317A74A180E8F6300F4B954 /* DXRDynamicsXRayConfigurationViewController.h */,
 				8317A74B180E8F6300F4B954 /* DXRDynamicsXRayConfigurationViewController.m */,
+				8392287E181885440047F7C4 /* DXRDynamicsXRayConfigurationViewController_Internal.h */,
+				8392287A181885070047F7C4 /* DXRDynamicsXRayConfigurationViewController+Controls.h */,
+				8392287B181885070047F7C4 /* DXRDynamicsXRayConfigurationViewController+Controls.m */,
 				8317A752180E95CB00F4B954 /* DXRDynamicsXRayConfigurationViewController+Private.h */,
 			);
 			name = "Configuration View Controller";
@@ -320,6 +328,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8392287C181885070047F7C4 /* DXRDynamicsXRayConfigurationViewController+Controls.h in Headers */,
 				83FA2B2717FC290E0022DEAB /* DXRDynamicsXRayItemAttachment+DXRDrawing.h in Headers */,
 				8317A759180EA89800F4B954 /* DXRDynamicsXRayViewController.h in Headers */,
 				8317A754180E95CB00F4B954 /* DXRDynamicsXRayConfigurationViewController+Private.h in Headers */,
@@ -453,6 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8392287D181885070047F7C4 /* DXRDynamicsXRayConfigurationViewController+Controls.m in Sources */,
 				83B61355180BBD4C0006BBA3 /* DXRDynamicsXRayItemGravity.m in Sources */,
 				8317A75A180EA89800F4B954 /* DXRDynamicsXRayViewController.m in Sources */,
 				83849DF217AE105B00D6DD3C /* DXRDynamicsXRayItemAttachment.m in Sources */,
