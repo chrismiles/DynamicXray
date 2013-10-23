@@ -9,6 +9,7 @@
 #import "DXRDynamicsXRayWindowController.h"
 #import "DXRDynamicsXRayViewController.h"
 #import "DXRDynamicsXRayConfigurationViewController.h"
+#import "DXRDynamicsXRayConfigurationViewController+Private.h"
 
 
 @interface DXRDynamicsXRayWindowController ()
@@ -85,9 +86,10 @@
 
 #pragma mark - Config View Controller Presentation
 
-- (void)presentConfigViewController:(DXRDynamicsXRayConfigurationViewController *)configViewController
+- (void)presentConfigViewControllerWithDynamicsXray:(DynamicsXRay *)dynamicsXray
 {
     if (self.configurationViewController == nil) {
+        DXRDynamicsXRayConfigurationViewController *configViewController = [[DXRDynamicsXRayConfigurationViewController alloc] initWithDynamicsXRay:dynamicsXray];
         self.configurationViewController = configViewController;
 
         [configViewController.view setFrame:self.window.bounds];

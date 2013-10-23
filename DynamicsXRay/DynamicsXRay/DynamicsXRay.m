@@ -10,7 +10,6 @@
 #import "DXRDynamicsXRayView.h"
 #import "DXRDynamicsXRayViewController.h"
 #import "DXRDynamicsXRayWindowController.h"
-#import "DXRDynamicsXRayConfigurationViewController+Private.h"
 
 
 /*
@@ -60,6 +59,8 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
             }
         });
 
+        _active = YES;
+
         // Grab a strong reference to the shared XRay window (a new one is created on demand if needed)
         self.xrayWindow = sharedXrayWindowController.xrayWindow;
 
@@ -90,9 +91,15 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
 - (void)setActive:(BOOL)active
 {
-    _active = active;
+    if (active != _active) {
+        _active = active;
 
-    self.xrayWindow.hidden = (active == NO);
+        if (active) {
+            [self introspectDynamicAnimator:self.dynamicAnimator];
+        }
+    }
+
+    self.xrayViewController.view.hidden = (active == NO);
 }
 
 
@@ -326,9 +333,7 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
 - (void)presentConfigurationViewController
 {
-    DXRDynamicsXRayConfigurationViewController *configViewController = [[DXRDynamicsXRayConfigurationViewController alloc] initWithDynamicsXRay:self];
-
-    [sharedXrayWindowController presentConfigViewController:configViewController];
+    [sharedXrayWindowController presentConfigViewControllerWithDynamicsXray:self];
 }
 
 @end

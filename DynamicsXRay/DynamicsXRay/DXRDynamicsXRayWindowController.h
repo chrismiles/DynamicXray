@@ -7,8 +7,8 @@
 //
 
 @import UIKit;
+@class DynamicsXRay;
 @class DXRDynamicsXRayViewController;
-@class DXRDynamicsXRayConfigurationViewController;
 
 
 @interface DXRDynamicsXRayWindowController : UIViewController
@@ -22,6 +22,7 @@
  */
 @property (weak, nonatomic, readonly) UIWindow *xrayWindow;
 
+
 /** Adds a DXRDynamicsXRayViewController's view to the window and makes it visible.
  
     Note that dynamics Xray views are always added below any configuration view.
@@ -32,6 +33,7 @@
  */
 - (void)dismissDynamicsXRayViewController:(DXRDynamicsXRayViewController *)xrayViewController;
 
+
 /** Adds a DXRDynamicsXRayConfigurationViewController's view to the window.
  
     Only one configuration view can be visible at a time. Attempts to present another
@@ -39,7 +41,7 @@
     
     Note that configuration views will always be added on top of dynamics xray views.
  */
-- (void)presentConfigViewController:(DXRDynamicsXRayConfigurationViewController *)configViewController;
+- (void)presentConfigViewControllerWithDynamicsXray:(DynamicsXRay *)dynamicsXray;
 
 /** Dismiss the DXRDynamicsXRayConfigurationViewController's view if one is visible.
  */
