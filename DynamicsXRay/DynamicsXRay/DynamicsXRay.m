@@ -40,7 +40,7 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
 @interface DynamicsXRay (XRayVisualStyleInternals)
 
-- (void)updateWindowTransparencyLevels;
+- (void)updateDynamicsViewTransparencyLevels;
 
 @end
 
@@ -69,7 +69,7 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
         [sharedXrayWindowController presentDynamicsXRayViewController:_xrayViewController];
         [self.xrayWindow setHidden:NO];
 
-        [self updateWindowTransparencyLevels];
+        [self updateDynamicsViewTransparencyLevels];
 
         __weak DynamicsXRay *weakSelf = self;
         self.action = ^{
@@ -301,7 +301,7 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 - (void)setCrossFade:(CGFloat)crossFade
 {
     _crossFade = crossFade;
-    [self updateWindowTransparencyLevels];
+    [self updateDynamicsViewTransparencyLevels];
 }
 
 - (CGFloat)crossFade
@@ -309,9 +309,9 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
     return _crossFade;
 }
 
-- (void)updateWindowTransparencyLevels
+- (void)updateDynamicsViewTransparencyLevels
 {
-    CGFloat xrayWindowAlpha = 1.0f;
+    CGFloat xrayViewAlpha = 1.0f;
     UIColor *backgroundColor;
 
     if (self.crossFade > 0) {
@@ -319,10 +319,10 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
     }
     else {
         backgroundColor = [UIColor clearColor];
-        xrayWindowAlpha = 1.0f + self.crossFade;
+        xrayViewAlpha = 1.0f + self.crossFade;
     }
 
-    self.xrayWindow.alpha = xrayWindowAlpha;
+    self.xrayViewController.view.alpha = xrayViewAlpha;
     self.xrayWindow.backgroundColor = backgroundColor;
 }
 
