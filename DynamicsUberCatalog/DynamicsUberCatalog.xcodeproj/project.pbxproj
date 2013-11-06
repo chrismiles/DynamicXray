@@ -11,25 +11,25 @@
 		2806C645175BE66C00827B6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2806C644175BE66C00827B6B /* CoreGraphics.framework */; };
 		2806C647175BE66C00827B6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2806C646175BE66C00827B6B /* UIKit.framework */; };
 		2806C64D175BE66C00827B6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2806C64B175BE66C00827B6B /* InfoPlist.strings */; };
-		2806C64F175BE66C00827B6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2806C64E175BE66C00827B6B /* main.m */; };
-		2806C653175BE66C00827B6B /* DUCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2806C652175BE66C00827B6B /* DUCAppDelegate.m */; };
 		2806C656175BE66C00827B6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2806C654175BE66C00827B6B /* Main.storyboard */; };
 		2806C65B175BE66C00827B6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2806C65A175BE66C00827B6B /* Images.xcassets */; };
-		2806C679175BE9B900827B6B /* APLGravityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2806C678175BE9B900827B6B /* APLGravityViewController.m */; };
-		2806C67C175BEB2B00827B6B /* APLCollisionGravityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2806C67B175BEB2B00827B6B /* APLCollisionGravityViewController.m */; };
-		2806C67F175BEC5B00827B6B /* APLAttachmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2806C67E175BEC5B00827B6B /* APLAttachmentsViewController.m */; };
-		2806C682175BF05700827B6B /* APLCollisionsGravitySpringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2806C681175BF05700827B6B /* APLCollisionsGravitySpringViewController.m */; };
-		2806C685175BF34C00827B6B /* APLSnapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2806C684175BF34C00827B6B /* APLSnapViewController.m */; };
-		28E53D56175BF6EE009B735C /* APLInstantaneousPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E53D55175BF6EE009B735C /* APLInstantaneousPushViewController.m */; };
-		28E53D59175BFABC009B735C /* APLContinuousPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E53D58175BFABC009B735C /* APLContinuousPushViewController.m */; };
-		28E53D5C175C07C4009B735C /* APLItemPropertiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28E53D5B175C07C4009B735C /* APLItemPropertiesViewController.m */; };
 		830DA09B17FD7E8D00A24B39 /* CMLabelledSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 830DA09A17FD7E8D00A24B39 /* CMLabelledSwitch.m */; };
-		83584CDF17F8E0D300F09FF1 /* CMSpringyRopeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CDE17F8E0D300F09FF1 /* CMSpringyRopeViewController.m */; };
-		83584CE317F8E16B00F09FF1 /* CMSpringyRopeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CE217F8E16A00F09FF1 /* CMSpringyRopeView.m */; };
-		83584CE617F8E17F00F09FF1 /* CMSpringyRopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CE517F8E17F00F09FF1 /* CMSpringyRopeLayer.m */; };
-		83584CE917F8E1B600F09FF1 /* CMSpringyRopeSmoothedPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CE817F8E1B600F09FF1 /* CMSpringyRopeSmoothedPath.m */; };
-		83584CF717F99F2700F09FF1 /* CMSpringyRopeParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584CF617F99F2700F09FF1 /* CMSpringyRopeParticle.m */; };
 		83849DE917AE06A000D6DD3C /* libDynamicsXRay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83849DE817AE06A000D6DD3C /* libDynamicsXRay.a */; };
+		83BA61891829D0FC00341483 /* DUCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61691829D0FC00341483 /* DUCAppDelegate.m */; };
+		83BA618A1829D0FC00341483 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA616A1829D0FC00341483 /* main.m */; };
+		83BA618B1829D0FC00341483 /* APLAttachmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA616D1829D0FC00341483 /* APLAttachmentsViewController.m */; };
+		83BA618C1829D0FC00341483 /* APLCollisionGravityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA616F1829D0FC00341483 /* APLCollisionGravityViewController.m */; };
+		83BA618D1829D0FC00341483 /* APLCollisionsGravitySpringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61711829D0FC00341483 /* APLCollisionsGravitySpringViewController.m */; };
+		83BA618E1829D0FC00341483 /* APLContinuousPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61731829D0FC00341483 /* APLContinuousPushViewController.m */; };
+		83BA618F1829D0FC00341483 /* APLGravityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61751829D0FC00341483 /* APLGravityViewController.m */; };
+		83BA61901829D0FC00341483 /* APLInstantaneousPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61771829D0FC00341483 /* APLInstantaneousPushViewController.m */; };
+		83BA61911829D0FC00341483 /* APLItemPropertiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61791829D0FC00341483 /* APLItemPropertiesViewController.m */; };
+		83BA61921829D0FC00341483 /* APLSnapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA617B1829D0FC00341483 /* APLSnapViewController.m */; };
+		83BA61931829D0FC00341483 /* CMSpringyRopeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61801829D0FC00341483 /* CMSpringyRopeLayer.m */; };
+		83BA61941829D0FC00341483 /* CMSpringyRopeParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61821829D0FC00341483 /* CMSpringyRopeParticle.m */; };
+		83BA61951829D0FC00341483 /* CMSpringyRopeSmoothedPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61841829D0FC00341483 /* CMSpringyRopeSmoothedPath.m */; };
+		83BA61961829D0FC00341483 /* CMSpringyRopeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61861829D0FC00341483 /* CMSpringyRopeView.m */; };
+		83BA61971829D0FC00341483 /* CMSpringyRopeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61881829D0FC00341483 /* CMSpringyRopeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,41 +39,41 @@
 		2806C646175BE66C00827B6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2806C64A175BE66C00827B6B /* DynamicsUberCatalog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DynamicsUberCatalog-Info.plist"; sourceTree = "<group>"; };
 		2806C64C175BE66C00827B6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2806C64E175BE66C00827B6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2806C650175BE66C00827B6B /* DynamicsUberCatalog-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DynamicsUberCatalog-Prefix.pch"; sourceTree = "<group>"; };
-		2806C651175BE66C00827B6B /* DUCAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DUCAppDelegate.h; sourceTree = "<group>"; };
-		2806C652175BE66C00827B6B /* DUCAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DUCAppDelegate.m; sourceTree = "<group>"; };
 		2806C655175BE66C00827B6B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2806C65A175BE66C00827B6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		2806C677175BE9B900827B6B /* APLGravityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLGravityViewController.h; sourceTree = "<group>"; };
-		2806C678175BE9B900827B6B /* APLGravityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLGravityViewController.m; sourceTree = "<group>"; };
-		2806C67A175BEB2B00827B6B /* APLCollisionGravityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLCollisionGravityViewController.h; sourceTree = "<group>"; };
-		2806C67B175BEB2B00827B6B /* APLCollisionGravityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLCollisionGravityViewController.m; sourceTree = "<group>"; };
-		2806C67D175BEC5B00827B6B /* APLAttachmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLAttachmentsViewController.h; sourceTree = "<group>"; };
-		2806C67E175BEC5B00827B6B /* APLAttachmentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLAttachmentsViewController.m; sourceTree = "<group>"; };
-		2806C680175BF05700827B6B /* APLCollisionsGravitySpringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLCollisionsGravitySpringViewController.h; sourceTree = "<group>"; };
-		2806C681175BF05700827B6B /* APLCollisionsGravitySpringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLCollisionsGravitySpringViewController.m; sourceTree = "<group>"; };
-		2806C683175BF34C00827B6B /* APLSnapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLSnapViewController.h; sourceTree = "<group>"; };
-		2806C684175BF34C00827B6B /* APLSnapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLSnapViewController.m; sourceTree = "<group>"; };
-		28E53D54175BF6EE009B735C /* APLInstantaneousPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLInstantaneousPushViewController.h; sourceTree = "<group>"; };
-		28E53D55175BF6EE009B735C /* APLInstantaneousPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLInstantaneousPushViewController.m; sourceTree = "<group>"; };
-		28E53D57175BFABC009B735C /* APLContinuousPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLContinuousPushViewController.h; sourceTree = "<group>"; };
-		28E53D58175BFABC009B735C /* APLContinuousPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLContinuousPushViewController.m; sourceTree = "<group>"; };
-		28E53D5A175C07C4009B735C /* APLItemPropertiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLItemPropertiesViewController.h; sourceTree = "<group>"; };
-		28E53D5B175C07C4009B735C /* APLItemPropertiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLItemPropertiesViewController.m; sourceTree = "<group>"; };
 		830DA09917FD7E8D00A24B39 /* CMLabelledSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMLabelledSwitch.h; sourceTree = "<group>"; };
 		830DA09A17FD7E8D00A24B39 /* CMLabelledSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMLabelledSwitch.m; sourceTree = "<group>"; };
-		83584CDD17F8E0D300F09FF1 /* CMSpringyRopeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeViewController.h; sourceTree = "<group>"; };
-		83584CDE17F8E0D300F09FF1 /* CMSpringyRopeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeViewController.m; sourceTree = "<group>"; };
-		83584CE117F8E16A00F09FF1 /* CMSpringyRopeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeView.h; sourceTree = "<group>"; };
-		83584CE217F8E16A00F09FF1 /* CMSpringyRopeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeView.m; sourceTree = "<group>"; };
-		83584CE417F8E17F00F09FF1 /* CMSpringyRopeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeLayer.h; sourceTree = "<group>"; };
-		83584CE517F8E17F00F09FF1 /* CMSpringyRopeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeLayer.m; sourceTree = "<group>"; };
-		83584CE717F8E1B600F09FF1 /* CMSpringyRopeSmoothedPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeSmoothedPath.h; sourceTree = "<group>"; };
-		83584CE817F8E1B600F09FF1 /* CMSpringyRopeSmoothedPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeSmoothedPath.m; sourceTree = "<group>"; };
-		83584CF517F99F2700F09FF1 /* CMSpringyRopeParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeParticle.h; sourceTree = "<group>"; };
-		83584CF617F99F2700F09FF1 /* CMSpringyRopeParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeParticle.m; sourceTree = "<group>"; };
 		83849DE817AE06A000D6DD3C /* libDynamicsXRay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDynamicsXRay.a; path = "../../../../Library/Developer/Xcode/DerivedData/DynamicsXRay-gbmdfpjpsnunjvenkedrhmxwiykt/Build/Products/Debug-iphoneos/libDynamicsXRay.a"; sourceTree = "<group>"; };
+		83BA61681829D0FC00341483 /* DUCAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUCAppDelegate.h; sourceTree = "<group>"; };
+		83BA61691829D0FC00341483 /* DUCAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DUCAppDelegate.m; sourceTree = "<group>"; };
+		83BA616A1829D0FC00341483 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		83BA616C1829D0FC00341483 /* APLAttachmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLAttachmentsViewController.h; sourceTree = "<group>"; };
+		83BA616D1829D0FC00341483 /* APLAttachmentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLAttachmentsViewController.m; sourceTree = "<group>"; };
+		83BA616E1829D0FC00341483 /* APLCollisionGravityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLCollisionGravityViewController.h; sourceTree = "<group>"; };
+		83BA616F1829D0FC00341483 /* APLCollisionGravityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLCollisionGravityViewController.m; sourceTree = "<group>"; };
+		83BA61701829D0FC00341483 /* APLCollisionsGravitySpringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLCollisionsGravitySpringViewController.h; sourceTree = "<group>"; };
+		83BA61711829D0FC00341483 /* APLCollisionsGravitySpringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLCollisionsGravitySpringViewController.m; sourceTree = "<group>"; };
+		83BA61721829D0FC00341483 /* APLContinuousPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLContinuousPushViewController.h; sourceTree = "<group>"; };
+		83BA61731829D0FC00341483 /* APLContinuousPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLContinuousPushViewController.m; sourceTree = "<group>"; };
+		83BA61741829D0FC00341483 /* APLGravityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLGravityViewController.h; sourceTree = "<group>"; };
+		83BA61751829D0FC00341483 /* APLGravityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLGravityViewController.m; sourceTree = "<group>"; };
+		83BA61761829D0FC00341483 /* APLInstantaneousPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLInstantaneousPushViewController.h; sourceTree = "<group>"; };
+		83BA61771829D0FC00341483 /* APLInstantaneousPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLInstantaneousPushViewController.m; sourceTree = "<group>"; };
+		83BA61781829D0FC00341483 /* APLItemPropertiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLItemPropertiesViewController.h; sourceTree = "<group>"; };
+		83BA61791829D0FC00341483 /* APLItemPropertiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLItemPropertiesViewController.m; sourceTree = "<group>"; };
+		83BA617A1829D0FC00341483 /* APLSnapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLSnapViewController.h; sourceTree = "<group>"; };
+		83BA617B1829D0FC00341483 /* APLSnapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLSnapViewController.m; sourceTree = "<group>"; };
+		83BA617F1829D0FC00341483 /* CMSpringyRopeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeLayer.h; sourceTree = "<group>"; };
+		83BA61801829D0FC00341483 /* CMSpringyRopeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeLayer.m; sourceTree = "<group>"; };
+		83BA61811829D0FC00341483 /* CMSpringyRopeParticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeParticle.h; sourceTree = "<group>"; };
+		83BA61821829D0FC00341483 /* CMSpringyRopeParticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeParticle.m; sourceTree = "<group>"; };
+		83BA61831829D0FC00341483 /* CMSpringyRopeSmoothedPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeSmoothedPath.h; sourceTree = "<group>"; };
+		83BA61841829D0FC00341483 /* CMSpringyRopeSmoothedPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeSmoothedPath.m; sourceTree = "<group>"; };
+		83BA61851829D0FC00341483 /* CMSpringyRopeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeView.h; sourceTree = "<group>"; };
+		83BA61861829D0FC00341483 /* CMSpringyRopeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeView.m; sourceTree = "<group>"; };
+		83BA61871829D0FC00341483 /* CMSpringyRopeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeViewController.h; sourceTree = "<group>"; };
+		83BA61881829D0FC00341483 /* CMSpringyRopeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,12 +126,9 @@
 		2806C648175BE66C00827B6B /* DynamicsUberCatalog */ = {
 			isa = PBXGroup;
 			children = (
-				83584CDB17F8E06700F09FF1 /* Apple Samples */,
-				83584CDC17F8E0A400F09FF1 /* Traer Physics Samples */,
-				2806C654175BE66C00827B6B /* Main.storyboard */,
-				2806C651175BE66C00827B6B /* DUCAppDelegate.h */,
-				2806C652175BE66C00827B6B /* DUCAppDelegate.m */,
 				2806C65A175BE66C00827B6B /* Images.xcassets */,
+				2806C654175BE66C00827B6B /* Main.storyboard */,
+				83BA61661829D0FC00341483 /* Source */,
 				2806C649175BE66C00827B6B /* Supporting Files */,
 			);
 			path = DynamicsUberCatalog;
@@ -142,7 +139,6 @@
 			children = (
 				2806C64A175BE66C00827B6B /* DynamicsUberCatalog-Info.plist */,
 				2806C64B175BE66C00827B6B /* InfoPlist.strings */,
-				2806C64E175BE66C00827B6B /* main.m */,
 				2806C650175BE66C00827B6B /* DynamicsUberCatalog-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -165,52 +161,80 @@
 			path = CMLabelledSwitch;
 			sourceTree = "<group>";
 		};
-		83584CDB17F8E06700F09FF1 /* Apple Samples */ = {
+		83BA61661829D0FC00341483 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				2806C677175BE9B900827B6B /* APLGravityViewController.h */,
-				2806C678175BE9B900827B6B /* APLGravityViewController.m */,
-				2806C67A175BEB2B00827B6B /* APLCollisionGravityViewController.h */,
-				2806C67B175BEB2B00827B6B /* APLCollisionGravityViewController.m */,
-				2806C67D175BEC5B00827B6B /* APLAttachmentsViewController.h */,
-				2806C67E175BEC5B00827B6B /* APLAttachmentsViewController.m */,
-				2806C680175BF05700827B6B /* APLCollisionsGravitySpringViewController.h */,
-				2806C681175BF05700827B6B /* APLCollisionsGravitySpringViewController.m */,
-				2806C683175BF34C00827B6B /* APLSnapViewController.h */,
-				2806C684175BF34C00827B6B /* APLSnapViewController.m */,
-				28E53D54175BF6EE009B735C /* APLInstantaneousPushViewController.h */,
-				28E53D55175BF6EE009B735C /* APLInstantaneousPushViewController.m */,
-				28E53D57175BFABC009B735C /* APLContinuousPushViewController.h */,
-				28E53D58175BFABC009B735C /* APLContinuousPushViewController.m */,
-				28E53D5A175C07C4009B735C /* APLItemPropertiesViewController.h */,
-				28E53D5B175C07C4009B735C /* APLItemPropertiesViewController.m */,
+				83BA61671829D0FC00341483 /* App */,
+				83BA616B1829D0FC00341483 /* Apple Demos */,
+				83BA617C1829D0FC00341483 /* Chris Miles Demos */,
+				83BA617D1829D0FC00341483 /* CMTraerPhysics Demos */,
 			);
-			name = "Apple Samples";
+			path = Source;
 			sourceTree = "<group>";
 		};
-		83584CDC17F8E0A400F09FF1 /* Traer Physics Samples */ = {
+		83BA61671829D0FC00341483 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				83584CE017F8E10300F09FF1 /* Springy Rope */,
+				83BA61681829D0FC00341483 /* DUCAppDelegate.h */,
+				83BA61691829D0FC00341483 /* DUCAppDelegate.m */,
+				83BA616A1829D0FC00341483 /* main.m */,
 			);
-			name = "Traer Physics Samples";
+			path = App;
 			sourceTree = "<group>";
 		};
-		83584CE017F8E10300F09FF1 /* Springy Rope */ = {
+		83BA616B1829D0FC00341483 /* Apple Demos */ = {
 			isa = PBXGroup;
 			children = (
-				83584CE417F8E17F00F09FF1 /* CMSpringyRopeLayer.h */,
-				83584CE517F8E17F00F09FF1 /* CMSpringyRopeLayer.m */,
-				83584CF517F99F2700F09FF1 /* CMSpringyRopeParticle.h */,
-				83584CF617F99F2700F09FF1 /* CMSpringyRopeParticle.m */,
-				83584CE717F8E1B600F09FF1 /* CMSpringyRopeSmoothedPath.h */,
-				83584CE817F8E1B600F09FF1 /* CMSpringyRopeSmoothedPath.m */,
-				83584CE117F8E16A00F09FF1 /* CMSpringyRopeView.h */,
-				83584CE217F8E16A00F09FF1 /* CMSpringyRopeView.m */,
-				83584CDD17F8E0D300F09FF1 /* CMSpringyRopeViewController.h */,
-				83584CDE17F8E0D300F09FF1 /* CMSpringyRopeViewController.m */,
+				83BA616C1829D0FC00341483 /* APLAttachmentsViewController.h */,
+				83BA616D1829D0FC00341483 /* APLAttachmentsViewController.m */,
+				83BA616E1829D0FC00341483 /* APLCollisionGravityViewController.h */,
+				83BA616F1829D0FC00341483 /* APLCollisionGravityViewController.m */,
+				83BA61701829D0FC00341483 /* APLCollisionsGravitySpringViewController.h */,
+				83BA61711829D0FC00341483 /* APLCollisionsGravitySpringViewController.m */,
+				83BA61721829D0FC00341483 /* APLContinuousPushViewController.h */,
+				83BA61731829D0FC00341483 /* APLContinuousPushViewController.m */,
+				83BA61741829D0FC00341483 /* APLGravityViewController.h */,
+				83BA61751829D0FC00341483 /* APLGravityViewController.m */,
+				83BA61761829D0FC00341483 /* APLInstantaneousPushViewController.h */,
+				83BA61771829D0FC00341483 /* APLInstantaneousPushViewController.m */,
+				83BA61781829D0FC00341483 /* APLItemPropertiesViewController.h */,
+				83BA61791829D0FC00341483 /* APLItemPropertiesViewController.m */,
+				83BA617A1829D0FC00341483 /* APLSnapViewController.h */,
+				83BA617B1829D0FC00341483 /* APLSnapViewController.m */,
 			);
-			name = "Springy Rope";
+			path = "Apple Demos";
+			sourceTree = "<group>";
+		};
+		83BA617C1829D0FC00341483 /* Chris Miles Demos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Chris Miles Demos";
+			sourceTree = "<group>";
+		};
+		83BA617D1829D0FC00341483 /* CMTraerPhysics Demos */ = {
+			isa = PBXGroup;
+			children = (
+				83BA617E1829D0FC00341483 /* Springy Rope */,
+			);
+			path = "CMTraerPhysics Demos";
+			sourceTree = "<group>";
+		};
+		83BA617E1829D0FC00341483 /* Springy Rope */ = {
+			isa = PBXGroup;
+			children = (
+				83BA617F1829D0FC00341483 /* CMSpringyRopeLayer.h */,
+				83BA61801829D0FC00341483 /* CMSpringyRopeLayer.m */,
+				83BA61811829D0FC00341483 /* CMSpringyRopeParticle.h */,
+				83BA61821829D0FC00341483 /* CMSpringyRopeParticle.m */,
+				83BA61831829D0FC00341483 /* CMSpringyRopeSmoothedPath.h */,
+				83BA61841829D0FC00341483 /* CMSpringyRopeSmoothedPath.m */,
+				83BA61851829D0FC00341483 /* CMSpringyRopeView.h */,
+				83BA61861829D0FC00341483 /* CMSpringyRopeView.m */,
+				83BA61871829D0FC00341483 /* CMSpringyRopeViewController.h */,
+				83BA61881829D0FC00341483 /* CMSpringyRopeViewController.m */,
+			);
+			path = "Springy Rope";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,22 +303,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2806C67C175BEB2B00827B6B /* APLCollisionGravityViewController.m in Sources */,
-				83584CE917F8E1B600F09FF1 /* CMSpringyRopeSmoothedPath.m in Sources */,
-				83584CF717F99F2700F09FF1 /* CMSpringyRopeParticle.m in Sources */,
-				2806C685175BF34C00827B6B /* APLSnapViewController.m in Sources */,
+				83BA618D1829D0FC00341483 /* APLCollisionsGravitySpringViewController.m in Sources */,
+				83BA61931829D0FC00341483 /* CMSpringyRopeLayer.m in Sources */,
+				83BA61951829D0FC00341483 /* CMSpringyRopeSmoothedPath.m in Sources */,
+				83BA61921829D0FC00341483 /* APLSnapViewController.m in Sources */,
+				83BA61911829D0FC00341483 /* APLItemPropertiesViewController.m in Sources */,
+				83BA61971829D0FC00341483 /* CMSpringyRopeViewController.m in Sources */,
+				83BA618B1829D0FC00341483 /* APLAttachmentsViewController.m in Sources */,
 				830DA09B17FD7E8D00A24B39 /* CMLabelledSwitch.m in Sources */,
-				2806C679175BE9B900827B6B /* APLGravityViewController.m in Sources */,
-				28E53D59175BFABC009B735C /* APLContinuousPushViewController.m in Sources */,
-				83584CE617F8E17F00F09FF1 /* CMSpringyRopeLayer.m in Sources */,
-				28E53D5C175C07C4009B735C /* APLItemPropertiesViewController.m in Sources */,
-				2806C653175BE66C00827B6B /* DUCAppDelegate.m in Sources */,
-				83584CE317F8E16B00F09FF1 /* CMSpringyRopeView.m in Sources */,
-				2806C682175BF05700827B6B /* APLCollisionsGravitySpringViewController.m in Sources */,
-				83584CDF17F8E0D300F09FF1 /* CMSpringyRopeViewController.m in Sources */,
-				2806C64F175BE66C00827B6B /* main.m in Sources */,
-				2806C67F175BEC5B00827B6B /* APLAttachmentsViewController.m in Sources */,
-				28E53D56175BF6EE009B735C /* APLInstantaneousPushViewController.m in Sources */,
+				83BA618F1829D0FC00341483 /* APLGravityViewController.m in Sources */,
+				83BA618C1829D0FC00341483 /* APLCollisionGravityViewController.m in Sources */,
+				83BA61961829D0FC00341483 /* CMSpringyRopeView.m in Sources */,
+				83BA61901829D0FC00341483 /* APLInstantaneousPushViewController.m in Sources */,
+				83BA61891829D0FC00341483 /* DUCAppDelegate.m in Sources */,
+				83BA61941829D0FC00341483 /* CMSpringyRopeParticle.m in Sources */,
+				83BA618E1829D0FC00341483 /* APLContinuousPushViewController.m in Sources */,
+				83BA618A1829D0FC00341483 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
