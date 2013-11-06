@@ -225,6 +225,9 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
     return [self.motionManager isDeviceMotionActive];
 }
 
+
+#pragma mark - DynamicsXray
+
 - (BOOL)isDynamicsXRayEnabled
 {
     return (self.dynamicsXRay != nil);

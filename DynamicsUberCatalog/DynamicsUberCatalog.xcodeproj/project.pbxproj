@@ -30,6 +30,7 @@
 		83BA61951829D0FC00341483 /* CMSpringyRopeSmoothedPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61841829D0FC00341483 /* CMSpringyRopeSmoothedPath.m */; };
 		83BA61961829D0FC00341483 /* CMSpringyRopeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61861829D0FC00341483 /* CMSpringyRopeView.m */; };
 		83BA61971829D0FC00341483 /* CMSpringyRopeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61881829D0FC00341483 /* CMSpringyRopeViewController.m */; };
+		83BA619B1829D2BC00341483 /* CMStiffSwingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA619A1829D2BC00341483 /* CMStiffSwingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,8 @@
 		83BA61861829D0FC00341483 /* CMSpringyRopeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeView.m; sourceTree = "<group>"; };
 		83BA61871829D0FC00341483 /* CMSpringyRopeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeViewController.h; sourceTree = "<group>"; };
 		83BA61881829D0FC00341483 /* CMSpringyRopeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeViewController.m; sourceTree = "<group>"; };
+		83BA61991829D2BC00341483 /* CMStiffSwingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMStiffSwingViewController.h; sourceTree = "<group>"; };
+		83BA619A1829D2BC00341483 /* CMStiffSwingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMStiffSwingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +211,7 @@
 		83BA617C1829D0FC00341483 /* Chris Miles Demos */ = {
 			isa = PBXGroup;
 			children = (
+				83BA61981829D29D00341483 /* Stiff Swing */,
 			);
 			path = "Chris Miles Demos";
 			sourceTree = "<group>";
@@ -237,6 +241,15 @@
 			path = "Springy Rope";
 			sourceTree = "<group>";
 		};
+		83BA61981829D29D00341483 /* Stiff Swing */ = {
+			isa = PBXGroup;
+			children = (
+				83BA61991829D2BC00341483 /* CMStiffSwingViewController.h */,
+				83BA619A1829D2BC00341483 /* CMStiffSwingViewController.m */,
+			);
+			path = "Stiff Swing";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -263,7 +276,7 @@
 		2806C637175BE66C00827B6B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = DC;
+				CLASSPREFIX = CM;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Chris Miles";
 			};
@@ -314,6 +327,7 @@
 				83BA618F1829D0FC00341483 /* APLGravityViewController.m in Sources */,
 				83BA618C1829D0FC00341483 /* APLCollisionGravityViewController.m in Sources */,
 				83BA61961829D0FC00341483 /* CMSpringyRopeView.m in Sources */,
+				83BA619B1829D2BC00341483 /* CMStiffSwingViewController.m in Sources */,
 				83BA61901829D0FC00341483 /* APLInstantaneousPushViewController.m in Sources */,
 				83BA61891829D0FC00341483 /* DUCAppDelegate.m in Sources */,
 				83BA61941829D0FC00341483 /* CMSpringyRopeParticle.m in Sources */,

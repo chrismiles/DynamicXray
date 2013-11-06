@@ -238,16 +238,32 @@
             </objects>
             <point key="canvasLocation" x="491" y="-63"/>
         </scene>
-        <!--View Controller - Stiff Swing-->
+        <!--Stiff Swing View Controller - Stiff Swing-->
         <scene sceneID="jNJ-JJ-Qyp">
             <objects>
-                <viewController id="0jE-Si-PPu" sceneMemberID="viewController">
+                <viewController id="0jE-Si-PPu" customClass="CMStiffSwingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4jX-mW-Lrr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="tgU-cW-g8v" userLabel="Anchor View">
+                                <rect key="frame" x="160" y="167" width="1" height="1"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="PR5-zw-eit" userLabel="Swing View">
+                                <rect key="frame" x="160" y="376" width="1" height="1"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Stiff Swing" id="Urg-BG-jon"/>
+                    <connections>
+                        <outlet property="anchorView" destination="tgU-cW-g8v" id="z2f-Pg-69L"/>
+                        <outlet property="swingView" destination="PR5-zw-eit" id="GF2-um-VIR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ECT-uh-cNP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
