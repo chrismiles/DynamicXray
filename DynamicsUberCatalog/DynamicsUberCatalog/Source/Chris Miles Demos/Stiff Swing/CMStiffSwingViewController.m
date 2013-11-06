@@ -12,7 +12,6 @@
 
 @interface CMStiffSwingViewController ()
 
-@property (strong, nonatomic) IBOutlet UIView *anchorView;
 @property (strong, nonatomic) IBOutlet UIView *swingView;
 
 @property (strong, nonatomic) UIDynamicAnimator *animator;
@@ -29,14 +28,33 @@
 {
     [super viewDidLoad];
 
+    [self initializeAnimator];
+
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *xrayItem = [[UIBarButtonItem alloc] initWithTitle:@"XRay" style:UIBarButtonItemStyleBordered target:self action:@selector(xrayAction:)];
+    self.toolbarItems = @[flexibleItem, xrayItem];
+
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognized:)];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+}
+
+- (void)initializeAnimator
+{
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
 
-    UIAttachmentBehavior *attachmentBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.swingView attachedToAnchor:self.anchorView.center];
+    CGRect swingFrame = self.swingView.frame;
+    CGPoint attachmentPoint = CGPointMake(CGRectGetWidth(swingFrame)/2.0f, CGRectGetWidth(swingFrame)/2.0f);
+    UIOffset attachmentOffset = UIOffsetMake(attachmentPoint.x - CGRectGetWidth(swingFrame)/2.0f, attachmentPoint.y - CGRectGetHeight(swingFrame)/2.0f);
+    CGPoint anchorPoint = [self.view convertPoint:attachmentPoint fromView:self.swingView];
+    UIAttachmentBehavior *attachmentBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.swingView offsetFromCenter:attachmentOffset attachedToAnchor:anchorPoint];
+
     UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[self.swingView]];
+
     self.pushBehavior = [[UIPushBehavior alloc] initWithItems:@[self.swingView] mode:UIPushBehaviorModeInstantaneous];
+
     UIDynamicItemBehavior *itemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self.swingView]];
-    itemBehavior.density = 3000.0f;
-    itemBehavior.resistance = 0.7f;
+    itemBehavior.density = 1.6f;
+    itemBehavior.resistance = 1.4f;
 
     [self.animator addBehavior:attachmentBehavior];
     [self.animator addBehavior:gravityBehavior];
@@ -45,13 +63,6 @@
 
     self.dynamicsXRay = [[DynamicsXRay alloc] init];
     [self.animator addBehavior:self.dynamicsXRay];
-
-    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *xrayItem = [[UIBarButtonItem alloc] initWithTitle:@"XRay" style:UIBarButtonItemStyleBordered target:self action:@selector(xrayAction:)];
-    self.toolbarItems = @[flexibleItem, xrayItem];
-
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognized:)];
-    [self.view addGestureRecognizer:tapGestureRecognizer];
 }
 
 - (void)viewWillAppear:(BOOL)animated
