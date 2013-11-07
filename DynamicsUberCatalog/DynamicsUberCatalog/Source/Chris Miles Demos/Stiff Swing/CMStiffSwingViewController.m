@@ -76,7 +76,7 @@
 {
     [super viewDidAppear:animated];
 
-    [self pushSwingWithAngle:((CGFloat)(180.0f * M_PI / 180.0f)) magnitude:1.0f];
+    [self pushSwingWithAngle:(CGFloat)M_PI magnitude:0.5f swingOffset:UIOffsetMake(30.0f, CGRectGetHeight(self.swingView.frame)/2.0f)];
 }
 
 
@@ -93,32 +93,34 @@
 
 - (void)applySwingPushFromPoint:(CGPoint)pushPoint
 {
-    CGFloat maxMagnitude = [self maximumPushDistance];
+    UIView *swingView = self.swingView;
 
-    CGPoint itemPoint = self.swingView.center;
+    UIOffset swingOffset = UIOffsetMake(0, CGRectGetHeight(swingView.bounds) / 2.0f);
+    CGPoint itemOffsetPoint = CGPointMake(swingOffset.horizontal + CGRectGetWidth(swingView.bounds)/2.0f, swingOffset.vertical + CGRectGetHeight(swingView.bounds)/2.0f);
+    CGPoint itemPoint = [self.view convertPoint:itemOffsetPoint fromView:swingView];
 
     CGFloat xDiff = itemPoint.x - pushPoint.x;
     CGFloat yDiff = itemPoint.y - pushPoint.y;
 
-    CGFloat distance = sqrtf(xDiff*xDiff + yDiff*yDiff);
-
     CGFloat angle = atan2f(yDiff, xDiff);
-    CGFloat magnitude = (maxMagnitude - distance) / maxMagnitude;
 
-    [self pushSwingWithAngle:angle magnitude:magnitude];
+    CGFloat distance = sqrtf(xDiff*xDiff + yDiff*yDiff);
+    CGFloat maxPushDistance = [self maximumPushDistance];
+    CGFloat magnitude = (maxPushDistance - distance) / maxPushDistance;
+    if (magnitude <= 0) magnitude = 0.05f;
+
+    [self pushSwingWithAngle:angle magnitude:magnitude swingOffset:swingOffset];
 }
 
 - (CGFloat)maximumPushDistance
 {
-    CGFloat width = CGRectGetWidth(self.view.bounds);
-    CGFloat height = CGRectGetHeight(self.view.bounds);
-    CGFloat distance = sqrtf(width*width + height*height);
-    return distance;
+    return CGRectGetWidth(self.view.bounds);
 }
 
-- (void)pushSwingWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude
+- (void)pushSwingWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude swingOffset:(UIOffset)swingOffset
 {
-    //DLog(@"angle: %g˚  magnitude: %g", (angle*180.0f/M_PI), magnitude);
+    //DLog(@"angle: %g˚  magnitude: %g  swingOffset: %@", (angle*180.0f/M_PI), magnitude, NSStringFromUIOffset(swingOffset));
+    [self.pushBehavior setTargetOffsetFromCenter:swingOffset forItem:self.swingView];
     [self.pushBehavior setAngle:angle magnitude:magnitude];
     [self.pushBehavior setActive:YES];
 }
