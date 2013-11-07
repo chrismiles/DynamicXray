@@ -38,4 +38,10 @@
  */
 @property (assign, nonatomic) CGFloat crossFade;
 
+/** Offset the Xray view drawing.
+ 
+    Specify an offset to adjust the position of the Xray overlay view.
+ */
+@property (assign, nonatomic) UIOffset viewOffset;
+
 @end

@@ -239,6 +239,7 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
         if (self.dynamicsXRay == nil) {
             self.dynamicsXRay = [[DynamicsXRay alloc] init];
             self.dynamicsXRay.crossFade = 0;
+            //self.dynamicsXRay.viewOffset = UIOffsetMake(50.0f, 100.0f);
             [self.animator addBehavior:self.dynamicsXRay];
         }
     }

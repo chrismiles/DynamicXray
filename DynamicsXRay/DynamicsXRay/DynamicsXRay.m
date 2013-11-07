@@ -29,6 +29,7 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
 @interface DynamicsXRay () {
     CGFloat _crossFade;
+    UIOffset _viewOffset;
 }
 
 @property (weak, nonatomic) UIView *referenceView;
@@ -260,6 +261,9 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
     result = [self.xrayWindow convertPoint:result fromWindow:appWindow];
 
+    result.x += self.viewOffset.horizontal;
+    result.y += self.viewOffset.vertical;
+
     return result;
 }
 
@@ -287,7 +291,6 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
     return result;
 }
-
 
 @end
 
@@ -324,6 +327,19 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
     self.xrayViewController.view.alpha = xrayViewAlpha;
     self.xrayWindow.backgroundColor = backgroundColor;
+}
+
+
+#pragma mark - viewOffset
+
+- (void)setViewOffset:(UIOffset)viewOffset
+{
+    _viewOffset = viewOffset;
+}
+
+- (UIOffset)viewOffset
+{
+    return _viewOffset;
 }
 
 @end
