@@ -29,12 +29,15 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
 @interface DynamicsXRay () {
     CGFloat _crossFade;
+    BOOL _drawDynamicItemsEnabled;
     UIOffset _viewOffset;
 }
 
 @property (weak, nonatomic) UIView *referenceView;
 @property (strong, nonatomic) DXRDynamicsXRayViewController *xrayViewController;
 @property (strong, nonatomic) UIWindow *xrayWindow;
+
+@property (strong, nonatomic) NSMutableSet *dynamicItemsToDraw;
 
 @end
 
@@ -72,6 +75,8 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
         [self updateDynamicsViewTransparencyLevels];
 
+        [self setDrawDynamicItemsEnabled:YES];
+
         __weak DynamicsXRay *weakSelf = self;
         self.action = ^{
             __strong DynamicsXRay *strongSelf = weakSelf;
@@ -101,6 +106,14 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
     }
 
     self.xrayViewController.view.hidden = (active == NO);
+}
+
+
+#pragma mark - Xray View
+
+- (DXRDynamicsXRayView *)xrayView
+{
+    return self.xrayViewController.xrayView;
 }
 
 
@@ -161,6 +174,8 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
             [self introspectBehaviors:behavior.childBehaviors];
         }
     }
+
+    [self.xrayViewController.xrayView drawDynamicItems:self.dynamicItemsToDraw withReferenceView:self.referenceView];
 }
 
 #pragma mark - Attachment Behavior
@@ -194,29 +209,31 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
         anchorPointA = CGPointApplyAffineTransform(anchorPointA, itemA.transform);
         anchorPoint.x += anchorPointA.x;
         anchorPoint.y += anchorPointA.y;
-        anchorPoint = [self convertPointFromReferenceView:anchorPoint];
-        
+        anchorPoint = [self.xrayView convertPoint:anchorPoint fromReferenceView:self.referenceView];
+
         attachmentPoint = itemB.center;
         anchorPointB = CGPointApplyAffineTransform(anchorPointB, itemB.transform);
         attachmentPoint.x += anchorPointB.x;
         attachmentPoint.y += anchorPointB.y;
-        attachmentPoint = [self convertPointFromReferenceView:attachmentPoint];
+        attachmentPoint = [self.xrayView convertPoint:attachmentPoint fromReferenceView:self.referenceView];
     }
     else {
         // Anchor to Item
         
-        anchorPoint = [self convertPointFromReferenceView:attachmentBehavior.anchorPoint];
-        
+        anchorPoint = [self.xrayView convertPoint:attachmentBehavior.anchorPoint fromReferenceView:self.referenceView];
+
         attachmentPoint = itemA.center;
         anchorPointA = CGPointApplyAffineTransform(anchorPointA, itemA.transform);
         attachmentPoint.x += anchorPointA.x;
         attachmentPoint.y += anchorPointA.y;
-        attachmentPoint = [self convertPointFromReferenceView:attachmentPoint];
+        attachmentPoint = [self.xrayView convertPoint:attachmentPoint fromReferenceView:self.referenceView];
     }
     
     BOOL isSpring = (attachmentBehavior.frequency > 0.0);
     
     [self.xrayViewController.xrayView drawAttachmentFromAnchor:anchorPoint toPoint:attachmentPoint length:attachmentBehavior.length isSpring:isSpring];
+
+    [self.dynamicItemsToDraw addObjectsFromArray:attachmentBehavior.items];
 }
 
 
@@ -234,6 +251,8 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
         CGRect boundaryRect = [self.xrayViewController.xrayView convertRect:referenceBoundaryFrame fromView:referenceView.superview];
         [self.xrayViewController.xrayView drawBoundsCollisionBoundaryWithRect:boundaryRect];
     }
+
+    [self.dynamicItemsToDraw addObjectsFromArray:collisionBehavior.items];
 }
 
 
@@ -242,54 +261,8 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 - (void)visualiseGravityBehavior:(UIGravityBehavior *)gravityBehavior
 {
     [self.xrayViewController.xrayView drawGravityBehaviorWithMagnitude:gravityBehavior.magnitude angle:gravityBehavior.angle];
-}
 
-
-#pragma mark - Coordinate Conversion
-
-- (CGPoint)convertPointFromReferenceView:(CGPoint)point
-{
-    UIWindow *appWindow = [UIApplication sharedApplication].keyWindow;
-    CGPoint result;
-
-    if (self.referenceView) {
-        result = [self.referenceView convertPoint:point toView:nil];
-    }
-    else {
-        result = [self pointTransformedFromDeviceOrientation:point];
-    }
-
-    result = [self.xrayWindow convertPoint:result fromWindow:appWindow];
-
-    result.x += self.viewOffset.horizontal;
-    result.y += self.viewOffset.vertical;
-
-    return result;
-}
-
-- (CGPoint)pointTransformedFromDeviceOrientation:(CGPoint)point
-{
-    CGPoint result;
-    CGSize windowSize = [UIApplication sharedApplication].keyWindow.bounds.size;
-    UIInterfaceOrientation statusBarOrientation = [UIApplication sharedApplication].statusBarOrientation;
-
-    if (statusBarOrientation == UIInterfaceOrientationLandscapeRight) {
-        result.x = windowSize.width - point.y;
-        result.y = point.x;
-    }
-    else if (statusBarOrientation == UIInterfaceOrientationPortraitUpsideDown) {
-        result.x = windowSize.width - point.x;
-        result.y = windowSize.height - point.y;
-    }
-    else if (statusBarOrientation == UIInterfaceOrientationLandscapeLeft) {
-        result.x = point.y;
-        result.y = windowSize.height - point.x;
-    }
-    else {
-        result = point;
-    }
-
-    return result;
+    [self.dynamicItemsToDraw addObjectsFromArray:gravityBehavior.items];
 }
 
 @end
@@ -340,6 +313,29 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 - (UIOffset)viewOffset
 {
     return _viewOffset;
+}
+
+
+#pragma mark - drawDynamicItemsEnabled
+
+- (void)setDrawDynamicItemsEnabled:(BOOL)drawDynamicItemsEnabled
+{
+    _drawDynamicItemsEnabled = drawDynamicItemsEnabled;
+
+    if (drawDynamicItemsEnabled) {
+        if (self.dynamicItemsToDraw == nil) {
+            self.dynamicItemsToDraw = [NSMutableSet set];
+        }
+    }
+    else if (self.dynamicItemsToDraw)
+    {
+        self.dynamicItemsToDraw = nil;
+    }
+}
+
+- (BOOL)drawDynamicItemsEnabled
+{
+    return _drawDynamicItemsEnabled;
 }
 
 @end

@@ -1,15 +1,15 @@
 //
-//  DXRDynamicsXRayItemAttachment.h
+//  DXRDynamicsXRayBehaviorAttachment.h
 //  DynamicsXRay
 //
 //  Created by Chris Miles on 4/08/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXRayItem.h"
+#import "DXRDynamicsXRayBehavior.h"
 @import UIKit;
 
-@interface DXRDynamicsXRayItemAttachment : DXRDynamicsXRayItem
+@interface DXRDynamicsXRayBehaviorAttachment : DXRDynamicsXRayBehavior
 
 - (id)initWithAnchorPoint:(CGPoint)anchorPoint attachmentPoint:(CGPoint)attachmentPoint length:(CGFloat)length isSpring:(BOOL)isSpring;
 

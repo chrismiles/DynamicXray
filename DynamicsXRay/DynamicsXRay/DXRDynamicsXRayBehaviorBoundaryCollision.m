@@ -1,14 +1,14 @@
 //
-//  DXRDynamicsXRayItemBoundaryCollision.m
+//  DXRDynamicsXRayBehaviorBoundaryCollision.m
 //  DynamicsXRay
 //
 //  Created by Chris Miles on 11/09/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXRayItemBoundaryCollision.h"
+#import "DXRDynamicsXRayBehaviorBoundaryCollision.h"
 
-@implementation DXRDynamicsXRayItemBoundaryCollision
+@implementation DXRDynamicsXRayBehaviorBoundaryCollision
 
 - (id)initWithBoundaryRect:(CGRect)boundaryRect
 {

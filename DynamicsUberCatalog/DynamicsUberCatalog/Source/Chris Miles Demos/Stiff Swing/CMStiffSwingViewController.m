@@ -62,6 +62,7 @@
     [self.animator addBehavior:itemBehavior];
 
     self.dynamicsXRay = [[DynamicsXRay alloc] init];
+    self.dynamicsXRay.drawDynamicItemsEnabled = YES;
     [self.animator addBehavior:self.dynamicsXRay];
 }
 

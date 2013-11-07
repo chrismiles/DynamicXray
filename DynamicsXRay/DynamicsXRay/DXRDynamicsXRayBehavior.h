@@ -1,5 +1,5 @@
 //
-//  DXRDynamicsXRayItem.h
+//  DXRDynamicsXRayBehavior.h
 //  DynamicsXRay
 //
 //  Created by Chris Miles on 4/08/13.
@@ -8,6 +8,6 @@
 
 @import Foundation;
 
-@interface DXRDynamicsXRayItem : NSObject
+@interface DXRDynamicsXRayBehavior : NSObject
 
 @end

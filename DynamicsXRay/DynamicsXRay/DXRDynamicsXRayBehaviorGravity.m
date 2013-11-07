@@ -1,14 +1,14 @@
 //
-//  DXRDynamicsXRayItemGravity.m
+//  DXRDynamicsXRayBehaviorGravity.m
 //  DynamicsXRay
 //
 //  Created by Chris Miles on 14/10/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXRayItemGravity.h"
+#import "DXRDynamicsXRayBehaviorGravity.h"
 
-@implementation DXRDynamicsXRayItemGravity
+@implementation DXRDynamicsXRayBehaviorGravity
 
 - (id)initWithGravityMagnitude:(CGFloat)magnitude angle:(CGFloat)angle
 {

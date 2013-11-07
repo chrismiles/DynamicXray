@@ -16,4 +16,10 @@
 
 - (void)drawGravityBehaviorWithMagnitude:(CGFloat)magnitude angle:(CGFloat)angle;
 
+- (void)drawDynamicItems:(NSSet *)dynamicItems withReferenceView:(UIView *)referenceView;
+
+- (CGPoint)convertPoint:(CGPoint)point fromReferenceView:(UIView *)referenceView;
+
+@property (assign, nonatomic) UIOffset drawOffset;
+
 @end

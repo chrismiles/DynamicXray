@@ -1,5 +1,5 @@
 //
-//  DXRDynamicsXRayItemDrawing.h
+//  DXRDynamicsXRayBehaviorDrawing.h
 //  DynamicsXRay
 //
 //  Created by Chris Miles on 2/10/13.
@@ -9,7 +9,7 @@
 @import Foundation;
 @import CoreGraphics;
 
-@protocol DXRDynamicsXRayItemDrawing <NSObject>
+@protocol DXRDynamicsXRayBehaviorDrawing <NSObject>
 
 - (void)drawInContext:(CGContextRef)context;
 

@@ -1,14 +1,14 @@
 //
-//  DXRDynamicsXRayItemBoundaryCollision+DXRDrawing.m
+//  DXRDynamicsXRayBehaviorBoundaryCollision+DXRDrawing.m
 //  DynamicsXRay
 //
 //  Created by Chris Miles on 2/10/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXRayItemBoundaryCollision+DXRDrawing.h"
+#import "DXRDynamicsXRayBehaviorBoundaryCollision+DXRDrawing.h"
 
-@implementation DXRDynamicsXRayItemBoundaryCollision (DXRDrawing)
+@implementation DXRDynamicsXRayBehaviorBoundaryCollision (DXRDrawing)
 
 - (void)drawInContext:(CGContextRef)context
 {

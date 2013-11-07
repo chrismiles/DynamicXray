@@ -44,4 +44,6 @@
  */
 @property (assign, nonatomic) UIOffset viewOffset;
 
+@property (assign, nonatomic) BOOL drawDynamicItemsEnabled;
+
 @end
