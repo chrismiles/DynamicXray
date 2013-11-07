@@ -30,7 +30,6 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 @interface DynamicsXRay () {
     CGFloat _crossFade;
     BOOL _drawDynamicItemsEnabled;
-    UIOffset _viewOffset;
 }
 
 @property (weak, nonatomic) UIView *referenceView;
@@ -307,12 +306,12 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
 - (void)setViewOffset:(UIOffset)viewOffset
 {
-    _viewOffset = viewOffset;
+    [self.xrayView setDrawOffset:viewOffset];
 }
 
 - (UIOffset)viewOffset
 {
-    return _viewOffset;
+    return [self.xrayView drawOffset];
 }
 
 
