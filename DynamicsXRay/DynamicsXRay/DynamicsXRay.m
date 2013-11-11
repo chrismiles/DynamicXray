@@ -337,6 +337,19 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
     return _drawDynamicItemsEnabled;
 }
 
+
+#pragma mark - allowsAntialiasing
+
+- (void)setAllowsAntialiasing:(BOOL)allowsAntialiasing
+{
+    [self.xrayView setAllowsAntialiasing:allowsAntialiasing];
+}
+
+- (BOOL)allowsAntialiasing
+{
+    return [self.xrayView allowsAntialiasing];
+}
+
 @end
 
 

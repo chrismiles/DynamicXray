@@ -38,12 +38,30 @@
  */
 @property (assign, nonatomic) CGFloat crossFade;
 
+
 /** Offset the Xray view drawing.
  
     Specify an offset to adjust the position of the Xray overlay view.
  */
 @property (assign, nonatomic) UIOffset viewOffset;
 
+
+/** Toggles whether dynamic items in the scene are drawn.
+ 
+    If set to NO, then dynamic items are not drawn (behaviors will
+    still be drawn).
+ 
+    Defaults to YES.
+ */
 @property (assign, nonatomic) BOOL drawDynamicItemsEnabled;
+
+
+/** Toggles whether antialiasing is allowed when drawing.
+ 
+    Set to NO to improve drawing performance.
+ 
+    Defaults to YES.
+ */
+@property (assign, nonatomic) BOOL allowsAntialiasing;
 
 @end

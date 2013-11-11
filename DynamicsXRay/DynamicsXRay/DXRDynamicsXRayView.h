@@ -22,4 +22,6 @@
 
 @property (assign, nonatomic) UIOffset drawOffset;
 
+@property (assign, nonatomic) BOOL allowsAntialiasing;
+
 @end

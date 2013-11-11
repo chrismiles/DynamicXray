@@ -29,7 +29,9 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-	_behaviorsToDraw = [NSMutableArray array];
+        _allowsAntialiasing = YES;
+
+        _behaviorsToDraw = [NSMutableArray array];
         _dynamicItemsToDraw = [NSMutableArray array];
         
 	self.backgroundColor = [UIColor clearColor];
@@ -133,8 +135,11 @@
 - (void)drawRect:(CGRect)rect
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    [[[UIColor blueColor] colorWithAlphaComponent:0.6f] set];
+
+    CGContextClipToRect(context, self.bounds);
+    CGContextSetAllowsAntialiasing(context, (bool)self.allowsAntialiasing);
+
+    [[UIColor blueColor] set];
 
     for (DXRDynamicsXRayItemSnapshot *itemSnapshot in self.dynamicItemsToDraw) {
         CGContextSaveGState(context);
