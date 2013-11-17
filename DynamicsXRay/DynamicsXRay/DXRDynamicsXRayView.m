@@ -20,6 +20,8 @@
 @property (strong, nonatomic) NSMutableArray *behaviorsToDraw;
 @property (strong, nonatomic) NSMutableArray *dynamicItemsToDraw;
 
+@property (assign, nonatomic) CGSize lastBoundsSize;
+
 @end
 
 
@@ -38,6 +40,27 @@
 	self.userInteractionEnabled = NO;
     }
     return self;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+
+    if ([self sizeHasChanged]) {
+        [self setNeedsDisplay];
+    }
+}
+
+- (BOOL)sizeHasChanged
+{
+    CGSize size = self.bounds.size;
+    if (CGSizeEqualToSize(size, self.lastBoundsSize)) {
+        return NO;
+    }
+    else {
+        self.lastBoundsSize = size;
+        return YES;
+    }
 }
 
 - (void)drawAttachmentFromAnchor:(CGPoint)anchorPoint toPoint:(CGPoint)attachmentPoint length:(CGFloat)length isSpring:(BOOL)isSpring
@@ -90,13 +113,14 @@
     CGPoint result;
 
     if (referenceView) {
-        result = [referenceView convertPoint:point toView:nil];
+        result = [referenceView convertPoint:point toView:nil];         // convert reference view to its window coords
     }
     else {
-        result = [self pointTransformedFromDeviceOrientation:point];
+        result = [self pointTransformedFromDeviceOrientation:point];    // convert to app window coords
     }
 
-    result = [self.window convertPoint:result fromWindow:appWindow];
+    result = [self.window convertPoint:result fromWindow:appWindow];    // convert to DynamicsXray window coords
+    result = [self convertPoint:result fromView:nil];                   // convert to DynamicsXray view coords
 
     result.x += self.drawOffset.horizontal;
     result.y += self.drawOffset.vertical;
@@ -136,7 +160,8 @@
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
 
-    CGContextClipToRect(context, self.bounds);
+    CGRect bounds = self.bounds;
+    CGContextClipToRect(context, bounds);
     CGContextSetAllowsAntialiasing(context, (bool)self.allowsAntialiasing);
 
     [[UIColor blueColor] set];

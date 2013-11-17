@@ -7,8 +7,8 @@
 //
 
 #import "DynamicsXRay.h"
+#import "DynamicsXRay_Internal.h"
 #import "DXRDynamicsXRayView.h"
-#import "DXRDynamicsXRayViewController.h"
 #import "DXRDynamicsXRayWindowController.h"
 
 
@@ -25,20 +25,6 @@
 
 
 static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
-
-
-@interface DynamicsXRay () {
-    CGFloat _crossFade;
-    BOOL _drawDynamicItemsEnabled;
-}
-
-@property (weak, nonatomic) UIView *referenceView;
-@property (strong, nonatomic) DXRDynamicsXRayViewController *xrayViewController;
-@property (strong, nonatomic) UIWindow *xrayWindow;
-
-@property (strong, nonatomic) NSMutableSet *dynamicItemsToDraw;
-
-@end
 
 
 @interface DynamicsXRay (XRayVisualStyleInternals)
@@ -67,7 +53,7 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
         // Grab a strong reference to the shared XRay window (a new one is created on demand if needed)
         self.xrayWindow = sharedXrayWindowController.xrayWindow;
 
-        _xrayViewController = [[DXRDynamicsXRayViewController alloc] initWithNibName:nil bundle:nil];
+        _xrayViewController = [[DXRDynamicsXRayViewController alloc] initDynamicsXray:self];
 
         [sharedXrayWindowController presentDynamicsXRayViewController:_xrayViewController];
         [self.xrayWindow setHidden:NO];
@@ -79,7 +65,7 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
         __weak DynamicsXRay *weakSelf = self;
         self.action = ^{
             __strong DynamicsXRay *strongSelf = weakSelf;
-            [strongSelf introspectDynamicAnimator:strongSelf.dynamicAnimator];
+            [strongSelf redraw];
         };
     }
     return self;
@@ -113,6 +99,14 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 - (DXRDynamicsXRayView *)xrayView
 {
     return self.xrayViewController.xrayView;
+}
+
+
+#pragma mark - Redraw
+
+- (void)redraw
+{
+    [self introspectDynamicAnimator:self.dynamicAnimator];
 }
 
 

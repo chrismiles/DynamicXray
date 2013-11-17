@@ -7,9 +7,14 @@
 //
 
 @import UIKit;
+@class DynamicsXRay;
 @class DXRDynamicsXRayView;
 
 @interface DXRDynamicsXRayViewController : UIViewController
+
+- (id)initDynamicsXray:(DynamicsXRay *)dynamicsXray;
+
+@property (weak, nonatomic) DynamicsXRay *dynamicsXray;
 
 - (DXRDynamicsXRayView *)xrayView;
 

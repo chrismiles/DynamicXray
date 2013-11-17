@@ -10,18 +10,13 @@
 #import "DXRDynamicsXRayView.h"
 
 
-@interface DXRDynamicsXRayViewController ()
-
-@end
-
-
 @implementation DXRDynamicsXRayViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initDynamicsXray:(DynamicsXRay *)dynamicsXray
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithNibName:nil bundle:nil];
     if (self) {
-
+        _dynamicsXray = dynamicsXray;
     }
     return self;
 }
@@ -29,18 +24,7 @@
 - (void)loadView
 {
     self.view = [[DXRDynamicsXRayView alloc] initWithFrame:CGRectMake(0, 0, 320.0f, 568.0f)];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-
+    self.view.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 }
 
 - (DXRDynamicsXRayView *)xrayView

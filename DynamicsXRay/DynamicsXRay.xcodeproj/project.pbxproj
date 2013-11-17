@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		830AA5231831B97A00608E3A /* DXRDynamicsXRayWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 830AA5211831B97A00608E3A /* DXRDynamicsXRayWindow.h */; };
+		830AA5241831B97A00608E3A /* DXRDynamicsXRayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AA5221831B97A00608E3A /* DXRDynamicsXRayWindow.m */; };
 		8317A74C180E8F6300F4B954 /* DXRDynamicsXRayConfigurationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8317A74A180E8F6300F4B954 /* DXRDynamicsXRayConfigurationViewController.h */; };
 		8317A74D180E8F6300F4B954 /* DXRDynamicsXRayConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8317A74B180E8F6300F4B954 /* DXRDynamicsXRayConfigurationViewController.m */; };
 		8317A754180E95CB00F4B954 /* DXRDynamicsXRayConfigurationViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 8317A752180E95CB00F4B954 /* DXRDynamicsXRayConfigurationViewController+Private.h */; };
@@ -97,6 +99,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		830AA5211831B97A00608E3A /* DXRDynamicsXRayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXRayWindow.h; sourceTree = "<group>"; };
+		830AA5221831B97A00608E3A /* DXRDynamicsXRayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXRayWindow.m; sourceTree = "<group>"; };
+		830AA5291831C8C800608E3A /* DynamicsXRay_Internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamicsXRay_Internal.h; sourceTree = "<group>"; };
 		8317A74A180E8F6300F4B954 /* DXRDynamicsXRayConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXRayConfigurationViewController.h; sourceTree = "<group>"; };
 		8317A74B180E8F6300F4B954 /* DXRDynamicsXRayConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXRayConfigurationViewController.m; sourceTree = "<group>"; };
 		8317A752180E95CB00F4B954 /* DXRDynamicsXRayConfigurationViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicsXRayConfigurationViewController+Private.h"; sourceTree = "<group>"; };
@@ -168,6 +173,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		830AA51E183064B100608E3A /* Xray Window Controller */ = {
+			isa = PBXGroup;
+			children = (
+				830AA5211831B97A00608E3A /* DXRDynamicsXRayWindow.h */,
+				830AA5221831B97A00608E3A /* DXRDynamicsXRayWindow.m */,
+				83B6135A180BCC2A0006BBA3 /* DXRDynamicsXRayWindowController.h */,
+				83B6135B180BCC2A0006BBA3 /* DXRDynamicsXRayWindowController.m */,
+			);
+			name = "Xray Window Controller";
+			sourceTree = "<group>";
+		};
+		830AA51F183064E500608E3A /* Xray Util */ = {
+			isa = PBXGroup;
+			children = (
+				83849DF317AE242A00D6DD3C /* DXRDynamicsXRayUtil.h */,
+				83849DF417AE242A00D6DD3C /* DXRDynamicsXRayUtil.m */,
+			);
+			name = "Xray Util";
+			sourceTree = "<group>";
+		};
 		8317A749180E8F2A00F4B954 /* Configuration View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,13 +206,15 @@
 			name = "Configuration View Controller";
 			sourceTree = "<group>";
 		};
-		8317A756180EA87A00F4B954 /* XRay View Controller */ = {
+		8317A756180EA87A00F4B954 /* Xray View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				83849DDF17AE02DB00D6DD3C /* DXRDynamicsXRayView.h */,
+				83849DE017AE02DB00D6DD3C /* DXRDynamicsXRayView.m */,
 				8317A757180EA89800F4B954 /* DXRDynamicsXRayViewController.h */,
 				8317A758180EA89800F4B954 /* DXRDynamicsXRayViewController.m */,
 			);
-			name = "XRay View Controller";
+			name = "Xray View Controller";
 			sourceTree = "<group>";
 		};
 		83584D0C17FC201600F09FF1 /* CMObjectIntrospection */ = {
@@ -235,13 +262,10 @@
 			children = (
 				83849DBE17AE022300D6DD3C /* DynamicsXRay.h */,
 				83849DC017AE022300D6DD3C /* DynamicsXRay.m */,
-				83B6135A180BCC2A0006BBA3 /* DXRDynamicsXRayWindowController.h */,
-				83B6135B180BCC2A0006BBA3 /* DXRDynamicsXRayWindowController.m */,
-				83849DDF17AE02DB00D6DD3C /* DXRDynamicsXRayView.h */,
-				83849DE017AE02DB00D6DD3C /* DXRDynamicsXRayView.m */,
-				83849DF317AE242A00D6DD3C /* DXRDynamicsXRayUtil.h */,
-				83849DF417AE242A00D6DD3C /* DXRDynamicsXRayUtil.m */,
-				8317A756180EA87A00F4B954 /* XRay View Controller */,
+				830AA5291831C8C800608E3A /* DynamicsXRay_Internal.h */,
+				830AA51F183064E500608E3A /* Xray Util */,
+				8317A756180EA87A00F4B954 /* Xray View Controller */,
+				830AA51E183064B100608E3A /* Xray Window Controller */,
 				8317A749180E8F2A00F4B954 /* Configuration View Controller */,
 				83849DEE17AE104200D6DD3C /* Behaviors */,
 				83A68DD0182B5B9D00F21AC1 /* Dynamics Item Snapshot */,
@@ -351,6 +375,7 @@
 				8392287C181885070047F7C4 /* DXRDynamicsXRayConfigurationViewController+Controls.h in Headers */,
 				83FA2B2717FC290E0022DEAB /* DXRDynamicsXRayBehaviorAttachment+DXRDrawing.h in Headers */,
 				8317A759180EA89800F4B954 /* DXRDynamicsXRayViewController.h in Headers */,
+				830AA5231831B97A00608E3A /* DXRDynamicsXRayWindow.h in Headers */,
 				8317A754180E95CB00F4B954 /* DXRDynamicsXRayConfigurationViewController+Private.h in Headers */,
 				83849DEC17AE103D00D6DD3C /* DXRDynamicsXRayBehavior.h in Headers */,
 				83B6135C180BCC2A0006BBA3 /* DXRDynamicsXRayWindowController.h in Headers */,
@@ -490,6 +515,7 @@
 				83B61355180BBD4C0006BBA3 /* DXRDynamicsXRayBehaviorGravity.m in Sources */,
 				8317A75A180EA89800F4B954 /* DXRDynamicsXRayViewController.m in Sources */,
 				83849DF217AE105B00D6DD3C /* DXRDynamicsXRayBehaviorAttachment.m in Sources */,
+				830AA5241831B97A00608E3A /* DXRDynamicsXRayWindow.m in Sources */,
 				83FA2B2E17FC2CD60022DEAB /* DXRDynamicsXRayBehaviorBoundaryCollision+DXRDrawing.m in Sources */,
 				83849DED17AE103D00D6DD3C /* DXRDynamicsXRayBehavior.m in Sources */,
 				83849DC117AE022300D6DD3C /* DynamicsXRay.m in Sources */,
