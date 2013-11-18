@@ -24,6 +24,22 @@
 #endif
 
 
+/*
+ * Configurables
+ */
+
+// How often to periodically check whether the xray view needs a redraw.
+// This is required to prevent a stale xray view for cases like when the animator
+// is paused and the reference view changes in same way (e.g. is removed from window).
+// Note: this is a secondary redraw check. Normally the xray view is redrawn on
+// every dynamic animator tick.
+// Set this to 0 to disable it.
+static NSTimeInterval const DynamicsXRayRedrawCheckInterval = 0.25;     // seconds
+
+
+/*
+ * Shared
+ */
 static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
 
@@ -67,6 +83,8 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
             __strong DynamicsXRay *strongSelf = weakSelf;
             [strongSelf redraw];
         };
+
+        [self scheduleDelayedRedrawCheckRepeats:YES];
     }
     return self;
 }
@@ -109,6 +127,53 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
     [self introspectDynamicAnimator:self.dynamicAnimator];
 }
 
+- (void)scheduleDelayedRedrawCheckRepeats:(BOOL)repeats
+{
+    if (DynamicsXRayRedrawCheckInterval > 0) {
+        __weak DynamicsXRay *weakSelf = self;
+        double delayInSeconds = DynamicsXRayRedrawCheckInterval;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            if (weakSelf) {
+                [weakSelf redrawIfNeeded];
+
+                if (repeats) {
+                    [weakSelf scheduleDelayedRedrawCheckRepeats:repeats];
+                }
+            }
+        });
+    }
+}
+
+- (void)redrawIfNeeded
+{
+    // Only redraws if the reference view has changed
+
+    [self findReferenceView];
+
+    BOOL needsRedraw = NO;
+
+    if (self.referenceView != self.previousReferenceView) {
+        needsRedraw = YES;
+    }
+    else if (self.referenceView) {
+        if (self.referenceView.window != self.previousReferenceViewWindow) {
+            needsRedraw = YES;
+        }
+        else if (CGRectEqualToRect(self.referenceView.frame, self.previousReferenceViewFrame) == NO) {
+            needsRedraw = YES;
+        }
+    }
+
+    if (needsRedraw) {
+        [self redraw];
+    }
+
+    self.previousReferenceViewFrame = self.referenceView.frame;
+    self.previousReferenceViewWindow = self.referenceView.window;
+    self.previousReferenceView = self.referenceView;
+}
+
 
 #pragma mark - Introspect Dynamic Behavior
 
@@ -121,7 +186,22 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 #endif
 
     [self findReferenceView];
-    [self introspectBehaviors:dynamicAnimator.behaviors];
+
+    if ([self referenceViewIsVisible]) {
+        [self introspectBehaviors:dynamicAnimator.behaviors];
+    }
+
+    [self.xrayViewController.xrayView setNeedsDisplay];
+}
+
+- (BOOL)referenceViewIsVisible
+{
+    if (self.referenceView && self.referenceView.window == nil) {
+        // If reference view is available, but it is not attached to a window, then it is not visible
+        return NO;
+    }
+
+    return YES;
 }
 
 - (void)findReferenceView
@@ -138,7 +218,7 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
             }
         }
     }
-    
+
     self.referenceView = referenceView;
 }
 

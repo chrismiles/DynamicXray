@@ -15,6 +15,11 @@
 }
 
 @property (weak, nonatomic) UIView *referenceView;
+
+@property (weak, nonatomic) UIView *previousReferenceView;
+@property (weak, nonatomic) UIWindow *previousReferenceViewWindow;
+@property (assign, nonatomic) CGRect previousReferenceViewFrame;
+
 @property (strong, nonatomic) DXRDynamicsXRayViewController *xrayViewController;
 @property (strong, nonatomic) UIWindow *xrayWindow;
 
