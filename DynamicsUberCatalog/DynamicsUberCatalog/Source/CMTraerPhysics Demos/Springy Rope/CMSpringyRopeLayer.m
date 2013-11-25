@@ -125,6 +125,9 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	_particleBehavior.resistance = CMSpringyRopeParticleResistance;
 	
 	[_animator addBehavior:_particleBehavior];
+
+        self.dynamicsXRay = [[DynamicsXRay alloc] init];
+        [self.animator addBehavior:self.dynamicsXRay];
     }
     return self;
 }
@@ -230,25 +233,12 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 
 - (BOOL)isDynamicsXRayEnabled
 {
-    return (self.dynamicsXRay != nil);
+    return [self.dynamicsXRay isActive];
 }
 
 - (void)setDynamicsXRayEnabled:(BOOL)dynamicsXRayEnabled
 {
-    if (dynamicsXRayEnabled) {
-        if (self.dynamicsXRay == nil) {
-            self.dynamicsXRay = [[DynamicsXRay alloc] init];
-            self.dynamicsXRay.crossFade = 0;
-            //self.dynamicsXRay.viewOffset = UIOffsetMake(50.0f, 100.0f);
-            [self.animator addBehavior:self.dynamicsXRay];
-        }
-    }
-    else {
-        if (self.dynamicsXRay) {
-            [self.animator removeBehavior:self.dynamicsXRay];
-            self.dynamicsXRay = nil;
-        }
-    }
+    self.dynamicsXRay.active = dynamicsXRayEnabled;
 }
 
 - (void)presentDynamicsXrayConfigViewController

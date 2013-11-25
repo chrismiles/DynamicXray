@@ -62,6 +62,7 @@
     [self.animator addBehavior:itemBehavior];
 
     self.dynamicsXRay = [[DynamicsXRay alloc] init];
+    self.dynamicsXRay.active = NO;
     self.dynamicsXRay.drawDynamicItemsEnabled = YES;
     //self.dynamicsXRay.viewOffset = UIOffsetMake(30.0f, 10.0f);
     [self.animator addBehavior:self.dynamicsXRay];
