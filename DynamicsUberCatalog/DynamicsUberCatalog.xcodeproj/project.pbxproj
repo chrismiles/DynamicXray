@@ -33,6 +33,8 @@
 		83BA619B1829D2BC00341483 /* CMStiffSwingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA619A1829D2BC00341483 /* CMStiffSwingViewController.m */; };
 		83C4FFBE184348ED00383892 /* TLWobblySpringFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C4FFBB184348ED00383892 /* TLWobblySpringFlowLayout.m */; };
 		83C4FFBF184348ED00383892 /* TLWobblySpringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C4FFBD184348ED00383892 /* TLWobblySpringViewController.m */; };
+		83FC942618436026009CABEE /* TLSpringFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FC942218436026009CABEE /* TLSpringFlowLayout.m */; };
+		83FC942718436026009CABEE /* TLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FC942418436026009CABEE /* TLViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,10 @@
 		83C4FFBB184348ED00383892 /* TLWobblySpringFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLWobblySpringFlowLayout.m; sourceTree = "<group>"; };
 		83C4FFBC184348ED00383892 /* TLWobblySpringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLWobblySpringViewController.h; sourceTree = "<group>"; };
 		83C4FFBD184348ED00383892 /* TLWobblySpringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLWobblySpringViewController.m; sourceTree = "<group>"; };
+		83FC942118436026009CABEE /* TLSpringFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSpringFlowLayout.h; sourceTree = "<group>"; };
+		83FC942218436026009CABEE /* TLSpringFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSpringFlowLayout.m; sourceTree = "<group>"; };
+		83FC942318436026009CABEE /* TLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLViewController.h; sourceTree = "<group>"; };
+		83FC942418436026009CABEE /* TLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,9 +277,21 @@
 		83C5149E1841F3C500469029 /* Other Demos */ = {
 			isa = PBXGroup;
 			children = (
+				83FC941F18436026009CABEE /* UICollectionView-Spring-Demo */,
 				83C4FFB9184348ED00383892 /* UICollectionView Wobbly Spring Demo */,
 			);
 			path = "Other Demos";
+			sourceTree = "<group>";
+		};
+		83FC941F18436026009CABEE /* UICollectionView-Spring-Demo */ = {
+			isa = PBXGroup;
+			children = (
+				83FC942118436026009CABEE /* TLSpringFlowLayout.h */,
+				83FC942218436026009CABEE /* TLSpringFlowLayout.m */,
+				83FC942318436026009CABEE /* TLViewController.h */,
+				83FC942418436026009CABEE /* TLViewController.m */,
+			);
+			path = "UICollectionView-Spring-Demo";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,8 +366,10 @@
 				83BA61921829D0FC00341483 /* APLSnapViewController.m in Sources */,
 				83BA61911829D0FC00341483 /* APLItemPropertiesViewController.m in Sources */,
 				83BA61971829D0FC00341483 /* CMSpringyRopeViewController.m in Sources */,
+				83FC942718436026009CABEE /* TLViewController.m in Sources */,
 				83C4FFBF184348ED00383892 /* TLWobblySpringViewController.m in Sources */,
 				83BA618B1829D0FC00341483 /* APLAttachmentsViewController.m in Sources */,
+				83FC942618436026009CABEE /* TLSpringFlowLayout.m in Sources */,
 				830DA09B17FD7E8D00A24B39 /* CMLabelledSwitch.m in Sources */,
 				83C4FFBE184348ED00383892 /* TLWobblySpringFlowLayout.m in Sources */,
 				83BA618F1829D0FC00341483 /* APLGravityViewController.m in Sources */,
