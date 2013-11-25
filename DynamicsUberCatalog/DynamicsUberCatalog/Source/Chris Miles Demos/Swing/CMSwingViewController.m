@@ -1,16 +1,16 @@
 //
-//  CMStiffSwingViewController.m
+//  CMSwingViewController.m
 //  DynamicsUberCatalog
 //
 //  Created by Chris Miles on 6/11/2013.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "CMStiffSwingViewController.h"
+#import "CMSwingViewController.h"
 #import <DynamicsXRay/DynamicsXRay.h>
 
 
-@interface CMStiffSwingViewController ()
+@interface CMSwingViewController ()
 
 @property (strong, nonatomic) IBOutlet UIView *swingView;
 
@@ -22,7 +22,7 @@
 @end
 
 
-@implementation CMStiffSwingViewController
+@implementation CMSwingViewController
 
 - (void)viewDidLoad
 {

@@ -42,7 +42,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Stiff Swing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iMD-oE-nrs">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Swing" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iMD-oE-nrs">
                                                     <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -292,10 +292,10 @@
             </objects>
             <point key="canvasLocation" x="491" y="-63"/>
         </scene>
-        <!--Stiff Swing View Controller - Stiff Swing-->
+        <!--Swing View Controller - Swing-->
         <scene sceneID="jNJ-JJ-Qyp">
             <objects>
-                <viewController id="0jE-Si-PPu" customClass="CMStiffSwingViewController" sceneMemberID="viewController">
+                <viewController id="0jE-Si-PPu" customClass="CMSwingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4jX-mW-Lrr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -308,7 +308,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Stiff Swing" id="Urg-BG-jon"/>
+                    <navigationItem key="navigationItem" title="Swing" id="Urg-BG-jon"/>
                     <connections>
                         <outlet property="swingView" destination="PR5-zw-eit" id="GF2-um-VIR"/>
                     </connections>

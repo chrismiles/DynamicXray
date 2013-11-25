@@ -30,11 +30,11 @@
 		83BA61951829D0FC00341483 /* CMSpringyRopeSmoothedPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61841829D0FC00341483 /* CMSpringyRopeSmoothedPath.m */; };
 		83BA61961829D0FC00341483 /* CMSpringyRopeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61861829D0FC00341483 /* CMSpringyRopeView.m */; };
 		83BA61971829D0FC00341483 /* CMSpringyRopeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61881829D0FC00341483 /* CMSpringyRopeViewController.m */; };
-		83BA619B1829D2BC00341483 /* CMStiffSwingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA619A1829D2BC00341483 /* CMStiffSwingViewController.m */; };
 		83C4FFBE184348ED00383892 /* TLWobblySpringFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C4FFBB184348ED00383892 /* TLWobblySpringFlowLayout.m */; };
 		83C4FFBF184348ED00383892 /* TLWobblySpringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C4FFBD184348ED00383892 /* TLWobblySpringViewController.m */; };
 		83FC942618436026009CABEE /* TLSpringFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FC942218436026009CABEE /* TLSpringFlowLayout.m */; };
 		83FC942718436026009CABEE /* TLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FC942418436026009CABEE /* TLViewController.m */; };
+		83FC942B184365FE009CABEE /* CMSwingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FC942A184365FE009CABEE /* CMSwingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,8 +79,6 @@
 		83BA61861829D0FC00341483 /* CMSpringyRopeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeView.m; sourceTree = "<group>"; };
 		83BA61871829D0FC00341483 /* CMSpringyRopeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSpringyRopeViewController.h; sourceTree = "<group>"; };
 		83BA61881829D0FC00341483 /* CMSpringyRopeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSpringyRopeViewController.m; sourceTree = "<group>"; };
-		83BA61991829D2BC00341483 /* CMStiffSwingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMStiffSwingViewController.h; sourceTree = "<group>"; };
-		83BA619A1829D2BC00341483 /* CMStiffSwingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMStiffSwingViewController.m; sourceTree = "<group>"; };
 		83C4FFBA184348ED00383892 /* TLWobblySpringFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLWobblySpringFlowLayout.h; sourceTree = "<group>"; };
 		83C4FFBB184348ED00383892 /* TLWobblySpringFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLWobblySpringFlowLayout.m; sourceTree = "<group>"; };
 		83C4FFBC184348ED00383892 /* TLWobblySpringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLWobblySpringViewController.h; sourceTree = "<group>"; };
@@ -89,6 +87,8 @@
 		83FC942218436026009CABEE /* TLSpringFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSpringFlowLayout.m; sourceTree = "<group>"; };
 		83FC942318436026009CABEE /* TLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLViewController.h; sourceTree = "<group>"; };
 		83FC942418436026009CABEE /* TLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLViewController.m; sourceTree = "<group>"; };
+		83FC9429184365FE009CABEE /* CMSwingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSwingViewController.h; sourceTree = "<group>"; };
+		83FC942A184365FE009CABEE /* CMSwingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSwingViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,7 +224,7 @@
 		83BA617C1829D0FC00341483 /* Chris Miles Demos */ = {
 			isa = PBXGroup;
 			children = (
-				83BA61981829D29D00341483 /* Stiff Swing */,
+				83FC9428184365FE009CABEE /* Swing */,
 			);
 			path = "Chris Miles Demos";
 			sourceTree = "<group>";
@@ -252,15 +252,6 @@
 				83BA61881829D0FC00341483 /* CMSpringyRopeViewController.m */,
 			);
 			path = "Springy Rope";
-			sourceTree = "<group>";
-		};
-		83BA61981829D29D00341483 /* Stiff Swing */ = {
-			isa = PBXGroup;
-			children = (
-				83BA61991829D2BC00341483 /* CMStiffSwingViewController.h */,
-				83BA619A1829D2BC00341483 /* CMStiffSwingViewController.m */,
-			);
-			path = "Stiff Swing";
 			sourceTree = "<group>";
 		};
 		83C4FFB9184348ED00383892 /* UICollectionView Wobbly Spring Demo */ = {
@@ -292,6 +283,15 @@
 				83FC942418436026009CABEE /* TLViewController.m */,
 			);
 			path = "UICollectionView-Spring-Demo";
+			sourceTree = "<group>";
+		};
+		83FC9428184365FE009CABEE /* Swing */ = {
+			isa = PBXGroup;
+			children = (
+				83FC9429184365FE009CABEE /* CMSwingViewController.h */,
+				83FC942A184365FE009CABEE /* CMSwingViewController.m */,
+			);
+			path = Swing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -370,12 +370,12 @@
 				83C4FFBF184348ED00383892 /* TLWobblySpringViewController.m in Sources */,
 				83BA618B1829D0FC00341483 /* APLAttachmentsViewController.m in Sources */,
 				83FC942618436026009CABEE /* TLSpringFlowLayout.m in Sources */,
+				83FC942B184365FE009CABEE /* CMSwingViewController.m in Sources */,
 				830DA09B17FD7E8D00A24B39 /* CMLabelledSwitch.m in Sources */,
 				83C4FFBE184348ED00383892 /* TLWobblySpringFlowLayout.m in Sources */,
 				83BA618F1829D0FC00341483 /* APLGravityViewController.m in Sources */,
 				83BA618C1829D0FC00341483 /* APLCollisionGravityViewController.m in Sources */,
 				83BA61961829D0FC00341483 /* CMSpringyRopeView.m in Sources */,
-				83BA619B1829D2BC00341483 /* CMStiffSwingViewController.m in Sources */,
 				83BA61901829D0FC00341483 /* APLInstantaneousPushViewController.m in Sources */,
 				83BA61891829D0FC00341483 /* DUCAppDelegate.m in Sources */,
 				83BA61941829D0FC00341483 /* CMSpringyRopeParticle.m in Sources */,

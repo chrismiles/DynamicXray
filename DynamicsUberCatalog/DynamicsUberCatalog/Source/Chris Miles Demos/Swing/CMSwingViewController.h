@@ -1,5 +1,5 @@
 //
-//  CMStiffSwingViewController.h
+//  CMSwingViewController.h
 //  DynamicsUberCatalog
 //
 //  Created by Chris Miles on 6/11/2013.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMStiffSwingViewController : UIViewController
+@interface CMSwingViewController : UIViewController
 
 @end
