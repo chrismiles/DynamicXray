@@ -224,6 +224,8 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
 - (void)introspectBehaviors:(NSArray *)behaviors
 {
+    [self.dynamicItemsToDraw removeAllObjects];
+
     for (UIDynamicBehavior *behavior in behaviors)
     {
         
