@@ -182,7 +182,6 @@
 				83BA61671829D0FC00341483 /* App */,
 				83BA616B1829D0FC00341483 /* Apple Demos */,
 				83BA617C1829D0FC00341483 /* Chris Miles Demos */,
-				83BA617D1829D0FC00341483 /* CMTraerPhysics Demos */,
 				83C5149E1841F3C500469029 /* Other Demos */,
 			);
 			path = Source;
@@ -228,13 +227,6 @@
 				83FC9428184365FE009CABEE /* Swing */,
 			);
 			path = "Chris Miles Demos";
-			sourceTree = "<group>";
-		};
-		83BA617D1829D0FC00341483 /* CMTraerPhysics Demos */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "CMTraerPhysics Demos";
 			sourceTree = "<group>";
 		};
 		83C4FFB9184348ED00383892 /* UICollectionView Wobbly Spring Demo */ = {

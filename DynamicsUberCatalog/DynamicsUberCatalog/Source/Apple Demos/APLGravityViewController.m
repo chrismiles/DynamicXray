@@ -102,6 +102,7 @@
 
 @property (nonatomic, weak) IBOutlet UIView *square1;
 @property (nonatomic) UIDynamicAnimator* animator;
+@property (nonatomic, strong) DynamicsXRay *dynamicsXray;
 
 @end
 
@@ -118,9 +119,25 @@
     [animator addBehavior:gravityBeahvior];
     self.animator = animator;
     
-    DynamicsXRay *xray = [[DynamicsXRay alloc] init];
-    [animator addBehavior:xray];
+    [self setupDynamicsXray];
 }
 
+- (void)setupDynamicsXray
+{
+    self.dynamicsXray = [[DynamicsXRay alloc] init];
+    self.dynamicsXray.active = YES;
+    [self.animator addBehavior:self.dynamicsXray];
+
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *xrayItem = [[UIBarButtonItem alloc] initWithTitle:@"XRay" style:UIBarButtonItemStyleBordered target:self action:@selector(xrayAction:)];
+    self.toolbarItems = @[flexibleItem, xrayItem];
+
+    self.navigationController.toolbarHidden = NO;
+}
+
+- (void)xrayAction:(__unused id)sender
+{
+    [self.dynamicsXray presentConfigurationViewController];
+}
 
 @end
