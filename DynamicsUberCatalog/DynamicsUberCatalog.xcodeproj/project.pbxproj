@@ -50,7 +50,6 @@
 		830DA09917FD7E8D00A24B39 /* CMLabelledSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMLabelledSwitch.h; sourceTree = "<group>"; };
 		830DA09A17FD7E8D00A24B39 /* CMLabelledSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMLabelledSwitch.m; sourceTree = "<group>"; };
 		835D57E4187BE1C7006CB05B /* libDynamicsXray.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDynamicsXray.a; path = "../DynamicsXray/build/Debug-iphoneos/libDynamicsXray.a"; sourceTree = "<group>"; };
-		83849DE817AE06A000D6DD3C /* libDynamicsXRay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDynamicsXRay.a; path = "../../../../Library/Developer/Xcode/DerivedData/DynamicsXRay-gbmdfpjpsnunjvenkedrhmxwiykt/Build/Products/Debug-iphoneos/libDynamicsXRay.a"; sourceTree = "<group>"; };
 		83BA61681829D0FC00341483 /* DUCAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUCAppDelegate.h; sourceTree = "<group>"; };
 		83BA61691829D0FC00341483 /* DUCAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DUCAppDelegate.m; sourceTree = "<group>"; };
 		83BA616A1829D0FC00341483 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -132,7 +131,6 @@
 			isa = PBXGroup;
 			children = (
 				835D57E4187BE1C7006CB05B /* libDynamicsXray.a */,
-				83849DE817AE06A000D6DD3C /* libDynamicsXRay.a */,
 				2806C642175BE66C00827B6B /* Foundation.framework */,
 				2806C644175BE66C00827B6B /* CoreGraphics.framework */,
 				2806C646175BE66C00827B6B /* UIKit.framework */,
