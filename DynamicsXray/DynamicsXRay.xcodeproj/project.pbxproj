@@ -443,7 +443,7 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Chris Miles";
 			};
-			buildConfigurationList = 83849DB117AE022300D6DD3C /* Build configuration list for PBXProject "DynamicsXRay" */;
+			buildConfigurationList = 83849DB117AE022300D6DD3C /* Build configuration list for PBXProject "DynamicsXray" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -725,7 +725,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83849DB117AE022300D6DD3C /* Build configuration list for PBXProject "DynamicsXRay" */ = {
+		83849DB117AE022300D6DD3C /* Build configuration list for PBXProject "DynamicsXray" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83849DD717AE022300D6DD3C /* Debug */,
