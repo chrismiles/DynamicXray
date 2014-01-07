@@ -9,7 +9,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <DynamicsXRay/DynamicsXRay.h>
+#import <DynamicsXray/DynamicsXray.h>
 
 @interface TLSpringFlowLayout : UICollectionViewFlowLayout
 

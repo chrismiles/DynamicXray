@@ -20,6 +20,6 @@
 
 @protocol DXRDynamicsXrayWindowDelegate <NSObject>
 
-- (void)dynamicsXRayWindowNeedsToLayoutSubviews:(DXRDynamicsXrayWindow *)dynamicsXRayWindow;
+- (void)dynamicsXrayWindowNeedsToLayoutSubviews:(DXRDynamicsXrayWindow *)dynamicsXrayWindow;
 
 @end

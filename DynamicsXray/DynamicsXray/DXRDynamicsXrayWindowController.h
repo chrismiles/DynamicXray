@@ -27,11 +27,11 @@
  
     Note that dynamics Xray views are always added below any configuration view.
  */
-- (void)presentDynamicsXRayViewController:(DXRDynamicsXrayViewController *)dynamicsXRayViewController;
+- (void)presentDynamicsXrayViewController:(DXRDynamicsXrayViewController *)dynamicsXrayViewController;
 
 /** Removes a DXRDynamicsXrayViewController's view from the window.
  */
-- (void)dismissDynamicsXRayViewController:(DXRDynamicsXrayViewController *)xrayViewController;
+- (void)dismissDynamicsXrayViewController:(DXRDynamicsXrayViewController *)xrayViewController;
 
 
 /** Adds a DXRDynamicsXrayConfigurationViewController's view to the window.

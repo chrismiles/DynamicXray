@@ -22,7 +22,7 @@
 - (void)layoutSubviews
 {
     __strong id<DXRDynamicsXrayWindowDelegate> delegate = self.xrayWindowDelegate;
-    [delegate dynamicsXRayWindowNeedsToLayoutSubviews:self];
+    [delegate dynamicsXrayWindowNeedsToLayoutSubviews:self];
 }
 
 @end

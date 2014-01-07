@@ -97,7 +97,7 @@
  */
 
 #import "APLInstantaneousPushViewController.h"
-#import <DynamicsXRay/DynamicsXRay.h>
+#import <DynamicsXray/DynamicsXray.h>
 
 @interface APLInstantaneousPushViewController ()
 

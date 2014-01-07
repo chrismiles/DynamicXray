@@ -1,5 +1,5 @@
 //
-//  DXRDynamicsXRayConfigurationViewController_Internal.h
+//  DXRDynamicsXrayConfigurationViewController_Internal.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 24/10/13.
@@ -11,6 +11,6 @@
 
 @interface DXRDynamicsXrayConfigurationViewController ()
 
-@property (weak, nonatomic) DynamicsXray *dynamicsXRay;
+@property (weak, nonatomic) DynamicsXray *dynamicsXray;
 
 @end

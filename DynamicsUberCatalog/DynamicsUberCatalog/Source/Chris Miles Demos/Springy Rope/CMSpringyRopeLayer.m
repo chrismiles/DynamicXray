@@ -32,7 +32,7 @@
 #import "CMSpringyRopeSmoothedPath.h"
 @import CoreMotion;
 
-#import <DynamicsXRay/DynamicsXRay.h>
+#import <DynamicsXray/DynamicsXray.h>
 
 
 /*
@@ -84,7 +84,7 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 @property (strong, nonatomic) CMSpringyRopeParticle *handleParticle;
 @property (strong, nonatomic) UIAttachmentBehavior *handleSpringBehavior;
 @property (strong, nonatomic) UIDynamicItemBehavior *particleBehavior;
-@property (strong, nonatomic) DynamicsXray *dynamicsXRay;
+@property (strong, nonatomic) DynamicsXray *dynamicsXray;
 
 // FPS
 @property (assign, nonatomic) double fps_prev_time;
@@ -126,8 +126,8 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	
 	[_animator addBehavior:_particleBehavior];
 
-        self.dynamicsXRay = [[DynamicsXray alloc] init];
-        [self.animator addBehavior:self.dynamicsXRay];
+        self.dynamicsXray = [[DynamicsXray alloc] init];
+        [self.animator addBehavior:self.dynamicsXray];
     }
     return self;
 }
@@ -231,19 +231,19 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 
 #pragma mark - DynamicsXray
 
-- (BOOL)isDynamicsXRayEnabled
+- (BOOL)isDynamicsXrayEnabled
 {
-    return [self.dynamicsXRay isActive];
+    return [self.dynamicsXray isActive];
 }
 
-- (void)setDynamicsXRayEnabled:(BOOL)dynamicsXRayEnabled
+- (void)setDynamicsXrayEnabled:(BOOL)dynamicsXrayEnabled
 {
-    self.dynamicsXRay.active = dynamicsXRayEnabled;
+    self.dynamicsXray.active = dynamicsXrayEnabled;
 }
 
 - (void)presentDynamicsXrayConfigViewController
 {
-    [self.dynamicsXRay presentConfigurationViewController];
+    [self.dynamicsXray presentConfigurationViewController];
 }
 
 

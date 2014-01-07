@@ -96,7 +96,7 @@
  */
 
 #import "APLItemPropertiesViewController.h"
-#import <DynamicsXRay/DynamicsXRay.h>
+#import <DynamicsXray/DynamicsXray.h>
 
 @interface APLItemPropertiesViewController ()
 

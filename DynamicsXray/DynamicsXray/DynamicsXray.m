@@ -7,7 +7,7 @@
 //
 
 #import "DynamicsXray.h"
-#import "DynamicsXRay_Internal.h"
+#import "DynamicsXray_Internal.h"
 #import "DXRDynamicsXrayView.h"
 #import "DXRDynamicsXrayWindowController.h"
 
@@ -34,7 +34,7 @@
 // Note: this is a secondary redraw check. Normally the xray view is redrawn on
 // every dynamic animator tick.
 // Set this to 0 to disable it.
-static NSTimeInterval const DynamicsXRayRedrawCheckInterval = 0.25;     // seconds
+static NSTimeInterval const DynamicsXrayRedrawCheckInterval = 0.25;     // seconds
 
 
 /*
@@ -71,7 +71,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
         _xrayViewController = [[DXRDynamicsXrayViewController alloc] initDynamicsXray:self];
 
-        [sharedXrayWindowController presentDynamicsXRayViewController:_xrayViewController];
+        [sharedXrayWindowController presentDynamicsXrayViewController:_xrayViewController];
         [self.xrayWindow setHidden:NO];
 
         [self updateDynamicsViewTransparencyLevels];
@@ -91,7 +91,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
 - (void)dealloc
 {
-    [sharedXrayWindowController dismissDynamicsXRayViewController:self.xrayViewController];
+    [sharedXrayWindowController dismissDynamicsXrayViewController:self.xrayViewController];
     [sharedXrayWindowController dismissConfigViewController];
 }
 
@@ -129,9 +129,9 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
 - (void)scheduleDelayedRedrawCheckRepeats:(BOOL)repeats
 {
-    if (DynamicsXRayRedrawCheckInterval > 0) {
+    if (DynamicsXrayRedrawCheckInterval > 0) {
         __weak DynamicsXray *weakSelf = self;
-        double delayInSeconds = DynamicsXRayRedrawCheckInterval;
+        double delayInSeconds = DynamicsXrayRedrawCheckInterval;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             if (weakSelf) {

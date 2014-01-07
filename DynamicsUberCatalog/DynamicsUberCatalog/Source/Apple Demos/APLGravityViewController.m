@@ -96,7 +96,7 @@
  */
 
 #import "APLGravityViewController.h"
-#import <DynamicsXRay/DynamicsXRay.h>
+#import <DynamicsXray/DynamicsXray.h>
 
 @interface APLGravityViewController ()
 

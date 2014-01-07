@@ -1,5 +1,5 @@
 //
-//  DynamicsXRay_Internal.h
+//  DynamicsXray_Internal.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 12/11/2013.

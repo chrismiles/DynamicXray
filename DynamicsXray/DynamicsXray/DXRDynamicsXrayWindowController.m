@@ -11,7 +11,7 @@
 #import "DXRDynamicsXrayWindow.h"
 #import "DXRDynamicsXrayConfigurationViewController.h"
 #import "DXRDynamicsXrayConfigurationViewController+Private.h"
-#import "DynamicsXRay_Internal.h"
+#import "DynamicsXray_Internal.h"
 
 
 static CGFloat
@@ -75,28 +75,28 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 #pragma mark - Xray View Controller Presentation
 
-- (void)presentDynamicsXRayViewController:(DXRDynamicsXrayViewController *)dynamicsXRayViewController
+- (void)presentDynamicsXrayViewController:(DXRDynamicsXrayViewController *)dynamicsXrayViewController
 {
-    if ([self.xrayViewControllers containsObject:dynamicsXRayViewController] == NO) {
-        [self.xrayViewControllers addObject:dynamicsXRayViewController];
+    if ([self.xrayViewControllers containsObject:dynamicsXrayViewController] == NO) {
+        [self.xrayViewControllers addObject:dynamicsXrayViewController];
 
         UIView *rootView = self.window.rootViewController.view;
-        [dynamicsXRayViewController.view setTransform:rootView.transform];
-        [dynamicsXRayViewController.view setFrame:rootView.frame];
-        [dynamicsXRayViewController.view setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+        [dynamicsXrayViewController.view setTransform:rootView.transform];
+        [dynamicsXrayViewController.view setFrame:rootView.frame];
+        [dynamicsXrayViewController.view setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
 
         if (self.configurationViewController.view.superview == self.window) {
-            [self.window insertSubview:dynamicsXRayViewController.view belowSubview:self.configurationViewController.view];
+            [self.window insertSubview:dynamicsXrayViewController.view belowSubview:self.configurationViewController.view];
         }
         else {
-            [self.window addSubview:dynamicsXRayViewController.view];
+            [self.window addSubview:dynamicsXrayViewController.view];
         }
 
-        [self addChildViewController:dynamicsXRayViewController];
+        [self addChildViewController:dynamicsXrayViewController];
     }
 }
 
-- (void)dismissDynamicsXRayViewController:(DXRDynamicsXrayViewController *)xrayViewController
+- (void)dismissDynamicsXrayViewController:(DXRDynamicsXrayViewController *)xrayViewController
 {
     [xrayViewController.view removeFromSuperview];
     [xrayViewController removeFromParentViewController];
@@ -109,7 +109,7 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 - (void)presentConfigViewControllerWithDynamicsXray:(DynamicsXray *)dynamicsXray
 {
     if (self.configurationViewController == nil) {
-        DXRDynamicsXrayConfigurationViewController *configViewController = [[DXRDynamicsXrayConfigurationViewController alloc] initWithDynamicsXRay:dynamicsXray];
+        DXRDynamicsXrayConfigurationViewController *configViewController = [[DXRDynamicsXrayConfigurationViewController alloc] initWithDynamicsXray:dynamicsXray];
         self.configurationViewController = configViewController;
 
         [configViewController.view setFrame:self.window.bounds];
@@ -175,9 +175,9 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 }
 
 
-#pragma mark - DXRDynamicsXRayWindowDelegate
+#pragma mark - DXRDynamicsXrayWindowDelegate
 
-- (void)dynamicsXRayWindowNeedsToLayoutSubviews:(DXRDynamicsXrayWindow *)dynamicsXRayWindow
+- (void)dynamicsXrayWindowNeedsToLayoutSubviews:(DXRDynamicsXrayWindow *)dynamicsXrayWindow
 {
     [self layoutRootViews];
 }

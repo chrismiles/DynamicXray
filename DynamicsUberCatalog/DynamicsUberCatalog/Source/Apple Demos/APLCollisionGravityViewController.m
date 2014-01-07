@@ -96,7 +96,7 @@
  */
 
 #import "APLCollisionGravityViewController.h"
-#import <DynamicsXRay/DynamicsXRay.h>
+#import <DynamicsXray/DynamicsXray.h>
 
 @interface APLCollisionGravityViewController () <UICollisionBehaviorDelegate>
 

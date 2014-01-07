@@ -96,7 +96,7 @@
  */
 
 #import "APLAttachmentsViewController.h"
-#import <DynamicsXRay/DynamicsXRay.h>
+#import <DynamicsXray/DynamicsXray.h>
 
 @interface APLAttachmentsViewController ()
 

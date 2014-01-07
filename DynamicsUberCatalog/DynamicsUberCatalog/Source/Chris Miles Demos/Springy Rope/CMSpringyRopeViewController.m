@@ -86,7 +86,7 @@
     
     [self.springyRopeView setFpsLabel:self.fpsLabel];
 
-    [self.springyRopeView setDynamicsXRayEnabled:NO];
+    [self.springyRopeView setDynamicsXrayEnabled:NO];
 }
 
 - (CMSpringyRopeView *)springyRopeView

@@ -7,7 +7,7 @@
 //
 
 #import "DXRDynamicsXrayConfigurationViewController.h"
-#import "DXRDynamicsXRayConfigurationViewController_Internal.h"
+#import "DXRDynamicsXrayConfigurationViewController_Internal.h"
 #import "DXRDynamicsXrayConfigurationViewController+Controls.h"
 
 
@@ -16,11 +16,11 @@ static CGFloat const ConfigurationControlsContainerHeight = 100.0f;
 
 @implementation DXRDynamicsXrayConfigurationViewController
 
-- (id)initWithDynamicsXRay:(DynamicsXray *)dynamicsXRay
+- (id)initWithDynamicsXray:(DynamicsXray *)dynamicsXray
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        _dynamicsXRay = dynamicsXRay;
+        _dynamicsXray = dynamicsXray;
     }
     return self;
 }

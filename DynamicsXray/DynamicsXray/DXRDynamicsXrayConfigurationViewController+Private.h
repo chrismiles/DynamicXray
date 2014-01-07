@@ -12,6 +12,6 @@
 
 @interface DXRDynamicsXrayConfigurationViewController (Private)
 
-- (id)initWithDynamicsXRay:(DynamicsXray *)dynamicsXRay;
+- (id)initWithDynamicsXray:(DynamicsXray *)dynamicsXray;
 
 @end

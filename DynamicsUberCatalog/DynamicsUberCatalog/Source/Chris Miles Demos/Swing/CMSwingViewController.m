@@ -7,7 +7,7 @@
 //
 
 #import "CMSwingViewController.h"
-#import <DynamicsXRay/DynamicsXRay.h>
+#import <DynamicsXray/DynamicsXray.h>
 
 
 @interface CMSwingViewController ()
@@ -17,7 +17,7 @@
 @property (strong, nonatomic) UIDynamicAnimator *animator;
 @property (strong, nonatomic) UIPushBehavior *pushBehavior;
 
-@property (strong, nonatomic) DynamicsXray *dynamicsXRay;
+@property (strong, nonatomic) DynamicsXray *dynamicsXray;
 
 @end
 
@@ -61,11 +61,11 @@
     [self.animator addBehavior:self.pushBehavior];
     [self.animator addBehavior:itemBehavior];
 
-    self.dynamicsXRay = [[DynamicsXray alloc] init];
-    self.dynamicsXRay.active = NO;
-    self.dynamicsXRay.drawDynamicItemsEnabled = YES;
-    //self.dynamicsXRay.viewOffset = UIOffsetMake(30.0f, 10.0f);
-    [self.animator addBehavior:self.dynamicsXRay];
+    self.dynamicsXray = [[DynamicsXray alloc] init];
+    self.dynamicsXray.active = NO;
+    self.dynamicsXray.drawDynamicItemsEnabled = YES;
+    //self.dynamicsXray.viewOffset = UIOffsetMake(30.0f, 10.0f);
+    [self.animator addBehavior:self.dynamicsXray];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -131,31 +131,31 @@
 
 #pragma mark - DynamicsXray
 
-- (BOOL)isDynamicsXRayEnabled
+- (BOOL)isDynamicsXrayEnabled
 {
-    return (self.dynamicsXRay != nil);
+    return (self.dynamicsXray != nil);
 }
 
-- (void)setDynamicsXRayEnabled:(BOOL)dynamicsXRayEnabled
+- (void)setDynamicsXrayEnabled:(BOOL)dynamicsXrayEnabled
 {
-    if (dynamicsXRayEnabled) {
-        if (self.dynamicsXRay == nil) {
-            self.dynamicsXRay = [[DynamicsXray alloc] init];
-            self.dynamicsXRay.crossFade = 0;
-            [self.animator addBehavior:self.dynamicsXRay];
+    if (dynamicsXrayEnabled) {
+        if (self.dynamicsXray == nil) {
+            self.dynamicsXray = [[DynamicsXray alloc] init];
+            self.dynamicsXray.crossFade = 0;
+            [self.animator addBehavior:self.dynamicsXray];
         }
     }
     else {
-        if (self.dynamicsXRay) {
-            [self.animator removeBehavior:self.dynamicsXRay];
-            self.dynamicsXRay = nil;
+        if (self.dynamicsXray) {
+            [self.animator removeBehavior:self.dynamicsXray];
+            self.dynamicsXray = nil;
         }
     }
 }
 
 - (void)xrayAction:(__unused id)sender
 {
-    [self.dynamicsXRay presentConfigurationViewController];
+    [self.dynamicsXray presentConfigurationViewController];
 }
 
 @end

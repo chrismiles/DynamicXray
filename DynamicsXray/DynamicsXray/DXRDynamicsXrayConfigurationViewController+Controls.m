@@ -7,7 +7,7 @@
 //
 
 #import "DXRDynamicsXrayConfigurationViewController+Controls.h"
-#import "DXRDynamicsXRayConfigurationViewController_Internal.h"
+#import "DXRDynamicsXrayConfigurationViewController_Internal.h"
 
 #import "DXRDynamicsXrayWindowController.h"
 
@@ -33,7 +33,7 @@
 
     UISwitch *activeToggleSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 0, 0)];
     [activeToggleSwitch sizeToFit];
-    [activeToggleSwitch setOn:self.dynamicsXRay.isActive];
+    [activeToggleSwitch setOn:self.dynamicsXray.isActive];
     [activeToggleSwitch addTarget:self action:@selector(activeToggleAction:) forControlEvents:UIControlEventValueChanged];
 
     UILabel *activeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -64,7 +64,7 @@
     CGFloat const margin = 20.0f;
 
     UISlider *faderSlider = [[UISlider alloc] initWithFrame:CGRectZero];
-    [faderSlider setValue:(self.dynamicsXRay.crossFade+1.0f)/2.0f];
+    [faderSlider setValue:(self.dynamicsXray.crossFade+1.0f)/2.0f];
     [faderSlider addTarget:self action:@selector(faderSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
 
     UILabel *faderAppLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -114,13 +114,13 @@
 
 - (void)activeToggleAction:(UISwitch *)toggleSwitch
 {
-    [self.dynamicsXRay setActive:toggleSwitch.on];
+    [self.dynamicsXray setActive:toggleSwitch.on];
 }
 
 - (void)faderSliderValueChanged:(UISlider *)slider
 {
     CGFloat crossFade = slider.value * 2.0f - 1.0f;
-    self.dynamicsXRay.crossFade = crossFade;
+    self.dynamicsXray.crossFade = crossFade;
 }
 
 @end
