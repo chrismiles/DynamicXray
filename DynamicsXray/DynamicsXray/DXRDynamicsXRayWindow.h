@@ -1,6 +1,6 @@
 //
-//  DXRDynamicsXRayWindow.h
-//  DynamicsXRay
+//  DXRDynamicsXrayWindow.h
+//  DynamicsXray
 //
 //  Created by Chris Miles on 12/11/2013.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
@@ -8,18 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol DXRDynamicsXRayWindowDelegate;
+@protocol DXRDynamicsXrayWindowDelegate;
 
 
-@interface DXRDynamicsXRayWindow : UIWindow
+@interface DXRDynamicsXrayWindow : UIWindow
 
-@property (weak, nonatomic) id<DXRDynamicsXRayWindowDelegate> xrayWindowDelegate;
+@property (weak, nonatomic) id<DXRDynamicsXrayWindowDelegate> xrayWindowDelegate;
 
 @end
 
 
-@protocol DXRDynamicsXRayWindowDelegate <NSObject>
+@protocol DXRDynamicsXrayWindowDelegate <NSObject>
 
-- (void)dynamicsXRayWindowNeedsToLayoutSubviews:(DXRDynamicsXRayWindow *)dynamicsXRayWindow;
+- (void)dynamicsXRayWindowNeedsToLayoutSubviews:(DXRDynamicsXrayWindow *)dynamicsXRayWindow;
 
 @end

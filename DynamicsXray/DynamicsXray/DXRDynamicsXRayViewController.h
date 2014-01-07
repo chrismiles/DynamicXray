@@ -1,21 +1,21 @@
 //
-//  DXRDynamicsXRayViewController.h
-//  DynamicsXRay
+//  DXRDynamicsXrayViewController.h
+//  DynamicsXray
 //
 //  Created by Chris Miles on 16/10/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
 @import UIKit;
-@class DynamicsXRay;
-@class DXRDynamicsXRayView;
+@class DynamicsXray;
+@class DXRDynamicsXrayView;
 
-@interface DXRDynamicsXRayViewController : UIViewController
+@interface DXRDynamicsXrayViewController : UIViewController
 
-- (id)initDynamicsXray:(DynamicsXRay *)dynamicsXray;
+- (id)initDynamicsXray:(DynamicsXray *)dynamicsXray;
 
-@property (weak, nonatomic) DynamicsXRay *dynamicsXray;
+@property (weak, nonatomic) DynamicsXray *dynamicsXray;
 
-- (DXRDynamicsXRayView *)xrayView;
+- (DXRDynamicsXrayView *)xrayView;
 
 @end

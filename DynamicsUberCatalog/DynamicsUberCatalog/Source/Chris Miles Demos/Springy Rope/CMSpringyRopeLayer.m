@@ -84,7 +84,7 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 @property (strong, nonatomic) CMSpringyRopeParticle *handleParticle;
 @property (strong, nonatomic) UIAttachmentBehavior *handleSpringBehavior;
 @property (strong, nonatomic) UIDynamicItemBehavior *particleBehavior;
-@property (strong, nonatomic) DynamicsXRay *dynamicsXRay;
+@property (strong, nonatomic) DynamicsXray *dynamicsXRay;
 
 // FPS
 @property (assign, nonatomic) double fps_prev_time;
@@ -126,7 +126,7 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 	
 	[_animator addBehavior:_particleBehavior];
 
-        self.dynamicsXRay = [[DynamicsXRay alloc] init];
+        self.dynamicsXRay = [[DynamicsXray alloc] init];
         [self.animator addBehavior:self.dynamicsXRay];
     }
     return self;

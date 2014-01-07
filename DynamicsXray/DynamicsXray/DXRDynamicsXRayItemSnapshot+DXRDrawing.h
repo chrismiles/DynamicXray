@@ -1,14 +1,14 @@
 //
-//  DXRDynamicsXRayItemSnapshot+DXRDrawing.h
-//  DynamicsXRay
+//  DXRDynamicsXrayItemSnapshot+DXRDrawing.h
+//  DynamicsXray
 //
 //  Created by Chris Miles on 7/11/2013.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXRayItemSnapshot.h"
+#import "DXRDynamicsXrayItemSnapshot.h"
 
-@interface DXRDynamicsXRayItemSnapshot (DXRDrawing)
+@interface DXRDynamicsXrayItemSnapshot (DXRDrawing)
 
 - (void)drawInContext:(CGContextRef)context;
 

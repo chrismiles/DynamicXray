@@ -13,6 +13,6 @@
 
 @interface TLSpringFlowLayout : UICollectionViewFlowLayout
 
-@property (nonatomic, strong, readonly) DynamicsXRay *dynamicsXray;
+@property (nonatomic, strong, readonly) DynamicsXray *dynamicsXray;
 
 @end

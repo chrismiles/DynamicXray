@@ -1,16 +1,16 @@
 //
-//  DXRDynamicsXRayBehaviorAttachment+DXRDrawing.m
-//  DynamicsXRay
+//  DXRDynamicsXrayBehaviorAttachment+DXRDrawing.m
+//  DynamicsXray
 //
 //  Created by Chris Miles on 2/10/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXRayBehaviorAttachment+DXRDrawing.h"
-#import "DXRDynamicsXRayUtil.h"
+#import "DXRDynamicsXrayBehaviorAttachment+DXRDrawing.h"
+#import "DXRDynamicsXrayUtil.h"
 
 
-@implementation DXRDynamicsXRayBehaviorAttachment (DXRDrawing)
+@implementation DXRDynamicsXrayBehaviorAttachment (DXRDrawing)
 
 - (void)drawInContext:(CGContextRef)context
 {

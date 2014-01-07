@@ -1,22 +1,22 @@
 //
-//  DXRDynamicsXRayConfigurationViewController.m
-//  DynamicsXRay
+//  DXRDynamicsXrayConfigurationViewController.m
+//  DynamicsXray
 //
 //  Created by Chris Miles on 16/10/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXRayConfigurationViewController.h"
+#import "DXRDynamicsXrayConfigurationViewController.h"
 #import "DXRDynamicsXRayConfigurationViewController_Internal.h"
-#import "DXRDynamicsXRayConfigurationViewController+Controls.h"
+#import "DXRDynamicsXrayConfigurationViewController+Controls.h"
 
 
 static CGFloat const ConfigurationControlsContainerHeight = 100.0f;
 
 
-@implementation DXRDynamicsXRayConfigurationViewController
+@implementation DXRDynamicsXrayConfigurationViewController
 
-- (id)initWithDynamicsXRay:(DynamicsXRay *)dynamicsXRay
+- (id)initWithDynamicsXRay:(DynamicsXray *)dynamicsXRay
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {

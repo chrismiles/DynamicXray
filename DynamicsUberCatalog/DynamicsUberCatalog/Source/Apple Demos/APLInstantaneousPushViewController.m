@@ -129,7 +129,7 @@
     self.pushBehavior = pushBehavior;
     [animator addBehavior:self.pushBehavior];
 
-    DynamicsXRay *xray = [[DynamicsXRay alloc] init];
+    DynamicsXray *xray = [[DynamicsXray alloc] init];
     [animator addBehavior:xray];
 
     self.animator = animator;

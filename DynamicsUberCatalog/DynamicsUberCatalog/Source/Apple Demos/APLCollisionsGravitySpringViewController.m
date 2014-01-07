@@ -138,7 +138,7 @@
 
     self.attachmentBehavior = attachmentBehavior;
     
-    DynamicsXRay *xray = [[DynamicsXRay alloc] init];
+    DynamicsXray *xray = [[DynamicsXray alloc] init];
     [self.animator addBehavior:xray];
 }
 

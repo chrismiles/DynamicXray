@@ -1,21 +1,21 @@
 //
-//  DXRDynamicsXRayView.m
-//  DynamicsXRay
+//  DXRDynamicsXrayView.m
+//  DynamicsXray
 //
 //  Created by Chris Miles on 4/08/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXRayView.h"
-#import "DXRDynamicsXRayBehaviorDrawing.h"
-#import "DXRDynamicsXRayBehaviorAttachment.h"
-#import "DXRDynamicsXRayBehaviorBoundaryCollision.h"
-#import "DXRDynamicsXRayBehaviorGravity.h"
-#import "DXRDynamicsXRayItemSnapshot.h"
-#import "DXRDynamicsXRayItemSnapshot+DXRDrawing.h"
+#import "DXRDynamicsXrayView.h"
+#import "DXRDynamicsXrayBehaviorDrawing.h"
+#import "DXRDynamicsXrayBehaviorAttachment.h"
+#import "DXRDynamicsXrayBehaviorBoundaryCollision.h"
+#import "DXRDynamicsXrayBehaviorGravity.h"
+#import "DXRDynamicsXrayItemSnapshot.h"
+#import "DXRDynamicsXrayItemSnapshot+DXRDrawing.h"
 
 
-@interface DXRDynamicsXRayView ()
+@interface DXRDynamicsXrayView ()
 
 @property (strong, nonatomic) NSMutableArray *behaviorsToDraw;
 @property (strong, nonatomic) NSMutableArray *dynamicItemsToDraw;
@@ -25,7 +25,7 @@
 @end
 
 
-@implementation DXRDynamicsXRayView
+@implementation DXRDynamicsXrayView
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -65,23 +65,23 @@
 
 - (void)drawAttachmentFromAnchor:(CGPoint)anchorPoint toPoint:(CGPoint)attachmentPoint length:(CGFloat)length isSpring:(BOOL)isSpring
 {
-    DXRDynamicsXRayBehaviorAttachment *attachment = [[DXRDynamicsXRayBehaviorAttachment alloc] initWithAnchorPoint:anchorPoint attachmentPoint:attachmentPoint length:length isSpring:isSpring];
+    DXRDynamicsXrayBehaviorAttachment *attachment = [[DXRDynamicsXrayBehaviorAttachment alloc] initWithAnchorPoint:anchorPoint attachmentPoint:attachmentPoint length:length isSpring:isSpring];
     [self itemNeedsDrawing:attachment];
 }
 
 - (void)drawBoundsCollisionBoundaryWithRect:(CGRect)boundaryRect
 {
-    DXRDynamicsXRayBehaviorBoundaryCollision *collision = [[DXRDynamicsXRayBehaviorBoundaryCollision alloc] initWithBoundaryRect:boundaryRect];
+    DXRDynamicsXrayBehaviorBoundaryCollision *collision = [[DXRDynamicsXrayBehaviorBoundaryCollision alloc] initWithBoundaryRect:boundaryRect];
     [self itemNeedsDrawing:collision];
 }
 
 - (void)drawGravityBehaviorWithMagnitude:(CGFloat)magnitude angle:(CGFloat)angle
 {
-    DXRDynamicsXRayBehaviorGravity *gravity = [[DXRDynamicsXRayBehaviorGravity alloc] initWithGravityMagnitude:magnitude angle:angle];
+    DXRDynamicsXrayBehaviorGravity *gravity = [[DXRDynamicsXrayBehaviorGravity alloc] initWithGravityMagnitude:magnitude angle:angle];
     [self itemNeedsDrawing:gravity];
 }
 
-- (void)itemNeedsDrawing:(DXRDynamicsXRayBehavior *)item
+- (void)itemNeedsDrawing:(DXRDynamicsXrayBehavior *)item
 {
     [self.behaviorsToDraw addObject:item];
 
@@ -96,7 +96,7 @@
             CGPoint itemCenter = [self convertPoint:item.center fromReferenceView:referenceView];
             CGAffineTransform itemTransform = item.transform;
 
-            DXRDynamicsXRayItemSnapshot *itemSnapshot = [DXRDynamicsXRayItemSnapshot snapshotWithBounds:itemBounds center:itemCenter transform:itemTransform];
+            DXRDynamicsXrayItemSnapshot *itemSnapshot = [DXRDynamicsXrayItemSnapshot snapshotWithBounds:itemBounds center:itemCenter transform:itemTransform];
             [self.dynamicItemsToDraw addObject:itemSnapshot];
         }
 
@@ -166,20 +166,20 @@
 
     [[UIColor blueColor] set];
 
-    for (DXRDynamicsXRayItemSnapshot *itemSnapshot in self.dynamicItemsToDraw) {
+    for (DXRDynamicsXrayItemSnapshot *itemSnapshot in self.dynamicItemsToDraw) {
         CGContextSaveGState(context);
         [itemSnapshot drawInContext:context];
         CGContextRestoreGState(context);
     }
 
-    for (DXRDynamicsXRayBehavior *behavior in self.behaviorsToDraw) {
-        if ([behavior conformsToProtocol:@protocol(DXRDynamicsXRayBehaviorDrawing)]) {
+    for (DXRDynamicsXrayBehavior *behavior in self.behaviorsToDraw) {
+        if ([behavior conformsToProtocol:@protocol(DXRDynamicsXrayBehaviorDrawing)]) {
             CGContextSaveGState(context);
-            [(id<DXRDynamicsXRayBehaviorDrawing>)behavior drawInContext:context];
+            [(id<DXRDynamicsXrayBehaviorDrawing>)behavior drawInContext:context];
             CGContextRestoreGState(context);
         }
         else {
-            DLog(@"WARNING: DXRDynamicsXRayBehavior is not drawable: %@", behavior);
+            DLog(@"WARNING: DXRDynamicsXrayBehavior is not drawable: %@", behavior);
         }
     }
     

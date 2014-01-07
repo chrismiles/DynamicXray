@@ -1,15 +1,15 @@
 //
 //  DynamicsXRay_Internal.h
-//  DynamicsXRay
+//  DynamicsXray
 //
 //  Created by Chris Miles on 12/11/2013.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import <DynamicsXRay/DynamicsXRay.h>
-#import "DXRDynamicsXRayViewController.h"
+#import "DynamicsXray.h"
+#import "DXRDynamicsXrayViewController.h"
 
-@interface DynamicsXRay () {
+@interface DynamicsXray () {
     CGFloat _crossFade;
     BOOL _drawDynamicItemsEnabled;
 }
@@ -20,7 +20,7 @@
 @property (weak, nonatomic) UIWindow *previousReferenceViewWindow;
 @property (assign, nonatomic) CGRect previousReferenceViewFrame;
 
-@property (strong, nonatomic) DXRDynamicsXRayViewController *xrayViewController;
+@property (strong, nonatomic) DXRDynamicsXrayViewController *xrayViewController;
 @property (strong, nonatomic) UIWindow *xrayWindow;
 
 @property (strong, nonatomic) NSMutableSet *dynamicItemsToDraw;

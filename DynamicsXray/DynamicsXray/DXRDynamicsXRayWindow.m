@@ -1,14 +1,14 @@
 //
-//  DXRDynamicsXRayWindow.m
-//  DynamicsXRay
+//  DXRDynamicsXrayWindow.m
+//  DynamicsXray
 //
 //  Created by Chris Miles on 12/11/2013.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXRayWindow.h"
+#import "DXRDynamicsXrayWindow.h"
 
-@implementation DXRDynamicsXRayWindow
+@implementation DXRDynamicsXrayWindow
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -21,7 +21,7 @@
 
 - (void)layoutSubviews
 {
-    __strong id<DXRDynamicsXRayWindowDelegate> delegate = self.xrayWindowDelegate;
+    __strong id<DXRDynamicsXrayWindowDelegate> delegate = self.xrayWindowDelegate;
     [delegate dynamicsXRayWindowNeedsToLayoutSubviews:self];
 }
 

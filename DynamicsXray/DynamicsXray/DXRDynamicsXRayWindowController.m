@@ -1,16 +1,16 @@
 //
-//  DXRDynamicsXRayWindowController.m
-//  DynamicsXRay
+//  DXRDynamicsXrayWindowController.m
+//  DynamicsXray
 //
 //  Created by Chris Miles on 14/10/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXRayWindowController.h"
-#import "DXRDynamicsXRayViewController.h"
-#import "DXRDynamicsXRayWindow.h"
-#import "DXRDynamicsXRayConfigurationViewController.h"
-#import "DXRDynamicsXRayConfigurationViewController+Private.h"
+#import "DXRDynamicsXrayWindowController.h"
+#import "DXRDynamicsXrayViewController.h"
+#import "DXRDynamicsXrayWindow.h"
+#import "DXRDynamicsXrayConfigurationViewController.h"
+#import "DXRDynamicsXrayConfigurationViewController+Private.h"
 #import "DynamicsXRay_Internal.h"
 
 
@@ -18,17 +18,17 @@ static CGFloat
 AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 
-@interface DXRDynamicsXRayWindowController () <DXRDynamicsXRayWindowDelegate>
+@interface DXRDynamicsXrayWindowController () <DXRDynamicsXrayWindowDelegate>
 
-@property (strong, nonatomic) DXRDynamicsXRayConfigurationViewController *configurationViewController;
+@property (strong, nonatomic) DXRDynamicsXrayConfigurationViewController *configurationViewController;
 @property (strong, nonatomic) NSMutableArray *xrayViewControllers;
 
-@property (weak, nonatomic) DXRDynamicsXRayWindow *window;
+@property (weak, nonatomic) DXRDynamicsXrayWindow *window;
 
 @end
 
 
-@implementation DXRDynamicsXRayWindowController
+@implementation DXRDynamicsXrayWindowController
 
 - (id)init
 {
@@ -50,13 +50,13 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 - (UIWindow *)xrayWindow
 {
-    DXRDynamicsXRayWindow *window = self.window;
+    DXRDynamicsXrayWindow *window = self.window;
 
     if (window == nil) {
         CGRect screenBounds = [[UIScreen mainScreen] bounds];
 
         // Create a new shared UIWindow to host dynamics xray views
-        window = [[DXRDynamicsXRayWindow alloc] initWithFrame:screenBounds];
+        window = [[DXRDynamicsXrayWindow alloc] initWithFrame:screenBounds];
         window.xrayWindowDelegate = self;
         window.windowLevel = UIWindowLevelStatusBar + 1;
         window.userInteractionEnabled = NO;
@@ -75,7 +75,7 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 #pragma mark - Xray View Controller Presentation
 
-- (void)presentDynamicsXRayViewController:(DXRDynamicsXRayViewController *)dynamicsXRayViewController
+- (void)presentDynamicsXRayViewController:(DXRDynamicsXrayViewController *)dynamicsXRayViewController
 {
     if ([self.xrayViewControllers containsObject:dynamicsXRayViewController] == NO) {
         [self.xrayViewControllers addObject:dynamicsXRayViewController];
@@ -96,7 +96,7 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
     }
 }
 
-- (void)dismissDynamicsXRayViewController:(DXRDynamicsXRayViewController *)xrayViewController
+- (void)dismissDynamicsXRayViewController:(DXRDynamicsXrayViewController *)xrayViewController
 {
     [xrayViewController.view removeFromSuperview];
     [xrayViewController removeFromParentViewController];
@@ -106,10 +106,10 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 #pragma mark - Config View Controller Presentation
 
-- (void)presentConfigViewControllerWithDynamicsXray:(DynamicsXRay *)dynamicsXray
+- (void)presentConfigViewControllerWithDynamicsXray:(DynamicsXray *)dynamicsXray
 {
     if (self.configurationViewController == nil) {
-        DXRDynamicsXRayConfigurationViewController *configViewController = [[DXRDynamicsXRayConfigurationViewController alloc] initWithDynamicsXRay:dynamicsXray];
+        DXRDynamicsXrayConfigurationViewController *configViewController = [[DXRDynamicsXrayConfigurationViewController alloc] initWithDynamicsXRay:dynamicsXray];
         self.configurationViewController = configViewController;
 
         [configViewController.view setFrame:self.window.bounds];
@@ -167,8 +167,8 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
             rootView.transform = transform;
             rootView.frame = CGRectMake(0, 0, frameSize.width, frameSize.height);
 
-            if ([viewController isKindOfClass:[DXRDynamicsXRayViewController class]]) {
-                [[(DXRDynamicsXRayViewController *)viewController dynamicsXray] redraw];
+            if ([viewController isKindOfClass:[DXRDynamicsXrayViewController class]]) {
+                [[(DXRDynamicsXrayViewController *)viewController dynamicsXray] redraw];
             }
         }
     }
@@ -177,7 +177,7 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 #pragma mark - DXRDynamicsXRayWindowDelegate
 
-- (void)dynamicsXRayWindowNeedsToLayoutSubviews:(DXRDynamicsXRayWindow *)dynamicsXRayWindow
+- (void)dynamicsXRayWindowNeedsToLayoutSubviews:(DXRDynamicsXrayWindow *)dynamicsXRayWindow
 {
     [self layoutRootViews];
 }

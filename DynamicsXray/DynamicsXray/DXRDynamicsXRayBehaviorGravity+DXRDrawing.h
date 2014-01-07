@@ -1,14 +1,14 @@
 //
-//  DXRDynamicsXRayBehaviorGravity+DXRDrawing.h
-//  DynamicsXRay
+//  DXRDynamicsXrayBehaviorGravity+DXRDrawing.h
+//  DynamicsXray
 //
 //  Created by Chris Miles on 14/10/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXRayBehaviorGravity.h"
-#import "DXRDynamicsXRayBehaviorDrawing.h"
+#import "DXRDynamicsXrayBehaviorGravity.h"
+#import "DXRDynamicsXrayBehaviorDrawing.h"
 
-@interface DXRDynamicsXRayBehaviorGravity (DXRDrawing) <DXRDynamicsXRayBehaviorDrawing>
+@interface DXRDynamicsXrayBehaviorGravity (DXRDrawing) <DXRDynamicsXrayBehaviorDrawing>
 
 @end

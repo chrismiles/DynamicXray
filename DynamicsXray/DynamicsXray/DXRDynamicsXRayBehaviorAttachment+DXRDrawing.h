@@ -1,14 +1,14 @@
 //
-//  DXRDynamicsXRayBehaviorAttachment+DXRDrawing.h
-//  DynamicsXRay
+//  DXRDynamicsXrayBehaviorAttachment+DXRDrawing.h
+//  DynamicsXray
 //
 //  Created by Chris Miles on 2/10/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXRayBehaviorAttachment.h"
-#import "DXRDynamicsXRayBehaviorDrawing.h"
+#import "DXRDynamicsXrayBehaviorAttachment.h"
+#import "DXRDynamicsXrayBehaviorDrawing.h"
 
-@interface DXRDynamicsXRayBehaviorAttachment (DXRDrawing) <DXRDynamicsXRayBehaviorDrawing>
+@interface DXRDynamicsXrayBehaviorAttachment (DXRDrawing) <DXRDynamicsXrayBehaviorDrawing>
 
 @end

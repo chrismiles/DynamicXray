@@ -1,26 +1,26 @@
 //
-//  DynamicsXRay
+//  DynamicsXray
 //
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
 @import UIKit;
 
-@interface DynamicsXRay : UIDynamicBehavior
+@interface DynamicsXray : UIDynamicBehavior
 
 @property (assign, nonatomic, getter = isActive) BOOL active;
 
 @end
 
 
-@interface DynamicsXRay (XRayUserInterface)
+@interface DynamicsXray (XRayUserInterface)
 
 - (void)presentConfigurationViewController;
 
 @end
 
 
-@interface DynamicsXRay (XRayVisualStyle)
+@interface DynamicsXray (XRayVisualStyle)
 
 /** Controls the opacity of both the XRay overlay and the application windows.
  

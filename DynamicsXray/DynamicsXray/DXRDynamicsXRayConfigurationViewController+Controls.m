@@ -1,18 +1,18 @@
 //
-//  DXRDynamicsXRayConfigurationViewController+Controls.m
-//  DynamicsXRay
+//  DXRDynamicsXrayConfigurationViewController+Controls.m
+//  DynamicsXray
 //
 //  Created by Chris Miles on 24/10/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXRayConfigurationViewController+Controls.h"
+#import "DXRDynamicsXrayConfigurationViewController+Controls.h"
 #import "DXRDynamicsXRayConfigurationViewController_Internal.h"
 
-#import "DXRDynamicsXRayWindowController.h"
+#import "DXRDynamicsXrayWindowController.h"
 
 
-@implementation DXRDynamicsXRayConfigurationViewController (Controls)
+@implementation DXRDynamicsXrayConfigurationViewController (Controls)
 
 #pragma mark - View/Control Creation
 
@@ -108,7 +108,7 @@
 
 - (void)dismissAction:(__unused id)sender
 {
-    DXRDynamicsXRayWindowController *xrayWindowController = (DXRDynamicsXRayWindowController *)self.parentViewController;
+    DXRDynamicsXrayWindowController *xrayWindowController = (DXRDynamicsXrayWindowController *)self.parentViewController;
     [xrayWindowController dismissConfigViewController];
 }
 

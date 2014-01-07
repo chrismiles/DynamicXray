@@ -13,7 +13,7 @@
 @interface TLSpringFlowLayout ()
 
 @property (nonatomic, strong) UIDynamicAnimator *dynamicAnimator;
-@property (nonatomic, strong) DynamicsXRay *dynamicsXray;
+@property (nonatomic, strong) DynamicsXray *dynamicsXray;
 
 // Needed for tiling
 @property (nonatomic, strong) NSMutableSet *visibleIndexPathsSet;
@@ -35,7 +35,7 @@
     self.dynamicAnimator = [[UIDynamicAnimator alloc] initWithCollectionViewLayout:self];
     self.visibleIndexPathsSet = [NSMutableSet set];
     
-    self.dynamicsXray = [[DynamicsXRay alloc] init];
+    self.dynamicsXray = [[DynamicsXray alloc] init];
     self.dynamicsXray.active = NO;
     [self.dynamicAnimator addBehavior:self.dynamicsXray];
 
@@ -49,7 +49,7 @@
         
         // Remove all behaviors, except DynamicsXray
         [self.dynamicAnimator.behaviors enumerateObjectsUsingBlock:^(UIDynamicBehavior *behavior, __unused NSUInteger idx, __unused BOOL *stop) {
-            if ([behavior isKindOfClass:[DynamicsXRay class]] == NO) {
+            if ([behavior isKindOfClass:[DynamicsXray class]] == NO) {
                 [self.dynamicAnimator removeBehavior:behavior];
             }
         }];

@@ -119,7 +119,7 @@
     UISnapBehavior* snapBehavior = [[UISnapBehavior alloc] initWithItem:self.square1 snapToPoint:point];
     [self.animator addBehavior:snapBehavior];
     
-    DynamicsXRay *xray = [[DynamicsXRay alloc] init];
+    DynamicsXray *xray = [[DynamicsXray alloc] init];
     [self.animator addBehavior:xray];
 }
 

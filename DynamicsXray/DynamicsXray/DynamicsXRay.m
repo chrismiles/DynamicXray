@@ -1,20 +1,20 @@
 //
-//  DynamicsXRay.m
-//  DynamicsXRay
+//  DynamicsXray.m
+//  DynamicsXray
 //
 //  Created by Chris Miles on 4/08/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DynamicsXRay.h"
+#import "DynamicsXray.h"
 #import "DynamicsXRay_Internal.h"
-#import "DXRDynamicsXRayView.h"
-#import "DXRDynamicsXRayWindowController.h"
+#import "DXRDynamicsXrayView.h"
+#import "DXRDynamicsXrayWindowController.h"
 
 
 /*
     Enable one or both of these macro definitons to dump object information.
-    This is normally only needed by DynamicsXRay developers.
+    This is normally only needed by DynamicsXray developers.
  */
 //#define DYNAMIC_ANIMATOR_OBJECT_INTROSPECTION
 //#define DYNAMIC_BEHAVIOR_OBJECT_INTROSPECTION
@@ -40,17 +40,17 @@ static NSTimeInterval const DynamicsXRayRedrawCheckInterval = 0.25;     // secon
 /*
  * Shared
  */
-static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
+static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
 
-@interface DynamicsXRay (XRayVisualStyleInternals)
+@interface DynamicsXray (XRayVisualStyleInternals)
 
 - (void)updateDynamicsViewTransparencyLevels;
 
 @end
 
 
-@implementation DynamicsXRay
+@implementation DynamicsXray
 
 - (id)init
 {
@@ -60,7 +60,7 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             if (sharedXrayWindowController == nil) {
-                sharedXrayWindowController = [[DXRDynamicsXRayWindowController alloc] init];
+                sharedXrayWindowController = [[DXRDynamicsXrayWindowController alloc] init];
             }
         });
 
@@ -69,7 +69,7 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
         // Grab a strong reference to the shared XRay window (a new one is created on demand if needed)
         self.xrayWindow = sharedXrayWindowController.xrayWindow;
 
-        _xrayViewController = [[DXRDynamicsXRayViewController alloc] initDynamicsXray:self];
+        _xrayViewController = [[DXRDynamicsXrayViewController alloc] initDynamicsXray:self];
 
         [sharedXrayWindowController presentDynamicsXRayViewController:_xrayViewController];
         [self.xrayWindow setHidden:NO];
@@ -78,9 +78,9 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
         [self setDrawDynamicItemsEnabled:YES];
 
-        __weak DynamicsXRay *weakSelf = self;
+        __weak DynamicsXray *weakSelf = self;
         self.action = ^{
-            __strong DynamicsXRay *strongSelf = weakSelf;
+            __strong DynamicsXray *strongSelf = weakSelf;
             [strongSelf redraw];
         };
 
@@ -114,7 +114,7 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
 #pragma mark - Xray View
 
-- (DXRDynamicsXRayView *)xrayView
+- (DXRDynamicsXrayView *)xrayView
 {
     return self.xrayViewController.xrayView;
 }
@@ -130,7 +130,7 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 - (void)scheduleDelayedRedrawCheckRepeats:(BOOL)repeats
 {
     if (DynamicsXRayRedrawCheckInterval > 0) {
-        __weak DynamicsXRay *weakSelf = self;
+        __weak DynamicsXray *weakSelf = self;
         double delayInSeconds = DynamicsXRayRedrawCheckInterval;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
@@ -344,7 +344,7 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 
 
 
-@implementation DynamicsXRay (XRayVisualStyle)
+@implementation DynamicsXray (XRayVisualStyle)
 
 
 #pragma mark - Cross Fade
@@ -429,7 +429,7 @@ static DXRDynamicsXRayWindowController *sharedXrayWindowController = nil;
 @end
 
 
-@implementation DynamicsXRay (XRayUserInterface)
+@implementation DynamicsXray (XRayUserInterface)
 
 - (void)presentConfigurationViewController
 {

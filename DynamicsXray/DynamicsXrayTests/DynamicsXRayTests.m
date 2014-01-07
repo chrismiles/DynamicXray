@@ -1,6 +1,6 @@
 //
-//  DynamicsXRayTests.m
-//  DynamicsXRayTests
+//  DynamicsXrayTests.m
+//  DynamicsXrayTests
 //
 //  Created by Chris Miles on 4/08/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface DynamicsXRayTests : XCTestCase
+@interface DynamicsXrayTests : XCTestCase
 
 @end
 
-@implementation DynamicsXRayTests
+@implementation DynamicsXrayTests
 
 - (void)setUp
 {

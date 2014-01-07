@@ -102,7 +102,7 @@
 
 @property (nonatomic, weak) IBOutlet UIView *square1;
 @property (nonatomic) UIDynamicAnimator* animator;
-@property (nonatomic, strong) DynamicsXRay *dynamicsXray;
+@property (nonatomic, strong) DynamicsXray *dynamicsXray;
 
 @end
 
@@ -124,7 +124,7 @@
 
 - (void)setupDynamicsXray
 {
-    self.dynamicsXray = [[DynamicsXRay alloc] init];
+    self.dynamicsXray = [[DynamicsXray alloc] init];
     self.dynamicsXray.active = YES;
     [self.animator addBehavior:self.dynamicsXray];
 

@@ -1,17 +1,17 @@
 //
-//  DXRDynamicsXRayConfigurationViewController+Private.h
-//  DynamicsXRay
+//  DXRDynamicsXrayConfigurationViewController+Private.h
+//  DynamicsXray
 //
 //  Created by Chris Miles on 16/10/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXRayConfigurationViewController.h"
+#import "DXRDynamicsXrayConfigurationViewController.h"
 
-@class DynamicsXRay;
+@class DynamicsXray;
 
-@interface DXRDynamicsXRayConfigurationViewController (Private)
+@interface DXRDynamicsXrayConfigurationViewController (Private)
 
-- (id)initWithDynamicsXRay:(DynamicsXRay *)dynamicsXRay;
+- (id)initWithDynamicsXRay:(DynamicsXray *)dynamicsXRay;
 
 @end

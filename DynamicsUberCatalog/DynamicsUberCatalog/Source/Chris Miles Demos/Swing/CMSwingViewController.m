@@ -17,7 +17,7 @@
 @property (strong, nonatomic) UIDynamicAnimator *animator;
 @property (strong, nonatomic) UIPushBehavior *pushBehavior;
 
-@property (strong, nonatomic) DynamicsXRay *dynamicsXRay;
+@property (strong, nonatomic) DynamicsXray *dynamicsXRay;
 
 @end
 
@@ -61,7 +61,7 @@
     [self.animator addBehavior:self.pushBehavior];
     [self.animator addBehavior:itemBehavior];
 
-    self.dynamicsXRay = [[DynamicsXRay alloc] init];
+    self.dynamicsXRay = [[DynamicsXray alloc] init];
     self.dynamicsXRay.active = NO;
     self.dynamicsXRay.drawDynamicItemsEnabled = YES;
     //self.dynamicsXRay.viewOffset = UIOffsetMake(30.0f, 10.0f);
@@ -140,7 +140,7 @@
 {
     if (dynamicsXRayEnabled) {
         if (self.dynamicsXRay == nil) {
-            self.dynamicsXRay = [[DynamicsXRay alloc] init];
+            self.dynamicsXRay = [[DynamicsXray alloc] init];
             self.dynamicsXRay.crossFade = 0;
             [self.animator addBehavior:self.dynamicsXRay];
         }

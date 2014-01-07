@@ -1,12 +1,12 @@
 //
-//  DXRDynamicsXRayUtil.m
-//  DynamicsXRay
+//  DXRDynamicsXrayUtil.m
+//  DynamicsXray
 //
 //  Created by Chris Miles on 4/08/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXRayUtil.h"
+#import "DXRDynamicsXrayUtil.h"
 
 CGFloat DXRCGPointDistance(CGPoint point1, CGPoint point2)
 {
