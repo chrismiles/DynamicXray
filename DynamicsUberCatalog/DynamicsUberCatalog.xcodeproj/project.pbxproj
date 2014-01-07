@@ -14,7 +14,7 @@
 		2806C656175BE66C00827B6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2806C654175BE66C00827B6B /* Main.storyboard */; };
 		2806C65B175BE66C00827B6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2806C65A175BE66C00827B6B /* Images.xcassets */; };
 		830DA09B17FD7E8D00A24B39 /* CMLabelledSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 830DA09A17FD7E8D00A24B39 /* CMLabelledSwitch.m */; };
-		83849DE917AE06A000D6DD3C /* libDynamicsXRay.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83849DE817AE06A000D6DD3C /* libDynamicsXRay.a */; };
+		835D57E5187BE1C7006CB05B /* libDynamicsXray.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 835D57E4187BE1C7006CB05B /* libDynamicsXray.a */; };
 		83BA61891829D0FC00341483 /* DUCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61691829D0FC00341483 /* DUCAppDelegate.m */; };
 		83BA618A1829D0FC00341483 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA616A1829D0FC00341483 /* main.m */; };
 		83BA618B1829D0FC00341483 /* APLAttachmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA616D1829D0FC00341483 /* APLAttachmentsViewController.m */; };
@@ -49,6 +49,7 @@
 		2806C65A175BE66C00827B6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		830DA09917FD7E8D00A24B39 /* CMLabelledSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMLabelledSwitch.h; sourceTree = "<group>"; };
 		830DA09A17FD7E8D00A24B39 /* CMLabelledSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMLabelledSwitch.m; sourceTree = "<group>"; };
+		835D57E4187BE1C7006CB05B /* libDynamicsXray.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDynamicsXray.a; path = "../DynamicsXray/build/Debug-iphoneos/libDynamicsXray.a"; sourceTree = "<group>"; };
 		83849DE817AE06A000D6DD3C /* libDynamicsXRay.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDynamicsXRay.a; path = "../../../../Library/Developer/Xcode/DerivedData/DynamicsXRay-gbmdfpjpsnunjvenkedrhmxwiykt/Build/Products/Debug-iphoneos/libDynamicsXRay.a"; sourceTree = "<group>"; };
 		83BA61681829D0FC00341483 /* DUCAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUCAppDelegate.h; sourceTree = "<group>"; };
 		83BA61691829D0FC00341483 /* DUCAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DUCAppDelegate.m; sourceTree = "<group>"; };
@@ -96,7 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				83849DE917AE06A000D6DD3C /* libDynamicsXRay.a in Frameworks */,
+				835D57E5187BE1C7006CB05B /* libDynamicsXray.a in Frameworks */,
 				2806C645175BE66C00827B6B /* CoreGraphics.framework in Frameworks */,
 				2806C647175BE66C00827B6B /* UIKit.framework in Frameworks */,
 				2806C643175BE66C00827B6B /* Foundation.framework in Frameworks */,
@@ -130,6 +131,7 @@
 		2806C641175BE66C00827B6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				835D57E4187BE1C7006CB05B /* libDynamicsXray.a */,
 				83849DE817AE06A000D6DD3C /* libDynamicsXRay.a */,
 				2806C642175BE66C00827B6B /* Foundation.framework */,
 				2806C644175BE66C00827B6B /* CoreGraphics.framework */,
@@ -485,10 +487,7 @@
 				GCC_PREFIX_HEADER = "DynamicsUberCatalog/DynamicsUberCatalog-Prefix.pch";
 				INFOPLIST_FILE = "DynamicsUberCatalog/DynamicsUberCatalog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/DynamicsXRay-gbmdfpjpsnunjvenkedrhmxwiykt/Build/Products/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = DynamicsUberCatalog;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -505,10 +504,7 @@
 				GCC_PREFIX_HEADER = "DynamicsUberCatalog/DynamicsUberCatalog-Prefix.pch";
 				INFOPLIST_FILE = "DynamicsUberCatalog/DynamicsUberCatalog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/DynamicsXRay-gbmdfpjpsnunjvenkedrhmxwiykt/Build/Products/Debug-iphoneos",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = DynamicsUberCatalog;
 				TARGETED_DEVICE_FAMILY = "1,2";
