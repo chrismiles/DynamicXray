@@ -120,7 +120,6 @@
 		83849DC617AE022300D6DD3C /* DynamicsXrayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DynamicsXrayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83849DC717AE022300D6DD3C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		83849DCA17AE022300D6DD3C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		83849DD117AE022300D6DD3C /* DynamicsXRayTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DynamicsXRayTests-Info.plist"; sourceTree = "<group>"; };
 		83849DD317AE022300D6DD3C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		83849DD517AE022300D6DD3C /* DynamicsXrayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicsXrayTests.m; sourceTree = "<group>"; };
 		83849DDF17AE02DB00D6DD3C /* DXRDynamicsXrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXrayView.h; sourceTree = "<group>"; };
@@ -146,6 +145,7 @@
 		83E6D61B187C178E005ECBA5 /* DynamicsXray_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DynamicsXray_Internal.h; path = DynamicsXray/DynamicsXray_Internal.h; sourceTree = SOURCE_ROOT; };
 		83E6D61D187C1799005ECBA5 /* DXRDynamicsXrayUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXRDynamicsXrayUtil.m; path = DynamicsXray/DXRDynamicsXrayUtil.m; sourceTree = SOURCE_ROOT; };
 		83E6D61F187C17A7005ECBA5 /* DXRDynamicsXrayConfigurationViewController_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXRDynamicsXrayConfigurationViewController_Internal.h; path = DynamicsXray/DXRDynamicsXrayConfigurationViewController_Internal.h; sourceTree = SOURCE_ROOT; };
+		83E6D621187C1925005ECBA5 /* DynamicsXrayTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "DynamicsXrayTests-Info.plist"; path = "DynamicsXrayTests/DynamicsXrayTests-Info.plist"; sourceTree = SOURCE_ROOT; };
 		83FA2B2517FC290E0022DEAB /* DXRDynamicsXrayBehaviorAttachment+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicsXrayBehaviorAttachment+DXRDrawing.h"; sourceTree = "<group>"; };
 		83FA2B2617FC290E0022DEAB /* DXRDynamicsXrayBehaviorAttachment+DXRDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRDynamicsXrayBehaviorAttachment+DXRDrawing.m"; sourceTree = "<group>"; };
 		83FA2B2917FC29A30022DEAB /* DXRDynamicsXrayBehaviorDrawing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXrayBehaviorDrawing.h; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 		83849DD017AE022300D6DD3C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				83849DD117AE022300D6DD3C /* DynamicsXRayTests-Info.plist */,
+				83E6D621187C1925005ECBA5 /* DynamicsXrayTests-Info.plist */,
 				83849DD217AE022300D6DD3C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -657,9 +657,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = NO;
-				DSTROOT = /tmp/DynamicsXRay.dst;
+				DSTROOT = /tmp/DynamicsXray.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DynamicsXRay/DynamicsXRay-Prefix.pch";
+				GCC_PREFIX_HEADER = "DynamicsXray/DynamicsXray-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = Headers;
@@ -672,9 +672,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = NO;
-				DSTROOT = /tmp/DynamicsXRay.dst;
+				DSTROOT = /tmp/DynamicsXray.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DynamicsXRay/DynamicsXRay-Prefix.pch";
+				GCC_PREFIX_HEADER = "DynamicsXray/DynamicsXray-Prefix.pch";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = Headers;
@@ -692,12 +692,12 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DynamicsXRay/DynamicsXRay-Prefix.pch";
+				GCC_PREFIX_HEADER = "DynamicsXray/DynamicsXray-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "DynamicsXRayTests/DynamicsXRayTests-Info.plist";
+				INFOPLIST_FILE = "DynamicsXrayTests/DynamicsXrayTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -712,8 +712,8 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DynamicsXRay/DynamicsXRay-Prefix.pch";
-				INFOPLIST_FILE = "DynamicsXRayTests/DynamicsXRayTests-Info.plist";
+				GCC_PREFIX_HEADER = "DynamicsXray/DynamicsXray-Prefix.pch";
+				INFOPLIST_FILE = "DynamicsXrayTests/DynamicsXrayTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
