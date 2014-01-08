@@ -13,4 +13,11 @@
 
 @property (weak, nonatomic) DynamicsXray *dynamicsXray;
 
+@property (assign, nonatomic) BOOL animateAppearance;
+
+@property (assign, nonatomic) BOOL initialAppearanceWasAnimated;
+@property (strong, nonatomic) UIView *controlsView;
+
+- (void)transitionOutAnimatedWithCompletion:(void (^)(void))completion;
+
 @end

@@ -433,7 +433,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
 - (void)presentConfigurationViewController
 {
-    [sharedXrayWindowController presentConfigViewControllerWithDynamicsXray:self];
+    [sharedXrayWindowController presentConfigViewControllerWithDynamicsXray:self animated:YES];
 }
 
 @end

@@ -106,12 +106,13 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 #pragma mark - Config View Controller Presentation
 
-- (void)presentConfigViewControllerWithDynamicsXray:(DynamicsXray *)dynamicsXray
+- (void)presentConfigViewControllerWithDynamicsXray:(DynamicsXray *)dynamicsXray animated:(BOOL)animated
 {
     if (self.configurationViewController == nil) {
         DXRDynamicsXrayConfigurationViewController *configViewController = [[DXRDynamicsXrayConfigurationViewController alloc] initWithDynamicsXray:dynamicsXray];
         self.configurationViewController = configViewController;
 
+        configViewController.animateAppearance = animated;
         [configViewController.view setFrame:self.window.bounds];
         [configViewController.view setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
 

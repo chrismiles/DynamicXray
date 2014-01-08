@@ -109,7 +109,17 @@
 - (void)dismissAction:(__unused id)sender
 {
     DXRDynamicsXrayWindowController *xrayWindowController = (DXRDynamicsXrayWindowController *)self.parentViewController;
-    [xrayWindowController dismissConfigViewController];
+
+    void ((^completion)(void)) = ^{
+        [xrayWindowController dismissConfigViewController];
+    };
+
+    if (self.animateAppearance) {
+        [self transitionOutAnimatedWithCompletion:completion];
+    }
+    else {
+        completion();
+    }
 }
 
 - (void)activeToggleAction:(UISwitch *)toggleSwitch

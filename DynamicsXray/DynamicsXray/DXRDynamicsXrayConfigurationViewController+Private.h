@@ -14,4 +14,6 @@
 
 - (id)initWithDynamicsXray:(DynamicsXray *)dynamicsXray;
 
+- (void)setAnimateAppearance:(BOOL)animateAppearance;
+
 @end
