@@ -27,9 +27,23 @@
 
 - (UIView *)newControlsViewWithFrame:(CGRect)frame
 {
-    UIView *containerView = [[UIView alloc] initWithFrame:frame];
-    containerView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin);
-    containerView.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.94f];
+    UIView *controlsView = [[UIView alloc] initWithFrame:frame];
+    controlsView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin);
+    controlsView.backgroundColor = [UIColor clearColor];
+
+    // Add a UIToolbar simply to get its nice blur
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:controlsView.bounds];
+    toolbar.barStyle = UIBarStyleDefault;
+    toolbar.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    [controlsView addSubview:toolbar];
+
+    // Container for controls
+    UIView *containerView = [[UIView alloc] initWithFrame:controlsView.bounds];
+    containerView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    containerView.backgroundColor = [UIColor clearColor];
+    [controlsView addSubview:containerView];
+
+    // Controls
 
     UISwitch *activeToggleSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 0, 0)];
     [activeToggleSwitch sizeToFit];
@@ -56,7 +70,7 @@
     [containerView addConstraint:[NSLayoutConstraint constraintWithItem:activeLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:activeToggleSwitch attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0]];
     [containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[faderView(==faderViewHeight)]" options:0 metrics:layoutMetrics views:layoutViews]];
 
-    return containerView;
+    return controlsView;
 }
 
 - (UIView *)faderViewWithFrame:(CGRect)frame
