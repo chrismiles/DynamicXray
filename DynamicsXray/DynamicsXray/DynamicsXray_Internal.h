@@ -24,8 +24,7 @@
 @property (strong, nonatomic) UIWindow *xrayWindow;
 
 @property (strong, nonatomic) NSMutableSet *dynamicItemsToDraw;
-
-@property (strong, nonatomic) NSHashTable *contactedDynamicItems;
+@property (strong, nonatomic) NSMapTable *dynamicItemsContactCount;
 
 - (void)redraw;
 

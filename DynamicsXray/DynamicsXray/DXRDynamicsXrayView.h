@@ -16,7 +16,7 @@
 
 - (void)drawGravityBehaviorWithMagnitude:(CGFloat)magnitude angle:(CGFloat)angle;
 
-- (void)drawDynamicItems:(NSSet *)dynamicItems contactedItems:(NSHashTable *)contactedItems withReferenceView:(UIView *)referenceView;
+- (void)drawDynamicItems:(NSSet *)dynamicItems contactedItems:(NSMapTable *)contactedItems withReferenceView:(UIView *)referenceView;
 
 - (CGPoint)convertPoint:(CGPoint)point fromReferenceView:(UIView *)referenceView;
 

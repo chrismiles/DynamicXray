@@ -67,7 +67,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
         _active = YES;
 
-        _contactedDynamicItems = [NSHashTable weakObjectsHashTable];
+        _dynamicItemsContactCount = [NSMapTable weakToStrongObjectsMapTable];
 
         // Grab a strong reference to the shared XRay window (a new one is created on demand if needed)
         self.xrayWindow = sharedXrayWindowController.xrayWindow;
@@ -260,7 +260,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
         }
     }
 
-    [self.xrayViewController.xrayView drawDynamicItems:self.dynamicItemsToDraw contactedItems:self.contactedDynamicItems withReferenceView:self.referenceView];
+    [self.xrayViewController.xrayView drawDynamicItems:self.dynamicItemsToDraw contactedItems:self.dynamicItemsContactCount withReferenceView:self.referenceView];
 }
 
 #pragma mark - Attachment Behavior
@@ -357,8 +357,9 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 {
     id<UIDynamicItem> dynamicItem = notification.userInfo[@"dynamicItem"];
     if (dynamicItem) {
-        DLog(@"DynamicItem did begin contact: %@", dynamicItem);
-        [self.contactedDynamicItems addObject:dynamicItem];
+        //DLog(@"DynamicItem did begin contact: %@", dynamicItem);
+        NSInteger count = [[self.dynamicItemsContactCount objectForKey:dynamicItem] integerValue] + 1;
+        [self.dynamicItemsContactCount setObject:@(count) forKey:dynamicItem];
     }
 }
 
@@ -366,8 +367,14 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 {
     id<UIDynamicItem> dynamicItem = notification.userInfo[@"dynamicItem"];
     if (dynamicItem) {
-        DLog(@"DynamicItem did end contact: %@", dynamicItem);
-        [self.contactedDynamicItems removeObject:dynamicItem];
+        //DLog(@"DynamicItem did end contact: %@", dynamicItem);
+        NSInteger count = [[self.dynamicItemsContactCount objectForKey:dynamicItem] integerValue] - 1;
+        if (count > 0) {
+            [self.dynamicItemsContactCount setObject:@(count) forKey:dynamicItem];
+        }
+        else {
+            [self.dynamicItemsContactCount removeObjectForKey:dynamicItem];
+        }
     }
 }
 

@@ -88,7 +88,7 @@
     [self setNeedsDisplay];
 }
 
-- (void)drawDynamicItems:(NSSet *)dynamicItems contactedItems:(NSHashTable *)contactedItems withReferenceView:(UIView *)referenceView
+- (void)drawDynamicItems:(NSSet *)dynamicItems contactedItems:(NSMapTable *)contactedItems withReferenceView:(UIView *)referenceView
 {
     if (dynamicItems && [dynamicItems count] > 0) {
         for (id<UIDynamicItem> item in dynamicItems) {
@@ -96,7 +96,7 @@
             CGPoint itemCenter = [self convertPoint:item.center fromReferenceView:referenceView];
             CGAffineTransform itemTransform = item.transform;
 
-            BOOL isContacted = [contactedItems containsObject:item];
+            BOOL isContacted = ([[contactedItems objectForKey:item] integerValue] > 0);
 
             DXRDynamicsXrayItemSnapshot *itemSnapshot = [DXRDynamicsXrayItemSnapshot snapshotWithBounds:itemBounds center:itemCenter transform:itemTransform contacted:isContacted];
             [self.dynamicItemsToDraw addObject:itemSnapshot];
