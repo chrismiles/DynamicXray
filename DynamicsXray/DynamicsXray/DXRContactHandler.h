@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "DXRPhysicsKitPrivate.h"
 
+extern NSString * const DXRDynamicsXrayContactDidBeginNotification;
+extern NSString * const DXRDynamicsXrayContactDidEndNotification;
+
+
 @interface DXRContactHandler : NSObject
 
 + (void)handleBeginContactWithPhysicsContact:(PKPhysicsContact *)physicsContact;

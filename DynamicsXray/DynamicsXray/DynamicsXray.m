@@ -10,6 +10,7 @@
 #import "DynamicsXray_Internal.h"
 #import "DXRDynamicsXrayView.h"
 #import "DXRDynamicsXrayWindowController.h"
+#import "DXRContactHandler.h"
 
 
 /*
@@ -66,6 +67,8 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
         _active = YES;
 
+        _contactedDynamicItems = [NSHashTable weakObjectsHashTable];
+
         // Grab a strong reference to the shared XRay window (a new one is created on demand if needed)
         self.xrayWindow = sharedXrayWindowController.xrayWindow;
 
@@ -85,12 +88,17 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
         };
 
         [self scheduleDelayedRedrawCheckRepeats:YES];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dynamicsXrayContactDidBeginNotification:) name:DXRDynamicsXrayContactDidBeginNotification object:[DXRContactHandler class]];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dynamicsXrayContactDidEndNotification:) name:DXRDynamicsXrayContactDidEndNotification object:[DXRContactHandler class]];
     }
     return self;
 }
 
 - (void)dealloc
 {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
     [sharedXrayWindowController dismissDynamicsXrayViewController:self.xrayViewController];
     [sharedXrayWindowController dismissConfigViewController];
 }
@@ -252,7 +260,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
         }
     }
 
-    [self.xrayViewController.xrayView drawDynamicItems:self.dynamicItemsToDraw withReferenceView:self.referenceView];
+    [self.xrayViewController.xrayView drawDynamicItems:self.dynamicItemsToDraw contactedItems:self.contactedDynamicItems withReferenceView:self.referenceView];
 }
 
 #pragma mark - Attachment Behavior
@@ -340,6 +348,27 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
     [self.xrayViewController.xrayView drawGravityBehaviorWithMagnitude:gravityBehavior.magnitude angle:gravityBehavior.angle];
 
     [self.dynamicItemsToDraw addObjectsFromArray:gravityBehavior.items];
+}
+
+
+#pragma mark - Contact Notifications
+
+- (void)dynamicsXrayContactDidBeginNotification:(NSNotification *)notification
+{
+    id<UIDynamicItem> dynamicItem = notification.userInfo[@"dynamicItem"];
+    if (dynamicItem) {
+        DLog(@"DynamicItem did begin contact: %@", dynamicItem);
+        [self.contactedDynamicItems addObject:dynamicItem];
+    }
+}
+
+- (void)dynamicsXrayContactDidEndNotification:(NSNotification *)notification
+{
+    id<UIDynamicItem> dynamicItem = notification.userInfo[@"dynamicItem"];
+    if (dynamicItem) {
+        DLog(@"DynamicItem did end contact: %@", dynamicItem);
+        [self.contactedDynamicItems removeObject:dynamicItem];
+    }
 }
 
 @end

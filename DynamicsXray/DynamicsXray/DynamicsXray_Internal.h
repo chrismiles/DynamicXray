@@ -25,6 +25,8 @@
 
 @property (strong, nonatomic) NSMutableSet *dynamicItemsToDraw;
 
+@property (strong, nonatomic) NSHashTable *contactedDynamicItems;
+
 - (void)redraw;
 
 @end

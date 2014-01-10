@@ -28,7 +28,19 @@
         CGContextTranslateCTM(context, -halfWidth, -halfHeight);
 
         CGContextAddRect(context, bounds);
+
+        if (self.isContacted)
+        {
+            CGContextSaveGState(context);
+            CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
+        }
+
         CGContextStrokePath(context);
+
+        if (self.isContacted)
+        {
+            CGContextRestoreGState(context);
+        }
     }
 }
 

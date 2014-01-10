@@ -10,10 +10,11 @@
 
 @interface DXRDynamicsXrayItemSnapshot : NSObject
 
-+ (instancetype)snapshotWithBounds:(CGRect)bounds center:(CGPoint)center transform:(CGAffineTransform)transform;
++ (instancetype)snapshotWithBounds:(CGRect)bounds center:(CGPoint)center transform:(CGAffineTransform)transform contacted:(BOOL)isContacted;
 
 @property (nonatomic, readonly) CGPoint center;
 @property (nonatomic, readonly) CGRect bounds;
 @property (nonatomic, readonly) CGAffineTransform transform;
+@property (nonatomic, readonly) BOOL isContacted;
 
 @end
