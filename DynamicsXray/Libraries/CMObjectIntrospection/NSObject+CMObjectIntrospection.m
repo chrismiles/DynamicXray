@@ -26,14 +26,20 @@
 #import "NSObject+CMObjectIntrospection.h"
 @import ObjectiveC.runtime;
 
+
 @implementation NSObject (CMObjectIntrospection)
 
 - (void)CMObjectIntrospectionDumpInfo
 {
     Class myClass = [self class];
+    [NSObject CMObjectIntrospectionDumpInfoForClass:myClass];
+}
+
++ (void)CMObjectIntrospectionDumpInfoForClass:(Class)interestingClass
+{
     u_int count;
     
-    Ivar *ivars = class_copyIvarList(myClass, &count);
+    Ivar *ivars = class_copyIvarList(interestingClass, &count);
     NSMutableArray *ivarArray = [NSMutableArray arrayWithCapacity:count];
     for (u_int i = 0; i < count ; i++)
     {
@@ -42,7 +48,7 @@
     }
     free(ivars);
     
-    objc_property_t *properties = class_copyPropertyList(myClass, &count);
+    objc_property_t *properties = class_copyPropertyList(interestingClass, &count);
     NSMutableArray *propertyArray = [NSMutableArray arrayWithCapacity:count];
     for (u_int i = 0; i < count ; i++)
     {
@@ -51,7 +57,7 @@
     }
     free(properties);
     
-    Method *methods = class_copyMethodList(myClass, &count);
+    Method *methods = class_copyMethodList(interestingClass, &count);
     NSMutableArray *methodArray = [NSMutableArray arrayWithCapacity:count];
     for (u_int i = 0; i < count ; i++)
     {
@@ -67,7 +73,63 @@
                                methodArray, @"methods",
                                nil];
     
-    NSLog(@"%@: %@", myClass, classDump);
+    NSLog(@"%@: %@", interestingClass, classDump);
 }
+
+
+- (id)getValueForIvarWithName:(NSString *)iVarName class:(Class)aClass
+{
+    id value = nil;
+
+    const char *name = [iVarName cStringUsingEncoding:NSUTF8StringEncoding];
+
+    u_int count;
+    Ivar *ivars = class_copyIvarList(aClass, &count);
+    for (u_int i = 0; i < count ; i++)
+    {
+        Ivar anIvar = ivars[i];
+        const char *ivarName = ivar_getName(anIvar);
+        if (strcmp(ivarName, name) == 0) {
+
+            value = object_getIvar(self, anIvar);
+            break;
+        }
+    }
+    free(ivars);
+
+    return value;
+}
+
+//- (CGPathRef)getPathForIvarWithName:(NSString *)iVarName class:(Class)aClass
+//{
+//    struct CGPath *path = NULL;
+//
+//    const char *name = [iVarName cStringUsingEncoding:NSUTF8StringEncoding];
+//
+//    u_int count;
+//    Ivar *ivars = class_copyIvarList(aClass, &count);
+//    for (u_int i = 0; i < count ; i++)
+//    {
+//        Ivar anIvar = ivars[i];
+//        const char *ivarName = ivar_getName(anIvar);
+//        if (strcmp(ivarName, name) == 0) {
+//
+//            const char *typeEncoding = ivar_getTypeEncoding(anIvar);
+//            if (strcmp(typeEncoding, "^{CGPath=}") == 0) {
+//
+//                //value = object_getIvar(self, anIvar);
+//                path = ((struct CGPath * (*)(id, Ivar))object_getIvar)(self, anIvar);
+//            }
+//            else {
+//                DLog(@"Unexpected type encoding \"%s\" for CGPath ivar named \"%@\"", typeEncoding, iVarName);
+//            }
+//
+//            break;
+//        }
+//    }
+//    free(ivars);
+//    
+//    return path;
+//}
 
 @end

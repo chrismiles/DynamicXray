@@ -25,6 +25,7 @@
 
 @property (strong, nonatomic) NSMutableSet *dynamicItemsToDraw;
 @property (strong, nonatomic) NSMapTable *dynamicItemsContactCount;
+@property (strong, nonatomic) NSMapTable *pathsContactCount;
 
 - (void)redraw;
 

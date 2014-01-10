@@ -29,4 +29,8 @@
 
 - (void)CMObjectIntrospectionDumpInfo;
 
++ (void)CMObjectIntrospectionDumpInfoForClass:(Class)interestingClass;
+
+- (id)getValueForIvarWithName:(NSString *)iVarName class:(Class)aClass;
+
 @end

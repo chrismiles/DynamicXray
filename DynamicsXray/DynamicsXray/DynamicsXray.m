@@ -68,6 +68,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
         _active = YES;
 
         _dynamicItemsContactCount = [NSMapTable weakToStrongObjectsMapTable];
+        _pathsContactCount = [NSMapTable weakToStrongObjectsMapTable];
 
         // Grab a strong reference to the shared XRay window (a new one is created on demand if needed)
         self.xrayWindow = sharedXrayWindowController.xrayWindow;
@@ -261,7 +262,9 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
     }
 
     [self.xrayViewController.xrayView drawDynamicItems:self.dynamicItemsToDraw contactedItems:self.dynamicItemsContactCount withReferenceView:self.referenceView];
+    [self.xrayViewController.xrayView drawContactPaths:self.pathsContactCount withReferenceView:self.referenceView];
 }
+
 
 #pragma mark - Attachment Behavior
 
@@ -361,6 +364,13 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
         NSInteger count = [[self.dynamicItemsContactCount objectForKey:dynamicItem] integerValue] + 1;
         [self.dynamicItemsContactCount setObject:@(count) forKey:dynamicItem];
     }
+
+    CGPathRef path = CFBridgingRetain(notification.userInfo[@"path"]);
+    if (path) {
+        id key = CFBridgingRelease(path);
+        NSInteger count = [[self.pathsContactCount objectForKey:key] integerValue] + 1;
+        [self.pathsContactCount setObject:@(count) forKey:key];
+    }
 }
 
 - (void)dynamicsXrayContactDidEndNotification:(NSNotification *)notification
@@ -374,6 +384,18 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
         }
         else {
             [self.dynamicItemsContactCount removeObjectForKey:dynamicItem];
+        }
+    }
+
+    CGPathRef path = CFBridgingRetain(notification.userInfo[@"path"]);
+    if (path) {
+        id key = CFBridgingRelease(path);
+        NSInteger count = [[self.pathsContactCount objectForKey:key] integerValue] - 1;
+        if (count > 0) {
+            [self.pathsContactCount setObject:@(count) forKey:key];
+        }
+        else {
+            [self.pathsContactCount removeObjectForKey:key];
         }
     }
 }

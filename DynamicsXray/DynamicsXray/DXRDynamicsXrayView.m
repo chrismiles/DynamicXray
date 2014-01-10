@@ -18,9 +18,11 @@
 @interface DXRDynamicsXrayView ()
 
 @property (strong, nonatomic) NSMutableArray *behaviorsToDraw;
+@property (strong, nonatomic) NSMutableSet *contactPathsToDraw;
 @property (strong, nonatomic) NSMutableArray *dynamicItemsToDraw;
 
 @property (assign, nonatomic) CGSize lastBoundsSize;
+@property (assign, nonatomic) CGPoint contactPathsOffset;
 
 @end
 
@@ -34,8 +36,9 @@
         _allowsAntialiasing = YES;
 
         _behaviorsToDraw = [NSMutableArray array];
+        _contactPathsToDraw = [NSMutableSet set];
         _dynamicItemsToDraw = [NSMutableArray array];
-        
+
 	self.backgroundColor = [UIColor clearColor];
 	self.userInteractionEnabled = NO;
     }
@@ -104,6 +107,21 @@
 
         [self setNeedsDisplay];
     }
+}
+
+- (void)drawContactPaths:(NSMapTable *)contactedPaths withReferenceView:(UIView *)referenceView
+{
+    [self.contactPathsToDraw removeAllObjects];
+
+    NSMutableArray *paths = [NSMutableArray array];
+
+    for (id key in contactedPaths) {
+        // Keys are CGPathRefs
+        [paths addObject:key];
+    }
+
+    [self.contactPathsToDraw addObjectsFromArray:paths];
+    self.contactPathsOffset = [self convertPoint:CGPointZero fromReferenceView:referenceView];
 }
 
 
@@ -184,8 +202,24 @@
             DLog(@"WARNING: DXRDynamicsXrayBehavior is not drawable: %@", behavior);
         }
     }
+
+    if ([self.contactPathsToDraw count] > 0) {
+        CGContextSaveGState(context);
+        CGContextTranslateCTM(context, self.contactPathsOffset.x, self.contactPathsOffset.y);
+        CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
+        CGContextSetLineWidth(context, 5.0f);
+
+        for (id obj in self.contactPathsToDraw) {
+            CGPathRef path = (__bridge CGPathRef)(obj);
+
+            CGContextAddPath(context, path);
+            CGContextStrokePath(context);
+        }
+        CGContextRestoreGState(context);
+    }
     
     [self.behaviorsToDraw removeAllObjects];
+    [self.contactPathsToDraw removeAllObjects];
     [self.dynamicItemsToDraw removeAllObjects];
 }
 

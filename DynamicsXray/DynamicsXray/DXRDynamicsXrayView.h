@@ -18,6 +18,8 @@
 
 - (void)drawDynamicItems:(NSSet *)dynamicItems contactedItems:(NSMapTable *)contactedItems withReferenceView:(UIView *)referenceView;
 
+- (void)drawContactPaths:(NSMapTable *)contactedPaths withReferenceView:(UIView *)referenceView;
+
 - (CGPoint)convertPoint:(CGPoint)point fromReferenceView:(UIView *)referenceView;
 
 @property (assign, nonatomic) UIOffset drawOffset;
