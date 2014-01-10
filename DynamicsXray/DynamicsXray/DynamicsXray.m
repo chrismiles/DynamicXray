@@ -230,7 +230,9 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
     {
         
 #ifdef DYNAMIC_BEHAVIOR_OBJECT_INTROSPECTION
-        [behavior CMObjectIntrospectionDumpInfo];
+        if ([behavior isKindOfClass:[DynamicsXray class]] == NO) {
+            [behavior CMObjectIntrospectionDumpInfo];
+        }
 #endif
         
 	if ([behavior isKindOfClass:[UIAttachmentBehavior class]]) {
