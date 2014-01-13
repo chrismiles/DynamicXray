@@ -32,46 +32,15 @@ NSString * const DXRDynamicsXrayContactDidEndNotification = @"DXRDynamicsXrayCon
 
 @implementation DXRContactHandler
 
-
 #pragma mark - Handle Contact with PKPhysicsContact
 
 + (void)handleBeginContactWithPhysicsContact:(PKPhysicsContact *)physicsContact
 {
-
     PKPhysicsBody *bodyA = physicsContact.bodyA;
     PKPhysicsBody *bodyB = physicsContact.bodyB;
 
-    //NSInteger dynamicTypeA = [[bodyA valueForKey:@"_dynamicType"] integerValue];
-    //NSInteger dynamicTypeB = [[bodyB valueForKey:@"_dynamicType"] integerValue];
-
-    NSInteger shapeTypeA = [[bodyA valueForKey:@"_shapeType"] integerValue];
-    NSInteger shapeTypeB = [[bodyB valueForKey:@"_shapeType"] integerValue];
-
-    if (shapeTypeA == DXRPhysicsBodyShapeTypeEdgeLoop) {
-        Class bodyClass = NSClassFromString(@"PKPhysicsBody");
-
-        CGPathRef path = CFBridgingRetain([bodyA getValueForIvarWithName:@"_path" class:bodyClass]);
-        if (path) {
-            [self handleBeginContactWithShapePath:path];
-        }
-    }
-    if (shapeTypeB == DXRPhysicsBodyShapeTypeEdgeLoop) {
-        Class bodyClass = NSClassFromString(@"PKPhysicsBody");
-        CGPathRef path = CFBridgingRetain([bodyB getValueForIvarWithName:@"_path" class:bodyClass]);
-        if (path) {
-            [self handleBeginContactWithShapePath:path];
-        }
-    }
-
-    id objectA = bodyA.representedObject;
-    id objectB = bodyB.representedObject;
-
-    //DLog(@"physicsContact: %@", physicsContact);
-    //DLog(@"bodyA: %@ objectA: %@ dynamicType=%ld shapeType=%ld", bodyA, objectA, (long)dynamicTypeA, (long)shapeTypeA);
-    //DLog(@"bodyB: %@ objectB: %@ dynamicType=%ld shapeType=%ld", bodyB, objectB, (long)dynamicTypeB, (long)shapeTypeB);
-
-    if (objectA) [self handleBeginContactWithObject:objectA];
-    if (objectB) [self handleBeginContactWithObject:objectB];
+    [self handleBeginContactWithPhysicsBody:bodyA];
+    [self handleBeginContactWithPhysicsBody:bodyB];
 }
 
 + (void)handleEndContactWithPhysicsContact:(PKPhysicsContact *)physicsContact
@@ -79,33 +48,61 @@ NSString * const DXRDynamicsXrayContactDidEndNotification = @"DXRDynamicsXrayCon
     PKPhysicsBody *bodyA = physicsContact.bodyA;
     PKPhysicsBody *bodyB = physicsContact.bodyB;
 
-    NSInteger shapeTypeA = [[bodyA valueForKey:@"_shapeType"] integerValue];
-    NSInteger shapeTypeB = [[bodyB valueForKey:@"_shapeType"] integerValue];
+    [self handleEndContactWithPhysicsBody:bodyA];
+    [self handleEndContactWithPhysicsBody:bodyB];
+}
 
-    if (shapeTypeA == DXRPhysicsBodyShapeTypeEdgeLoop) {
+
+#pragma mark - Handle Contact with Physics Bodies
+
++ (void)handleBeginContactWithPhysicsBody:(PKPhysicsBody *)body
+{
+    NSInteger shapeType = [[body valueForKey:@"_shapeType"] integerValue];
+
+    if (shapeType == DXRPhysicsBodyShapeTypeEdgeLoop) {
         Class bodyClass = NSClassFromString(@"PKPhysicsBody");
-        CGPathRef path = CFBridgingRetain([bodyA getValueForIvarWithName:@"_path" class:bodyClass]);
-        if (path) {
-            [self handleEndContactWithShapePath:path];
+
+        if ([self isMinimumSystemVersion:@"7.1"]) {
+            // object_getIvar() crashes on 7.0; works on 7.1
+            CGPathRef path = CFBridgingRetain([body getValueForIvarWithName:@"_path" class:bodyClass]);
+            if (path) {
+                [self handleBeginContactWithShapePath:path];
+            }
         }
     }
-    if (shapeTypeB == DXRPhysicsBodyShapeTypeEdgeLoop) {
+
+    id object = body.representedObject;
+
+    //DLog(@"physicsContact: %@", physicsContact);
+    //NSInteger dynamicType = [[body valueForKey:@"_dynamicType"] integerValue];
+    //DLog(@"body: %@ object: %@ dynamicType=%ld shapeType=%ld", body, object, (long)dynamicType, (long)shapeType);
+
+    if (object) [self handleBeginContactWithObject:object];
+}
+
++ (void)handleEndContactWithPhysicsBody:(PKPhysicsBody *)body
+{
+    NSInteger shapeType = [[body valueForKey:@"_shapeType"] integerValue];
+
+    if (shapeType == DXRPhysicsBodyShapeTypeEdgeLoop) {
         Class bodyClass = NSClassFromString(@"PKPhysicsBody");
-        CGPathRef path = CFBridgingRetain([bodyB getValueForIvarWithName:@"_path" class:bodyClass]);
-        if (path) {
-            [self handleEndContactWithShapePath:path];
+
+        if ([self isMinimumSystemVersion:@"7.1"]) {
+            // object_getIvar() crashes on 7.0; works on 7.1
+            CGPathRef path = CFBridgingRetain([body getValueForIvarWithName:@"_path" class:bodyClass]);
+            if (path) {
+                [self handleEndContactWithShapePath:path];
+            }
         }
     }
 
-    id objectA = bodyA.representedObject;
-    id objectB = bodyB.representedObject;
+    id object = body.representedObject;
 
     //DLog(@"physicsContact: %@", physicsContact);
     //DLog(@"bodyA: %@ objectA: %@", bodyA, objectA);
     //DLog(@"bodyB: %@ objectB: %@", bodyB, objectB);
 
-    [self handleEndContactWithObject:objectA];
-    [self handleEndContactWithObject:objectB];
+    [self handleEndContactWithObject:object];
 }
 
 
@@ -156,6 +153,15 @@ NSString * const DXRDynamicsXrayContactDidEndNotification = @"DXRDynamicsXrayCon
         NSDictionary *userInfo = @{@"path": obj};
         [[NSNotificationCenter defaultCenter] postNotificationName:DXRDynamicsXrayContactDidEndNotification object:self userInfo:userInfo];
     }
+}
+
+
+#pragma mark - System Version Comparison
+
++ (BOOL)isMinimumSystemVersion:(NSString *)minimumVersion
+{
+    NSString *systemVersion = [[UIDevice currentDevice] systemVersion];
+    return ([minimumVersion compare:systemVersion options:NSNumericSearch] != NSOrderedDescending);
 }
 
 @end
