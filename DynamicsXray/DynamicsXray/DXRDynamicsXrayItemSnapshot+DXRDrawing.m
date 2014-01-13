@@ -3,7 +3,7 @@
 //  DynamicsXray
 //
 //  Created by Chris Miles on 7/11/2013.
-//  Copyright (c) 2013 Chris Miles. All rights reserved.
+//  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 
 #import "DXRDynamicsXrayItemSnapshot+DXRDrawing.h"
@@ -32,7 +32,7 @@
         if (self.isContacted)
         {
             CGContextSaveGState(context);
-            CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
+            CGContextSetStrokeColorWithColor(context, [[UIColor redColor] colorWithAlphaComponent:self.contactedAlpha].CGColor);
         }
 
         CGContextStrokePath(context);

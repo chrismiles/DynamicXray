@@ -3,7 +3,7 @@
 //  DynamicsXray
 //
 //  Created by Chris Miles on 4/08/13.
-//  Copyright (c) 2013 Chris Miles. All rights reserved.
+//  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 
 #import "DynamicsXray.h"
@@ -386,8 +386,12 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
     id<UIDynamicItem> dynamicItem = notification.userInfo[@"dynamicItem"];
     if (dynamicItem) {
         //DLog(@"DynamicItem did begin contact: %@", dynamicItem);
-        NSInteger count = [[self.dynamicItemsContactCount objectForKey:dynamicItem] integerValue] + 1;
-        [self.dynamicItemsContactCount setObject:@(count) forKey:dynamicItem];
+        DXRContactLifetime *contactLifetime = [self.dynamicItemsContactCount objectForKey:dynamicItem];
+        if (contactLifetime == nil) {
+            contactLifetime = [[DXRContactLifetime alloc] init];
+            [self.dynamicItemsContactCount setObject:contactLifetime forKey:dynamicItem];
+        }
+        [contactLifetime incrementCount];
     }
 
     CGPathRef path = CFBridgingRetain(notification.userInfo[@"path"]);
@@ -407,11 +411,10 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
     id<UIDynamicItem> dynamicItem = notification.userInfo[@"dynamicItem"];
     if (dynamicItem) {
         //DLog(@"DynamicItem did end contact: %@", dynamicItem);
-        NSInteger count = [[self.dynamicItemsContactCount objectForKey:dynamicItem] integerValue] - 1;
-        if (count > 0) {
-            [self.dynamicItemsContactCount setObject:@(count) forKey:dynamicItem];
-        }
-        else {
+        DXRContactLifetime *contactLifetime = [self.dynamicItemsContactCount objectForKey:dynamicItem];
+        [contactLifetime decrementCount];
+
+        if ([contactLifetime decay] <= 0) {
             [self.dynamicItemsContactCount removeObjectForKey:dynamicItem];
         }
     }

@@ -3,7 +3,7 @@
 //  DynamicsXray
 //
 //  Created by Chris Miles on 12/11/2013.
-//  Copyright (c) 2013 Chris Miles. All rights reserved.
+//  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 
 #import "DynamicsXray.h"

@@ -3,7 +3,7 @@
 //  DynamicsXray
 //
 //  Created by Chris Miles on 4/08/13.
-//  Copyright (c) 2013 Chris Miles. All rights reserved.
+//  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 
 #import "DXRDynamicsXrayView.h"
@@ -102,9 +102,11 @@
             CGPoint itemCenter = [self convertPoint:item.center fromReferenceView:referenceView];
             CGAffineTransform itemTransform = item.transform;
 
-            BOOL isContacted = ([[contactedItems objectForKey:item] integerValue] > 0);
+            DXRContactLifetime *contactLifetime = [contactedItems objectForKey:item];
+            BOOL isContacted = (contactLifetime && contactLifetime.decay > 0);
 
             DXRDynamicsXrayItemSnapshot *itemSnapshot = [DXRDynamicsXrayItemSnapshot snapshotWithBounds:itemBounds center:itemCenter transform:itemTransform contacted:isContacted];
+            if (isContacted) itemSnapshot.contactedAlpha = contactLifetime.decay;
             [self.dynamicItemsToDraw addObject:itemSnapshot];
         }
 
@@ -237,7 +239,7 @@
     if ([self.contactPathsToDraw count] > 0) {
         CGContextSaveGState(context);
         CGContextTranslateCTM(context, self.contactPathsOffset.x, self.contactPathsOffset.y);
-        CGContextSetLineWidth(context, 5.0f);
+        CGContextSetLineWidth(context, 3.0f);
 
         for (DXRContactVisualise *contactVisualise in self.contactPathsToDraw) {
             CGPathRef path = (__bridge CGPathRef)(contactVisualise.objToDraw);
