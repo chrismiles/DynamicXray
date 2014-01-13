@@ -31,7 +31,7 @@
 
 // How often to periodically check whether the xray view needs a redraw.
 // This is required to prevent a stale xray view for cases like when the animator
-// is paused and the reference view changes in same way (e.g. is removed from window).
+// is paused and the reference view changes in some way (e.g. is removed from window).
 // Note: this is a secondary redraw check. Normally the xray view is redrawn on
 // every dynamic animator tick.
 // Set this to 0 to disable it.
@@ -133,7 +133,28 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
 - (void)redraw
 {
+    //[self calcFPS];
     [self introspectDynamicAnimator:self.dynamicAnimator];
+}
+
+- (void)calcFPS
+{
+    // FPS
+    static double fps_prev_time = 0;
+    static NSUInteger fps_count = 0;
+
+    /* FPS */
+    double curr_time = CACurrentMediaTime();
+    if (curr_time - fps_prev_time >= 0.5) {
+        double delta = (curr_time - fps_prev_time) / fps_count;
+        NSString *fpsDescription = [NSString stringWithFormat:@"%0.0f fps", 1.0/delta];
+        NSLog(@"Animator FPS: %@", fpsDescription);
+        fps_prev_time = curr_time;
+        fps_count = 1;
+    }
+    else {
+        fps_count++;
+    }
 }
 
 - (void)scheduleDelayedRedrawCheckRepeats:(BOOL)repeats

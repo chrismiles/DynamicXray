@@ -174,10 +174,33 @@
 }
 
 
+- (void)calcFPS
+{
+    // FPS
+    static double fps_prev_time = 0;
+    static NSUInteger fps_count = 0;
+
+    /* FPS */
+    double curr_time = CACurrentMediaTime();
+    if (curr_time - fps_prev_time >= 0.5) {
+        double delta = (curr_time - fps_prev_time) / fps_count;
+        NSString *fpsDescription = [NSString stringWithFormat:@"%0.0f fps", 1.0/delta];
+        NSLog(@"    Draw FPS: %@", fpsDescription);
+        fps_prev_time = curr_time;
+        fps_count = 1;
+    }
+    else {
+        fps_count++;
+    }
+}
+
+
 #pragma mark - Drawing
 
 - (void)drawRect:(CGRect)rect
 {
+    //[self calcFPS];
+
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     CGRect bounds = self.bounds;
