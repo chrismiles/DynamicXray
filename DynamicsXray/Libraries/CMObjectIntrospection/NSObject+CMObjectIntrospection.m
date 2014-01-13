@@ -27,12 +27,34 @@
 @import ObjectiveC.runtime;
 
 
+@interface NSObject (CMObjectIntrospectionPrivateAccess)
+
+// These description methods are only available in iOS 7+
+- (NSString *)_ivarDescription;
+- (NSString *)_methodDescription;
+- (NSString *)_shortMethodDescription;
+
+@end
+
+
 @implementation NSObject (CMObjectIntrospection)
 
 - (void)CMObjectIntrospectionDumpInfo
 {
-    Class myClass = [self class];
-    [NSObject CMObjectIntrospectionDumpInfoForClass:myClass];
+    SEL ivarDescriptionSelector = NSSelectorFromString(@"_ivarDescription");
+    if ([self respondsToSelector:ivarDescriptionSelector]) {
+        NSLog(@"%@", [self _ivarDescription]);
+
+        SEL methodDescriptionSelector = NSSelectorFromString(@"_methodDescription"); // note: we can also call "_shortMethodDescription"
+        if ([self respondsToSelector:methodDescriptionSelector]) {
+            NSLog(@"%@", [self _methodDescription]);
+        }
+    }
+    else {
+        // Pre-iOS 7
+        Class myClass = [self class];
+        [NSObject CMObjectIntrospectionDumpInfoForClass:myClass];
+    }
 }
 
 + (void)CMObjectIntrospectionDumpInfoForClass:(Class)interestingClass

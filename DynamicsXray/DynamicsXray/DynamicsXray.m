@@ -213,7 +213,10 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
     if ([self isActive] == NO) return;
 
 #ifdef DYNAMIC_ANIMATOR_OBJECT_INTROSPECTION
-    [dynamicAnimator CMObjectIntrospectionDumpInfo];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        [dynamicAnimator CMObjectIntrospectionDumpInfo];
+    });
 #endif
 
     [self findReferenceView];
