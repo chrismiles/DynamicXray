@@ -14,11 +14,14 @@
 #import "DXRDynamicsXrayItemSnapshot.h"
 #import "DXRDynamicsXrayItemSnapshot+DXRDrawing.h"
 
+#import "DXRContactLifetime.h"
+#import "DXRContactVisualise.h"
+
 
 @interface DXRDynamicsXrayView ()
 
 @property (strong, nonatomic) NSMutableArray *behaviorsToDraw;
-@property (strong, nonatomic) NSMutableSet *contactPathsToDraw;
+@property (strong, nonatomic) NSMutableArray *contactPathsToDraw;
 @property (strong, nonatomic) NSMutableArray *dynamicItemsToDraw;
 
 @property (assign, nonatomic) CGSize lastBoundsSize;
@@ -36,7 +39,7 @@
         _allowsAntialiasing = YES;
 
         _behaviorsToDraw = [NSMutableArray array];
-        _contactPathsToDraw = [NSMutableSet set];
+        _contactPathsToDraw = [NSMutableArray array];
         _dynamicItemsToDraw = [NSMutableArray array];
 
 	self.backgroundColor = [UIColor clearColor];
@@ -113,14 +116,19 @@
 {
     [self.contactPathsToDraw removeAllObjects];
 
-    NSMutableArray *paths = [NSMutableArray array];
+    NSMutableArray *pathsToDraw = [NSMutableArray array];
 
     for (id key in contactedPaths) {
         // Keys are CGPathRefs
-        [paths addObject:key];
+        DXRContactLifetime *contactLifetime = [contactedPaths objectForKey:key];
+        float alpha = [contactLifetime decay];
+
+        DXRContactVisualise *contactVisualise = [[DXRContactVisualise alloc] initWithObjToDraw:key alpha:alpha];
+        [pathsToDraw addObject:contactVisualise];
     }
 
-    [self.contactPathsToDraw addObjectsFromArray:paths];
+    [self.contactPathsToDraw addObjectsFromArray:pathsToDraw];
+
     self.contactPathsOffset = [self convertPoint:CGPointZero fromReferenceView:referenceView];
 }
 
@@ -229,11 +237,13 @@
     if ([self.contactPathsToDraw count] > 0) {
         CGContextSaveGState(context);
         CGContextTranslateCTM(context, self.contactPathsOffset.x, self.contactPathsOffset.y);
-        CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
         CGContextSetLineWidth(context, 5.0f);
 
-        for (id obj in self.contactPathsToDraw) {
-            CGPathRef path = (__bridge CGPathRef)(obj);
+        for (DXRContactVisualise *contactVisualise in self.contactPathsToDraw) {
+            CGPathRef path = (__bridge CGPathRef)(contactVisualise.objToDraw);
+            CGFloat alpha = contactVisualise.alpha;
+
+            CGContextSetStrokeColorWithColor(context, [[UIColor redColor] colorWithAlphaComponent:alpha].CGColor);
 
             CGContextAddPath(context, path);
             CGContextStrokePath(context);

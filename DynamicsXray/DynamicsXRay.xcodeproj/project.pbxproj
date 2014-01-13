@@ -38,6 +38,10 @@
 		834A42C5187F6E5000493BBE /* DXRContactHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 834A42C3187F6E5000493BBE /* DXRContactHandler.h */; };
 		834A42C6187F6E5000493BBE /* DXRContactHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 834A42C4187F6E5000493BBE /* DXRContactHandler.m */; };
 		834A42C9187F6F1F00493BBE /* DXRPhysicsKitPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 834A42C7187F6F1F00493BBE /* DXRPhysicsKitPrivate.h */; };
+		8358001318837841003209F5 /* DXRContactLifetime.h in Headers */ = {isa = PBXBuildFile; fileRef = 8358001118837841003209F5 /* DXRContactLifetime.h */; };
+		8358001418837841003209F5 /* DXRContactLifetime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8358001218837841003209F5 /* DXRContactLifetime.m */; };
+		8358001718837E27003209F5 /* DXRContactVisualise.h in Headers */ = {isa = PBXBuildFile; fileRef = 8358001518837E27003209F5 /* DXRContactVisualise.h */; };
+		8358001818837E27003209F5 /* DXRContactVisualise.m in Sources */ = {isa = PBXBuildFile; fileRef = 8358001618837E27003209F5 /* DXRContactVisualise.m */; };
 		83584D0F17FC201600F09FF1 /* NSObject+CMObjectIntrospection.h in Headers */ = {isa = PBXBuildFile; fileRef = 83584D0D17FC201600F09FF1 /* NSObject+CMObjectIntrospection.h */; };
 		83584D1017FC201600F09FF1 /* NSObject+CMObjectIntrospection.m in Sources */ = {isa = PBXBuildFile; fileRef = 83584D0E17FC201600F09FF1 /* NSObject+CMObjectIntrospection.m */; };
 		83849DBA17AE022300D6DD3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83849DB917AE022300D6DD3C /* Foundation.framework */; };
@@ -125,6 +129,10 @@
 		834A42C3187F6E5000493BBE /* DXRContactHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXRContactHandler.h; path = DynamicsXray/DXRContactHandler.h; sourceTree = SOURCE_ROOT; };
 		834A42C4187F6E5000493BBE /* DXRContactHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXRContactHandler.m; path = DynamicsXray/DXRContactHandler.m; sourceTree = SOURCE_ROOT; };
 		834A42C7187F6F1F00493BBE /* DXRPhysicsKitPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXRPhysicsKitPrivate.h; path = DynamicsXray/DXRPhysicsKitPrivate.h; sourceTree = SOURCE_ROOT; };
+		8358001118837841003209F5 /* DXRContactLifetime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXRContactLifetime.h; path = DynamicsXray/DXRContactLifetime.h; sourceTree = SOURCE_ROOT; };
+		8358001218837841003209F5 /* DXRContactLifetime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXRContactLifetime.m; path = DynamicsXray/DXRContactLifetime.m; sourceTree = SOURCE_ROOT; };
+		8358001518837E27003209F5 /* DXRContactVisualise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXRContactVisualise.h; path = DynamicsXray/DXRContactVisualise.h; sourceTree = SOURCE_ROOT; };
+		8358001618837E27003209F5 /* DXRContactVisualise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXRContactVisualise.m; path = DynamicsXray/DXRContactVisualise.m; sourceTree = SOURCE_ROOT; };
 		83584D0D17FC201600F09FF1 /* NSObject+CMObjectIntrospection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CMObjectIntrospection.h"; sourceTree = "<group>"; };
 		83584D0E17FC201600F09FF1 /* NSObject+CMObjectIntrospection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CMObjectIntrospection.m"; sourceTree = "<group>"; };
 		83849DB617AE022300D6DD3C /* libDynamicsXray.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDynamicsXray.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,6 +238,8 @@
 				83849DE017AE02DB00D6DD3C /* DXRDynamicsXrayView.m */,
 				8317A757180EA89800F4B954 /* DXRDynamicsXrayViewController.h */,
 				8317A758180EA89800F4B954 /* DXRDynamicsXrayViewController.m */,
+				8358001518837E27003209F5 /* DXRContactVisualise.h */,
+				8358001618837E27003209F5 /* DXRContactVisualise.m */,
 			);
 			name = "Xray View Controller";
 			sourceTree = "<group>";
@@ -251,6 +261,8 @@
 				834A42C7187F6F1F00493BBE /* DXRPhysicsKitPrivate.h */,
 				834A42BE187EA8F500493BBE /* UIDynamicAnimator+DynamicsXrayContactIntrospection.h */,
 				834A42BF187EA8F500493BBE /* UIDynamicAnimator+DynamicsXrayContactIntrospection.m */,
+				8358001118837841003209F5 /* DXRContactLifetime.h */,
+				8358001218837841003209F5 /* DXRContactLifetime.m */,
 			);
 			name = "Contact Introspection";
 			sourceTree = "<group>";
@@ -427,6 +439,8 @@
 				83584D0F17FC201600F09FF1 /* NSObject+CMObjectIntrospection.h in Headers */,
 				83A68DD3182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.h in Headers */,
 				83849DE717AE069400D6DD3C /* DynamicsXray.h in Headers */,
+				8358001318837841003209F5 /* DXRContactLifetime.h in Headers */,
+				8358001718837E27003209F5 /* DXRContactVisualise.h in Headers */,
 				83FA2B2D17FC2CD60022DEAB /* DXRDynamicsXrayBehaviorBoundaryCollision+DXRDrawing.h in Headers */,
 				83B61354180BBD4C0006BBA3 /* DXRDynamicsXrayBehaviorGravity.h in Headers */,
 				83A68DCE182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.h in Headers */,
@@ -563,6 +577,7 @@
 				8317A75A180EA89800F4B954 /* DXRDynamicsXrayViewController.m in Sources */,
 				83849DF217AE105B00D6DD3C /* DXRDynamicsXrayBehaviorAttachment.m in Sources */,
 				830AA5241831B97A00608E3A /* DXRDynamicsXrayWindow.m in Sources */,
+				8358001818837E27003209F5 /* DXRContactVisualise.m in Sources */,
 				83FA2B2E17FC2CD60022DEAB /* DXRDynamicsXrayBehaviorBoundaryCollision+DXRDrawing.m in Sources */,
 				83849DED17AE103D00D6DD3C /* DXRDynamicsXrayBehavior.m in Sources */,
 				83849DC117AE022300D6DD3C /* DynamicsXray.m in Sources */,
@@ -574,6 +589,7 @@
 				834A42C6187F6E5000493BBE /* DXRContactHandler.m in Sources */,
 				83E6D61E187C1799005ECBA5 /* DXRDynamicsXrayUtil.m in Sources */,
 				83584D1017FC201600F09FF1 /* NSObject+CMObjectIntrospection.m in Sources */,
+				8358001418837841003209F5 /* DXRContactLifetime.m in Sources */,
 				83B6135D180BCC2A0006BBA3 /* DXRDynamicsXrayWindowController.m in Sources */,
 				83B61359180BBDC10006BBA3 /* DXRDynamicsXrayBehaviorGravity+DXRDrawing.m in Sources */,
 				834A42C1187EA8F500493BBE /* UIDynamicAnimator+DynamicsXrayContactIntrospection.m in Sources */,

@@ -11,6 +11,7 @@
 #import "DXRDynamicsXrayView.h"
 #import "DXRDynamicsXrayWindowController.h"
 #import "DXRContactHandler.h"
+#import "DXRContactLifetime.h"
 
 
 /*
@@ -389,8 +390,12 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
     CGPathRef path = CFBridgingRetain(notification.userInfo[@"path"]);
     if (path) {
         id key = CFBridgingRelease(path);
-        NSInteger count = [[self.pathsContactCount objectForKey:key] integerValue] + 1;
-        [self.pathsContactCount setObject:@(count) forKey:key];
+        DXRContactLifetime *contactLifetime = [self.pathsContactCount objectForKey:key];
+        if (contactLifetime == nil) {
+            contactLifetime = [[DXRContactLifetime alloc] init];
+            [self.pathsContactCount setObject:contactLifetime forKey:key];
+        }
+        [contactLifetime incrementCount];
     }
 }
 
@@ -411,11 +416,10 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
     CGPathRef path = CFBridgingRetain(notification.userInfo[@"path"]);
     if (path) {
         id key = CFBridgingRelease(path);
-        NSInteger count = [[self.pathsContactCount objectForKey:key] integerValue] - 1;
-        if (count > 0) {
-            [self.pathsContactCount setObject:@(count) forKey:key];
-        }
-        else {
+        DXRContactLifetime *contactLifetime = [self.pathsContactCount objectForKey:key];
+        [contactLifetime decrementCount];
+
+        if ([contactLifetime decay] <= 0) {
             [self.pathsContactCount removeObjectForKey:key];
         }
     }
