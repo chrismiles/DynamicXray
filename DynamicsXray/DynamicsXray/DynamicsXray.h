@@ -6,6 +6,9 @@
 
 @import UIKit;
 
+extern NSString *const DynamicsXrayVersion;
+
+
 @interface DynamicsXray : UIDynamicBehavior
 
 @property (assign, nonatomic, getter = isActive) BOOL active;

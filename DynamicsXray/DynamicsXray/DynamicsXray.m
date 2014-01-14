@@ -40,7 +40,13 @@ static NSTimeInterval const DynamicsXrayRedrawCheckInterval = 0.25;     // secon
 
 
 /*
- * Shared
+ * Globals
+ */
+NSString *const DynamicsXrayVersion = @"0.1";
+
+
+/*
+ * Shared Private
  */
 static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
