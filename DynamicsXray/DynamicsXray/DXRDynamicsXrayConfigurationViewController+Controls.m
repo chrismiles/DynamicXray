@@ -37,11 +37,18 @@
     toolbar.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [controlsView addSubview:toolbar];
 
-    // Container for controls
-    UIView *containerView = [[UIView alloc] initWithFrame:controlsView.bounds];
-    containerView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-    containerView.backgroundColor = [UIColor clearColor];
-    [controlsView addSubview:containerView];
+    // Contents container for controls, labels, etc
+
+    UIView *contentsView = [[UIView alloc] initWithFrame:controlsView.bounds];
+    contentsView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+    contentsView.backgroundColor = [UIColor clearColor];
+    [controlsView addSubview:contentsView];
+
+    // Labels
+
+    UILabel *titleLabel = [self titleLabel];
+    titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [contentsView addSubview:titleLabel];
 
     // Controls
 
@@ -55,9 +62,9 @@
 
     UIView *faderView = [self faderViewWithFrame:CGRectZero];
 
-    [containerView addSubview:activeToggleSwitch];
-    [containerView addSubview:activeLabel];
-    [containerView addSubview:faderView];
+    [contentsView addSubview:activeToggleSwitch];
+    [contentsView addSubview:activeLabel];
+    [contentsView addSubview:faderView];
 
     activeToggleSwitch.translatesAutoresizingMaskIntoConstraints = NO;
     activeLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -65,10 +72,15 @@
     NSDictionary *layoutMetrics = @{@"faderViewHeight": @(CGRectGetHeight(faderView.frame))};
     NSDictionary *layoutViews = NSDictionaryOfVariableBindings(activeToggleSwitch, activeLabel, faderView);
 
-    [containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[activeToggleSwitch]-[activeLabel]-(==20,>=20@650)-[faderView(>=80,<=200)]-|" options:0 metrics:nil views:layoutViews]];
-    [containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[activeToggleSwitch]-(>=20)-|" options:0 metrics:nil views:layoutViews]];
-    [containerView addConstraint:[NSLayoutConstraint constraintWithItem:activeLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:activeToggleSwitch attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0]];
-    [containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[faderView(==faderViewHeight)]" options:0 metrics:layoutMetrics views:layoutViews]];
+    // Constraints
+
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[activeToggleSwitch]-[activeLabel]-(==20,>=20@650)-[faderView(>=80,<=200)]-|" options:0 metrics:nil views:layoutViews]];
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[activeToggleSwitch]-(>=20)-|" options:0 metrics:nil views:layoutViews]];
+    [contentsView addConstraint:[NSLayoutConstraint constraintWithItem:activeLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:activeToggleSwitch attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0]];
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[faderView(==faderViewHeight)]" options:0 metrics:layoutMetrics views:layoutViews]];
+
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[titleLabel]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(titleLabel)]];
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[titleLabel]-(2)-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(titleLabel)]];
 
     return controlsView;
 }
@@ -115,6 +127,30 @@
     [faderView addConstraint:[NSLayoutConstraint constraintWithItem:faderXrayLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:faderSlider attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0]];
 
     return faderView;
+}
+
+- (UILabel *)titleLabel
+{
+    NSString *name = @"DynamicsXray";
+    NSString *version = [NSString stringWithFormat:@"v%@", DynamicsXrayVersion];
+    NSString *byLine = @"by Chris Miles";
+
+    NSString *title = [NSString stringWithFormat:@"%@ %@ %@", name, version, byLine];
+
+    UIFont *titleFont = [UIFont systemFontOfSize:7.0f];
+
+    NSDictionary *textAttributes = @{ NSForegroundColorAttributeName : [UIColor colorWithWhite:0.8f alpha:1.0f],
+                                      NSFontAttributeName : titleFont,
+                                      NSTextEffectAttributeName : NSTextEffectLetterpressStyle
+                                      };
+
+    NSMutableAttributedString *attributedTitled = [[NSMutableAttributedString alloc] initWithString:title attributes:textAttributes];
+    [attributedTitled addAttribute:NSFontAttributeName value:[titleFont fontWithSize:12.0f] range:NSMakeRange(0, [name length])];
+
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    titleLabel.attributedText = attributedTitled;
+
+    return titleLabel;
 }
 
 
