@@ -132,10 +132,10 @@
 - (UILabel *)titleLabel
 {
     NSString *name = @"DynamicsXray";
-    NSString *version = [NSString stringWithFormat:@"v%@", DynamicsXrayVersion];
+    NSString *version = [NSString stringWithFormat:@"(v%@)", DynamicsXrayVersion];
     NSString *byLine = @"by Chris Miles";
 
-    NSString *title = [NSString stringWithFormat:@"%@ %@ %@", name, version, byLine];
+    NSString *title = [NSString stringWithFormat:@"%@ %@ %@", name, byLine, version];
 
     UIFont *titleFont = [UIFont systemFontOfSize:7.0f];
 
