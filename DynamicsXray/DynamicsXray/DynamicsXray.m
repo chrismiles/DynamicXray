@@ -128,6 +128,14 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 }
 
 
+#pragma mark - Xray Window Controller
+
+- (DXRDynamicsXrayWindowController *)xrayWindowController
+{
+    return sharedXrayWindowController;
+}
+
+
 #pragma mark - Xray View
 
 - (DXRDynamicsXrayView *)xrayView
@@ -435,16 +443,6 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
             [self.pathsContactCount removeObjectForKey:key];
         }
     }
-}
-
-@end
-
-
-@implementation DynamicsXray (XrayUserInterface)
-
-- (void)presentConfigurationViewController
-{
-    [sharedXrayWindowController presentConfigViewControllerWithDynamicsXray:self animated:YES];
 }
 
 @end

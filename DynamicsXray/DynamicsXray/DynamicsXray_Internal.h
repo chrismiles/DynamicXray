@@ -8,6 +8,8 @@
 
 #import "DynamicsXray.h"
 #import "DXRDynamicsXrayViewController.h"
+@class DXRDynamicsXrayWindowController;
+
 
 @interface DynamicsXray () {
     CGFloat _crossFade;
@@ -28,6 +30,7 @@
 @property (strong, nonatomic) NSMapTable *pathsContactCount;
 
 - (void)redraw;
+- (DXRDynamicsXrayWindowController *)xrayWindowController;
 - (DXRDynamicsXrayView *)xrayView;
 
 @end
