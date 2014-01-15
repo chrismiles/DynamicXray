@@ -9,6 +9,7 @@
 #import "DynamicsXray.h"
 #import "DynamicsXray_Internal.h"
 #import "DynamicsXray+XrayContacts.h"
+#import "DynamicsXray+XrayVisualiseBehaviors.h"
 
 #import "DXRDynamicsXrayView.h"
 #import "DXRDynamicsXrayWindowController.h"
@@ -302,96 +303,11 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
         }
     }
 
-    [self.xrayViewController.xrayView drawDynamicItems:self.dynamicItemsToDraw contactedItems:self.dynamicItemsContactCount withReferenceView:self.referenceView];
-    [self.xrayViewController.xrayView drawContactPaths:self.pathsContactCount withReferenceView:self.referenceView];
-}
+    DXRDynamicsXrayView *xrayView = [self xrayView];
+    UIView *referenceView = self.referenceView;
 
-
-#pragma mark - Attachment Behavior
-
-- (void)visualiseAttachmentBehavior:(UIAttachmentBehavior *)attachmentBehavior
-{
-    NSValue *anchorPointAValue = [attachmentBehavior valueForKey:@"anchorPointA"];
-    
-    CGPoint anchorPointA = CGPointZero;
-    if (anchorPointAValue) anchorPointA = [anchorPointAValue CGPointValue];
-    
-    id<UIDynamicItem> itemA = nil;
-    id<UIDynamicItem> itemB = nil;
-    
-    itemA = attachmentBehavior.items[0];
-    
-    if ([attachmentBehavior.items  count] > 1) {
-        itemB = attachmentBehavior.items[1];
-    }
-    
-    CGPoint anchorPoint, attachmentPoint;
-    
-    if (itemB) {
-        // Item to Item
-
-        CGPoint anchorPointB = CGPointZero;
-        NSValue *anchorPointBValue = [attachmentBehavior valueForKey:@"anchorPointB"];
-        if (anchorPointBValue) anchorPointB = [anchorPointBValue CGPointValue];
-
-        anchorPoint = itemA.center;
-        anchorPointA = CGPointApplyAffineTransform(anchorPointA, itemA.transform);
-        anchorPoint.x += anchorPointA.x;
-        anchorPoint.y += anchorPointA.y;
-        anchorPoint = [self.xrayView convertPoint:anchorPoint fromReferenceView:self.referenceView];
-
-        attachmentPoint = itemB.center;
-        anchorPointB = CGPointApplyAffineTransform(anchorPointB, itemB.transform);
-        attachmentPoint.x += anchorPointB.x;
-        attachmentPoint.y += anchorPointB.y;
-        attachmentPoint = [self.xrayView convertPoint:attachmentPoint fromReferenceView:self.referenceView];
-    }
-    else {
-        // Anchor to Item
-        
-        anchorPoint = [self.xrayView convertPoint:attachmentBehavior.anchorPoint fromReferenceView:self.referenceView];
-
-        attachmentPoint = itemA.center;
-        anchorPointA = CGPointApplyAffineTransform(anchorPointA, itemA.transform);
-        attachmentPoint.x += anchorPointA.x;
-        attachmentPoint.y += anchorPointA.y;
-        attachmentPoint = [self.xrayView convertPoint:attachmentPoint fromReferenceView:self.referenceView];
-    }
-    
-    BOOL isSpring = (attachmentBehavior.frequency > 0.0);
-    
-    [self.xrayViewController.xrayView drawAttachmentFromAnchor:anchorPoint toPoint:attachmentPoint length:attachmentBehavior.length isSpring:isSpring];
-
-    [self.dynamicItemsToDraw addObjectsFromArray:attachmentBehavior.items];
-}
-
-
-#pragma mark - Collision Behavior
-
-- (void)visualiseCollisionBehavior:(UICollisionBehavior *)collisionBehavior
-{
-    // TODO: boundaries by identifier
-    //NSArray *boundaryIdentifiers = collisionBehavior.boundaryIdentifiers;
-    //DLog(@"boundaryIdentifiers: %@", boundaryIdentifiers);
-
-    if (collisionBehavior.translatesReferenceBoundsIntoBoundary) {
-        UIView *referenceView = collisionBehavior.dynamicAnimator.referenceView;
-        CGRect referenceBoundaryFrame = referenceView.frame;
-        CGRect boundaryRect = [self.xrayViewController.xrayView convertRect:referenceBoundaryFrame fromView:referenceView.superview];
-        [self.xrayViewController.xrayView drawBoundsCollisionBoundaryWithRect:boundaryRect];
-    }
-
-    [self.dynamicItemsToDraw addObjectsFromArray:collisionBehavior.items];
-}
-
-
-#pragma mark - Gravity Behavior
-
-- (void)visualiseGravityBehavior:(UIGravityBehavior *)gravityBehavior
-{
-    [self.xrayViewController.xrayView drawGravityBehaviorWithMagnitude:gravityBehavior.magnitude angle:gravityBehavior.angle];
-
-    [self.dynamicItemsToDraw addObjectsFromArray:gravityBehavior.items];
+    [xrayView drawDynamicItems:self.dynamicItemsToDraw contactedItems:self.dynamicItemsContactCount withReferenceView:referenceView];
+    [xrayView drawContactPaths:self.pathsContactCount withReferenceView:referenceView];
 }
 
 @end
