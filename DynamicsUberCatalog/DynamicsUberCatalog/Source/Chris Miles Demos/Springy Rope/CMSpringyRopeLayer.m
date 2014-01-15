@@ -341,10 +341,11 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
 {
     if (self.motionManager.isDeviceMotionActive) {
         CMAcceleration gravity = self.motionManager.deviceMotion.gravity;
-	CGVector gravityVector = CGVectorMake((float)(gravity.x) * self.gravityScale, (float)(-gravity.y) * self.gravityScale);
-	self.gravityBehavior.gravityDirection = gravityVector;
+        CGVector gravityVector = CGVectorMake((float)(gravity.x) * self.gravityScale, (float)(-gravity.y) * self.gravityScale);
+        gravityVector = [self vector:gravityVector rotatedToInterfaceOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
+        self.gravityBehavior.gravityDirection = gravityVector;
     }
-    
+
     [self setNeedsDisplay];      // draw layer
     
     /* FPS */
@@ -395,6 +396,32 @@ static CGFloat CGPointDistance(CGPoint userPosition, CGPoint prevPosition)
     CGPoint handlePoint = self.handleParticle.center;
     CGContextAddEllipseInRect(ctx, CGRectMake(handlePoint.x-CMSpringyRopeHandleRadius, handlePoint.y-CMSpringyRopeHandleRadius, CMSpringyRopeHandleRadius*2, CMSpringyRopeHandleRadius*2));
     CGContextStrokePath(ctx);
+}
+
+
+#pragma mark - Vector Rotation
+
+- (CGVector)vector:(CGVector)vector rotatedToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    CGVector result;
+
+    if (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+        result.dx = -vector.dx;
+        result.dy = -vector.dy;
+    }
+    else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+        result.dx = -vector.dy;
+        result.dy = vector.dx;
+    }
+    else if (interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        result.dx = vector.dy;
+        result.dy = -vector.dx;
+    }
+    else {
+        result = vector;
+    }
+
+    return result;
 }
 
 @end
