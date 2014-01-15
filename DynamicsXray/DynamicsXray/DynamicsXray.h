@@ -16,14 +16,14 @@ extern NSString *const DynamicsXrayVersion;
 @end
 
 
-@interface DynamicsXray (XRayUserInterface)
+@interface DynamicsXray (XrayUserInterface)
 
 - (void)presentConfigurationViewController;
 
 @end
 
 
-@interface DynamicsXray (XRayVisualStyle)
+@interface DynamicsXray (XrayVisualStyle)
 
 /** Controls the opacity of both the XRay overlay and the application windows.
  

@@ -28,6 +28,7 @@
 @property (strong, nonatomic) NSMapTable *pathsContactCount;
 
 - (void)redraw;
+- (DXRDynamicsXrayView *)xrayView;
 
 @end
 
