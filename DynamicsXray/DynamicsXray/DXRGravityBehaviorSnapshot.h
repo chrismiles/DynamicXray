@@ -1,15 +1,15 @@
 //
-//  DXRDynamicsXrayBehaviorGravity.h
+//  DXRGravityBehaviorSnapshot.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 14/10/13.
-//  Copyright (c) 2013 Chris Miles. All rights reserved.
+//  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXrayBehavior.h"
+#import "DXRBehaviorSnapshot.h"
 @import CoreGraphics;
 
-@interface DXRDynamicsXrayBehaviorGravity : DXRDynamicsXrayBehavior
+@interface DXRGravityBehaviorSnapshot : DXRBehaviorSnapshot
 
 - (id)initWithGravityMagnitude:(CGFloat)magnitude angle:(CGFloat)angle;
 

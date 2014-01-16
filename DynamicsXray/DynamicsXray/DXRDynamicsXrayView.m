@@ -7,10 +7,10 @@
 //
 
 #import "DXRDynamicsXrayView.h"
-#import "DXRDynamicsXrayBehaviorDrawing.h"
-#import "DXRDynamicsXrayBehaviorAttachment.h"
-#import "DXRDynamicsXrayBehaviorBoundaryCollision.h"
-#import "DXRDynamicsXrayBehaviorGravity.h"
+#import "DXRBehaviorSnapshotDrawing.h"
+#import "DXRAttachmentBehaviorSnapshot.h"
+#import "DXRBoundaryCollisionBehaviorSnapshot.h"
+#import "DXRGravityBehaviorSnapshot.h"
 #import "DXRDynamicsXrayItemSnapshot.h"
 #import "DXRDynamicsXrayItemSnapshot+DXRDrawing.h"
 
@@ -71,23 +71,23 @@
 
 - (void)drawAttachmentFromAnchor:(CGPoint)anchorPoint toPoint:(CGPoint)attachmentPoint length:(CGFloat)length isSpring:(BOOL)isSpring
 {
-    DXRDynamicsXrayBehaviorAttachment *attachment = [[DXRDynamicsXrayBehaviorAttachment alloc] initWithAnchorPoint:anchorPoint attachmentPoint:attachmentPoint length:length isSpring:isSpring];
-    [self itemNeedsDrawing:attachment];
+    DXRAttachmentBehaviorSnapshot *attachmentSnapshot = [[DXRAttachmentBehaviorSnapshot alloc] initWithAnchorPoint:anchorPoint attachmentPoint:attachmentPoint length:length isSpring:isSpring];
+    [self itemNeedsDrawing:attachmentSnapshot];
 }
 
 - (void)drawBoundsCollisionBoundaryWithRect:(CGRect)boundaryRect
 {
-    DXRDynamicsXrayBehaviorBoundaryCollision *collision = [[DXRDynamicsXrayBehaviorBoundaryCollision alloc] initWithBoundaryRect:boundaryRect];
-    [self itemNeedsDrawing:collision];
+    DXRBoundaryCollisionBehaviorSnapshot *collisionSnapshot = [[DXRBoundaryCollisionBehaviorSnapshot alloc] initWithBoundaryRect:boundaryRect];
+    [self itemNeedsDrawing:collisionSnapshot];
 }
 
 - (void)drawGravityBehaviorWithMagnitude:(CGFloat)magnitude angle:(CGFloat)angle
 {
-    DXRDynamicsXrayBehaviorGravity *gravity = [[DXRDynamicsXrayBehaviorGravity alloc] initWithGravityMagnitude:magnitude angle:angle];
-    [self itemNeedsDrawing:gravity];
+    DXRGravityBehaviorSnapshot *gravitySnapshot = [[DXRGravityBehaviorSnapshot alloc] initWithGravityMagnitude:magnitude angle:angle];
+    [self itemNeedsDrawing:gravitySnapshot];
 }
 
-- (void)itemNeedsDrawing:(DXRDynamicsXrayBehavior *)item
+- (void)itemNeedsDrawing:(DXRBehaviorSnapshot *)item
 {
     [self.behaviorsToDraw addObject:item];
 
@@ -225,14 +225,14 @@
         CGContextRestoreGState(context);
     }
 
-    for (DXRDynamicsXrayBehavior *behavior in self.behaviorsToDraw) {
-        if ([behavior conformsToProtocol:@protocol(DXRDynamicsXrayBehaviorDrawing)]) {
+    for (DXRBehaviorSnapshot *behavior in self.behaviorsToDraw) {
+        if ([behavior conformsToProtocol:@protocol(DXRBehaviorSnapshotDrawing)]) {
             CGContextSaveGState(context);
-            [(id<DXRDynamicsXrayBehaviorDrawing>)behavior drawInContext:context];
+            [(id<DXRBehaviorSnapshotDrawing>)behavior drawInContext:context];
             CGContextRestoreGState(context);
         }
         else {
-            DLog(@"WARNING: DXRDynamicsXrayBehavior is not drawable: %@", behavior);
+            DLog(@"WARNING: DXRBehaviorSnapshot is not drawable: %@", behavior);
         }
     }
 

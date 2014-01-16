@@ -35,8 +35,8 @@
 		8317A754180E95CB00F4B954 /* DXRDynamicsXrayConfigurationViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 8317A752180E95CB00F4B954 /* DXRDynamicsXrayConfigurationViewController+Private.h */; };
 		8317A759180EA89800F4B954 /* DXRDynamicsXrayViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8317A757180EA89800F4B954 /* DXRDynamicsXrayViewController.h */; };
 		8317A75A180EA89800F4B954 /* DXRDynamicsXrayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8317A758180EA89800F4B954 /* DXRDynamicsXrayViewController.m */; };
-		83437B9417E0010E00518141 /* DXRDynamicsXrayBehaviorBoundaryCollision.h in Headers */ = {isa = PBXBuildFile; fileRef = 83437B9217E0010E00518141 /* DXRDynamicsXrayBehaviorBoundaryCollision.h */; };
-		83437B9517E0010E00518141 /* DXRDynamicsXrayBehaviorBoundaryCollision.m in Sources */ = {isa = PBXBuildFile; fileRef = 83437B9317E0010E00518141 /* DXRDynamicsXrayBehaviorBoundaryCollision.m */; };
+		83437B9417E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 83437B9217E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.h */; };
+		83437B9517E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83437B9317E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.m */; };
 		834A42B8187E820D00493BBE /* JRSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 834A42B6187E820D00493BBE /* JRSwizzle.h */; };
 		834A42B9187E820D00493BBE /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 834A42B7187E820D00493BBE /* JRSwizzle.m */; };
 		834A42C0187EA8F500493BBE /* UIDynamicAnimator+DynamicsXrayContactIntrospection.h in Headers */ = {isa = PBXBuildFile; fileRef = 834A42BE187EA8F500493BBE /* UIDynamicAnimator+DynamicsXrayContactIntrospection.h */; };
@@ -61,10 +61,10 @@
 		83849DD617AE022300D6DD3C /* DynamicsXrayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DD517AE022300D6DD3C /* DynamicsXrayTests.m */; };
 		83849DE117AE02DB00D6DD3C /* DXRDynamicsXrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DE017AE02DB00D6DD3C /* DXRDynamicsXrayView.m */; };
 		83849DE717AE069400D6DD3C /* DynamicsXray.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DBE17AE022300D6DD3C /* DynamicsXray.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		83849DEC17AE103D00D6DD3C /* DXRDynamicsXrayBehavior.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DEA17AE103D00D6DD3C /* DXRDynamicsXrayBehavior.h */; };
-		83849DED17AE103D00D6DD3C /* DXRDynamicsXrayBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DEB17AE103D00D6DD3C /* DXRDynamicsXrayBehavior.m */; };
-		83849DF117AE105B00D6DD3C /* DXRDynamicsXrayBehaviorAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DEF17AE105B00D6DD3C /* DXRDynamicsXrayBehaviorAttachment.h */; };
-		83849DF217AE105B00D6DD3C /* DXRDynamicsXrayBehaviorAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DF017AE105B00D6DD3C /* DXRDynamicsXrayBehaviorAttachment.m */; };
+		83849DEC17AE103D00D6DD3C /* DXRBehaviorSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DEA17AE103D00D6DD3C /* DXRBehaviorSnapshot.h */; };
+		83849DED17AE103D00D6DD3C /* DXRBehaviorSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DEB17AE103D00D6DD3C /* DXRBehaviorSnapshot.m */; };
+		83849DF117AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DEF17AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.h */; };
+		83849DF217AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DF017AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.m */; };
 		83849DF517AE242A00D6DD3C /* DXRDynamicsXrayUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DF317AE242A00D6DD3C /* DXRDynamicsXrayUtil.h */; };
 		8392287C181885070047F7C4 /* DXRDynamicsXrayConfigurationViewController+Controls.h in Headers */ = {isa = PBXBuildFile; fileRef = 8392287A181885070047F7C4 /* DXRDynamicsXrayConfigurationViewController+Controls.h */; };
 		8392287D181885070047F7C4 /* DXRDynamicsXrayConfigurationViewController+Controls.m in Sources */ = {isa = PBXBuildFile; fileRef = 8392287B181885070047F7C4 /* DXRDynamicsXrayConfigurationViewController+Controls.m */; };
@@ -72,20 +72,20 @@
 		83A68DCF182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A68DCD182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.m */; };
 		83A68DD3182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83A68DD1182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.h */; };
 		83A68DD4182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A68DD2182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.m */; };
-		83B61354180BBD4C0006BBA3 /* DXRDynamicsXrayBehaviorGravity.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B61352180BBD4C0006BBA3 /* DXRDynamicsXrayBehaviorGravity.h */; };
-		83B61355180BBD4C0006BBA3 /* DXRDynamicsXrayBehaviorGravity.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B61353180BBD4C0006BBA3 /* DXRDynamicsXrayBehaviorGravity.m */; };
-		83B61358180BBDC10006BBA3 /* DXRDynamicsXrayBehaviorGravity+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B61356180BBDC10006BBA3 /* DXRDynamicsXrayBehaviorGravity+DXRDrawing.h */; };
-		83B61359180BBDC10006BBA3 /* DXRDynamicsXrayBehaviorGravity+DXRDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B61357180BBDC10006BBA3 /* DXRDynamicsXrayBehaviorGravity+DXRDrawing.m */; };
+		83B61354180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B61352180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.h */; };
+		83B61355180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B61353180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.m */; };
+		83B61358180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B61356180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.h */; };
+		83B61359180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B61357180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.m */; };
 		83B6135C180BCC2A0006BBA3 /* DXRDynamicsXrayWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B6135A180BCC2A0006BBA3 /* DXRDynamicsXrayWindowController.h */; };
 		83B6135D180BCC2A0006BBA3 /* DXRDynamicsXrayWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B6135B180BCC2A0006BBA3 /* DXRDynamicsXrayWindowController.m */; };
 		83E6D61A187C177E005ECBA5 /* DynamicsXray-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 83E6D619187C177E005ECBA5 /* DynamicsXray-Prefix.pch */; };
 		83E6D61C187C178E005ECBA5 /* DynamicsXray_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 83E6D61B187C178E005ECBA5 /* DynamicsXray_Internal.h */; };
 		83E6D61E187C1799005ECBA5 /* DXRDynamicsXrayUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 83E6D61D187C1799005ECBA5 /* DXRDynamicsXrayUtil.m */; };
 		83E6D620187C17A7005ECBA5 /* DXRDynamicsXrayConfigurationViewController_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 83E6D61F187C17A7005ECBA5 /* DXRDynamicsXrayConfigurationViewController_Internal.h */; };
-		83FA2B2717FC290E0022DEAB /* DXRDynamicsXrayBehaviorAttachment+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83FA2B2517FC290E0022DEAB /* DXRDynamicsXrayBehaviorAttachment+DXRDrawing.h */; };
-		83FA2B2817FC290E0022DEAB /* DXRDynamicsXrayBehaviorAttachment+DXRDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FA2B2617FC290E0022DEAB /* DXRDynamicsXrayBehaviorAttachment+DXRDrawing.m */; };
-		83FA2B2D17FC2CD60022DEAB /* DXRDynamicsXrayBehaviorBoundaryCollision+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83FA2B2B17FC2CD60022DEAB /* DXRDynamicsXrayBehaviorBoundaryCollision+DXRDrawing.h */; };
-		83FA2B2E17FC2CD60022DEAB /* DXRDynamicsXrayBehaviorBoundaryCollision+DXRDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FA2B2C17FC2CD60022DEAB /* DXRDynamicsXrayBehaviorBoundaryCollision+DXRDrawing.m */; };
+		83FA2B2717FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83FA2B2517FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.h */; };
+		83FA2B2817FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FA2B2617FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.m */; };
+		83FA2B2D17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83FA2B2B17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.h */; };
+		83FA2B2E17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FA2B2C17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,8 +132,8 @@
 		8317A752180E95CB00F4B954 /* DXRDynamicsXrayConfigurationViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicsXrayConfigurationViewController+Private.h"; sourceTree = "<group>"; };
 		8317A757180EA89800F4B954 /* DXRDynamicsXrayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXrayViewController.h; sourceTree = "<group>"; };
 		8317A758180EA89800F4B954 /* DXRDynamicsXrayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXrayViewController.m; sourceTree = "<group>"; };
-		83437B9217E0010E00518141 /* DXRDynamicsXrayBehaviorBoundaryCollision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXrayBehaviorBoundaryCollision.h; sourceTree = "<group>"; };
-		83437B9317E0010E00518141 /* DXRDynamicsXrayBehaviorBoundaryCollision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXrayBehaviorBoundaryCollision.m; sourceTree = "<group>"; };
+		83437B9217E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRBoundaryCollisionBehaviorSnapshot.h; sourceTree = "<group>"; };
+		83437B9317E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRBoundaryCollisionBehaviorSnapshot.m; sourceTree = "<group>"; };
 		834A42B6187E820D00493BBE /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 		834A42B7187E820D00493BBE /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		834A42BE187EA8F500493BBE /* UIDynamicAnimator+DynamicsXrayContactIntrospection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDynamicAnimator+DynamicsXrayContactIntrospection.h"; path = "DynamicsXray/UIDynamicAnimator+DynamicsXrayContactIntrospection.h"; sourceTree = SOURCE_ROOT; };
@@ -158,10 +158,10 @@
 		83849DD517AE022300D6DD3C /* DynamicsXrayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamicsXrayTests.m; sourceTree = "<group>"; };
 		83849DDF17AE02DB00D6DD3C /* DXRDynamicsXrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXrayView.h; sourceTree = "<group>"; };
 		83849DE017AE02DB00D6DD3C /* DXRDynamicsXrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXrayView.m; sourceTree = "<group>"; };
-		83849DEA17AE103D00D6DD3C /* DXRDynamicsXrayBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXrayBehavior.h; sourceTree = "<group>"; };
-		83849DEB17AE103D00D6DD3C /* DXRDynamicsXrayBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXrayBehavior.m; sourceTree = "<group>"; };
-		83849DEF17AE105B00D6DD3C /* DXRDynamicsXrayBehaviorAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXrayBehaviorAttachment.h; sourceTree = "<group>"; };
-		83849DF017AE105B00D6DD3C /* DXRDynamicsXrayBehaviorAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXrayBehaviorAttachment.m; sourceTree = "<group>"; };
+		83849DEA17AE103D00D6DD3C /* DXRBehaviorSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRBehaviorSnapshot.h; sourceTree = "<group>"; };
+		83849DEB17AE103D00D6DD3C /* DXRBehaviorSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRBehaviorSnapshot.m; sourceTree = "<group>"; };
+		83849DEF17AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRAttachmentBehaviorSnapshot.h; sourceTree = "<group>"; };
+		83849DF017AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRAttachmentBehaviorSnapshot.m; sourceTree = "<group>"; };
 		83849DF317AE242A00D6DD3C /* DXRDynamicsXrayUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXrayUtil.h; sourceTree = "<group>"; };
 		8392287A181885070047F7C4 /* DXRDynamicsXrayConfigurationViewController+Controls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicsXrayConfigurationViewController+Controls.h"; sourceTree = "<group>"; };
 		8392287B181885070047F7C4 /* DXRDynamicsXrayConfigurationViewController+Controls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRDynamicsXrayConfigurationViewController+Controls.m"; sourceTree = "<group>"; };
@@ -169,10 +169,10 @@
 		83A68DCD182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXrayItemSnapshot.m; sourceTree = "<group>"; };
 		83A68DD1182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicsXrayItemSnapshot+DXRDrawing.h"; sourceTree = "<group>"; };
 		83A68DD2182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRDynamicsXrayItemSnapshot+DXRDrawing.m"; sourceTree = "<group>"; };
-		83B61352180BBD4C0006BBA3 /* DXRDynamicsXrayBehaviorGravity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXrayBehaviorGravity.h; sourceTree = "<group>"; };
-		83B61353180BBD4C0006BBA3 /* DXRDynamicsXrayBehaviorGravity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXrayBehaviorGravity.m; sourceTree = "<group>"; };
-		83B61356180BBDC10006BBA3 /* DXRDynamicsXrayBehaviorGravity+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicsXrayBehaviorGravity+DXRDrawing.h"; sourceTree = "<group>"; };
-		83B61357180BBDC10006BBA3 /* DXRDynamicsXrayBehaviorGravity+DXRDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRDynamicsXrayBehaviorGravity+DXRDrawing.m"; sourceTree = "<group>"; };
+		83B61352180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRGravityBehaviorSnapshot.h; sourceTree = "<group>"; };
+		83B61353180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRGravityBehaviorSnapshot.m; sourceTree = "<group>"; };
+		83B61356180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRGravityBehaviorSnapshot+DXRDrawing.h"; sourceTree = "<group>"; };
+		83B61357180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRGravityBehaviorSnapshot+DXRDrawing.m"; sourceTree = "<group>"; };
 		83B6135A180BCC2A0006BBA3 /* DXRDynamicsXrayWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXrayWindowController.h; sourceTree = "<group>"; };
 		83B6135B180BCC2A0006BBA3 /* DXRDynamicsXrayWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXrayWindowController.m; sourceTree = "<group>"; };
 		83E6D619187C177E005ECBA5 /* DynamicsXray-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DynamicsXray-Prefix.pch"; path = "DynamicsXray/DynamicsXray-Prefix.pch"; sourceTree = SOURCE_ROOT; };
@@ -180,11 +180,11 @@
 		83E6D61D187C1799005ECBA5 /* DXRDynamicsXrayUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXRDynamicsXrayUtil.m; path = DynamicsXray/DXRDynamicsXrayUtil.m; sourceTree = SOURCE_ROOT; };
 		83E6D61F187C17A7005ECBA5 /* DXRDynamicsXrayConfigurationViewController_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXRDynamicsXrayConfigurationViewController_Internal.h; path = DynamicsXray/DXRDynamicsXrayConfigurationViewController_Internal.h; sourceTree = SOURCE_ROOT; };
 		83E6D621187C1925005ECBA5 /* DynamicsXrayTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "DynamicsXrayTests-Info.plist"; path = "DynamicsXrayTests/DynamicsXrayTests-Info.plist"; sourceTree = SOURCE_ROOT; };
-		83FA2B2517FC290E0022DEAB /* DXRDynamicsXrayBehaviorAttachment+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicsXrayBehaviorAttachment+DXRDrawing.h"; sourceTree = "<group>"; };
-		83FA2B2617FC290E0022DEAB /* DXRDynamicsXrayBehaviorAttachment+DXRDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRDynamicsXrayBehaviorAttachment+DXRDrawing.m"; sourceTree = "<group>"; };
-		83FA2B2917FC29A30022DEAB /* DXRDynamicsXrayBehaviorDrawing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXrayBehaviorDrawing.h; sourceTree = "<group>"; };
-		83FA2B2B17FC2CD60022DEAB /* DXRDynamicsXrayBehaviorBoundaryCollision+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicsXrayBehaviorBoundaryCollision+DXRDrawing.h"; sourceTree = "<group>"; };
-		83FA2B2C17FC2CD60022DEAB /* DXRDynamicsXrayBehaviorBoundaryCollision+DXRDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRDynamicsXrayBehaviorBoundaryCollision+DXRDrawing.m"; sourceTree = "<group>"; };
+		83FA2B2517FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRAttachmentBehaviorSnapshot+DXRDrawing.h"; sourceTree = "<group>"; };
+		83FA2B2617FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRAttachmentBehaviorSnapshot+DXRDrawing.m"; sourceTree = "<group>"; };
+		83FA2B2917FC29A30022DEAB /* DXRBehaviorSnapshotDrawing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DXRBehaviorSnapshotDrawing.h; sourceTree = "<group>"; };
+		83FA2B2B17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.h"; sourceTree = "<group>"; };
+		83FA2B2C17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,7 +336,7 @@
 				8317A756180EA87A00F4B954 /* Xray View Controller */,
 				830AA51E183064B100608E3A /* Xray Window Controller */,
 				8317A749180E8F2A00F4B954 /* Configuration View Controller */,
-				83849DEE17AE104200D6DD3C /* Behaviors */,
+				83849DEE17AE104200D6DD3C /* Behavior Snapshot */,
 				83A68DD0182B5B9D00F21AC1 /* Dynamics Item Snapshot */,
 				83849DBC17AE022300D6DD3C /* Supporting Files */,
 			);
@@ -378,17 +378,17 @@
 			path = Libraries;
 			sourceTree = "<group>";
 		};
-		83849DEE17AE104200D6DD3C /* Behaviors */ = {
+		83849DEE17AE104200D6DD3C /* Behavior Snapshot */ = {
 			isa = PBXGroup;
 			children = (
-				83FA2B2417FC28E30022DEAB /* Attachment Behaviors */,
-				83FA2B2A17FC2CA50022DEAB /* Boundary Collision Behaviors */,
-				83B61351180BBD2E0006BBA3 /* Gravity Behaviors */,
-				83849DEA17AE103D00D6DD3C /* DXRDynamicsXrayBehavior.h */,
-				83849DEB17AE103D00D6DD3C /* DXRDynamicsXrayBehavior.m */,
-				83FA2B2917FC29A30022DEAB /* DXRDynamicsXrayBehaviorDrawing.h */,
+				83FA2B2417FC28E30022DEAB /* Attachment Behavior Snapshot */,
+				83FA2B2A17FC2CA50022DEAB /* Boundary Collision Behavior Snapshot */,
+				83B61351180BBD2E0006BBA3 /* Gravity Behavior Snapshot */,
+				83849DEA17AE103D00D6DD3C /* DXRBehaviorSnapshot.h */,
+				83849DEB17AE103D00D6DD3C /* DXRBehaviorSnapshot.m */,
+				83FA2B2917FC29A30022DEAB /* DXRBehaviorSnapshotDrawing.h */,
 			);
-			name = Behaviors;
+			name = "Behavior Snapshot";
 			sourceTree = "<group>";
 		};
 		83A68DD0182B5B9D00F21AC1 /* Dynamics Item Snapshot */ = {
@@ -402,37 +402,37 @@
 			name = "Dynamics Item Snapshot";
 			sourceTree = "<group>";
 		};
-		83B61351180BBD2E0006BBA3 /* Gravity Behaviors */ = {
+		83B61351180BBD2E0006BBA3 /* Gravity Behavior Snapshot */ = {
 			isa = PBXGroup;
 			children = (
-				83B61352180BBD4C0006BBA3 /* DXRDynamicsXrayBehaviorGravity.h */,
-				83B61353180BBD4C0006BBA3 /* DXRDynamicsXrayBehaviorGravity.m */,
-				83B61356180BBDC10006BBA3 /* DXRDynamicsXrayBehaviorGravity+DXRDrawing.h */,
-				83B61357180BBDC10006BBA3 /* DXRDynamicsXrayBehaviorGravity+DXRDrawing.m */,
+				83B61352180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.h */,
+				83B61353180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.m */,
+				83B61356180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.h */,
+				83B61357180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.m */,
 			);
-			name = "Gravity Behaviors";
+			name = "Gravity Behavior Snapshot";
 			sourceTree = "<group>";
 		};
-		83FA2B2417FC28E30022DEAB /* Attachment Behaviors */ = {
+		83FA2B2417FC28E30022DEAB /* Attachment Behavior Snapshot */ = {
 			isa = PBXGroup;
 			children = (
-				83849DEF17AE105B00D6DD3C /* DXRDynamicsXrayBehaviorAttachment.h */,
-				83849DF017AE105B00D6DD3C /* DXRDynamicsXrayBehaviorAttachment.m */,
-				83FA2B2517FC290E0022DEAB /* DXRDynamicsXrayBehaviorAttachment+DXRDrawing.h */,
-				83FA2B2617FC290E0022DEAB /* DXRDynamicsXrayBehaviorAttachment+DXRDrawing.m */,
+				83849DEF17AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.h */,
+				83849DF017AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.m */,
+				83FA2B2517FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.h */,
+				83FA2B2617FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.m */,
 			);
-			name = "Attachment Behaviors";
+			name = "Attachment Behavior Snapshot";
 			sourceTree = "<group>";
 		};
-		83FA2B2A17FC2CA50022DEAB /* Boundary Collision Behaviors */ = {
+		83FA2B2A17FC2CA50022DEAB /* Boundary Collision Behavior Snapshot */ = {
 			isa = PBXGroup;
 			children = (
-				83437B9217E0010E00518141 /* DXRDynamicsXrayBehaviorBoundaryCollision.h */,
-				83437B9317E0010E00518141 /* DXRDynamicsXrayBehaviorBoundaryCollision.m */,
-				83FA2B2B17FC2CD60022DEAB /* DXRDynamicsXrayBehaviorBoundaryCollision+DXRDrawing.h */,
-				83FA2B2C17FC2CD60022DEAB /* DXRDynamicsXrayBehaviorBoundaryCollision+DXRDrawing.m */,
+				83437B9217E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.h */,
+				83437B9317E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.m */,
+				83FA2B2B17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.h */,
+				83FA2B2C17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.m */,
 			);
-			name = "Boundary Collision Behaviors";
+			name = "Boundary Collision Behavior Snapshot";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,32 +443,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				8392287C181885070047F7C4 /* DXRDynamicsXrayConfigurationViewController+Controls.h in Headers */,
-				83FA2B2717FC290E0022DEAB /* DXRDynamicsXrayBehaviorAttachment+DXRDrawing.h in Headers */,
+				83FA2B2717FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.h in Headers */,
 				8317A759180EA89800F4B954 /* DXRDynamicsXrayViewController.h in Headers */,
 				83E6D620187C17A7005ECBA5 /* DXRDynamicsXrayConfigurationViewController_Internal.h in Headers */,
 				830AA5231831B97A00608E3A /* DXRDynamicsXrayWindow.h in Headers */,
 				834A42B8187E820D00493BBE /* JRSwizzle.h in Headers */,
 				8317A754180E95CB00F4B954 /* DXRDynamicsXrayConfigurationViewController+Private.h in Headers */,
-				83849DEC17AE103D00D6DD3C /* DXRDynamicsXrayBehavior.h in Headers */,
+				83849DEC17AE103D00D6DD3C /* DXRBehaviorSnapshot.h in Headers */,
 				83B6135C180BCC2A0006BBA3 /* DXRDynamicsXrayWindowController.h in Headers */,
 				834A42C5187F6E5000493BBE /* DXRContactHandler.h in Headers */,
 				8317A74C180E8F6300F4B954 /* DXRDynamicsXrayConfigurationViewController.h in Headers */,
 				8315E8BC188735EE00947F12 /* DynamicsXray+XrayContacts.h in Headers */,
-				83849DF117AE105B00D6DD3C /* DXRDynamicsXrayBehaviorAttachment.h in Headers */,
+				83849DF117AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.h in Headers */,
 				83584D0F17FC201600F09FF1 /* NSObject+CMObjectIntrospection.h in Headers */,
 				83A68DD3182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.h in Headers */,
 				83849DE717AE069400D6DD3C /* DynamicsXray.h in Headers */,
 				8358001318837841003209F5 /* DXRContactLifetime.h in Headers */,
 				8358001718837E27003209F5 /* DXRContactVisualise.h in Headers */,
-				83FA2B2D17FC2CD60022DEAB /* DXRDynamicsXrayBehaviorBoundaryCollision+DXRDrawing.h in Headers */,
+				83FA2B2D17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.h in Headers */,
 				8315E8C01887371200947F12 /* DynamicsXray+XrayVisualiseBehaviors.h in Headers */,
-				83B61354180BBD4C0006BBA3 /* DXRDynamicsXrayBehaviorGravity.h in Headers */,
+				83B61354180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.h in Headers */,
 				83A68DCE182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.h in Headers */,
-				83B61358180BBDC10006BBA3 /* DXRDynamicsXrayBehaviorGravity+DXRDrawing.h in Headers */,
+				83B61358180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.h in Headers */,
 				83849DF517AE242A00D6DD3C /* DXRDynamicsXrayUtil.h in Headers */,
 				834A42C9187F6F1F00493BBE /* DXRPhysicsKitPrivate.h in Headers */,
 				83E6D61C187C178E005ECBA5 /* DynamicsXray_Internal.h in Headers */,
-				83437B9417E0010E00518141 /* DXRDynamicsXrayBehaviorBoundaryCollision.h in Headers */,
+				83437B9417E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.h in Headers */,
 				834A42C0187EA8F500493BBE /* UIDynamicAnimator+DynamicsXrayContactIntrospection.h in Headers */,
 				83E6D61A187C177E005ECBA5 /* DynamicsXray-Prefix.pch in Headers */,
 			);
@@ -594,18 +594,18 @@
 				8392287D181885070047F7C4 /* DXRDynamicsXrayConfigurationViewController+Controls.m in Sources */,
 				83A68DCF182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.m in Sources */,
 				83A68DD4182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.m in Sources */,
-				83B61355180BBD4C0006BBA3 /* DXRDynamicsXrayBehaviorGravity.m in Sources */,
+				83B61355180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.m in Sources */,
 				8317A75A180EA89800F4B954 /* DXRDynamicsXrayViewController.m in Sources */,
-				83849DF217AE105B00D6DD3C /* DXRDynamicsXrayBehaviorAttachment.m in Sources */,
+				83849DF217AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.m in Sources */,
 				830AA5241831B97A00608E3A /* DXRDynamicsXrayWindow.m in Sources */,
 				8315E8BD188735EE00947F12 /* DynamicsXray+XrayContacts.m in Sources */,
 				8358001818837E27003209F5 /* DXRContactVisualise.m in Sources */,
-				83FA2B2E17FC2CD60022DEAB /* DXRDynamicsXrayBehaviorBoundaryCollision+DXRDrawing.m in Sources */,
-				83849DED17AE103D00D6DD3C /* DXRDynamicsXrayBehavior.m in Sources */,
+				83FA2B2E17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.m in Sources */,
+				83849DED17AE103D00D6DD3C /* DXRBehaviorSnapshot.m in Sources */,
 				83849DC117AE022300D6DD3C /* DynamicsXray.m in Sources */,
-				83FA2B2817FC290E0022DEAB /* DXRDynamicsXrayBehaviorAttachment+DXRDrawing.m in Sources */,
+				83FA2B2817FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.m in Sources */,
 				83849DE117AE02DB00D6DD3C /* DXRDynamicsXrayView.m in Sources */,
-				83437B9517E0010E00518141 /* DXRDynamicsXrayBehaviorBoundaryCollision.m in Sources */,
+				83437B9517E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.m in Sources */,
 				8317A74D180E8F6300F4B954 /* DXRDynamicsXrayConfigurationViewController.m in Sources */,
 				834A42B9187E820D00493BBE /* JRSwizzle.m in Sources */,
 				834A42C6187F6E5000493BBE /* DXRContactHandler.m in Sources */,
@@ -615,7 +615,7 @@
 				83584D1017FC201600F09FF1 /* NSObject+CMObjectIntrospection.m in Sources */,
 				8358001418837841003209F5 /* DXRContactLifetime.m in Sources */,
 				83B6135D180BCC2A0006BBA3 /* DXRDynamicsXrayWindowController.m in Sources */,
-				83B61359180BBDC10006BBA3 /* DXRDynamicsXrayBehaviorGravity+DXRDrawing.m in Sources */,
+				83B61359180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.m in Sources */,
 				834A42C1187EA8F500493BBE /* UIDynamicAnimator+DynamicsXrayContactIntrospection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,19 +1,19 @@
 //
-//  DXRDynamicsXrayBehaviorGravity+DXRDrawing.m
+//  DXRGravityBehaviorSnapshot+DXRDrawing.m
 //  DynamicsXray
 //
 //  Created by Chris Miles on 14/10/13.
-//  Copyright (c) 2013 Chris Miles. All rights reserved.
+//  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXrayBehaviorGravity+DXRDrawing.h"
+#import "DXRGravityBehaviorSnapshot+DXRDrawing.h"
 @import UIKit;
 
 static CGFloat const circleDiameter = 30.0f;
 static CGFloat const arrowHeadPointOffsetAngle = 0.2f;
 
 
-@implementation DXRDynamicsXrayBehaviorGravity (DXRDrawing)
+@implementation DXRGravityBehaviorSnapshot (DXRDrawing)
 
 - (void)drawInContext:(CGContextRef)context
 {
