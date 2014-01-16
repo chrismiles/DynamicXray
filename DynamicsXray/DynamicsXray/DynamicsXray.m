@@ -275,6 +275,9 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
 - (void)introspectBehaviors:(NSArray *)behaviors
 {
+    DXRDynamicsXrayView *xrayView = [self xrayView];
+    xrayView.dynamicsReferenceView = self.referenceView;
+
     [self.dynamicItemsToDraw removeAllObjects];
 
     for (UIDynamicBehavior *behavior in behaviors)
@@ -295,6 +298,9 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 	else if ([behavior isKindOfClass:[UIGravityBehavior class]]) {
 	    [self visualiseGravityBehavior:(UIGravityBehavior *)behavior];
 	}
+	else if ([behavior isKindOfClass:[UISnapBehavior class]]) {
+	    [self visualiseSnapBehavior:(UISnapBehavior *)behavior];
+	}
 
         /* Introspect any child behaviors.
          */
@@ -303,11 +309,8 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
         }
     }
 
-    DXRDynamicsXrayView *xrayView = [self xrayView];
-    UIView *referenceView = self.referenceView;
-
-    [xrayView drawDynamicItems:self.dynamicItemsToDraw contactedItems:self.dynamicItemsContactCount withReferenceView:referenceView];
-    [xrayView drawContactPaths:self.pathsContactCount withReferenceView:referenceView];
+    [xrayView drawDynamicItems:self.dynamicItemsToDraw contactedItems:self.dynamicItemsContactCount];
+    [xrayView drawContactPaths:self.pathsContactCount];
 }
 
 @end

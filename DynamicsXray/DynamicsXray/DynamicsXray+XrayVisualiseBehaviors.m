@@ -103,4 +103,27 @@
     [self.dynamicItemsToDraw addObjectsFromArray:gravityBehavior.items];
 }
 
+
+#pragma mark - Snap Behavior
+
+- (void)visualiseSnapBehavior:(UISnapBehavior *)snapBehavior
+{
+    NSArray *items = [snapBehavior valueForKey:@"_items"];
+    if ([items count] > 0) {
+        id<UIDynamicItem> item = items[0];
+        NSValue *anchorPointValue = [snapBehavior valueForKey:@"_anchorPoint"];
+
+        if (anchorPointValue) {
+            CGPoint anchorPoint = [anchorPointValue CGPointValue];
+
+            //CGPoint itemCenterPoint = item.center;
+            //DLog(@"SNAP: (%f, %f) --> (%f, %f)  item: %@", itemCenterPoint.x, itemCenterPoint.y, anchorPoint.x, anchorPoint.y, item);
+
+            [[self xrayView] drawSnapWithAnchorPoint:anchorPoint forItem:item];
+        }
+
+        [self.dynamicItemsToDraw addObjectsFromArray:items];
+    }
+}
+
 @end

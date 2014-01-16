@@ -7,10 +7,13 @@
 //
 
 #import "DXRDynamicsXrayView.h"
+
 #import "DXRBehaviorSnapshotDrawing.h"
 #import "DXRAttachmentBehaviorSnapshot.h"
 #import "DXRBoundaryCollisionBehaviorSnapshot.h"
 #import "DXRGravityBehaviorSnapshot.h"
+#import "DXRSnapBehaviorSnapshot.h"
+
 #import "DXRDynamicsXrayItemSnapshot.h"
 #import "DXRDynamicsXrayItemSnapshot+DXRDrawing.h"
 
@@ -69,37 +72,52 @@
     }
 }
 
+
+#pragma mark - Draw Behaviors
+
 - (void)drawAttachmentFromAnchor:(CGPoint)anchorPoint toPoint:(CGPoint)attachmentPoint length:(CGFloat)length isSpring:(BOOL)isSpring
 {
     DXRAttachmentBehaviorSnapshot *attachmentSnapshot = [[DXRAttachmentBehaviorSnapshot alloc] initWithAnchorPoint:anchorPoint attachmentPoint:attachmentPoint length:length isSpring:isSpring];
-    [self itemNeedsDrawing:attachmentSnapshot];
+    [self behaviorSnapshotNeedsDrawing:attachmentSnapshot];
 }
 
 - (void)drawBoundsCollisionBoundaryWithRect:(CGRect)boundaryRect
 {
     DXRBoundaryCollisionBehaviorSnapshot *collisionSnapshot = [[DXRBoundaryCollisionBehaviorSnapshot alloc] initWithBoundaryRect:boundaryRect];
-    [self itemNeedsDrawing:collisionSnapshot];
+    [self behaviorSnapshotNeedsDrawing:collisionSnapshot];
 }
 
 - (void)drawGravityBehaviorWithMagnitude:(CGFloat)magnitude angle:(CGFloat)angle
 {
     DXRGravityBehaviorSnapshot *gravitySnapshot = [[DXRGravityBehaviorSnapshot alloc] initWithGravityMagnitude:magnitude angle:angle];
-    [self itemNeedsDrawing:gravitySnapshot];
+    [self behaviorSnapshotNeedsDrawing:gravitySnapshot];
 }
 
-- (void)itemNeedsDrawing:(DXRBehaviorSnapshot *)item
+- (void)drawSnapWithAnchorPoint:(CGPoint)anchorPoint forItem:(id<UIDynamicItem>)item
+{
+    anchorPoint = [self convertPointFromDynamicsReferenceView:anchorPoint];
+    CGPoint itemCenter = [self convertPointFromDynamicsReferenceView:item.center];
+
+    DXRSnapBehaviorSnapshot *snapSnapshot = [[DXRSnapBehaviorSnapshot alloc] initWithAnchorPoint:anchorPoint itemCenter:itemCenter itemBounds:item.bounds itemTransform:item.transform];
+    [self behaviorSnapshotNeedsDrawing:snapSnapshot];
+}
+
+- (void)behaviorSnapshotNeedsDrawing:(DXRBehaviorSnapshot *)item
 {
     [self.behaviorsToDraw addObject:item];
 
     [self setNeedsDisplay];
 }
 
-- (void)drawDynamicItems:(NSSet *)dynamicItems contactedItems:(NSMapTable *)contactedItems withReferenceView:(UIView *)referenceView
+
+#pragma mark - Draw Dynamic Items
+
+- (void)drawDynamicItems:(NSSet *)dynamicItems contactedItems:(NSMapTable *)contactedItems
 {
     if (dynamicItems && [dynamicItems count] > 0) {
         for (id<UIDynamicItem> item in dynamicItems) {
             CGRect itemBounds = item.bounds;
-            CGPoint itemCenter = [self convertPoint:item.center fromReferenceView:referenceView];
+            CGPoint itemCenter = [self convertPointFromDynamicsReferenceView:item.center];
             CGAffineTransform itemTransform = item.transform;
 
             DXRContactLifetime *contactLifetime = [contactedItems objectForKey:item];
@@ -114,7 +132,10 @@
     }
 }
 
-- (void)drawContactPaths:(NSMapTable *)contactedPaths withReferenceView:(UIView *)referenceView
+
+#pragma mark - Draw Contact Paths
+
+- (void)drawContactPaths:(NSMapTable *)contactedPaths
 {
     [self.contactPathsToDraw removeAllObjects];
 
@@ -131,11 +152,16 @@
 
     [self.contactPathsToDraw addObjectsFromArray:pathsToDraw];
 
-    self.contactPathsOffset = [self convertPoint:CGPointZero fromReferenceView:referenceView];
+    self.contactPathsOffset = [self convertPointFromDynamicsReferenceView:CGPointZero];
 }
 
 
 #pragma mark - Coordinate Conversion
+
+- (CGPoint)convertPointFromDynamicsReferenceView:(CGPoint)point
+{
+    return [self convertPoint:point fromReferenceView:self.dynamicsReferenceView];
+}
 
 - (CGPoint)convertPoint:(CGPoint)point fromReferenceView:(UIView *)referenceView
 {

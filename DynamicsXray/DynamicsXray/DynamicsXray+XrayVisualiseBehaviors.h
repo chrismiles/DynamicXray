@@ -16,4 +16,6 @@
 
 - (void)visualiseGravityBehavior:(UIGravityBehavior *)gravityBehavior;
 
+- (void)visualiseSnapBehavior:(UISnapBehavior *)snapBehavior;
+
 @end
