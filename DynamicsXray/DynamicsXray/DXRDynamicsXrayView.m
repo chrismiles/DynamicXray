@@ -13,6 +13,7 @@
 #import "DXRBoundaryCollisionBehaviorSnapshot.h"
 #import "DXRGravityBehaviorSnapshot.h"
 #import "DXRSnapBehaviorSnapshot.h"
+#import "DXRPushBehaviorSnapshot.h"
 
 #import "DXRDynamicsXrayItemSnapshot.h"
 #import "DXRDynamicsXrayItemSnapshot+DXRDrawing.h"
@@ -102,6 +103,16 @@
     [self behaviorSnapshotNeedsDrawing:snapSnapshot];
 }
 
+- (void)drawPushWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude offset:(UIOffset)offset mode:(UIPushBehaviorMode)mode forItem:(id<UIDynamicItem>)item
+{
+    CGPoint pushLocation = [self convertPointFromDynamicsReferenceView:item.center];
+    pushLocation.x += offset.horizontal;
+    pushLocation.y += offset.vertical;
+
+    DXRPushBehaviorSnapshot *pushSnapshot = [[DXRPushBehaviorSnapshot alloc] initWithAngle:angle magnitude:magnitude location:pushLocation mode:mode];
+    [self behaviorSnapshotNeedsDrawing:pushSnapshot];
+}
+
 - (void)behaviorSnapshotNeedsDrawing:(DXRBehaviorSnapshot *)item
 {
     [self.behaviorsToDraw addObject:item];
@@ -135,15 +146,15 @@
 
 #pragma mark - Draw Contact Paths
 
-- (void)drawContactPaths:(NSMapTable *)contactedPaths
+- (void)drawContactPaths:(NSMapTable *)contactPaths
 {
     [self.contactPathsToDraw removeAllObjects];
 
     NSMutableArray *pathsToDraw = [NSMutableArray array];
 
-    for (id key in contactedPaths) {
+    for (id key in contactPaths) {
         // Keys are CGPathRefs
-        DXRContactLifetime *contactLifetime = [contactedPaths objectForKey:key];
+        DXRContactLifetime *contactLifetime = [contactPaths objectForKey:key];
         float alpha = [contactLifetime decay];
 
         DXRContactVisualise *contactVisualise = [[DXRContactVisualise alloc] initWithObjToDraw:key alpha:alpha];

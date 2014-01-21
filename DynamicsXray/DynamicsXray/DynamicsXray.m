@@ -301,6 +301,9 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 	else if ([behavior isKindOfClass:[UISnapBehavior class]]) {
 	    [self visualiseSnapBehavior:(UISnapBehavior *)behavior];
 	}
+	else if ([behavior isKindOfClass:[UIPushBehavior class]]) {
+	    [self visualisePushBehavior:(UIPushBehavior *)behavior];
+	}
 
         /* Introspect any child behaviors.
          */

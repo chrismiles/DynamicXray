@@ -126,4 +126,28 @@
     }
 }
 
+
+#pragma mark - Push Behavior
+
+- (void)visualisePushBehavior:(UIPushBehavior *)pushBehavior
+{
+    NSArray *items = pushBehavior.items;
+    if ([items count] > 0) {
+
+        for (id<UIDynamicItem> item in items) {
+            if (pushBehavior.active) {
+                UIOffset offset = [pushBehavior targetOffsetFromCenterForItem:item];
+
+                [[self xrayView] drawPushWithAngle:pushBehavior.angle
+                                         magnitude:pushBehavior.magnitude
+                                            offset:offset
+                                              mode:pushBehavior.mode
+                                           forItem:item];
+            }
+        }
+
+        [self.dynamicItemsToDraw addObjectsFromArray:items];
+    }
+}
+
 @end

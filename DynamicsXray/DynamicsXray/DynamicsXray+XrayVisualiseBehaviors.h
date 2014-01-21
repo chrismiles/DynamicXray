@@ -18,4 +18,6 @@
 
 - (void)visualiseSnapBehavior:(UISnapBehavior *)snapBehavior;
 
+- (void)visualisePushBehavior:(UIPushBehavior *)pushBehavior;
+
 @end

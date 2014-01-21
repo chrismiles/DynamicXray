@@ -16,13 +16,17 @@
 
 - (void)drawGravityBehaviorWithMagnitude:(CGFloat)magnitude angle:(CGFloat)angle;
 
-- (void)drawDynamicItems:(NSSet *)dynamicItems contactedItems:(NSMapTable *)contactedItems;
-
 - (void)drawContactPaths:(NSMapTable *)contactedPaths;
 
 - (void)drawSnapWithAnchorPoint:(CGPoint)anchorPoint forItem:(id<UIDynamicItem>)item;
 
+- (void)drawPushWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude offset:(UIOffset)offset mode:(UIPushBehaviorMode)mode forItem:(id<UIDynamicItem>)item;
+
+- (void)drawDynamicItems:(NSSet *)dynamicItems contactedItems:(NSMapTable *)contactedItems;
+
+
 - (CGPoint)convertPoint:(CGPoint)point fromReferenceView:(UIView *)referenceView;
+
 
 @property (assign, nonatomic) UIOffset drawOffset;
 
