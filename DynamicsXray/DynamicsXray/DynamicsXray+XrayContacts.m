@@ -8,7 +8,7 @@
 
 #import "DynamicsXray+XrayContacts.h"
 #import "DynamicsXray_Internal.h"
-#import "DXRContactLifetime.h"
+#import "DXRDecayingLifetime.h"
 
 
 @implementation DynamicsXray (XrayContacts)
@@ -20,23 +20,23 @@
     id<UIDynamicItem> dynamicItem = notification.userInfo[@"dynamicItem"];
     if (dynamicItem) {
         //DLog(@"DynamicItem did begin contact: %@", dynamicItem);
-        DXRContactLifetime *contactLifetime = [self.dynamicItemsContactCount objectForKey:dynamicItem];
+        DXRDecayingLifetime *contactLifetime = [self.dynamicItemsContactCount objectForKey:dynamicItem];
         if (contactLifetime == nil) {
-            contactLifetime = [[DXRContactLifetime alloc] init];
+            contactLifetime = [[DXRDecayingLifetime alloc] init];
             [self.dynamicItemsContactCount setObject:contactLifetime forKey:dynamicItem];
         }
-        [contactLifetime incrementCount];
+        [contactLifetime incrementReferenceCount];
     }
 
     CGPathRef path = CFBridgingRetain(notification.userInfo[@"path"]);
     if (path) {
         id key = CFBridgingRelease(path);
-        DXRContactLifetime *contactLifetime = [self.pathsContactCount objectForKey:key];
+        DXRDecayingLifetime *contactLifetime = [self.pathsContactCount objectForKey:key];
         if (contactLifetime == nil) {
-            contactLifetime = [[DXRContactLifetime alloc] init];
+            contactLifetime = [[DXRDecayingLifetime alloc] init];
             [self.pathsContactCount setObject:contactLifetime forKey:key];
         }
-        [contactLifetime incrementCount];
+        [contactLifetime incrementReferenceCount];
     }
 }
 
@@ -45,8 +45,8 @@
     id<UIDynamicItem> dynamicItem = notification.userInfo[@"dynamicItem"];
     if (dynamicItem) {
         //DLog(@"DynamicItem did end contact: %@", dynamicItem);
-        DXRContactLifetime *contactLifetime = [self.dynamicItemsContactCount objectForKey:dynamicItem];
-        [contactLifetime decrementCount];
+        DXRDecayingLifetime *contactLifetime = [self.dynamicItemsContactCount objectForKey:dynamicItem];
+        [contactLifetime decrementReferenceCount];
 
         if ([contactLifetime decay] <= 0) {
             [self.dynamicItemsContactCount removeObjectForKey:dynamicItem];
@@ -56,8 +56,8 @@
     CGPathRef path = CFBridgingRetain(notification.userInfo[@"path"]);
     if (path) {
         id key = CFBridgingRelease(path);
-        DXRContactLifetime *contactLifetime = [self.pathsContactCount objectForKey:key];
-        [contactLifetime decrementCount];
+        DXRDecayingLifetime *contactLifetime = [self.pathsContactCount objectForKey:key];
+        [contactLifetime decrementReferenceCount];
 
         if ([contactLifetime decay] <= 0) {
             [self.pathsContactCount removeObjectForKey:key];

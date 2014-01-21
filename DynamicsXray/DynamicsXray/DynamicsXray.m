@@ -14,7 +14,6 @@
 #import "DXRDynamicsXrayView.h"
 #import "DXRDynamicsXrayWindowController.h"
 #import "DXRContactHandler.h"
-#import "DXRContactLifetime.h"
 
 
 /*

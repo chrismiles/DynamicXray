@@ -1,17 +1,17 @@
 //
-//  DXRVisualLifetime.m
+//  DXRDecayingLifetime.m
 //  DynamicsXray
 //
 //  Created by Chris Miles on 21/01/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
 //
 
-#import "DXRVisualLifetime.h"
+#import "DXRDecayingLifetime.h"
 
 static NSTimeInterval const DXRDefaultDecayTime = 0.2;    // decay time in seconds
 
 
-@interface DXRVisualLifetime ()
+@interface DXRDecayingLifetime ()
 
 @property (assign, nonatomic, readwrite) NSUInteger referenceCount;
 
@@ -20,7 +20,7 @@ static NSTimeInterval const DXRDefaultDecayTime = 0.2;    // decay time in secon
 @end
 
 
-@implementation DXRVisualLifetime
+@implementation DXRDecayingLifetime
 
 - (void)incrementReferenceCount
 {

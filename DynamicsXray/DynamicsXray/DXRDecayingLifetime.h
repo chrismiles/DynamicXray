@@ -1,5 +1,5 @@
 //
-//  DXRVisualLifetime.h
+//  DXRDecayingLifetime.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 21/01/2014.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DXRVisualLifetime : NSObject
+@interface DXRDecayingLifetime : NSObject
 
 @property (assign, nonatomic, readonly) NSUInteger referenceCount;
 

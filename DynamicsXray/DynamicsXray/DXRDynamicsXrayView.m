@@ -18,7 +18,7 @@
 #import "DXRDynamicsXrayItemSnapshot.h"
 #import "DXRDynamicsXrayItemSnapshot+DXRDrawing.h"
 
-#import "DXRContactLifetime.h"
+#import "DXRDecayingLifetime.h"
 #import "DXRContactVisualise.h"
 
 
@@ -131,7 +131,7 @@
             CGPoint itemCenter = [self convertPointFromDynamicsReferenceView:item.center];
             CGAffineTransform itemTransform = item.transform;
 
-            DXRContactLifetime *contactLifetime = [contactedItems objectForKey:item];
+            DXRDecayingLifetime *contactLifetime = [contactedItems objectForKey:item];
             BOOL isContacted = (contactLifetime && contactLifetime.decay > 0);
 
             DXRDynamicsXrayItemSnapshot *itemSnapshot = [DXRDynamicsXrayItemSnapshot snapshotWithBounds:itemBounds center:itemCenter transform:itemTransform contacted:isContacted];
@@ -154,7 +154,7 @@
 
     for (id key in contactPaths) {
         // Keys are CGPathRefs
-        DXRContactLifetime *contactLifetime = [contactPaths objectForKey:key];
+        DXRDecayingLifetime *contactLifetime = [contactPaths objectForKey:key];
         float alpha = [contactLifetime decay];
 
         DXRContactVisualise *contactVisualise = [[DXRContactVisualise alloc] initWithObjToDraw:key alpha:alpha];
