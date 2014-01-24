@@ -28,6 +28,7 @@
 @property (strong, nonatomic) NSMutableSet *dynamicItemsToDraw;
 @property (strong, nonatomic) NSMapTable *dynamicItemsContactCount;
 @property (strong, nonatomic) NSMapTable *pathsContactCount;
+@property (strong, nonatomic) NSMapTable *instantaneousPushBehaviorCount;
 
 - (void)redraw;
 - (DXRDynamicsXrayWindowController *)xrayWindowController;

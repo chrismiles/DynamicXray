@@ -103,13 +103,14 @@
     [self behaviorSnapshotNeedsDrawing:snapSnapshot];
 }
 
-- (void)drawPushWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude offset:(UIOffset)offset mode:(UIPushBehaviorMode)mode forItem:(id<UIDynamicItem>)item
+- (void)drawPushWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude offset:(UIOffset)offset alpha:(CGFloat)alpha forItem:(id<UIDynamicItem>)item
 {
     CGPoint pushLocation = [self convertPointFromDynamicsReferenceView:item.center];
     pushLocation.x += offset.horizontal;
     pushLocation.y += offset.vertical;
 
-    DXRPushBehaviorSnapshot *pushSnapshot = [[DXRPushBehaviorSnapshot alloc] initWithAngle:angle magnitude:magnitude location:pushLocation mode:mode];
+    DXRPushBehaviorSnapshot *pushSnapshot = [[DXRPushBehaviorSnapshot alloc] initWithAngle:angle magnitude:magnitude location:pushLocation];
+    pushSnapshot.alpha = alpha;
     [self behaviorSnapshotNeedsDrawing:pushSnapshot];
 }
 
@@ -248,13 +249,17 @@
 {
     //[self calcFPS];
 
+    UIColor *strokeColor = [UIColor blueColor];
+    UIColor *fillColor = [UIColor blueColor];
+
     CGContextRef context = UIGraphicsGetCurrentContext();
 
     CGRect bounds = self.bounds;
     CGContextClipToRect(context, bounds);
     CGContextSetAllowsAntialiasing(context, (bool)self.allowsAntialiasing);
 
-    [[UIColor blueColor] set];
+    [strokeColor setStroke];
+    [fillColor setFill];
 
     for (DXRDynamicsXrayItemSnapshot *itemSnapshot in self.dynamicItemsToDraw) {
         CGContextSaveGState(context);
@@ -265,6 +270,12 @@
     for (DXRBehaviorSnapshot *behavior in self.behaviorsToDraw) {
         if ([behavior conformsToProtocol:@protocol(DXRBehaviorSnapshotDrawing)]) {
             CGContextSaveGState(context);
+
+            if (behavior.alpha < 1.0f) {
+                [[strokeColor colorWithAlphaComponent:behavior.alpha] setStroke];
+                [[fillColor colorWithAlphaComponent:behavior.alpha] setFill];
+            }
+
             [(id<DXRBehaviorSnapshotDrawing>)behavior drawInContext:context];
             CGContextRestoreGState(context);
         }

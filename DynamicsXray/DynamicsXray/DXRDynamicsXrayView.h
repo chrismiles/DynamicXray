@@ -20,7 +20,7 @@
 
 - (void)drawSnapWithAnchorPoint:(CGPoint)anchorPoint forItem:(id<UIDynamicItem>)item;
 
-- (void)drawPushWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude offset:(UIOffset)offset mode:(UIPushBehaviorMode)mode forItem:(id<UIDynamicItem>)item;
+- (void)drawPushWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude offset:(UIOffset)offset alpha:(CGFloat)alpha forItem:(id<UIDynamicItem>)item;
 
 - (void)drawDynamicItems:(NSSet *)dynamicItems contactedItems:(NSMapTable *)contactedItems;
 

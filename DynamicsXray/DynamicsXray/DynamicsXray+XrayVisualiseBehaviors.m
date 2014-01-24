@@ -131,17 +131,22 @@
 
 - (void)visualisePushBehavior:(UIPushBehavior *)pushBehavior
 {
+    [self visualisePushBehavior:pushBehavior withAlpha:1.0f];
+}
+
+- (void)visualisePushBehavior:(UIPushBehavior *)pushBehavior withAlpha:(CGFloat)alpha
+{
     NSArray *items = pushBehavior.items;
     if ([items count] > 0) {
 
         for (id<UIDynamicItem> item in items) {
-            if (pushBehavior.active) {
+            if (pushBehavior.mode == UIPushBehaviorModeInstantaneous || pushBehavior.active) {
                 UIOffset offset = [pushBehavior targetOffsetFromCenterForItem:item];
 
                 [[self xrayView] drawPushWithAngle:pushBehavior.angle
                                          magnitude:pushBehavior.magnitude
                                             offset:offset
-                                              mode:pushBehavior.mode
+                                              alpha:alpha
                                            forItem:item];
             }
         }

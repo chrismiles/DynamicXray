@@ -8,6 +8,10 @@
 
 #import "DXRPushBehaviorSnapshot+DXRDrawing.h"
 
+static CGFloat const DXRPushBehaviorLineMagnitudeScaleFactor = 50.0f;
+static CGFloat const DXRPushBehaviorMinimalLineLength = 10.0f;
+
+
 @implementation DXRPushBehaviorSnapshot (DXRDrawing)
 
 - (void)drawInContext:(CGContextRef)context
@@ -15,7 +19,8 @@
     if (self.magnitude > 0) {
         CGPoint pushLocation = self.pushLocation;
         CGFloat lineAngle = self.angle;
-        CGFloat lineLength = self.magnitude * 40.0f;
+        CGFloat lineLength = self.magnitude * DXRPushBehaviorLineMagnitudeScaleFactor;
+        if (lineLength < DXRPushBehaviorMinimalLineLength) lineLength = DXRPushBehaviorMinimalLineLength;
 
         CGPoint lineStartLocation = CGPointMake(pushLocation.x - lineLength * cosf(lineAngle), pushLocation.y - lineLength * sinf(lineAngle));
 
@@ -25,7 +30,7 @@
         CGPoint arrowHeadEndPoint1 = CGPointMake(pushLocation.x + cosf(arrowHeadAngle1)*arrowHeadLength, pushLocation.y + sinf(arrowHeadAngle1)*arrowHeadLength);
         CGPoint arrowHeadEndPoint2 = CGPointMake(pushLocation.x + cosf(arrowHeadAngle2)*arrowHeadLength, pushLocation.y + sinf(arrowHeadAngle2)*arrowHeadLength);
 
-        CGFloat circleRadius = (lineLength > 10.0f ? 1.0f : 0);
+        CGFloat circleRadius = 0.5f;
 
         if (circleRadius > 0) {
             // Draw circle at push location

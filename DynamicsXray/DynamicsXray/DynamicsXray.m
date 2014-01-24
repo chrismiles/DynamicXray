@@ -9,11 +9,13 @@
 #import "DynamicsXray.h"
 #import "DynamicsXray_Internal.h"
 #import "DynamicsXray+XrayContacts.h"
+#import "DynamicsXray+XrayPushBehavior.h"
 #import "DynamicsXray+XrayVisualiseBehaviors.h"
 
 #import "DXRDynamicsXrayView.h"
 #import "DXRDynamicsXrayWindowController.h"
 #import "DXRContactHandler.h"
+#import "DXRDecayingLifetime.h"
 
 
 /*
@@ -78,6 +80,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
         _dynamicItemsContactCount = [NSMapTable weakToStrongObjectsMapTable];
         _pathsContactCount = [NSMapTable weakToStrongObjectsMapTable];
+        _instantaneousPushBehaviorCount = [NSMapTable weakToStrongObjectsMapTable];
 
         // Grab a strong reference to the shared XRay window (a new one is created on demand if needed)
         self.xrayWindow = sharedXrayWindowController.xrayWindow;
@@ -101,6 +104,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dynamicsXrayContactDidBeginNotification:) name:DXRDynamicsXrayContactDidBeginNotification object:[DXRContactHandler class]];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dynamicsXrayContactDidEndNotification:) name:DXRDynamicsXrayContactDidEndNotification object:[DXRContactHandler class]];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(instantaneousPushBehaviorDidBecomeActiveNotification:) name:DXRDynamicsXrayInstantaneousPushBehaviorDidBecomeActiveNotification object:nil];
     }
     return self;
 }
@@ -301,7 +305,11 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 	    [self visualiseSnapBehavior:(UISnapBehavior *)behavior];
 	}
 	else if ([behavior isKindOfClass:[UIPushBehavior class]]) {
-	    [self visualisePushBehavior:(UIPushBehavior *)behavior];
+            // Only visualise continuous push behaviors here
+            UIPushBehavior *pushBehavior = (UIPushBehavior *)behavior;
+            if (pushBehavior.mode == UIPushBehaviorModeContinuous) {
+                [self visualisePushBehavior:pushBehavior];
+            }
 	}
 
         /* Introspect any child behaviors.
@@ -311,7 +319,26 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
         }
     }
 
+    // Instantaneous push behaviors need to be captured out-of-band
+    NSMutableArray *snuffedLifetimes = [NSMutableArray array];
+    for (UIPushBehavior *instantaneousPushBehavior in self.instantaneousPushBehaviorCount) {
+        DXRDecayingLifetime *pushLifetime = [self.instantaneousPushBehaviorCount objectForKey:instantaneousPushBehavior];
+        [pushLifetime decrementReferenceCount];
+        if (pushLifetime.decay > 0) {
+            [self visualisePushBehavior:instantaneousPushBehavior withAlpha:pushLifetime.decay];
+        }
+        else {
+            [snuffedLifetimes addObject:instantaneousPushBehavior];
+        }
+    }
+    for (UIPushBehavior *instantaneousPushBehavior in snuffedLifetimes) {
+        [self.instantaneousPushBehaviorCount removeObjectForKey:instantaneousPushBehavior];
+    }
+
+    // Draw any dynamic items
     [xrayView drawDynamicItems:self.dynamicItemsToDraw contactedItems:self.dynamicItemsContactCount];
+
+    // Draw any contact paths above all else
     [xrayView drawContactPaths:self.pathsContactCount];
 }
 

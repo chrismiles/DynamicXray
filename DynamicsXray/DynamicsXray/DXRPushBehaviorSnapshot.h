@@ -12,11 +12,10 @@
 
 @interface DXRPushBehaviorSnapshot : DXRBehaviorSnapshot
 
-- (id)initWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude location:(CGPoint)pushLocation mode:(UIPushBehaviorMode)mode;
+- (id)initWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude location:(CGPoint)pushLocation;
 
 @property (assign, nonatomic, readonly) CGFloat angle;
 @property (assign, nonatomic, readonly) CGFloat magnitude;
 @property (assign, nonatomic, readonly) CGPoint pushLocation;
-@property (assign, nonatomic, readonly) UIPushBehaviorMode mode;
 
 @end

@@ -25,13 +25,14 @@ static NSTimeInterval const DXRDefaultDecayTime = 0.2;    // decay time in secon
 - (void)incrementReferenceCount
 {
     self.referenceCount += 1;
+    self.allReferencesEndedTime = 0;
 }
 
 - (void)decrementReferenceCount
 {
     if (self.referenceCount > 0) self.referenceCount -= 1;
 
-    if (self.referenceCount == 0) self.allReferencesEndedTime = [[NSDate date] timeIntervalSinceReferenceDate];
+    if (self.referenceCount == 0 && self.allReferencesEndedTime <= 0) self.allReferencesEndedTime = [[NSDate date] timeIntervalSinceReferenceDate];
 }
 
 - (float)decay
@@ -39,6 +40,8 @@ static NSTimeInterval const DXRDefaultDecayTime = 0.2;    // decay time in secon
     float decay = 1.0;
 
     if (self.referenceCount == 0) {
+        if (self.allReferencesEndedTime <= 0) self.allReferencesEndedTime = [[NSDate date] timeIntervalSinceReferenceDate];
+
         NSTimeInterval currentTime = [[NSDate date] timeIntervalSinceReferenceDate];
 
         if (currentTime - self.allReferencesEndedTime > DXRDefaultDecayTime) {
@@ -50,6 +53,11 @@ static NSTimeInterval const DXRDefaultDecayTime = 0.2;    // decay time in secon
     }
 
     return decay;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: %p referenceCount=%lu>", [self class], self, (unsigned long)self.referenceCount];
 }
 
 @end

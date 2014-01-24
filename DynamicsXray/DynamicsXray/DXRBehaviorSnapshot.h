@@ -7,7 +7,10 @@
 //
 
 @import Foundation;
+@import CoreGraphics;
 
 @interface DXRBehaviorSnapshot : NSObject
+
+@property (assign, nonatomic) CGFloat alpha;
 
 @end

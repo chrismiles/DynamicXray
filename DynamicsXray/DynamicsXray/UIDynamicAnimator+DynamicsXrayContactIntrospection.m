@@ -17,7 +17,7 @@
 
 + (void)load
 {
-    DLog(@"Swizzling UIDynamicAnimator methods -didBeginContact: and didEndContact:");
+    //DLog(@"Swizzling UIDynamicAnimator methods -didBeginContact: and didEndContact:");
 
     NSError *error = nil;
     if ([UIDynamicAnimator jr_swizzleMethod:NSSelectorFromString(@"didBeginContact:")
