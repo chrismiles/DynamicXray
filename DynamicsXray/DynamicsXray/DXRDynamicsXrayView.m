@@ -103,14 +103,14 @@
     [self behaviorSnapshotNeedsDrawing:snapSnapshot];
 }
 
-- (void)drawPushWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude offset:(UIOffset)offset alpha:(CGFloat)alpha forItem:(id<UIDynamicItem>)item
+- (void)drawPushWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude offset:(UIOffset)offset transparency:(CGFloat)transparency forItem:(id<UIDynamicItem>)item
 {
     CGPoint pushLocation = [self convertPointFromDynamicsReferenceView:item.center];
     pushLocation.x += offset.horizontal;
     pushLocation.y += offset.vertical;
 
     DXRPushBehaviorSnapshot *pushSnapshot = [[DXRPushBehaviorSnapshot alloc] initWithAngle:angle magnitude:magnitude location:pushLocation];
-    pushSnapshot.alpha = alpha;
+    pushSnapshot.transparency = transparency;
     [self behaviorSnapshotNeedsDrawing:pushSnapshot];
 }
 
@@ -271,9 +271,10 @@
         if ([behavior conformsToProtocol:@protocol(DXRBehaviorSnapshotDrawing)]) {
             CGContextSaveGState(context);
 
-            if (behavior.alpha < 1.0f) {
-                [[strokeColor colorWithAlphaComponent:behavior.alpha] setStroke];
-                [[fillColor colorWithAlphaComponent:behavior.alpha] setFill];
+            if (behavior.transparency > 0) {
+                CGFloat alpha = 1.0f - behavior.transparency;
+                [[strokeColor colorWithAlphaComponent:alpha] setStroke];
+                [[fillColor colorWithAlphaComponent:alpha] setFill];
             }
 
             [(id<DXRBehaviorSnapshotDrawing>)behavior drawInContext:context];

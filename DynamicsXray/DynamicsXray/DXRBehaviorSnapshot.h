@@ -11,6 +11,6 @@
 
 @interface DXRBehaviorSnapshot : NSObject
 
-@property (assign, nonatomic) CGFloat alpha;
+@property (assign, nonatomic) CGFloat transparency;     // 0 = opaque; 1 = transparent
 
 @end

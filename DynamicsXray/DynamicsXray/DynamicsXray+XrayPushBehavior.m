@@ -34,7 +34,8 @@
         DXRDecayingLifetime *pushLifetime = [self.instantaneousPushBehaviorCount objectForKey:instantaneousPushBehavior];
         [pushLifetime decrementReferenceCount];
         if (pushLifetime.decay > 0) {
-            [self visualisePushBehavior:instantaneousPushBehavior withAlpha:pushLifetime.decay];
+            CGFloat transparency = 1.0f - pushLifetime.decay;
+            [self visualisePushBehavior:instantaneousPushBehavior withTransparency:transparency];
         }
         else {
             [snuffedLifetimes addObject:instantaneousPushBehavior];

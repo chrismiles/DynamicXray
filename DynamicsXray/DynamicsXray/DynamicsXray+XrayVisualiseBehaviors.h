@@ -19,6 +19,6 @@
 - (void)visualiseSnapBehavior:(UISnapBehavior *)snapBehavior;
 
 - (void)visualisePushBehavior:(UIPushBehavior *)pushBehavior;
-- (void)visualisePushBehavior:(UIPushBehavior *)pushBehavior withAlpha:(CGFloat)alpha;
+- (void)visualisePushBehavior:(UIPushBehavior *)pushBehavior withTransparency:(CGFloat)transparency;
 
 @end

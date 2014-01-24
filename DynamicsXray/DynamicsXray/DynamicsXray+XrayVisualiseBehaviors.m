@@ -131,10 +131,10 @@
 
 - (void)visualisePushBehavior:(UIPushBehavior *)pushBehavior
 {
-    [self visualisePushBehavior:pushBehavior withAlpha:1.0f];
+    [self visualisePushBehavior:pushBehavior withTransparency:0];
 }
 
-- (void)visualisePushBehavior:(UIPushBehavior *)pushBehavior withAlpha:(CGFloat)alpha
+- (void)visualisePushBehavior:(UIPushBehavior *)pushBehavior withTransparency:(CGFloat)transparency
 {
     NSArray *items = pushBehavior.items;
     if ([items count] > 0) {
@@ -146,7 +146,7 @@
                 [[self xrayView] drawPushWithAngle:pushBehavior.angle
                                          magnitude:pushBehavior.magnitude
                                             offset:offset
-                                              alpha:alpha
+                                      transparency:transparency
                                            forItem:item];
             }
         }
