@@ -15,7 +15,6 @@
 #import "DXRDynamicsXrayView.h"
 #import "DXRDynamicsXrayWindowController.h"
 #import "DXRContactHandler.h"
-#import "DXRDecayingLifetime.h"
 
 
 /*
@@ -320,20 +319,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
     }
 
     // Instantaneous push behaviors need to be captured out-of-band
-    NSMutableArray *snuffedLifetimes = [NSMutableArray array];
-    for (UIPushBehavior *instantaneousPushBehavior in self.instantaneousPushBehaviorCount) {
-        DXRDecayingLifetime *pushLifetime = [self.instantaneousPushBehaviorCount objectForKey:instantaneousPushBehavior];
-        [pushLifetime decrementReferenceCount];
-        if (pushLifetime.decay > 0) {
-            [self visualisePushBehavior:instantaneousPushBehavior withAlpha:pushLifetime.decay];
-        }
-        else {
-            [snuffedLifetimes addObject:instantaneousPushBehavior];
-        }
-    }
-    for (UIPushBehavior *instantaneousPushBehavior in snuffedLifetimes) {
-        [self.instantaneousPushBehaviorCount removeObjectForKey:instantaneousPushBehavior];
-    }
+    [self introspectInstantaneousPushBehaviors];
 
     // Draw any dynamic items
     [xrayView drawDynamicItems:self.dynamicItemsToDraw contactedItems:self.dynamicItemsContactCount];

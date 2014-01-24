@@ -8,6 +8,7 @@
 
 #import "DynamicsXray+XrayPushBehavior.h"
 #import "DynamicsXray_Internal.h"
+#import "DynamicsXray+XrayVisualiseBehaviors.h"
 #import "DXRDecayingLifetime.h"
 
 
@@ -23,6 +24,25 @@
         [self.instantaneousPushBehaviorCount setObject:pushLifetime forKey:pushBehavior];
     }
     [pushLifetime incrementReferenceCount];
+}
+
+
+- (void)introspectInstantaneousPushBehaviors
+{
+    NSMutableArray *snuffedLifetimes = [NSMutableArray array];
+    for (UIPushBehavior *instantaneousPushBehavior in self.instantaneousPushBehaviorCount) {
+        DXRDecayingLifetime *pushLifetime = [self.instantaneousPushBehaviorCount objectForKey:instantaneousPushBehavior];
+        [pushLifetime decrementReferenceCount];
+        if (pushLifetime.decay > 0) {
+            [self visualisePushBehavior:instantaneousPushBehavior withAlpha:pushLifetime.decay];
+        }
+        else {
+            [snuffedLifetimes addObject:instantaneousPushBehavior];
+        }
+    }
+    for (UIPushBehavior *instantaneousPushBehavior in snuffedLifetimes) {
+        [self.instantaneousPushBehaviorCount removeObjectForKey:instantaneousPushBehavior];
+    }
 }
 
 @end

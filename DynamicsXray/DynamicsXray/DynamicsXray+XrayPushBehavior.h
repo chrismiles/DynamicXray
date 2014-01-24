@@ -14,4 +14,6 @@
 
 - (void)instantaneousPushBehaviorDidBecomeActiveNotification:(NSNotification *)notification;
 
+- (void)introspectInstantaneousPushBehaviors;
+
 @end
