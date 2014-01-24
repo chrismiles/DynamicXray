@@ -565,7 +565,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = DXR;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Chris Miles";
 			};
 			buildConfigurationList = 83849DB117AE022300D6DD3C /* Build configuration list for PBXProject "DynamicsXray" */;
