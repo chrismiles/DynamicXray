@@ -103,12 +103,8 @@
     [self behaviorSnapshotNeedsDrawing:snapSnapshot];
 }
 
-- (void)drawPushWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude offset:(UIOffset)offset transparency:(CGFloat)transparency forItem:(id<UIDynamicItem>)item
+- (void)drawPushWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude transparency:(CGFloat)transparency atLocation:(CGPoint)pushLocation
 {
-    CGPoint pushLocation = [self convertPointFromDynamicsReferenceView:item.center];
-    pushLocation.x += offset.horizontal;
-    pushLocation.y += offset.vertical;
-
     DXRPushBehaviorSnapshot *pushSnapshot = [[DXRPushBehaviorSnapshot alloc] initWithAngle:angle magnitude:magnitude location:pushLocation];
     pushSnapshot.transparency = transparency;
     [self behaviorSnapshotNeedsDrawing:pushSnapshot];

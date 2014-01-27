@@ -20,7 +20,7 @@
 
 - (void)drawSnapWithAnchorPoint:(CGPoint)anchorPoint forItem:(id<UIDynamicItem>)item;
 
-- (void)drawPushWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude offset:(UIOffset)offset transparency:(CGFloat)transparency forItem:(id<UIDynamicItem>)item;
+- (void)drawPushWithAngle:(CGFloat)angle magnitude:(CGFloat)magnitude transparency:(CGFloat)transparency atLocation:(CGPoint)pushLocation;
 
 - (void)drawDynamicItems:(NSSet *)dynamicItems contactedItems:(NSMapTable *)contactedItems;
 

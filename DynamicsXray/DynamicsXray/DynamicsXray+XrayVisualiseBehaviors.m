@@ -136,23 +136,42 @@
 
 - (void)visualisePushBehavior:(UIPushBehavior *)pushBehavior withTransparency:(CGFloat)transparency
 {
+    DXRDynamicsXrayView *xrayView = [self xrayView];
+
     NSArray *items = pushBehavior.items;
     if ([items count] > 0) {
 
         for (id<UIDynamicItem> item in items) {
             if (pushBehavior.mode == UIPushBehaviorModeInstantaneous || pushBehavior.active) {
-                UIOffset offset = [pushBehavior targetOffsetFromCenterForItem:item];
+                CGPoint pushLocation = [xrayView convertPoint:item.center fromReferenceView:self.referenceView];
 
-                [[self xrayView] drawPushWithAngle:pushBehavior.angle
-                                         magnitude:pushBehavior.magnitude
-                                            offset:offset
-                                      transparency:transparency
-                                           forItem:item];
+                UIOffset offset = [pushBehavior targetOffsetFromCenterForItem:item];
+                pushLocation.x += offset.horizontal;
+                pushLocation.y += offset.vertical;
+
+                [xrayView drawPushWithAngle:pushBehavior.angle
+                                  magnitude:pushBehavior.magnitude
+                               transparency:transparency
+                                 atLocation:pushLocation];
             }
         }
 
         [self.dynamicItemsToDraw addObjectsFromArray:items];
     }
+}
+
+- (void)visualiseInstantaneousPushBehavior:(UIPushBehavior *)pushBehavior atLocations:(NSArray *)pushLocations withTransparency:(CGFloat)transparency
+{
+    for (NSValue *value in pushLocations) {
+        CGPoint pushLocation = [[self xrayView] convertPoint:[value CGPointValue] fromReferenceView:self.referenceView];
+
+        [[self xrayView] drawPushWithAngle:pushBehavior.angle
+                                 magnitude:pushBehavior.magnitude
+                              transparency:transparency
+                                atLocation:pushLocation];
+    }
+
+    [self.dynamicItemsToDraw addObjectsFromArray:pushBehavior.items];
 }
 
 @end

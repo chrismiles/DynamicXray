@@ -20,5 +20,6 @@
 
 - (void)visualisePushBehavior:(UIPushBehavior *)pushBehavior;
 - (void)visualisePushBehavior:(UIPushBehavior *)pushBehavior withTransparency:(CGFloat)transparency;
+- (void)visualiseInstantaneousPushBehavior:(UIPushBehavior *)pushBehavior atLocations:(NSArray *)pushLocations withTransparency:(CGFloat)transparency;
 
 @end

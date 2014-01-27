@@ -12,6 +12,9 @@
 #import "DXRDecayingLifetime.h"
 
 
+static NSString * const DXRXrayPushBehaviorPushPointsKey = @"pushPoints";
+
+
 @implementation DynamicsXray (XrayPushBehavior)
 
 - (void)instantaneousPushBehaviorDidBecomeActiveNotification:(NSNotification *)notification
@@ -21,8 +24,22 @@
     DXRDecayingLifetime *pushLifetime = [self.instantaneousPushBehaviorCount objectForKey:pushBehavior];
     if (pushLifetime == nil) {
         pushLifetime = [[DXRDecayingLifetime alloc] init];
+
         [self.instantaneousPushBehaviorCount setObject:pushLifetime forKey:pushBehavior];
     }
+
+    NSMutableArray *pushPoints = [NSMutableArray array];
+    for (id<UIDynamicItem> item in pushBehavior.items) {
+        CGPoint pushPoint = item.center;
+
+        UIOffset offset = [pushBehavior targetOffsetFromCenterForItem:item];
+        pushPoint.x += offset.horizontal;
+        pushPoint.y += offset.vertical;
+
+        [pushPoints addObject:[NSValue valueWithCGPoint:pushPoint]];
+    }
+    pushLifetime.userInfo = @{DXRXrayPushBehaviorPushPointsKey: pushPoints};
+
     [pushLifetime incrementReferenceCount];
 }
 
@@ -35,7 +52,8 @@
         [pushLifetime decrementReferenceCount];
         if (pushLifetime.decay > 0) {
             CGFloat transparency = 1.0f - pushLifetime.decay;
-            [self visualisePushBehavior:instantaneousPushBehavior withTransparency:transparency];
+            NSArray *pushPoints = pushLifetime.userInfo[DXRXrayPushBehaviorPushPointsKey];
+            [self visualiseInstantaneousPushBehavior:instantaneousPushBehavior atLocations:pushPoints withTransparency:transparency];
         }
         else {
             [snuffedLifetimes addObject:instantaneousPushBehavior];
