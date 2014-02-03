@@ -6,6 +6,10 @@
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
 //
 
+
+static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
+
+
 #import "CMUIKitPinballViewController.h"
 
 @interface CMUIKitPinballViewController ()
@@ -19,28 +23,32 @@
 @property (strong, nonatomic) UIView *ballReadyForLaunch;
 
 @property (assign, nonatomic) CGFloat launcherWidth;
+@property (assign, nonatomic) CGFloat launcherHeight;
+
+@property (strong, nonatomic) UIView *launchButton;
 
 @end
 
 
 @implementation CMUIKitPinballViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)awakeFromNib
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        _ballsInPlay = [NSMutableArray array];
+    self.ballsInPlay = [NSMutableArray array];
 
-        _launcherWidth = ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ? 120.0f : 60.0f);
-    }
-    return self;
+    self.launcherWidth = ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ? 120.0f : 60.0f);
+    self.launcherHeight = 60.0f;
 }
 
-//- (void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//
-//}
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    self.navigationController.toolbarHidden = YES;
+
+    [self setupDynamics];
+    [self setupLauncher];
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -51,9 +59,7 @@
 
 - (void)viewDidLayoutSubviews
 {
-
-    [self setupDynamics];
-
+    [self setupLauncher];
 }
 
 
@@ -79,13 +85,41 @@
 }
 
 
+#pragma mark - Set Up Launcher
+
+- (void)setupLauncher
+{
+    if (self.launchButton == nil) {
+        CGRect bounds = self.view.bounds;
+        CGFloat launchWidth = self.launcherWidth;
+        CGFloat buttonHeight = self.launcherHeight;
+        UILabel *launchButton = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(bounds) - launchWidth, CGRectGetHeight(bounds) - buttonHeight, launchWidth, buttonHeight)];
+        launchButton.text = @"LAUNCH";
+        launchButton.textColor = [UIColor blackColor];
+        launchButton.backgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
+        launchButton.textAlignment = NSTextAlignmentCenter;
+        launchButton.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin);
+
+        [self.view addSubview:launchButton];
+
+        self.launchButton = launchButton;
+    }
+
+    [self.collisionBehavior removeBoundaryWithIdentifier:LaunchButtonBoundary];
+    UIBezierPath *launchButtonPath = [UIBezierPath bezierPathWithRect:self.launchButton.frame];
+    [self.collisionBehavior addBoundaryWithIdentifier:LaunchButtonBoundary forPath:launchButtonPath];
+}
+
+
+#pragma mark - Add "Ball"
+
 - (void)addBall
 {
     if (self.ballReadyForLaunch == nil) {
         UISwitch *newBall = [[UISwitch alloc] initWithFrame:CGRectZero];
         [newBall sizeToFit];
         CGSize ballSize = newBall.bounds.size;
-        newBall.center = CGPointMake(CGRectGetWidth(self.view.bounds) - ballSize.width/2.0f - 5.0f, CGRectGetHeight(self.view.bounds) - ballSize.height/2.0f - 50.0f);
+        newBall.center = CGPointMake(CGRectGetWidth(self.view.bounds) - self.launcherWidth/2.0f - ballSize.width/2.0f , CGRectGetHeight(self.view.bounds) - ballSize.height/2.0f - self.launcherHeight - 50.0f);
         [self.view addSubview:newBall];
 
         self.ballReadyForLaunch = newBall;
