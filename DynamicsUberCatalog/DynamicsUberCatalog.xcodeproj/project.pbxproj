@@ -14,6 +14,7 @@
 		2806C656175BE66C00827B6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2806C654175BE66C00827B6B /* Main.storyboard */; };
 		2806C65B175BE66C00827B6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2806C65A175BE66C00827B6B /* Images.xcassets */; };
 		830DA09B17FD7E8D00A24B39 /* CMLabelledSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 830DA09A17FD7E8D00A24B39 /* CMLabelledSwitch.m */; };
+		83457ADF189F694200677C99 /* CMUIKitPinballViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83457ADE189F694200677C99 /* CMUIKitPinballViewController.m */; };
 		835D57E5187BE1C7006CB05B /* libDynamicsXray.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 835D57E4187BE1C7006CB05B /* libDynamicsXray.a */; };
 		83BA61891829D0FC00341483 /* DUCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61691829D0FC00341483 /* DUCAppDelegate.m */; };
 		83BA618A1829D0FC00341483 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA616A1829D0FC00341483 /* main.m */; };
@@ -49,6 +50,8 @@
 		2806C65A175BE66C00827B6B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		830DA09917FD7E8D00A24B39 /* CMLabelledSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMLabelledSwitch.h; sourceTree = "<group>"; };
 		830DA09A17FD7E8D00A24B39 /* CMLabelledSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMLabelledSwitch.m; sourceTree = "<group>"; };
+		83457ADD189F694200677C99 /* CMUIKitPinballViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMUIKitPinballViewController.h; sourceTree = "<group>"; };
+		83457ADE189F694200677C99 /* CMUIKitPinballViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMUIKitPinballViewController.m; sourceTree = "<group>"; };
 		835D57E4187BE1C7006CB05B /* libDynamicsXray.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDynamicsXray.a; path = "../DynamicsXray/build/Debug-iphoneos/libDynamicsXray.a"; sourceTree = "<group>"; };
 		83BA61681829D0FC00341483 /* DUCAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUCAppDelegate.h; sourceTree = "<group>"; };
 		83BA61691829D0FC00341483 /* DUCAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DUCAppDelegate.m; sourceTree = "<group>"; };
@@ -176,6 +179,15 @@
 			path = CMLabelledSwitch;
 			sourceTree = "<group>";
 		};
+		83457ADC189F693100677C99 /* UIKit Pinball */ = {
+			isa = PBXGroup;
+			children = (
+				83457ADD189F694200677C99 /* CMUIKitPinballViewController.h */,
+				83457ADE189F694200677C99 /* CMUIKitPinballViewController.m */,
+			);
+			path = "UIKit Pinball";
+			sourceTree = "<group>";
+		};
 		83BA61661829D0FC00341483 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +237,7 @@
 			children = (
 				83FC942C1843690D009CABEE /* Springy Rope */,
 				83FC9428184365FE009CABEE /* Swing */,
+				83457ADC189F693100677C99 /* UIKit Pinball */,
 			);
 			path = "Chris Miles Demos";
 			sourceTree = "<group>";
@@ -370,6 +383,7 @@
 				83BA61901829D0FC00341483 /* APLInstantaneousPushViewController.m in Sources */,
 				83FC943A1843690E009CABEE /* CMSpringyRopeView.m in Sources */,
 				83BA61891829D0FC00341483 /* DUCAppDelegate.m in Sources */,
+				83457ADF189F694200677C99 /* CMUIKitPinballViewController.m in Sources */,
 				83BA618E1829D0FC00341483 /* APLContinuousPushViewController.m in Sources */,
 				83BA618A1829D0FC00341483 /* main.m in Sources */,
 				83FC943B1843690E009CABEE /* CMSpringyRopeViewController.m in Sources */,
