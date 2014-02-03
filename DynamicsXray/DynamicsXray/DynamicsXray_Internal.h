@@ -26,13 +26,12 @@
 @property (strong, nonatomic) UIWindow *xrayWindow;
 
 @property (strong, nonatomic) NSMutableSet *dynamicItemsToDraw;
-@property (strong, nonatomic) NSMapTable *dynamicItemsContactCount;
-@property (strong, nonatomic) NSMapTable *pathsContactCount;
-@property (strong, nonatomic) NSMapTable *instantaneousPushBehaviorCount;
+@property (strong, nonatomic) NSMapTable *dynamicItemContactLifetimes;
+@property (strong, nonatomic) NSMapTable *pathContactLifetimes;
+@property (strong, nonatomic) NSMapTable *instantaneousPushBehaviorLifetimes;
 
 - (void)redraw;
 - (DXRDynamicsXrayWindowController *)xrayWindowController;
 - (DXRDynamicsXrayView *)xrayView;
 
 @end
-

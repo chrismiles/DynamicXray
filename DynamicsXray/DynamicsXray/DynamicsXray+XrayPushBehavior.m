@@ -21,12 +21,12 @@ static NSString * const DXRXrayPushBehaviorPushPointsKey = @"pushPoints";
 {
     UIPushBehavior *pushBehavior = notification.object;
 
-    DXRDecayingLifetime *pushLifetime = [self.instantaneousPushBehaviorCount objectForKey:pushBehavior];
+    DXRDecayingLifetime *pushLifetime = [self.instantaneousPushBehaviorLifetimes objectForKey:pushBehavior];
     if (pushLifetime == nil) {
         pushLifetime = [[DXRDecayingLifetime alloc] init];
         pushLifetime.decayTime = 0.5;
 
-        [self.instantaneousPushBehaviorCount setObject:pushLifetime forKey:pushBehavior];
+        [self.instantaneousPushBehaviorLifetimes setObject:pushLifetime forKey:pushBehavior];
     }
 
     NSMutableArray *pushPoints = [NSMutableArray array];
@@ -48,8 +48,8 @@ static NSString * const DXRXrayPushBehaviorPushPointsKey = @"pushPoints";
 - (void)introspectInstantaneousPushBehaviors
 {
     NSMutableArray *snuffedLifetimes = [NSMutableArray array];
-    for (UIPushBehavior *instantaneousPushBehavior in self.instantaneousPushBehaviorCount) {
-        DXRDecayingLifetime *pushLifetime = [self.instantaneousPushBehaviorCount objectForKey:instantaneousPushBehavior];
+    for (UIPushBehavior *instantaneousPushBehavior in self.instantaneousPushBehaviorLifetimes) {
+        DXRDecayingLifetime *pushLifetime = [self.instantaneousPushBehaviorLifetimes objectForKey:instantaneousPushBehavior];
         [pushLifetime decrementReferenceCount];
         if (pushLifetime.decay > 0) {
             CGFloat transparency = 1.0f - pushLifetime.decay;
@@ -61,7 +61,7 @@ static NSString * const DXRXrayPushBehaviorPushPointsKey = @"pushPoints";
         }
     }
     for (UIPushBehavior *instantaneousPushBehavior in snuffedLifetimes) {
-        [self.instantaneousPushBehaviorCount removeObjectForKey:instantaneousPushBehavior];
+        [self.instantaneousPushBehaviorLifetimes removeObjectForKey:instantaneousPushBehavior];
     }
 }
 

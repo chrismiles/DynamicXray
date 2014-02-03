@@ -77,9 +77,9 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
         _active = YES;
 
-        _dynamicItemsContactCount = [NSMapTable weakToStrongObjectsMapTable];
-        _pathsContactCount = [NSMapTable weakToStrongObjectsMapTable];
-        _instantaneousPushBehaviorCount = [NSMapTable weakToStrongObjectsMapTable];
+        _dynamicItemContactLifetimes = [NSMapTable weakToStrongObjectsMapTable];
+        _pathContactLifetimes = [NSMapTable weakToStrongObjectsMapTable];
+        _instantaneousPushBehaviorLifetimes = [NSMapTable weakToStrongObjectsMapTable];
 
         // Grab a strong reference to the shared XRay window (a new one is created on demand if needed)
         self.xrayWindow = sharedXrayWindowController.xrayWindow;
@@ -322,10 +322,10 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
     [self introspectInstantaneousPushBehaviors];
 
     // Draw any dynamic items
-    [xrayView drawDynamicItems:self.dynamicItemsToDraw contactedItems:self.dynamicItemsContactCount];
+    [xrayView drawDynamicItems:self.dynamicItemsToDraw contactedItems:self.dynamicItemContactLifetimes];
 
     // Draw any contact paths above all else
-    [xrayView drawContactPaths:self.pathsContactCount];
+    [xrayView drawContactPaths:self.pathContactLifetimes];
 }
 
 @end

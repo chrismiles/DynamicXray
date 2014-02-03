@@ -20,10 +20,10 @@
     id<UIDynamicItem> dynamicItem = notification.userInfo[@"dynamicItem"];
     if (dynamicItem) {
         //DLog(@"DynamicItem did begin contact: %@", dynamicItem);
-        DXRDecayingLifetime *contactLifetime = [self.dynamicItemsContactCount objectForKey:dynamicItem];
+        DXRDecayingLifetime *contactLifetime = [self.dynamicItemContactLifetimes objectForKey:dynamicItem];
         if (contactLifetime == nil) {
             contactLifetime = [[DXRDecayingLifetime alloc] init];
-            [self.dynamicItemsContactCount setObject:contactLifetime forKey:dynamicItem];
+            [self.dynamicItemContactLifetimes setObject:contactLifetime forKey:dynamicItem];
         }
         [contactLifetime incrementReferenceCount];
     }
@@ -31,10 +31,10 @@
     CGPathRef path = CFBridgingRetain(notification.userInfo[@"path"]);
     if (path) {
         id key = CFBridgingRelease(path);
-        DXRDecayingLifetime *contactLifetime = [self.pathsContactCount objectForKey:key];
+        DXRDecayingLifetime *contactLifetime = [self.pathContactLifetimes objectForKey:key];
         if (contactLifetime == nil) {
             contactLifetime = [[DXRDecayingLifetime alloc] init];
-            [self.pathsContactCount setObject:contactLifetime forKey:key];
+            [self.pathContactLifetimes setObject:contactLifetime forKey:key];
         }
         [contactLifetime incrementReferenceCount];
     }
@@ -45,22 +45,22 @@
     id<UIDynamicItem> dynamicItem = notification.userInfo[@"dynamicItem"];
     if (dynamicItem) {
         //DLog(@"DynamicItem did end contact: %@", dynamicItem);
-        DXRDecayingLifetime *contactLifetime = [self.dynamicItemsContactCount objectForKey:dynamicItem];
+        DXRDecayingLifetime *contactLifetime = [self.dynamicItemContactLifetimes objectForKey:dynamicItem];
         [contactLifetime decrementReferenceCount];
 
         if ([contactLifetime decay] <= 0) {
-            [self.dynamicItemsContactCount removeObjectForKey:dynamicItem];
+            [self.dynamicItemContactLifetimes removeObjectForKey:dynamicItem];
         }
     }
 
     CGPathRef path = CFBridgingRetain(notification.userInfo[@"path"]);
     if (path) {
         id key = CFBridgingRelease(path);
-        DXRDecayingLifetime *contactLifetime = [self.pathsContactCount objectForKey:key];
+        DXRDecayingLifetime *contactLifetime = [self.pathContactLifetimes objectForKey:key];
         [contactLifetime decrementReferenceCount];
 
         if ([contactLifetime decay] <= 0) {
-            [self.pathsContactCount removeObjectForKey:key];
+            [self.pathContactLifetimes removeObjectForKey:key];
         }
     }
 }
