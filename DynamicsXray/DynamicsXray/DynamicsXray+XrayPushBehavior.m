@@ -24,6 +24,7 @@ static NSString * const DXRXrayPushBehaviorPushPointsKey = @"pushPoints";
     DXRDecayingLifetime *pushLifetime = [self.instantaneousPushBehaviorCount objectForKey:pushBehavior];
     if (pushLifetime == nil) {
         pushLifetime = [[DXRDecayingLifetime alloc] init];
+        pushLifetime.decayTime = 0.5;
 
         [self.instantaneousPushBehaviorCount setObject:pushLifetime forKey:pushBehavior];
     }

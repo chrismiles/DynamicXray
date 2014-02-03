@@ -22,6 +22,15 @@ static NSTimeInterval const DXRDefaultDecayTime = 0.2;    // decay time in secon
 
 @implementation DXRDecayingLifetime
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _decayTime = DXRDefaultDecayTime;
+    }
+    return self;
+}
+
 - (void)incrementReferenceCount
 {
     self.referenceCount += 1;
@@ -43,12 +52,13 @@ static NSTimeInterval const DXRDefaultDecayTime = 0.2;    // decay time in secon
         if (self.allReferencesEndedTime <= 0) self.allReferencesEndedTime = [[NSDate date] timeIntervalSinceReferenceDate];
 
         NSTimeInterval currentTime = [[NSDate date] timeIntervalSinceReferenceDate];
+        NSTimeInterval decayTime = self.decayTime;
 
-        if (currentTime - self.allReferencesEndedTime > DXRDefaultDecayTime) {
+        if (currentTime - self.allReferencesEndedTime > decayTime) {
             decay = 0;
         }
         else {
-            decay = 1.0f - (currentTime - self.allReferencesEndedTime) / DXRDefaultDecayTime;
+            decay = 1.0f - (currentTime - self.allReferencesEndedTime) / decayTime;
         }
     }
 

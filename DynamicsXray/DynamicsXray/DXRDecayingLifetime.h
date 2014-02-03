@@ -14,6 +14,8 @@
 
 @property (assign, nonatomic, readonly) float decay;  // 1.0 -> 0
 
+@property (assign, nonatomic) NSTimeInterval decayTime;
+
 @property (strong, nonatomic) NSDictionary *userInfo;
 
 - (void)incrementReferenceCount;
