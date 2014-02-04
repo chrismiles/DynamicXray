@@ -23,9 +23,12 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 @property (strong, nonatomic) UIView *ballReadyForLaunch;
 
 @property (assign, nonatomic) CGFloat launcherWidth;
-@property (assign, nonatomic) CGFloat launcherHeight;
+@property (assign, nonatomic) CGFloat launchSpringHeight;
+@property (assign, nonatomic) CGFloat launchButtonHeight;
 
 @property (strong, nonatomic) UIView *launchButton;
+@property (strong, nonatomic) UIView *launchSpringView;
+@property (strong, nonatomic) UIDynamicItemBehavior *launchSpringItemBehavior;
 
 @property (strong, nonatomic) DynamicsXray *dynamicsXray;
 
@@ -39,7 +42,8 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
     self.ballsInPlay = [NSMutableArray array];
 
     self.launcherWidth = ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ? 120.0f : 60.0f);
-    self.launcherHeight = 60.0f;
+    self.launchButtonHeight = 60.0f;
+    self.launchSpringHeight = 100.0f;
 }
 
 - (void)viewDidLoad
@@ -52,6 +56,8 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 
     [self setupDynamics];
     [self setupLauncher];
+
+    [self.dynamicsXray setActive:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -82,9 +88,14 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
         collisionBehavior.collisionMode = UICollisionBehaviorModeEverything;
         [dynamicAnimator addBehavior:collisionBehavior];
 
+        UIDynamicItemBehavior *launchSpringItemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[]];
+        launchSpringItemBehavior.allowsRotation = NO;
+        [dynamicAnimator addBehavior:launchSpringItemBehavior];
+
         self.dynamicAnimator = dynamicAnimator;
         self.collisionBehavior = collisionBehavior;
         self.gravityBehavior = gravityBehavior;
+        self.launchSpringItemBehavior = launchSpringItemBehavior;
     }
 }
 
@@ -93,11 +104,18 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 
 - (void)setupLauncher
 {
+    [self setupLaunchButton];
+    [self setupLaunchSpring];
+}
+
+- (void)setupLaunchButton
+{
     if (self.launchButton == nil) {
         CGRect bounds = self.view.bounds;
-        CGFloat launchWidth = self.launcherWidth;
-        CGFloat buttonHeight = self.launcherHeight;
-        UILabel *launchButton = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(bounds) - launchWidth, CGRectGetHeight(bounds) - buttonHeight, launchWidth, buttonHeight)];
+        CGFloat launcherWidth = self.launcherWidth;
+        CGFloat buttonHeight = self.launchButtonHeight;
+
+        UILabel *launchButton = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(bounds) - launcherWidth, CGRectGetHeight(bounds) - buttonHeight, launcherWidth, buttonHeight)];
         launchButton.text = @"LAUNCH";
         launchButton.textColor = [UIColor blackColor];
         launchButton.backgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
@@ -109,9 +127,35 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
         self.launchButton = launchButton;
     }
 
-    [self.collisionBehavior removeBoundaryWithIdentifier:LaunchButtonBoundary];
-    UIBezierPath *launchButtonPath = [UIBezierPath bezierPathWithRect:self.launchButton.frame];
-    [self.collisionBehavior addBoundaryWithIdentifier:LaunchButtonBoundary forPath:launchButtonPath];
+//    [self.collisionBehavior removeBoundaryWithIdentifier:LaunchButtonBoundary];
+//    UIBezierPath *launchButtonPath = [UIBezierPath bezierPathWithRect:self.launchButton.frame];
+//    [self.collisionBehavior addBoundaryWithIdentifier:LaunchButtonBoundary forPath:launchButtonPath];
+}
+
+- (void)setupLaunchSpring
+{
+    if (self.launchSpringView == nil) {
+        UIView *launchSpringView = [[UIView alloc] initWithFrame:CGRectZero];
+        launchSpringView.backgroundColor = [UIColor darkGrayColor];
+
+        [self.view addSubview:launchSpringView];
+
+        self.launchSpringView = launchSpringView;
+    }
+
+    [self.collisionBehavior removeItem:self.launchSpringView];
+    [self.launchSpringItemBehavior removeItem:self.launchSpringView];
+
+    CGRect bounds = self.view.bounds;
+    CGFloat launcherWidth = self.launcherWidth;
+    CGFloat launchSpringHeight = self.launchSpringHeight;
+    CGFloat launchButtonHeight = self.launchButtonHeight;
+
+    CGRect frame = CGRectMake(CGRectGetWidth(bounds) - launcherWidth + 1.0f, CGRectGetHeight(bounds) - launchButtonHeight - launchSpringHeight, launcherWidth-2.0f, launchSpringHeight);
+    self.launchSpringView.frame = frame;
+
+    [self.collisionBehavior addItem:self.launchSpringView];
+    [self.launchSpringItemBehavior addItem:self.launchSpringView];
 }
 
 
@@ -123,7 +167,7 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
         UISwitch *newBall = [[UISwitch alloc] initWithFrame:CGRectZero];
         [newBall sizeToFit];
         CGSize ballSize = newBall.bounds.size;
-        newBall.center = CGPointMake(CGRectGetWidth(self.view.bounds) - self.launcherWidth/2.0f - ballSize.width/2.0f , CGRectGetHeight(self.view.bounds) - ballSize.height/2.0f - self.launcherHeight - 50.0f);
+        newBall.center = CGPointMake(CGRectGetWidth(self.view.bounds) - self.launcherWidth/2.0f - ballSize.width/2.0f , CGRectGetHeight(self.view.bounds) - ballSize.height/2.0f - self.launchButtonHeight - self.launchSpringHeight - 50.0f);
         [self.view addSubview:newBall];
 
         self.ballReadyForLaunch = newBall;
