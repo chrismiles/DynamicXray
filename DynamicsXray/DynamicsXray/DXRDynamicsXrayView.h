@@ -12,7 +12,7 @@
 
 - (void)drawAttachmentFromAnchor:(CGPoint)anchorPoint toPoint:(CGPoint)attachmentPoint length:(CGFloat)length isSpring:(BOOL)isSpring;
 
-- (void)drawBoundsCollisionBoundaryWithRect:(CGRect)boundaryRect;
+- (void)drawCollisionBoundaryWithPath:(UIBezierPath *)path;
 
 - (void)drawGravityBehaviorWithMagnitude:(CGFloat)magnitude angle:(CGFloat)angle;
 
@@ -26,6 +26,7 @@
 
 
 - (CGPoint)convertPoint:(CGPoint)point fromReferenceView:(UIView *)referenceView;
+- (void)convertPath:(UIBezierPath *)path fromReferenceView:(UIView *)referenceView;
 
 
 @property (assign, nonatomic) UIOffset drawOffset;

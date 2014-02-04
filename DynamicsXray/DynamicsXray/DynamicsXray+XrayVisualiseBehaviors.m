@@ -83,11 +83,21 @@
     //NSArray *boundaryIdentifiers = collisionBehavior.boundaryIdentifiers;
     //DLog(@"boundaryIdentifiers: %@", boundaryIdentifiers);
 
+    DXRDynamicsXrayView *xrayView = [self xrayView];
+    UIView *referenceView = collisionBehavior.dynamicAnimator.referenceView;
+    CGRect referenceBoundaryFrame = referenceView.frame;
+
     if (collisionBehavior.translatesReferenceBoundsIntoBoundary) {
-        UIView *referenceView = collisionBehavior.dynamicAnimator.referenceView;
-        CGRect referenceBoundaryFrame = referenceView.frame;
-        CGRect boundaryRect = [self.xrayViewController.xrayView convertRect:referenceBoundaryFrame fromView:referenceView.superview];
-        [self.xrayViewController.xrayView drawBoundsCollisionBoundaryWithRect:boundaryRect];
+        CGRect boundaryRect = [[self xrayView] convertRect:referenceBoundaryFrame fromView:referenceView.superview];
+        UIBezierPath *path = [UIBezierPath bezierPathWithRect:boundaryRect];
+        [xrayView drawCollisionBoundaryWithPath:path];
+    }
+
+    for (id boundaryIdentifier in collisionBehavior.boundaryIdentifiers) {
+        UIBezierPath *boundaryPath = [collisionBehavior boundaryWithIdentifier:boundaryIdentifier];
+        [xrayView convertPath:boundaryPath fromReferenceView:referenceView];
+
+        [xrayView drawCollisionBoundaryWithPath:boundaryPath];
     }
 
     [self.dynamicItemsToDraw addObjectsFromArray:collisionBehavior.items];
@@ -98,7 +108,7 @@
 
 - (void)visualiseGravityBehavior:(UIGravityBehavior *)gravityBehavior
 {
-    [self.xrayViewController.xrayView drawGravityBehaviorWithMagnitude:gravityBehavior.magnitude angle:gravityBehavior.angle];
+    [self.xrayView drawGravityBehaviorWithMagnitude:gravityBehavior.magnitude angle:gravityBehavior.angle];
 
     [self.dynamicItemsToDraw addObjectsFromArray:gravityBehavior.items];
 }
@@ -162,13 +172,15 @@
 
 - (void)visualiseInstantaneousPushBehavior:(UIPushBehavior *)pushBehavior atLocations:(NSArray *)pushLocations withTransparency:(CGFloat)transparency
 {
-    for (NSValue *value in pushLocations) {
-        CGPoint pushLocation = [[self xrayView] convertPoint:[value CGPointValue] fromReferenceView:self.referenceView];
+    DXRDynamicsXrayView *xrayView = [self xrayView];
 
-        [[self xrayView] drawPushWithAngle:pushBehavior.angle
-                                 magnitude:pushBehavior.magnitude
-                              transparency:transparency
-                                atLocation:pushLocation];
+    for (NSValue *value in pushLocations) {
+        CGPoint pushLocation = [xrayView convertPoint:[value CGPointValue] fromReferenceView:self.referenceView];
+
+        [xrayView drawPushWithAngle:pushBehavior.angle
+                          magnitude:pushBehavior.magnitude
+                       transparency:transparency
+                         atLocation:pushLocation];
     }
 
     [self.dynamicItemsToDraw addObjectsFromArray:pushBehavior.items];

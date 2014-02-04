@@ -24,6 +24,10 @@
 /* Begin PBXBuildFile section */
 		830AA5231831B97A00608E3A /* DXRDynamicsXrayWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 830AA5211831B97A00608E3A /* DXRDynamicsXrayWindow.h */; };
 		830AA5241831B97A00608E3A /* DXRDynamicsXrayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 830AA5221831B97A00608E3A /* DXRDynamicsXrayWindow.m */; };
+		830B852018A189210019E6F8 /* DXRCollisionBehaviorSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 830B851E18A189210019E6F8 /* DXRCollisionBehaviorSnapshot.h */; };
+		830B852118A189210019E6F8 /* DXRCollisionBehaviorSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 830B851F18A189210019E6F8 /* DXRCollisionBehaviorSnapshot.m */; };
+		830B852418A189920019E6F8 /* DXRCollisionBehaviorSnapshot+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 830B852218A189920019E6F8 /* DXRCollisionBehaviorSnapshot+DXRDrawing.h */; };
+		830B852518A189920019E6F8 /* DXRCollisionBehaviorSnapshot+DXRDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 830B852318A189920019E6F8 /* DXRCollisionBehaviorSnapshot+DXRDrawing.m */; };
 		8315E8B5188733BC00947F12 /* DynamicsXray+XrayVisualStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 8315E8B3188733BC00947F12 /* DynamicsXray+XrayVisualStyle.m */; };
 		8315E8B91887350200947F12 /* DynamicsXray+XrayUserInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 8315E8B71887350200947F12 /* DynamicsXray+XrayUserInterface.m */; };
 		8315E8BC188735EE00947F12 /* DynamicsXray+XrayContacts.h in Headers */ = {isa = PBXBuildFile; fileRef = 8315E8BA188735EE00947F12 /* DynamicsXray+XrayContacts.h */; };
@@ -35,8 +39,6 @@
 		8317A754180E95CB00F4B954 /* DXRDynamicsXrayConfigurationViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 8317A752180E95CB00F4B954 /* DXRDynamicsXrayConfigurationViewController+Private.h */; };
 		8317A759180EA89800F4B954 /* DXRDynamicsXrayViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8317A757180EA89800F4B954 /* DXRDynamicsXrayViewController.h */; };
 		8317A75A180EA89800F4B954 /* DXRDynamicsXrayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8317A758180EA89800F4B954 /* DXRDynamicsXrayViewController.m */; };
-		83437B9417E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 83437B9217E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.h */; };
-		83437B9517E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83437B9317E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.m */; };
 		834A42B8187E820D00493BBE /* JRSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 834A42B6187E820D00493BBE /* JRSwizzle.h */; };
 		834A42B9187E820D00493BBE /* JRSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 834A42B7187E820D00493BBE /* JRSwizzle.m */; };
 		834A42C0187EA8F500493BBE /* UIDynamicAnimator+DynamicsXrayContactIntrospection.h in Headers */ = {isa = PBXBuildFile; fileRef = 834A42BE187EA8F500493BBE /* UIDynamicAnimator+DynamicsXrayContactIntrospection.h */; };
@@ -96,8 +98,6 @@
 		83E6D620187C17A7005ECBA5 /* DXRDynamicsXrayConfigurationViewController_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 83E6D61F187C17A7005ECBA5 /* DXRDynamicsXrayConfigurationViewController_Internal.h */; };
 		83FA2B2717FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83FA2B2517FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.h */; };
 		83FA2B2817FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FA2B2617FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.m */; };
-		83FA2B2D17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83FA2B2B17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.h */; };
-		83FA2B2E17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FA2B2C17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +133,10 @@
 /* Begin PBXFileReference section */
 		830AA5211831B97A00608E3A /* DXRDynamicsXrayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXrayWindow.h; sourceTree = "<group>"; };
 		830AA5221831B97A00608E3A /* DXRDynamicsXrayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXrayWindow.m; sourceTree = "<group>"; };
+		830B851E18A189210019E6F8 /* DXRCollisionBehaviorSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXRCollisionBehaviorSnapshot.h; path = DynamicsXray/DXRCollisionBehaviorSnapshot.h; sourceTree = SOURCE_ROOT; };
+		830B851F18A189210019E6F8 /* DXRCollisionBehaviorSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXRCollisionBehaviorSnapshot.m; path = DynamicsXray/DXRCollisionBehaviorSnapshot.m; sourceTree = SOURCE_ROOT; };
+		830B852218A189920019E6F8 /* DXRCollisionBehaviorSnapshot+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DXRCollisionBehaviorSnapshot+DXRDrawing.h"; path = "DynamicsXray/DXRCollisionBehaviorSnapshot+DXRDrawing.h"; sourceTree = SOURCE_ROOT; };
+		830B852318A189920019E6F8 /* DXRCollisionBehaviorSnapshot+DXRDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DXRCollisionBehaviorSnapshot+DXRDrawing.m"; path = "DynamicsXray/DXRCollisionBehaviorSnapshot+DXRDrawing.m"; sourceTree = SOURCE_ROOT; };
 		8315E8B3188733BC00947F12 /* DynamicsXray+XrayVisualStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DynamicsXray+XrayVisualStyle.m"; path = "DynamicsXray/DynamicsXray+XrayVisualStyle.m"; sourceTree = SOURCE_ROOT; };
 		8315E8B71887350200947F12 /* DynamicsXray+XrayUserInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DynamicsXray+XrayUserInterface.m"; path = "DynamicsXray/DynamicsXray+XrayUserInterface.m"; sourceTree = SOURCE_ROOT; };
 		8315E8BA188735EE00947F12 /* DynamicsXray+XrayContacts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DynamicsXray+XrayContacts.h"; path = "DynamicsXray/DynamicsXray+XrayContacts.h"; sourceTree = SOURCE_ROOT; };
@@ -144,8 +148,6 @@
 		8317A752180E95CB00F4B954 /* DXRDynamicsXrayConfigurationViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicsXrayConfigurationViewController+Private.h"; sourceTree = "<group>"; };
 		8317A757180EA89800F4B954 /* DXRDynamicsXrayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXrayViewController.h; sourceTree = "<group>"; };
 		8317A758180EA89800F4B954 /* DXRDynamicsXrayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXrayViewController.m; sourceTree = "<group>"; };
-		83437B9217E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRBoundaryCollisionBehaviorSnapshot.h; sourceTree = "<group>"; };
-		83437B9317E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRBoundaryCollisionBehaviorSnapshot.m; sourceTree = "<group>"; };
 		834A42B6187E820D00493BBE /* JRSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRSwizzle.h; sourceTree = "<group>"; };
 		834A42B7187E820D00493BBE /* JRSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRSwizzle.m; sourceTree = "<group>"; };
 		834A42BE187EA8F500493BBE /* UIDynamicAnimator+DynamicsXrayContactIntrospection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDynamicAnimator+DynamicsXrayContactIntrospection.h"; path = "DynamicsXray/UIDynamicAnimator+DynamicsXrayContactIntrospection.h"; sourceTree = SOURCE_ROOT; };
@@ -207,8 +209,6 @@
 		83FA2B2517FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRAttachmentBehaviorSnapshot+DXRDrawing.h"; sourceTree = "<group>"; };
 		83FA2B2617FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRAttachmentBehaviorSnapshot+DXRDrawing.m"; sourceTree = "<group>"; };
 		83FA2B2917FC29A30022DEAB /* DXRBehaviorSnapshotDrawing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DXRBehaviorSnapshotDrawing.h; sourceTree = "<group>"; };
-		83FA2B2B17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.h"; sourceTree = "<group>"; };
-		83FA2B2C17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -418,7 +418,7 @@
 			isa = PBXGroup;
 			children = (
 				83FA2B2417FC28E30022DEAB /* Attachment Behavior Snapshot */,
-				83FA2B2A17FC2CA50022DEAB /* Boundary Collision Behavior Snapshot */,
+				83FA2B2A17FC2CA50022DEAB /* Collision Behavior Snapshot */,
 				83B61351180BBD2E0006BBA3 /* Gravity Behavior Snapshot */,
 				839764431888867A00558A97 /* Snap Behavior Snapshot */,
 				83DEA91B188DC78200B725C1 /* Push Behavior Snapshot */,
@@ -484,15 +484,15 @@
 			name = "Attachment Behavior Snapshot";
 			sourceTree = "<group>";
 		};
-		83FA2B2A17FC2CA50022DEAB /* Boundary Collision Behavior Snapshot */ = {
+		83FA2B2A17FC2CA50022DEAB /* Collision Behavior Snapshot */ = {
 			isa = PBXGroup;
 			children = (
-				83437B9217E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.h */,
-				83437B9317E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.m */,
-				83FA2B2B17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.h */,
-				83FA2B2C17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.m */,
+				830B851E18A189210019E6F8 /* DXRCollisionBehaviorSnapshot.h */,
+				830B851F18A189210019E6F8 /* DXRCollisionBehaviorSnapshot.m */,
+				830B852218A189920019E6F8 /* DXRCollisionBehaviorSnapshot+DXRDrawing.h */,
+				830B852318A189920019E6F8 /* DXRCollisionBehaviorSnapshot+DXRDrawing.m */,
 			);
-			name = "Boundary Collision Behavior Snapshot";
+			name = "Collision Behavior Snapshot";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -504,6 +504,7 @@
 			files = (
 				8392287C181885070047F7C4 /* DXRDynamicsXrayConfigurationViewController+Controls.h in Headers */,
 				83FA2B2717FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.h in Headers */,
+				830B852018A189210019E6F8 /* DXRCollisionBehaviorSnapshot.h in Headers */,
 				8397644A1888888900558A97 /* DXRSnapBehaviorSnapshot+DXRDrawing.h in Headers */,
 				8317A759180EA89800F4B954 /* DXRDynamicsXrayViewController.h in Headers */,
 				83E6D620187C17A7005ECBA5 /* DXRDynamicsXrayConfigurationViewController_Internal.h in Headers */,
@@ -522,17 +523,16 @@
 				834F2DCA18923BD900D2CA35 /* DynamicsXray+XrayPushBehavior.h in Headers */,
 				83849DE717AE069400D6DD3C /* DynamicsXray.h in Headers */,
 				8358001718837E27003209F5 /* DXRContactVisualise.h in Headers */,
-				83FA2B2D17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.h in Headers */,
 				8315E8C01887371200947F12 /* DynamicsXray+XrayVisualiseBehaviors.h in Headers */,
 				83B61354180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.h in Headers */,
 				83A68DCE182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.h in Headers */,
+				830B852418A189920019E6F8 /* DXRCollisionBehaviorSnapshot+DXRDrawing.h in Headers */,
 				83DEA939188E4CDE00B725C1 /* DXRDecayingLifetime.h in Headers */,
 				83B61358180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.h in Headers */,
 				83849DF517AE242A00D6DD3C /* DXRDynamicsXrayUtil.h in Headers */,
 				834A42C9187F6F1F00493BBE /* DXRPhysicsKitPrivate.h in Headers */,
 				83DEA93D188E503F00B725C1 /* DXRPushBehaviorSnapshot+DXRDrawing.h in Headers */,
 				83E6D61C187C178E005ECBA5 /* DynamicsXray_Internal.h in Headers */,
-				83437B9417E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.h in Headers */,
 				834A42C0187EA8F500493BBE /* UIDynamicAnimator+DynamicsXrayContactIntrospection.h in Headers */,
 				83DEA91E188DC7A800B725C1 /* DXRPushBehaviorSnapshot.h in Headers */,
 				83E6D61A187C177E005ECBA5 /* DynamicsXray-Prefix.pch in Headers */,
@@ -665,15 +665,15 @@
 				8317A75A180EA89800F4B954 /* DXRDynamicsXrayViewController.m in Sources */,
 				83849DF217AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.m in Sources */,
 				830AA5241831B97A00608E3A /* DXRDynamicsXrayWindow.m in Sources */,
+				830B852518A189920019E6F8 /* DXRCollisionBehaviorSnapshot+DXRDrawing.m in Sources */,
 				8315E8BD188735EE00947F12 /* DynamicsXray+XrayContacts.m in Sources */,
 				8358001818837E27003209F5 /* DXRContactVisualise.m in Sources */,
 				834F2DC618922A9C00D2CA35 /* UIPushBehavior+DynamicsXrayIntrospection.m in Sources */,
-				83FA2B2E17FC2CD60022DEAB /* DXRBoundaryCollisionBehaviorSnapshot+DXRDrawing.m in Sources */,
 				83849DED17AE103D00D6DD3C /* DXRBehaviorSnapshot.m in Sources */,
 				83849DC117AE022300D6DD3C /* DynamicsXray.m in Sources */,
 				83FA2B2817FC290E0022DEAB /* DXRAttachmentBehaviorSnapshot+DXRDrawing.m in Sources */,
 				83849DE117AE02DB00D6DD3C /* DXRDynamicsXrayView.m in Sources */,
-				83437B9517E0010E00518141 /* DXRBoundaryCollisionBehaviorSnapshot.m in Sources */,
+				830B852118A189210019E6F8 /* DXRCollisionBehaviorSnapshot.m in Sources */,
 				8317A74D180E8F6300F4B954 /* DXRDynamicsXrayConfigurationViewController.m in Sources */,
 				83DEA93E188E503F00B725C1 /* DXRPushBehaviorSnapshot+DXRDrawing.m in Sources */,
 				834A42B9187E820D00493BBE /* JRSwizzle.m in Sources */,

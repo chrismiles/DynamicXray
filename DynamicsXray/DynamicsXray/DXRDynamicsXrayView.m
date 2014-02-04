@@ -10,7 +10,7 @@
 
 #import "DXRBehaviorSnapshotDrawing.h"
 #import "DXRAttachmentBehaviorSnapshot.h"
-#import "DXRBoundaryCollisionBehaviorSnapshot.h"
+#import "DXRCollisionBehaviorSnapshot.h"
 #import "DXRGravityBehaviorSnapshot.h"
 #import "DXRSnapBehaviorSnapshot.h"
 #import "DXRPushBehaviorSnapshot.h"
@@ -82,9 +82,9 @@
     [self behaviorSnapshotNeedsDrawing:attachmentSnapshot];
 }
 
-- (void)drawBoundsCollisionBoundaryWithRect:(CGRect)boundaryRect
+- (void)drawCollisionBoundaryWithPath:(UIBezierPath *)path
 {
-    DXRBoundaryCollisionBehaviorSnapshot *collisionSnapshot = [[DXRBoundaryCollisionBehaviorSnapshot alloc] initWithBoundaryRect:boundaryRect];
+    DXRCollisionBehaviorSnapshot *collisionSnapshot = [[DXRCollisionBehaviorSnapshot alloc] initWithPath:path];
     [self behaviorSnapshotNeedsDrawing:collisionSnapshot];
 }
 
@@ -190,6 +190,13 @@
     result.y += self.drawOffset.vertical;
 
     return result;
+}
+
+- (void)convertPath:(UIBezierPath *)path fromReferenceView:(UIView *)referenceView
+{
+    CGPoint originOffset = [self convertPoint:CGPointZero fromReferenceView:referenceView];
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(originOffset.x, originOffset.y);
+    [path applyTransform:transform];
 }
 
 - (CGPoint)pointTransformedFromDeviceOrientation:(CGPoint)point
