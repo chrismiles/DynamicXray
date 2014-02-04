@@ -63,7 +63,7 @@
     [smoothToggleView sizeToFit];
     [smoothToggleView.embeddedSwitch addTarget:self action:@selector(smoothToggleAction:) forControlEvents:UIControlEventValueChanged];
     
-    UIBarButtonItem *xrayItem = [[UIBarButtonItem alloc] initWithTitle:@"XRay" style:UIBarButtonItemStyleBordered target:self action:@selector(xrayAction:)];
+    UIBarButtonItem *xrayItem = [[UIBarButtonItem alloc] initWithTitle:@"Xray" style:UIBarButtonItemStyleBordered target:self action:@selector(xrayAction:)];
 
     NSMutableArray *toolbarItems = [NSMutableArray array];
     [toolbarItems addObject:[[UIBarButtonItem alloc] initWithCustomView:smoothToggleView]];

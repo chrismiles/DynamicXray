@@ -31,7 +31,7 @@
     [self initializeAnimator];
 
     UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    UIBarButtonItem *xrayItem = [[UIBarButtonItem alloc] initWithTitle:@"XRay" style:UIBarButtonItemStyleBordered target:self action:@selector(xrayAction:)];
+    UIBarButtonItem *xrayItem = [[UIBarButtonItem alloc] initWithTitle:@"Xray" style:UIBarButtonItemStyleBordered target:self action:@selector(xrayAction:)];
     self.toolbarItems = @[flexibleItem, xrayItem];
 
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognized:)];
@@ -60,12 +60,6 @@
     [self.animator addBehavior:gravityBehavior];
     [self.animator addBehavior:self.pushBehavior];
     [self.animator addBehavior:itemBehavior];
-
-    self.dynamicsXray = [[DynamicsXray alloc] init];
-    self.dynamicsXray.active = NO;
-    self.dynamicsXray.drawDynamicItemsEnabled = YES;
-    //self.dynamicsXray.viewOffset = UIOffsetMake(30.0f, 10.0f);
-    [self.animator addBehavior:self.dynamicsXray];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -131,26 +125,16 @@
 
 #pragma mark - DynamicsXray
 
-- (BOOL)isDynamicsXrayEnabled
+- (DynamicsXray *)dynamicsXray
 {
-    return (self.dynamicsXray != nil);
-}
+    if (_dynamicsXray == nil) {
+        _dynamicsXray = [[DynamicsXray alloc] init];
+        _dynamicsXray.active = NO;
 
-- (void)setDynamicsXrayEnabled:(BOOL)dynamicsXrayEnabled
-{
-    if (dynamicsXrayEnabled) {
-        if (self.dynamicsXray == nil) {
-            self.dynamicsXray = [[DynamicsXray alloc] init];
-            self.dynamicsXray.crossFade = 0;
-            [self.animator addBehavior:self.dynamicsXray];
-        }
+        [self.animator addBehavior:_dynamicsXray];
     }
-    else {
-        if (self.dynamicsXray) {
-            [self.animator removeBehavior:self.dynamicsXray];
-            self.dynamicsXray = nil;
-        }
-    }
+
+    return _dynamicsXray;
 }
 
 - (void)xrayAction:(__unused id)sender

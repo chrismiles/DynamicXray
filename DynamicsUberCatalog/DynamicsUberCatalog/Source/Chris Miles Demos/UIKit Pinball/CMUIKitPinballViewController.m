@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
 //
 
+#import "CMUIKitPinballViewController.h"
+#import <DynamicsXray/DynamicsXray.h>
 
 static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 
-
-#import "CMUIKitPinballViewController.h"
 
 @interface CMUIKitPinballViewController ()
 
@@ -26,6 +26,8 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 @property (assign, nonatomic) CGFloat launcherHeight;
 
 @property (strong, nonatomic) UIView *launchButton;
+
+@property (strong, nonatomic) DynamicsXray *dynamicsXray;
 
 @end
 
@@ -45,6 +47,8 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
     [super viewDidLoad];
 
     self.navigationController.toolbarHidden = YES;
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Xray" style:UIBarButtonItemStyleBordered target:self action:@selector(xrayAction:)];
 
     [self setupDynamics];
     [self setupLauncher];
@@ -127,6 +131,26 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
         [self.gravityBehavior addItem:newBall];
         [self.collisionBehavior addItem:newBall];
     }
+}
+
+
+#pragma mark - DynamicsXray
+
+- (DynamicsXray *)dynamicsXray
+{
+    if (_dynamicsXray == nil) {
+        _dynamicsXray = [[DynamicsXray alloc] init];
+        _dynamicsXray.active = NO;
+
+        [self.dynamicAnimator addBehavior:_dynamicsXray];
+    }
+
+    return _dynamicsXray;
+}
+
+- (void)xrayAction:(__unused id)sender
+{
+    [self.dynamicsXray presentConfigurationViewController];
 }
 
 @end
