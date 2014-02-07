@@ -104,8 +104,8 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 
 - (void)setupLauncher
 {
-    [self setupLaunchButton];
     [self setupLaunchSpring];
+    [self setupLaunchButton];
 }
 
 - (void)setupLaunchButton
@@ -121,8 +121,12 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
         launchButton.backgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
         launchButton.textAlignment = NSTextAlignmentCenter;
         launchButton.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin);
+        launchButton.userInteractionEnabled = YES;
 
         [self.view addSubview:launchButton];
+
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(launchTapGestureRecognized:)];
+        [launchButton addGestureRecognizer:tapGestureRecognizer];
 
         self.launchButton = launchButton;
     }
@@ -175,6 +179,36 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
         [self.gravityBehavior addItem:newBall];
         [self.collisionBehavior addItem:newBall];
     }
+}
+
+
+#pragma mark - Launch Gesture
+
+- (void)launchTapGestureRecognized:(__unused UITapGestureRecognizer *)tapGestureRecognizer
+{
+    UIView *launchSpringView = self.launchSpringView;
+
+    UIPushBehavior *pushBehavior = [[UIPushBehavior alloc] initWithItems:@[launchSpringView] mode:UIPushBehaviorModeContinuous];
+    [pushBehavior setAngle:-M_PI_2 magnitude:30.0f];
+
+    __weak UIPushBehavior *weakPushBehavior = pushBehavior;
+
+    pushBehavior.action = ^{
+        CGRect launchFrame = launchSpringView.frame;
+        CGFloat midY = CGRectGetMidY(self.view.bounds);
+        if (CGRectGetMinY(launchFrame) <= midY) {
+            launchFrame.origin.y = midY;
+            [weakPushBehavior.dynamicAnimator removeBehavior:weakPushBehavior]; // finished!
+
+            CGPoint velocity = [self.launchSpringItemBehavior linearVelocityForItem:launchSpringView];
+            velocity.x = -velocity.x;
+            velocity.y = -velocity.y;
+            [self.launchSpringItemBehavior addLinearVelocity:velocity forItem:launchSpringView];
+        }
+    };
+
+    [self.dynamicAnimator addBehavior:pushBehavior];
+    [pushBehavior setActive:YES];
 }
 
 
