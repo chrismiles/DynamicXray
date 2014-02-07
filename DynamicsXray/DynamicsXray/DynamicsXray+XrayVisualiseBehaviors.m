@@ -79,10 +79,6 @@
 
 - (void)visualiseCollisionBehavior:(UICollisionBehavior *)collisionBehavior
 {
-    // TODO: boundaries by identifier
-    //NSArray *boundaryIdentifiers = collisionBehavior.boundaryIdentifiers;
-    //DLog(@"boundaryIdentifiers: %@", boundaryIdentifiers);
-
     DXRDynamicsXrayView *xrayView = [self xrayView];
     UIView *referenceView = collisionBehavior.dynamicAnimator.referenceView;
     CGRect referenceBoundaryFrame = referenceView.frame;
@@ -94,7 +90,7 @@
     }
 
     for (id boundaryIdentifier in collisionBehavior.boundaryIdentifiers) {
-        UIBezierPath *boundaryPath = [collisionBehavior boundaryWithIdentifier:boundaryIdentifier];
+        UIBezierPath *boundaryPath = [[collisionBehavior boundaryWithIdentifier:boundaryIdentifier] copy];
         [xrayView convertPath:boundaryPath fromReferenceView:referenceView];
 
         [xrayView drawCollisionBoundaryWithPath:boundaryPath];
