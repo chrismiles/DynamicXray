@@ -50,6 +50,7 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 
 - (void)viewDidLayoutSubviews
 {
+    [self setupEdges];
     [self setupLauncher];
 }
 
@@ -59,13 +60,19 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 - (void)setupDynamics
 {
     if (self.dynamicAnimator == nil) {
+        __weak CMUIKitPinballViewController *weakSelf = self;
+
         UIDynamicAnimator *dynamicAnimator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
 
         UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[]];
+        gravityBehavior.action = ^{
+            __strong CMUIKitPinballViewController *strongSelf = weakSelf;
+            [strongSelf checkLostBalls];
+        };
         [dynamicAnimator addBehavior:gravityBehavior];
 
         UICollisionBehavior *collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[]];
-        collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+        //collisionBehavior.collisionDelegate = self;
         collisionBehavior.collisionMode = UICollisionBehaviorModeEverything;
         [dynamicAnimator addBehavior:collisionBehavior];
 
@@ -92,10 +99,38 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
         newBall.center = CGPointMake(CGRectGetWidth(self.view.bounds) - self.launcherWidth/2.0f, CGRectGetHeight(self.view.bounds) - ballSize.height/2.0f - self.launchButtonHeight - self.launchSpringHeight - 50.0f);
         [self.view addSubview:newBall];
 
-        self.ballReadyForLaunch = newBall;
-
         [self.gravityBehavior addItem:newBall];
         [self.collisionBehavior addItem:newBall];
+
+        self.ballReadyForLaunch = newBall;
+        [self.ballsInPlay addObject:newBall];
+    }
+}
+
+- (void)removeBall:(UIView *)ball
+{
+    [ball removeFromSuperview];
+
+    [self.gravityBehavior removeItem:ball];
+    [self.collisionBehavior removeItem:ball];
+
+    [self.ballsInPlay removeObject:ball];
+    if (self.ballReadyForLaunch == ball) self.ballReadyForLaunch = nil;
+}
+
+- (void)checkLostBalls
+{
+    CGRect bounds = self.view.bounds;
+
+    for (UIView *ball in self.ballsInPlay) {
+        CGRect frame = ball.frame;
+        if (CGRectIntersectsRect(frame, bounds) == NO) {
+            [self removeBall:ball];
+        }
+    }
+
+    if ([self.ballsInPlay count] == 0) {
+        [self addBall];
     }
 }
 
@@ -118,5 +153,13 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 {
     [self.dynamicsXray presentConfigurationViewController];
 }
+
+
+//#pragma mark - UICollisionBehaviorDelegate
+//
+//- (void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item withBoundaryIdentifier:(id<NSCopying>)identifier atPoint:(CGPoint)p
+//{
+//    DLog(@"%@ item: %@ identifier: %@", behavior, item, identifier);
+//}
 
 @end

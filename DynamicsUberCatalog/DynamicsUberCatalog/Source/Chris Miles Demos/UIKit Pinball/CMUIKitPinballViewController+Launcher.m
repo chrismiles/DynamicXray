@@ -79,9 +79,10 @@
     UIView *launchSpringView = self.launchSpringView;
 
     UIPushBehavior *pushBehavior = [[UIPushBehavior alloc] initWithItems:@[launchSpringView] mode:UIPushBehaviorModeContinuous];
-    [pushBehavior setAngle:-M_PI_2 magnitude:25.0f];
+    [pushBehavior setAngle:-M_PI_2 magnitude:20.0f];
 
     __weak UIPushBehavior *weakPushBehavior = pushBehavior;
+    __weak CMUIKitPinballViewController *weakSelf = self;
 
     pushBehavior.action = ^{
         CGRect launchFrame = launchSpringView.frame;
@@ -93,7 +94,11 @@
             CGPoint velocity = [self.launchSpringItemBehavior linearVelocityForItem:launchSpringView];
             velocity.x = -velocity.x;
             velocity.y = -velocity.y;
-            [self.launchSpringItemBehavior addLinearVelocity:velocity forItem:launchSpringView];
+
+            __strong CMUIKitPinballViewController *strongSelf = weakSelf;
+
+            [strongSelf.launchSpringItemBehavior addLinearVelocity:velocity forItem:launchSpringView];
+            strongSelf.ballReadyForLaunch = NO;
         }
     };
 
