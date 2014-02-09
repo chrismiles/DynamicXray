@@ -9,6 +9,7 @@
 #import "CMUIKitPinballViewController.h"
 #import "CMUIKitPinballViewController_Private.h"
 #import "CMUIKitPinballViewController+Edges.h"
+#import "CMUIKitPinballViewController+Flippers.h"
 #import "CMUIKitPinballViewController+Launcher.h"
 
 
@@ -24,6 +25,7 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
     self.launcherWidth = ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ? 120.0f : 60.0f);
     self.launchButtonHeight = 60.0f;
     self.launchSpringHeight = 100.0f;
+    self.flipperSize = CGSizeMake(100.0f, 30.0f);
 }
 
 - (void)viewDidLoad
@@ -37,6 +39,7 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
     [self setupDynamics];
     [self setupEdges];
     [self setupLauncher];
+    [self setupFlippers];
 
     [self.dynamicsXray setActive:YES];
 }
@@ -50,8 +53,14 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 
 - (void)viewDidLayoutSubviews
 {
-    [self setupEdges];
-    [self setupLauncher];
+    CGSize viewSize = self.view.bounds.size;
+    if (CGSizeEqualToSize(viewSize, self.viewSize) == NO) {
+        self.viewSize = viewSize;
+
+        [self setupEdges];
+        [self setupLauncher];
+        [self layoutFlippers];
+    }
 }
 
 

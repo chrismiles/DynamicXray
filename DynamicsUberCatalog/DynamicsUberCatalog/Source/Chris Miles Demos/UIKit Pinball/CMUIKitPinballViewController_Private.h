@@ -26,6 +26,14 @@
 @property (strong, nonatomic) UIView *launchSpringView;
 @property (strong, nonatomic) UIDynamicItemBehavior *launchSpringItemBehavior;
 
+@property (strong, nonatomic) UIView *leftFlipper;
+@property (strong, nonatomic) UIView *rightFlipper;
+@property (assign, nonatomic) CGSize flipperSize;
+@property (strong, nonatomic) UIAttachmentBehavior *leftFlipperRotationAttachment;
+@property (strong, nonatomic) UIAttachmentBehavior *leftFlipperAnchorAttachment;
+
+@property (assign, nonatomic) CGSize viewSize;
+
 @property (strong, nonatomic) DynamicsXray *dynamicsXray;
 
 @end
