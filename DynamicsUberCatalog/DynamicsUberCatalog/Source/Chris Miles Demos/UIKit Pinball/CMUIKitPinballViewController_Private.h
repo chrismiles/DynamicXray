@@ -28,6 +28,7 @@
 
 @property (strong, nonatomic) UIView *leftFlipper;
 @property (strong, nonatomic) UIView *rightFlipper;
+@property (assign, nonatomic) CGFloat flipperAngle;
 @property (assign, nonatomic) CGSize flipperSize;
 @property (strong, nonatomic) UIAttachmentBehavior *leftFlipperRotationAttachment;
 @property (strong, nonatomic) UIAttachmentBehavior *leftFlipperAnchorAttachment;
@@ -37,5 +38,3 @@
 @property (strong, nonatomic) DynamicsXray *dynamicsXray;
 
 @end
-
-

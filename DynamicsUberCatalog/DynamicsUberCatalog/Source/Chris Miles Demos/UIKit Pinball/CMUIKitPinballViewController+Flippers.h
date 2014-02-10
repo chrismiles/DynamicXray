@@ -13,4 +13,6 @@
 - (void)setupFlippers;
 - (void)layoutFlippers;
 
+- (void)setupFlipperButtons;
+
 @end

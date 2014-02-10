@@ -26,6 +26,7 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
     self.launchButtonHeight = 60.0f;
     self.launchSpringHeight = 100.0f;
     self.flipperSize = CGSizeMake(100.0f, 30.0f);
+    self.flipperAngle = 25.0f * M_PI / 180.0f;
 }
 
 - (void)viewDidLoad
@@ -40,6 +41,7 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
     [self setupEdges];
     [self setupLauncher];
     [self setupFlippers];
+    [self setupFlipperButtons];
 
     [self.dynamicsXray setActive:YES];
 }
