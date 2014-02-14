@@ -19,6 +19,7 @@
 @property (strong, nonatomic) UIView *ballReadyForLaunch;
 
 @property (assign, nonatomic) CGFloat launcherWidth;
+@property (assign, nonatomic) CGSize launcherWallSize;
 @property (assign, nonatomic) CGFloat launchSpringHeight;
 @property (assign, nonatomic) CGFloat launchButtonHeight;
 

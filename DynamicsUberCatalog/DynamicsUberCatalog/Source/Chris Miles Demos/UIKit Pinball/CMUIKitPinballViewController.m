@@ -21,12 +21,6 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 - (void)awakeFromNib
 {
     self.ballsInPlay = [NSMutableArray array];
-
-    self.launcherWidth = ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ? 120.0f : 60.0f);
-    self.launchButtonHeight = 60.0f;
-    self.launchSpringHeight = 100.0f;
-    self.flipperSize = CGSizeMake(100.0f, 30.0f);
-    self.flipperAngle = 25.0f * M_PI / 180.0f;
 }
 
 - (void)viewDidLoad
@@ -36,6 +30,8 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
     self.navigationController.toolbarHidden = YES;
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Xray" style:UIBarButtonItemStyleBordered target:self action:@selector(xrayAction:)];
+
+    [self configureSizesWithViewBounds:self.view.bounds];
 
     [self setupDynamics];
     [self setupEdges];
@@ -59,10 +55,23 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
     if (CGSizeEqualToSize(viewSize, self.viewSize) == NO) {
         self.viewSize = viewSize;
 
+        [self configureSizesWithViewBounds:self.view.bounds];
+
         [self setupEdges];
         [self setupLauncher];
         [self layoutFlippers];
     }
+}
+
+- (void)configureSizesWithViewBounds:(CGRect)bounds
+{
+    self.launcherWidth = ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ? 120.0f : 60.0f);
+    self.launchButtonHeight = 60.0f;
+    self.launchSpringHeight = 100.0f;
+    self.flipperSize = CGSizeMake(100.0f, 30.0f);
+    self.flipperAngle = 25.0f * M_PI / 180.0f;
+
+    self.launcherWallSize = CGSizeMake(4.0f, CGRectGetHeight(bounds) * 0.7f);
 }
 
 

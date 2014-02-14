@@ -29,8 +29,9 @@
         CGFloat buttonHeight = self.launchButtonHeight;
 
         UILabel *launchButton = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(bounds) - launcherWidth, CGRectGetHeight(bounds) - buttonHeight, launcherWidth, buttonHeight)];
-        launchButton.text = @"LAUNCH";
+        launchButton.text = @"⇧";
         launchButton.textColor = [UIColor blackColor];
+        launchButton.font = [UIFont systemFontOfSize:24.0f];
         launchButton.backgroundColor = [UIColor colorWithWhite:0.9f alpha:1.0f];
         launchButton.textAlignment = NSTextAlignmentCenter;
         launchButton.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleTopMargin);
