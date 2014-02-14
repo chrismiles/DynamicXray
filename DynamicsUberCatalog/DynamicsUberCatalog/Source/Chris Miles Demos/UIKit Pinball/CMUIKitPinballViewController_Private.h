@@ -26,12 +26,14 @@
 @property (strong, nonatomic) UIView *launchButton;
 @property (strong, nonatomic) UIDynamicItemBehavior *launchSpringItemBehavior;
 
-@property (strong, nonatomic) UIView *leftFlipper;
-@property (strong, nonatomic) UIView *rightFlipper;
 @property (assign, nonatomic) CGFloat flipperAngle;
 @property (assign, nonatomic) CGSize flipperSize;
+@property (strong, nonatomic) UIView *leftFlipper;
+@property (strong, nonatomic) UIView *rightFlipper;
 @property (strong, nonatomic) UIAttachmentBehavior *leftFlipperRotationAttachment;
 @property (strong, nonatomic) UIAttachmentBehavior *leftFlipperAnchorAttachment;
+@property (strong, nonatomic) UIAttachmentBehavior *rightFlipperRotationAttachment;
+@property (strong, nonatomic) UIAttachmentBehavior *rightFlipperAnchorAttachment;
 
 @property (assign, nonatomic) CGSize viewSize;
 

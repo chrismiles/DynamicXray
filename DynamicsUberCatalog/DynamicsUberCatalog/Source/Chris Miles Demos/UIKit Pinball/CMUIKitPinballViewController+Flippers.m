@@ -13,8 +13,6 @@
 
 - (void)setupFlippers
 {
-    CGRect bounds = self.view.bounds;
-    CGFloat height = CGRectGetHeight(bounds);
     CGSize flipperSize = self.flipperSize;
 
     UIDynamicItemBehavior *flipperItemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[]];
@@ -24,8 +22,8 @@
 
     {
         // Left Flipper
-        CGRect leftFlipperFrame = CGRectMake(10.0f, height - flipperSize.height*2.0f, flipperSize.width, flipperSize.height);
-        UIView *flipper = [[UIView alloc] initWithFrame:leftFlipperFrame];
+        CGRect flipperFrame = CGRectMake(0, 0, flipperSize.width, flipperSize.height);
+        UIView *flipper = [[UIView alloc] initWithFrame:flipperFrame];
         flipper.backgroundColor = [UIColor purpleColor];
         [self.view addSubview:flipper];
 
@@ -49,76 +47,163 @@
         self.leftFlipper = flipper;
     }
 
+    {
+        // Right Flipper
+        CGRect flipperFrame = CGRectMake(0, 0, flipperSize.width, flipperSize.height);
+        UIView *flipper = [[UIView alloc] initWithFrame:flipperFrame];
+        flipper.backgroundColor = [UIColor purpleColor];
+        [self.view addSubview:flipper];
+
+        [self.collisionBehavior addItem:flipper];
+        [flipperItemBehavior addItem:flipper];
+
+        UIOffset attachmentOffset = UIOffsetMake(flipperSize.width/2.0f - flipperSize.height/2.0f, 0);
+        UIAttachmentBehavior *flipperRotationAttachment = [[UIAttachmentBehavior alloc] initWithItem:flipper offsetFromCenter:attachmentOffset attachedToAnchor:CGPointZero];
+        flipperRotationAttachment.length = 0;
+        [self.dynamicAnimator addBehavior:flipperRotationAttachment];
+        self.rightFlipperRotationAttachment = flipperRotationAttachment;
+
+        attachmentOffset = UIOffsetMake(-flipperSize.width/2.0f, 0); // anchored left side of view
+        UIAttachmentBehavior *flipperAnchorAttachment = [[UIAttachmentBehavior alloc] initWithItem:flipper offsetFromCenter:attachmentOffset attachedToAnchor:CGPointZero];
+        flipperAnchorAttachment.length = 0;
+        flipperAnchorAttachment.damping = 1.0f;
+        flipperAnchorAttachment.frequency = 20.0f;
+        [self.dynamicAnimator addBehavior:flipperAnchorAttachment];
+        self.rightFlipperAnchorAttachment = flipperAnchorAttachment;
+
+        self.rightFlipper = flipper;
+    }
+    
     [self layoutFlippers];
 }
 
 - (void)layoutFlippers
 {
     CGRect bounds = self.view.bounds;
+    CGFloat width = CGRectGetWidth(bounds);
     CGFloat height = CGRectGetHeight(bounds);
     CGSize flipperSize = self.flipperSize;
     CGFloat flipperAngle = self.flipperAngle;
+    CGFloat sideMargin = 8.0f;
 
-    CGRect leftFlipperFrame = CGRectMake(8.0f, height - flipperSize.height*3.0f, flipperSize.width, flipperSize.height);
+    {
+        // Layout left flipper
+        CGRect flipperFrame = CGRectMake(sideMargin,
+                                         height - flipperSize.height*3.0f,
+                                         flipperSize.width,
+                                         flipperSize.height);
 
-    CGPoint rotationAnchorPoint = CGPointMake(leftFlipperFrame.origin.x + flipperSize.height/2.0f, leftFlipperFrame.origin.y + flipperSize.height/2.0f);
-    self.leftFlipperRotationAttachment.anchorPoint = rotationAnchorPoint;
-    self.leftFlipperRotationAttachment.length = 0;
+        CGPoint rotationAnchorPoint = CGPointMake(flipperFrame.origin.x + flipperSize.height/2.0f, flipperFrame.origin.y + flipperSize.height/2.0f);
+        self.leftFlipperRotationAttachment.anchorPoint = rotationAnchorPoint;
+        self.leftFlipperRotationAttachment.length = 0;
 
-    CGFloat calcLength = flipperSize.width - flipperSize.height/2.0f;
-    self.leftFlipperAnchorAttachment.anchorPoint = CGPointMake(rotationAnchorPoint.x + calcLength * cosf(flipperAngle), rotationAnchorPoint.y + calcLength * sinf(flipperAngle));
-    self.leftFlipperAnchorAttachment.length = 0;
+        CGFloat calcLength = flipperSize.width - flipperSize.height/2.0f;
+        self.leftFlipperAnchorAttachment.anchorPoint = CGPointMake(rotationAnchorPoint.x + calcLength * cosf(flipperAngle), rotationAnchorPoint.y + calcLength * sinf(flipperAngle));
+        self.leftFlipperAnchorAttachment.length = 0;
+    }
+
+    {
+        // Layout right flipper
+        CGRect flipperFrame = CGRectMake(width - self.launcherWidth - sideMargin - flipperSize.width,
+                                         height - flipperSize.height*3.0f,
+                                         flipperSize.width,
+                                         flipperSize.height);
+
+        CGPoint rotationAnchorPoint = CGPointMake(CGRectGetMaxX(flipperFrame) - flipperSize.height/2.0f, flipperFrame.origin.y + flipperSize.height/2.0f);
+        self.rightFlipperRotationAttachment.anchorPoint = rotationAnchorPoint;
+        self.rightFlipperRotationAttachment.length = 0;
+
+        CGFloat calcLength = flipperSize.width - flipperSize.height/2.0f;
+        self.rightFlipperAnchorAttachment.anchorPoint = CGPointMake(rotationAnchorPoint.x + calcLength * cosf(M_PI - flipperAngle), rotationAnchorPoint.y + calcLength * sinf(M_PI - flipperAngle));
+        self.rightFlipperAnchorAttachment.length = 0;
+    }
+
+    [self.dynamicAnimator updateItemUsingCurrentState:self.leftFlipper];
+    [self.dynamicAnimator updateItemUsingCurrentState:self.rightFlipper];
 }
 
 - (void)setupFlipperButtons
 {
     CGRect bounds = self.view.bounds;
+    CGFloat width = CGRectGetWidth(bounds);
     CGFloat height = CGRectGetHeight(bounds);
-    CGSize buttonSize = CGSizeMake(50.0f, 50.0f);
+    CGFloat playAreaWidth = width - self.launcherWidth;
+    CGSize buttonSize = CGSizeMake(playAreaWidth/2.0f, height);
 
-    CGRect frame = CGRectMake(0, height - buttonSize.height, buttonSize.width, buttonSize.height);
-    UIView *leftFlipperButton = [[UIView alloc] initWithFrame:frame];
-    leftFlipperButton.autoresizingMask = (UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin);
-    leftFlipperButton.backgroundColor = [[UIColor yellowColor] colorWithAlphaComponent:0.1f]; // DEBUG
-    [self.view addSubview:leftFlipperButton];
+    {
+        // Lift flipper button
+        CGRect frame = CGRectMake(0, height - buttonSize.height, buttonSize.width, buttonSize.height);
+        UIView *leftFlipperButton = [[UIView alloc] initWithFrame:frame];
+        leftFlipperButton.autoresizingMask = (UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin);
+        //leftFlipperButton.backgroundColor = [[UIColor yellowColor] colorWithAlphaComponent:0.1f]; // DEBUG
+        [self.view addSubview:leftFlipperButton];
 
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leftFlipperTapGesture:)];
-    [leftFlipperButton addGestureRecognizer:tapGestureRecognizer];
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(leftFlipperTapGesture:)];
+        [leftFlipperButton addGestureRecognizer:tapGestureRecognizer];
+    }
+
+    {
+        // Right flipper button
+        CGRect frame = CGRectMake(playAreaWidth - buttonSize.width, height - buttonSize.height, buttonSize.width, buttonSize.height);
+        UIView *rightFlipperButton = [[UIView alloc] initWithFrame:frame];
+        rightFlipperButton.autoresizingMask = (UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin);
+        //rightFlipperButton.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.1f]; // DEBUG
+        [self.view addSubview:rightFlipperButton];
+
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(rightFlipperTapGesture:)];
+        [rightFlipperButton addGestureRecognizer:tapGestureRecognizer];
+    }
 }
 
 - (void)leftFlipperTapGesture:(__unused UITapGestureRecognizer *)tapGestureRecognizer
 {
-    [self fireLeftFlipper];
+    [self   fireFlipper:self.leftFlipper
+ withRotationAttachment:self.leftFlipperRotationAttachment
+       anchorAttachment:self.leftFlipperAnchorAttachment
+ springAttachmentOffset:UIOffsetMake(self.flipperSize.width/2.0f, 0)
+         toFlipperAngle:-self.flipperAngle];
 }
 
-- (void)fireLeftFlipper
+- (void)rightFlipperTapGesture:(__unused UITapGestureRecognizer *)tapGestureRecognizer
 {
-    CGSize flipperSize = self.flipperSize;
-    CGPoint rotationPoint = self.leftFlipperRotationAttachment.anchorPoint;
+    [self   fireFlipper:self.rightFlipper
+ withRotationAttachment:self.rightFlipperRotationAttachment
+       anchorAttachment:self.rightFlipperAnchorAttachment
+ springAttachmentOffset:UIOffsetMake(-self.flipperSize.width/2.0f, 0)
+         toFlipperAngle:(self.flipperAngle)];
+}
 
-    [self.dynamicAnimator removeBehavior:self.leftFlipperAnchorAttachment];
+- (void)fireFlipper:(UIView *)flipper withRotationAttachment:(UIAttachmentBehavior *)rotationAttachment anchorAttachment:(UIAttachmentBehavior *)anchorAttachment springAttachmentOffset:(UIOffset)attachmentOffset
+     toFlipperAngle:(CGFloat)flipperAngle
+{
+    CGPoint rotationPoint = rotationAttachment.anchorPoint;
 
-    UIOffset attachmentOffset = UIOffsetMake(flipperSize.width/2.0f, 0); // anchored right side of view
-    CGPoint anchorPoint = self.leftFlipperAnchorAttachment.anchorPoint;
+    [self.dynamicAnimator removeBehavior:anchorAttachment];
+
+    CGPoint anchorPoint = anchorAttachment.anchorPoint;
     anchorPoint.y = rotationPoint.y - (anchorPoint.y - rotationPoint.y);
 
-    UIAttachmentBehavior *springAttachment = [[UIAttachmentBehavior alloc] initWithItem:self.leftFlipper offsetFromCenter:attachmentOffset attachedToAnchor:anchorPoint];
+    UIAttachmentBehavior *springAttachment = [[UIAttachmentBehavior alloc] initWithItem:flipper offsetFromCenter:attachmentOffset attachedToAnchor:anchorPoint];
     springAttachment.length = 0;
     springAttachment.damping = 0.8f;
     springAttachment.frequency = 10.0f;
     [self.dynamicAnimator addBehavior:springAttachment];
 
+    CGFloat startAngle = [[flipper.layer valueForKeyPath:@"transform.rotation.z"] floatValue];
+    CGFloat maxAngleDelta = (CGFloat)fabs(flipperAngle - startAngle);
+
     __weak CMUIKitPinballViewController *weakSelf = self;
     __weak UIAttachmentBehavior *weakSpringAttachment = springAttachment;
 
     springAttachment.action = ^{
-        __strong CMUIKitPinballViewController *strongSelf = weakSelf;
+        CGFloat angle = [[flipper.layer valueForKeyPath:@"transform.rotation.z"] floatValue];
+        CGFloat angleDelta = (CGFloat)fabs(angle - startAngle);
 
-        CGFloat angle = [[strongSelf.leftFlipper.layer valueForKeyPath:@"transform.rotation.z"] floatValue];
+        if (angleDelta > maxAngleDelta) {
+            __strong CMUIKitPinballViewController *strongSelf = weakSelf;
 
-        if (angle < -strongSelf.flipperAngle) {
             [strongSelf.dynamicAnimator removeBehavior:weakSpringAttachment];
-            [strongSelf.dynamicAnimator addBehavior:self.leftFlipperAnchorAttachment];
+            [strongSelf.dynamicAnimator addBehavior:anchorAttachment];
         }
     };
 }

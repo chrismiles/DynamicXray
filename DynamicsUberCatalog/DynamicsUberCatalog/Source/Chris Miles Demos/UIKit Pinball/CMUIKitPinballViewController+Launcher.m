@@ -34,7 +34,6 @@
                                     buttonWidth,
                                     buttonHeight);
 
-
     if (self.launchButton == nil) {
         UILabel *launchButton = [[UILabel alloc] initWithFrame:buttonFrame];
         launchButton.text = @"⇧";
@@ -60,6 +59,7 @@
     }
 
     self.launchButton.frame = buttonFrame;
+    [self.dynamicAnimator updateItemUsingCurrentState:self.launchButton];
 }
 
 - (CGFloat)launcherEndYPos
