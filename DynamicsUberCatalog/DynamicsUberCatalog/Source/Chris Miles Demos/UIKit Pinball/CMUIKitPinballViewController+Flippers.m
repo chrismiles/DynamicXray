@@ -25,6 +25,8 @@
         CGRect flipperFrame = CGRectMake(0, 0, flipperSize.width, flipperSize.height);
         UIView *flipper = [[UIView alloc] initWithFrame:flipperFrame];
         flipper.backgroundColor = [UIColor purpleColor];
+        flipper.layer.cornerRadius = flipperSize.height / 2.0f;
+        flipper.layer.masksToBounds = YES;
         [self.view addSubview:flipper];
 
         [self.collisionBehavior addItem:flipper];
@@ -52,6 +54,8 @@
         CGRect flipperFrame = CGRectMake(0, 0, flipperSize.width, flipperSize.height);
         UIView *flipper = [[UIView alloc] initWithFrame:flipperFrame];
         flipper.backgroundColor = [UIColor purpleColor];
+        flipper.layer.cornerRadius = flipperSize.height / 2.0f;
+        flipper.layer.masksToBounds = YES;
         [self.view addSubview:flipper];
 
         [self.collisionBehavior addItem:flipper];
@@ -104,7 +108,7 @@
 
     {
         // Layout right flipper
-        CGRect flipperFrame = CGRectMake(width - self.launcherWidth - sideMargin - flipperSize.width,
+        CGRect flipperFrame = CGRectMake(width - self.launcherWidth - self.launcherWallSize.width - sideMargin - flipperSize.width,
                                          height - flipperSize.height*3.0f,
                                          flipperSize.width,
                                          flipperSize.height);
