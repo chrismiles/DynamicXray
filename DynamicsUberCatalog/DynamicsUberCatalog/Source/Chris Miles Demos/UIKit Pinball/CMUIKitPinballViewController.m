@@ -67,7 +67,7 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 {
     self.launcherWidth = ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ? 120.0f : 60.0f);
     self.launchButtonHeight = 60.0f;
-    self.launchSpringHeight = 100.0f;
+    self.launchSpringHeight = 180.0f;
     self.flipperSize = CGSizeMake(100.0f, 30.0f);
     self.flipperAngle = 25.0f * M_PI / 180.0f;
 
@@ -115,8 +115,12 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
     if (self.ballReadyForLaunch == nil) {
         UISwitch *newBall = [[UISwitch alloc] initWithFrame:CGRectZero];
         [newBall sizeToFit];
+
         CGSize ballSize = newBall.bounds.size;
-        newBall.center = CGPointMake(CGRectGetWidth(self.view.bounds) - self.launcherWidth/2.0f, CGRectGetHeight(self.view.bounds) - ballSize.height/2.0f - self.launchButtonHeight - self.launchSpringHeight - 50.0f);
+        CGFloat launcherEndY = [self launcherEndYPos];
+
+        newBall.center = CGPointMake(CGRectGetWidth(self.view.bounds) - self.launcherWidth/2.0f,
+                                     launcherEndY - ballSize.height/2.0f);
         [self.view addSubview:newBall];
 
         [self.gravityBehavior addItem:newBall];

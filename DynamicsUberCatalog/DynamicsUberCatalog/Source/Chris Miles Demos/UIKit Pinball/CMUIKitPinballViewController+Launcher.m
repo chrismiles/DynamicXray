@@ -17,18 +17,26 @@
 
 - (void)setupLauncher
 {
-    [self setupLaunchSpring];
     [self setupLaunchButton];
 }
 
 - (void)setupLaunchButton
 {
-    if (self.launchButton == nil) {
-        CGRect bounds = self.view.bounds;
-        CGFloat launcherWidth = self.launcherWidth;
-        CGFloat buttonHeight = self.launchButtonHeight;
+    CGRect bounds = self.view.bounds;
+    CGFloat launcherWidth = self.launcherWidth;
+    CGFloat buttonWidth = (CGFloat)round(launcherWidth * 0.9f);
+    CGFloat buttonHeight = self.launchButtonHeight;
 
-        UILabel *launchButton = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetWidth(bounds) - launcherWidth, CGRectGetHeight(bounds) - buttonHeight, launcherWidth, buttonHeight)];
+    CGFloat yPos = [self launcherEndYPos];
+
+    CGRect buttonFrame = CGRectMake(CGRectGetWidth(bounds) - launcherWidth + (launcherWidth - buttonWidth)/2.0f,
+                                    yPos,
+                                    buttonWidth,
+                                    buttonHeight);
+
+
+    if (self.launchButton == nil) {
+        UILabel *launchButton = [[UILabel alloc] initWithFrame:buttonFrame];
         launchButton.text = @"⇧";
         launchButton.textColor = [UIColor blackColor];
         launchButton.font = [UIFont systemFontOfSize:24.0f];
@@ -42,34 +50,21 @@
         UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(launchTapGestureRecognized:)];
         [launchButton addGestureRecognizer:tapGestureRecognizer];
 
+        [self.collisionBehavior removeItem:launchButton];
+        [self.launchSpringItemBehavior removeItem:launchButton];
+
+        [self.collisionBehavior addItem:launchButton];
+        [self.launchSpringItemBehavior addItem:launchButton];
+
         self.launchButton = launchButton;
     }
+
+    self.launchButton.frame = buttonFrame;
 }
 
-- (void)setupLaunchSpring
+- (CGFloat)launcherEndYPos
 {
-    if (self.launchSpringView == nil) {
-        UIView *launchSpringView = [[UIView alloc] initWithFrame:CGRectZero];
-        launchSpringView.backgroundColor = [UIColor darkGrayColor];
-
-        [self.view addSubview:launchSpringView];
-
-        self.launchSpringView = launchSpringView;
-    }
-
-    [self.collisionBehavior removeItem:self.launchSpringView];
-    [self.launchSpringItemBehavior removeItem:self.launchSpringView];
-
-    CGRect bounds = self.view.bounds;
-    CGFloat launcherWidth = self.launcherWidth;
-    CGFloat launchSpringHeight = self.launchSpringHeight;
-    CGFloat launchButtonHeight = self.launchButtonHeight;
-
-    CGRect frame = CGRectMake(CGRectGetWidth(bounds) - launcherWidth + 1.0f, CGRectGetHeight(bounds) - launchButtonHeight - launchSpringHeight, launcherWidth-2.0f, launchSpringHeight);
-    self.launchSpringView.frame = frame;
-
-    [self.collisionBehavior addItem:self.launchSpringView];
-    [self.launchSpringItemBehavior addItem:self.launchSpringView];
+    return CGRectGetHeight(self.view.bounds) - self.launchButtonHeight - self.launchSpringHeight;
 }
 
 
@@ -77,29 +72,31 @@
 
 - (void)launchTapGestureRecognized:(__unused UITapGestureRecognizer *)tapGestureRecognizer
 {
-    UIView *launchSpringView = self.launchSpringView;
+    UIView *launcherView = self.launchButton;
 
-    UIPushBehavior *pushBehavior = [[UIPushBehavior alloc] initWithItems:@[launchSpringView] mode:UIPushBehaviorModeContinuous];
+    UIPushBehavior *pushBehavior = [[UIPushBehavior alloc] initWithItems:@[launcherView] mode:UIPushBehaviorModeContinuous];
     [pushBehavior setAngle:-M_PI_2 magnitude:20.0f];
 
     __weak UIPushBehavior *weakPushBehavior = pushBehavior;
     __weak CMUIKitPinballViewController *weakSelf = self;
 
-    pushBehavior.action = ^{
-        CGRect launchFrame = launchSpringView.frame;
-        CGFloat midY = CGRectGetMidY(self.view.bounds);
-        if (CGRectGetMinY(launchFrame) <= midY) {
-            launchFrame.origin.y = midY;
-            [weakPushBehavior.dynamicAnimator removeBehavior:weakPushBehavior]; // finished!
+    CGFloat launcherEndY = [self launcherEndYPos];
 
-            CGPoint velocity = [self.launchSpringItemBehavior linearVelocityForItem:launchSpringView];
-            velocity.x = -velocity.x;
-            velocity.y = -velocity.y;
+    pushBehavior.action = ^{
+        CGRect launchFrame = launcherView.frame;
+        if (CGRectGetMinY(launchFrame) <= launcherEndY) {
+            launchFrame.origin.y = launcherEndY;
+            [weakPushBehavior.dynamicAnimator removeBehavior:weakPushBehavior]; // push finished!
 
             __strong CMUIKitPinballViewController *strongSelf = weakSelf;
 
-            [strongSelf.launchSpringItemBehavior addLinearVelocity:velocity forItem:launchSpringView];
-            strongSelf.ballReadyForLaunch = NO;
+            // Cancel out velocity of launch spring
+            CGPoint velocity = [strongSelf.launchSpringItemBehavior linearVelocityForItem:launcherView];
+            velocity.x = -velocity.x;
+            velocity.y = -velocity.y;
+            [strongSelf.launchSpringItemBehavior addLinearVelocity:velocity forItem:launcherView];
+
+            strongSelf.ballReadyForLaunch = nil;
         }
     };
 

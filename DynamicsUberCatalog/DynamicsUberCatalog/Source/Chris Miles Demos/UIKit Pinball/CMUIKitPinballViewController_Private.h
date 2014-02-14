@@ -24,7 +24,6 @@
 @property (assign, nonatomic) CGFloat launchButtonHeight;
 
 @property (strong, nonatomic) UIView *launchButton;
-@property (strong, nonatomic) UIView *launchSpringView;
 @property (strong, nonatomic) UIDynamicItemBehavior *launchSpringItemBehavior;
 
 @property (strong, nonatomic) UIView *leftFlipper;

@@ -14,4 +14,6 @@
 
 - (void)launchTapGestureRecognized:(UITapGestureRecognizer *)tapGestureRecognizer;
 
+- (CGFloat)launcherEndYPos;
+
 @end
