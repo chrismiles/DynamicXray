@@ -133,7 +133,7 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 {
     CGRect bounds = self.view.bounds;
 
-    for (UIView *ball in self.ballsInPlay) {
+    for (UIView *ball in [self.ballsInPlay copy]) {
         CGRect frame = ball.frame;
         if (CGRectIntersectsRect(frame, bounds) == NO) {
             [self removeBall:ball];
