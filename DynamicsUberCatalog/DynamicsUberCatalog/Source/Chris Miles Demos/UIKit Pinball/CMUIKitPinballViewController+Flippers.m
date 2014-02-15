@@ -97,12 +97,14 @@
                                          flipperSize.width,
                                          flipperSize.height);
 
-        CGPoint rotationAnchorPoint = CGPointMake(flipperFrame.origin.x + flipperSize.height/2.0f, flipperFrame.origin.y + flipperSize.height/2.0f);
+        CGPoint rotationAnchorPoint = CGPointMake(flipperFrame.origin.x + flipperSize.height/2.0f,
+                                                  flipperFrame.origin.y + flipperSize.height/2.0f);
         self.leftFlipperRotationAttachment.anchorPoint = rotationAnchorPoint;
         self.leftFlipperRotationAttachment.length = 0;
 
         CGFloat calcLength = flipperSize.width - flipperSize.height/2.0f;
-        self.leftFlipperAnchorAttachment.anchorPoint = CGPointMake(rotationAnchorPoint.x + calcLength * cosf(flipperAngle), rotationAnchorPoint.y + calcLength * sinf(flipperAngle));
+        self.leftFlipperAnchorAttachment.anchorPoint = CGPointMake(rotationAnchorPoint.x + calcLength * cosf(flipperAngle),
+                                                                   rotationAnchorPoint.y + calcLength * sinf(flipperAngle));
         self.leftFlipperAnchorAttachment.length = 0;
     }
 
@@ -113,17 +115,16 @@
                                          flipperSize.width,
                                          flipperSize.height);
 
-        CGPoint rotationAnchorPoint = CGPointMake(CGRectGetMaxX(flipperFrame) - flipperSize.height/2.0f, flipperFrame.origin.y + flipperSize.height/2.0f);
+        CGPoint rotationAnchorPoint = CGPointMake(CGRectGetMaxX(flipperFrame) - flipperSize.height/2.0f,
+                                                  flipperFrame.origin.y + flipperSize.height/2.0f);
         self.rightFlipperRotationAttachment.anchorPoint = rotationAnchorPoint;
         self.rightFlipperRotationAttachment.length = 0;
 
         CGFloat calcLength = flipperSize.width - flipperSize.height/2.0f;
-        self.rightFlipperAnchorAttachment.anchorPoint = CGPointMake(rotationAnchorPoint.x + calcLength * cosf(M_PI - flipperAngle), rotationAnchorPoint.y + calcLength * sinf(M_PI - flipperAngle));
+        self.rightFlipperAnchorAttachment.anchorPoint = CGPointMake(rotationAnchorPoint.x + calcLength * cosf(M_PI - flipperAngle),
+                                                                    rotationAnchorPoint.y + calcLength * sinf(M_PI - flipperAngle));
         self.rightFlipperAnchorAttachment.length = 0;
     }
-
-    [self.dynamicAnimator updateItemUsingCurrentState:self.leftFlipper];
-    [self.dynamicAnimator updateItemUsingCurrentState:self.rightFlipper];
 }
 
 - (void)setupFlipperButtons
