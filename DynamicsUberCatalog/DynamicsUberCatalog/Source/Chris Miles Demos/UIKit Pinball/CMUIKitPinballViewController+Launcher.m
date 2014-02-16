@@ -18,6 +18,7 @@
 - (void)setupLauncher
 {
     [self setupLaunchButton];
+    [self setupLaunchFlap];
 }
 
 - (void)setupLaunchButton
@@ -104,5 +105,61 @@
     [pushBehavior setActive:YES];
 }
 
+
+#pragma mark - Launch Flap
+
+- (void)setupLaunchFlap
+{
+    CGRect bounds = self.view.bounds;
+    CGFloat width = CGRectGetWidth(bounds);
+    CGFloat height = CGRectGetHeight(bounds);
+    CGSize wallSize = self.launcherWallSize;
+    CGSize flapSize = CGSizeMake(wallSize.width, self.launcherWidth * 1.5f);
+
+    CGRect flapFrame = CGRectMake(width - self.launcherWidth - flapSize.width*1.5f,
+                                  height - wallSize.height - wallSize.width*2.0f - flapSize.height,
+                                  flapSize.width,
+                                  flapSize.height);
+
+    CGPoint pivotAnchor = CGPointMake(CGRectGetMidX(flapFrame), CGRectGetMaxY(flapFrame));
+
+    [self.flapCollisionBehavior removeBoundaryWithIdentifier:@"FlapBoundary"];
+
+    if (self.flapView == nil) {
+        UIView *flapView = [[UIView alloc] initWithFrame:flapFrame];
+        flapView.backgroundColor = [self wallColour];
+        [self.view addSubview:flapView];
+
+        UIOffset attachmentOffset = UIOffsetMake(0, flapSize.height/2.0f);
+        UIAttachmentBehavior *flapPivotAttachment = [[UIAttachmentBehavior alloc] initWithItem:flapView offsetFromCenter:attachmentOffset attachedToAnchor:pivotAnchor];
+        flapPivotAttachment.length = 0;
+        [self.dynamicAnimator addBehavior:flapPivotAttachment];
+
+        UICollisionBehavior *flapCollisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[flapView]];
+        [self.dynamicAnimator addBehavior:flapCollisionBehavior];
+
+        [self.collisionBehavior addItem:flapView];
+        [self.gravityBehavior addItem:flapView];
+
+        self.flapView = flapView;
+        self.flapPivotAttachment = flapPivotAttachment;
+        self.flapCollisionBehavior = flapCollisionBehavior;
+    }
+
+    self.flapView.frame = flapFrame;
+    [self.dynamicAnimator updateItemUsingCurrentState:self.flapView];
+
+    self.flapPivotAttachment.anchorPoint = pivotAnchor;
+
+    CGRect flapCollisionRect = CGRectInset(flapFrame, -10.0f, 0);
+    flapCollisionRect = CGRectOffset(flapCollisionRect, -CGRectGetWidth(flapCollisionRect)/2.0f+1.0f, 0);
+    UIBezierPath *flapCollisionPath = [UIBezierPath bezierPathWithRect:flapCollisionRect];
+    CGAffineTransform rotateTransform = CGAffineTransformIdentity;
+    rotateTransform = CGAffineTransformTranslate(rotateTransform, CGRectGetMidX(flapCollisionRect), CGRectGetMidY(flapCollisionRect));
+    rotateTransform = CGAffineTransformRotate(rotateTransform, 2.0f*M_PI/180.0f);
+    rotateTransform = CGAffineTransformTranslate(rotateTransform, -CGRectGetMidX(flapCollisionRect), -CGRectGetMidY(flapCollisionRect));
+    [flapCollisionPath applyTransform:rotateTransform];
+    [self.flapCollisionBehavior addBoundaryWithIdentifier:@"FlapBoundary" forPath:flapCollisionPath];
+}
 
 @end

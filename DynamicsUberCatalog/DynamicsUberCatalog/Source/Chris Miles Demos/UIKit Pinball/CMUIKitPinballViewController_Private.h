@@ -35,8 +35,14 @@
 @property (strong, nonatomic) UIAttachmentBehavior *rightFlipperRotationAttachment;
 @property (strong, nonatomic) UIAttachmentBehavior *rightFlipperAnchorAttachment;
 
-@property (assign, nonatomic) CGSize viewSize;
+@property (strong, nonatomic) UIView *flapView;
+@property (strong, nonatomic) UIAttachmentBehavior *flapPivotAttachment;
+@property (strong, nonatomic) UICollisionBehavior *flapCollisionBehavior;
+
+@property (assign, nonatomic) CGSize lastBoundsSize;
 
 @property (strong, nonatomic) DynamicsXray *dynamicsXray;
+
+- (UIColor *)wallColour;
 
 @end

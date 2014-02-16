@@ -51,9 +51,9 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 
 - (void)viewDidLayoutSubviews
 {
-    CGSize viewSize = self.view.bounds.size;
-    if (CGSizeEqualToSize(viewSize, self.viewSize) == NO) {
-        self.viewSize = viewSize;
+    CGSize boundsSize = self.view.bounds.size;
+    if (CGSizeEqualToSize(boundsSize, self.lastBoundsSize) == NO) {
+        self.lastBoundsSize = boundsSize;
 
         [self configureSizesWithViewBounds:self.view.bounds];
 
@@ -71,7 +71,7 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
     self.flipperSize = CGSizeMake(100.0f, 30.0f);
     self.flipperAngle = 25.0f * M_PI / 180.0f;
 
-    self.launcherWallSize = CGSizeMake(4.0f, CGRectGetHeight(bounds) * 0.7f);
+    self.launcherWallSize = CGSizeMake(4.0f, CGRectGetHeight(bounds) * 0.6f);
 }
 
 
@@ -156,6 +156,14 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
     if ([self.ballsInPlay count] == 0) {
         [self addBall];
     }
+}
+
+
+#pragma mark - Colours
+
+- (UIColor *)wallColour
+{
+    return [UIColor darkGrayColor];
 }
 
 
