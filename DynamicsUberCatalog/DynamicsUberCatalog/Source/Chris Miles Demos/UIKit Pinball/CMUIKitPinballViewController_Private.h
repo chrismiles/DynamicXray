@@ -7,6 +7,7 @@
 //
 
 #import "CMUIKitPinballViewController.h"
+#import "CMUIKitPinballEdgesView.h"
 
 @interface CMUIKitPinballViewController ()
 
@@ -38,6 +39,8 @@
 @property (strong, nonatomic) UIView *flapView;
 @property (strong, nonatomic) UIAttachmentBehavior *flapPivotAttachment;
 @property (strong, nonatomic) UICollisionBehavior *flapCollisionBehavior;
+
+@property (strong, nonatomic) CMUIKitPinballEdgesView *edgesView;
 
 @property (assign, nonatomic) CGSize lastBoundsSize;
 

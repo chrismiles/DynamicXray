@@ -31,6 +31,7 @@
 		83BA61921829D0FC00341483 /* APLSnapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA617B1829D0FC00341483 /* APLSnapViewController.m */; };
 		83C4FFBE184348ED00383892 /* TLWobblySpringFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C4FFBB184348ED00383892 /* TLWobblySpringFlowLayout.m */; };
 		83C4FFBF184348ED00383892 /* TLWobblySpringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C4FFBD184348ED00383892 /* TLWobblySpringViewController.m */; };
+		83EAB3A118B2B01B00D3F59F /* CMUIKitPinballEdgesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83EAB3A018B2B01B00D3F59F /* CMUIKitPinballEdgesView.m */; };
 		83FC942618436026009CABEE /* TLSpringFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FC942218436026009CABEE /* TLSpringFlowLayout.m */; };
 		83FC942718436026009CABEE /* TLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FC942418436026009CABEE /* TLViewController.m */; };
 		83FC942B184365FE009CABEE /* CMSwingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83FC942A184365FE009CABEE /* CMSwingViewController.m */; };
@@ -86,6 +87,8 @@
 		83C4FFBB184348ED00383892 /* TLWobblySpringFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLWobblySpringFlowLayout.m; sourceTree = "<group>"; };
 		83C4FFBC184348ED00383892 /* TLWobblySpringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLWobblySpringViewController.h; sourceTree = "<group>"; };
 		83C4FFBD184348ED00383892 /* TLWobblySpringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLWobblySpringViewController.m; sourceTree = "<group>"; };
+		83EAB39F18B2B01B00D3F59F /* CMUIKitPinballEdgesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMUIKitPinballEdgesView.h; sourceTree = "<group>"; };
+		83EAB3A018B2B01B00D3F59F /* CMUIKitPinballEdgesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMUIKitPinballEdgesView.m; sourceTree = "<group>"; };
 		83FC942118436026009CABEE /* TLSpringFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSpringFlowLayout.h; sourceTree = "<group>"; };
 		83FC942218436026009CABEE /* TLSpringFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSpringFlowLayout.m; sourceTree = "<group>"; };
 		83FC942318436026009CABEE /* TLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLViewController.h; sourceTree = "<group>"; };
@@ -201,6 +204,8 @@
 				834EEC1B18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.m */,
 				8399904F18A823E700EFC3BC /* CMUIKitPinballViewController+Flippers.h */,
 				8399905018A823E700EFC3BC /* CMUIKitPinballViewController+Flippers.m */,
+				83EAB39F18B2B01B00D3F59F /* CMUIKitPinballEdgesView.h */,
+				83EAB3A018B2B01B00D3F59F /* CMUIKitPinballEdgesView.m */,
 			);
 			path = "UIKit Pinball";
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				834EEC1C18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.m in Sources */,
 				83FC943A1843690E009CABEE /* CMSpringyRopeView.m in Sources */,
 				83BA61891829D0FC00341483 /* DUCAppDelegate.m in Sources */,
+				83EAB3A118B2B01B00D3F59F /* CMUIKitPinballEdgesView.m in Sources */,
 				83457ADF189F694200677C99 /* CMUIKitPinballViewController.m in Sources */,
 				83BA618E1829D0FC00341483 /* APLContinuousPushViewController.m in Sources */,
 				83BA618A1829D0FC00341483 /* main.m in Sources */,

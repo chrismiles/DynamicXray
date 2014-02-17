@@ -19,9 +19,17 @@
     [self setupBorderEdges];
     [self setupLauncherBase];
     [self setupLauncherWall];
+
+    [self drawEdges];
 }
 
 - (void)setupBorderEdges
+{
+    UIBezierPath *path = [self borderEdgesPath];
+    [self.collisionBehavior addBoundaryWithIdentifier:@"Borders" forPath:path];
+}
+
+- (UIBezierPath *)borderEdgesPath
 {
     CGRect bounds = self.view.bounds;
     CGFloat minX = 0;
@@ -40,7 +48,7 @@
     [borders addArcWithCenter:CGPointMake(maxX - topCornerRadius, topCornerRadius) radius:topCornerRadius startAngle:M_PI_2*3.0f endAngle:0 clockwise:YES];
     [borders addLineToPoint:CGPointMake(maxX, maxY + height)];
 
-    [self.collisionBehavior addBoundaryWithIdentifier:@"Borders" forPath:borders];
+    return borders;
 }
 
 - (void)setupLauncherBase
@@ -56,6 +64,12 @@
 
 - (void)setupLauncherWall
 {
+    UIBezierPath *path = [self launcherWallPath];
+    [self.collisionBehavior addBoundaryWithIdentifier:@"LauncherWall" forPath:path];
+}
+
+- (UIBezierPath *)launcherWallPath
+{
     CGRect bounds = self.view.bounds;
     CGSize wallSize = self.launcherWallSize;
 
@@ -63,9 +77,40 @@
     CGFloat minY = CGRectGetHeight(bounds) - wallSize.height;
 
     CGRect boundaryFrame = CGRectMake(minX, minY, wallSize.width, wallSize.height);
-    UIBezierPath *boundaryPath = [UIBezierPath bezierPathWithRect:boundaryFrame];
+    UIBezierPath *path = [UIBezierPath bezierPathWithRect:boundaryFrame];
 
-    [self.collisionBehavior addBoundaryWithIdentifier:@"LauncherWall" forPath:boundaryPath];
+    return path;
+}
+
+- (void)drawEdges
+{
+    if (self.edgesView == nil) {
+        CMUIKitPinballEdgesView *edgesView = [[CMUIKitPinballEdgesView alloc] initWithFrame:self.view.bounds];
+        edgesView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+        edgesView.backgroundColor = self.view.backgroundColor;
+        [self.view addSubview:edgesView];
+
+        self.edgesView = edgesView;
+    }
+
+    CGRect bounds = self.view.bounds;
+    CGFloat minX = 0;
+    CGFloat maxX = CGRectGetMaxX(bounds);
+    CGFloat minY = 0;
+    CGFloat maxY = CGRectGetMaxY(bounds);
+
+    UIBezierPath *borderEdgesPath = [self borderEdgesPath];
+    // close path
+    [borderEdgesPath addLineToPoint:CGPointMake(maxX, minY)];
+    [borderEdgesPath addLineToPoint:CGPointMake(minX, minY)];
+    [borderEdgesPath addLineToPoint:CGPointMake(minX, maxY)];
+    [borderEdgesPath closePath];
+
+    UIBezierPath *launcherWallPath = [self launcherWallPath];
+
+    [self.edgesView removeAllPaths];
+    [self.edgesView addPath:borderEdgesPath];
+    [self.edgesView addPath:launcherWallPath];
 }
 
 @end

@@ -39,7 +39,7 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
     [self setupFlippers];
     [self setupFlipperButtons];
 
-    [self.dynamicsXray setActive:YES];
+    //[self.dynamicsXray setActive:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated
