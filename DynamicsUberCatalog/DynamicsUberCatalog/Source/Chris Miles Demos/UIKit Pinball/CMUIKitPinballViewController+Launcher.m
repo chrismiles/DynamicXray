@@ -138,6 +138,10 @@
         UICollisionBehavior *flapCollisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[flapView]];
         [self.dynamicAnimator addBehavior:flapCollisionBehavior];
 
+        UIDynamicItemBehavior *flapBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[flapView]];
+        flapBehavior.density = 0.1f;
+        [self.dynamicAnimator addBehavior:flapBehavior];
+
         [self.collisionBehavior addItem:flapView];
         [self.gravityBehavior addItem:flapView];
 
@@ -151,8 +155,8 @@
 
     self.flapPivotAttachment.anchorPoint = pivotAnchor;
 
-    CGRect flapCollisionRect = CGRectInset(flapFrame, -10.0f, 0);
-    flapCollisionRect = CGRectOffset(flapCollisionRect, -CGRectGetWidth(flapCollisionRect)/2.0f+1.0f, 0);
+    CGRect flapCollisionRect = CGRectInset(flapFrame, -10.0f, 20.0f);
+    flapCollisionRect = CGRectOffset(flapCollisionRect, -CGRectGetWidth(flapCollisionRect)/2.0f-2.0f, 0);
     UIBezierPath *flapCollisionPath = [UIBezierPath bezierPathWithRect:flapCollisionRect];
     CGAffineTransform rotateTransform = CGAffineTransformIdentity;
     rotateTransform = CGAffineTransformTranslate(rotateTransform, CGRectGetMidX(flapCollisionRect), CGRectGetMidY(flapCollisionRect));
