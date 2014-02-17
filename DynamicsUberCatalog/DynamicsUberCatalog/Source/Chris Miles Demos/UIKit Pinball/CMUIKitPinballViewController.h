@@ -11,4 +11,6 @@
 
 @interface CMUIKitPinballViewController : UIViewController
 
+- (void)addBall;
+
 @end

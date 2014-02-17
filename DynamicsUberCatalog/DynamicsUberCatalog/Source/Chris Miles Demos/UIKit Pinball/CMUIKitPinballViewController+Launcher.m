@@ -98,6 +98,11 @@
             [strongSelf.launchSpringItemBehavior addLinearVelocity:velocity forItem:launcherView];
 
             strongSelf.ballReadyForLaunch = nil;
+
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                __strong CMUIKitPinballViewController *strongSelf = weakSelf;
+                [strongSelf addBall];
+            });
         }
     };
 
