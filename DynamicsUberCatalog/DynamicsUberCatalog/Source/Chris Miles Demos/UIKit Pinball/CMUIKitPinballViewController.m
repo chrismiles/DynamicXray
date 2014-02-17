@@ -113,7 +113,41 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 - (void)addBall
 {
     if (self.ballReadyForLaunch == nil) {
-        UISwitch *newBall = [[UISwitch alloc] initWithFrame:CGRectZero];
+        UIView *newBall;
+
+        u_int32_t selection = arc4random_uniform(6);
+        if (selection == 0) {
+            newBall = [[UISwitch alloc] initWithFrame:CGRectZero];
+            [(UISwitch *)newBall setOn:YES];
+        }
+        else if (selection == 1) {
+            UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+            activityView.color = [UIColor orangeColor];
+            [activityView startAnimating];
+            newBall = activityView;
+        }
+        else if (selection == 2) {
+            UISegmentedControl *segmented = [[UISegmentedControl alloc] initWithItems:@[@"1", @"2"]];
+            [segmented setSelectedSegmentIndex:0];
+            newBall = segmented;
+        }
+        else if (selection == 3) {
+            UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 60.0f, 25.0f)];
+            textField.placeholder = @"Text";
+            textField.borderStyle = UITextBorderStyleRoundedRect;
+            newBall = textField;
+        }
+        else if (selection == 4) {
+            UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 60.0f, 25.0f)];
+            [slider setValue:0.5f];
+            newBall = slider;
+        }
+        else if (selection == 5) {
+            UIStepper *stepper = [[UIStepper alloc] initWithFrame:CGRectZero];
+            [stepper sizeToFit];
+            newBall = stepper;
+        }
+
         [newBall sizeToFit];
 
         CGSize ballSize = newBall.bounds.size;
