@@ -9,7 +9,7 @@
 #import "CMUIKitPinballViewController.h"
 #import "CMUIKitPinballEdgesView.h"
 
-@interface CMUIKitPinballViewController ()
+@interface CMUIKitPinballViewController () <UICollisionBehaviorDelegate>
 
 @property (strong, nonatomic) UIDynamicAnimator *dynamicAnimator;
 
@@ -41,6 +41,9 @@
 @property (strong, nonatomic) UICollisionBehavior *flapCollisionBehavior;
 
 @property (strong, nonatomic) CMUIKitPinballEdgesView *edgesView;
+
+@property (strong, nonatomic) NSMutableArray *bumperViews;
+@property (strong, nonatomic) UIDynamicItemBehavior *bumperItemBehavior;
 
 @property (assign, nonatomic) CGSize lastBoundsSize;
 

@@ -8,6 +8,7 @@
 
 #import "CMUIKitPinballViewController.h"
 #import "CMUIKitPinballViewController_Private.h"
+#import "CMUIKitPinballViewController+Bumpers.h"
 #import "CMUIKitPinballViewController+Edges.h"
 #import "CMUIKitPinballViewController+Flippers.h"
 #import "CMUIKitPinballViewController+Launcher.h"
@@ -38,6 +39,7 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
     [self setupLauncher];
     [self setupFlippers];
     [self setupFlipperButtons];
+    [self setupBumpers];
 
     //[self.dynamicsXray setActive:YES];
 }
@@ -92,7 +94,7 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
         [dynamicAnimator addBehavior:gravityBehavior];
 
         UICollisionBehavior *collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[]];
-        //collisionBehavior.collisionDelegate = self;
+        collisionBehavior.collisionDelegate = self;
         collisionBehavior.collisionMode = UICollisionBehaviorModeEverything;
         [dynamicAnimator addBehavior:collisionBehavior];
 
@@ -221,11 +223,17 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 }
 
 
-//#pragma mark - UICollisionBehaviorDelegate
-//
-//- (void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item withBoundaryIdentifier:(id<NSCopying>)identifier atPoint:(CGPoint)p
+#pragma mark - UICollisionBehaviorDelegate
+
+//- (void)collisionBehavior:(__unused UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item withBoundaryIdentifier:(__unused id<NSCopying>)identifier atPoint:(CGPoint)p
 //{
 //    DLog(@"%@ item: %@ identifier: %@", behavior, item, identifier);
+//
 //}
+
+- (void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item1 withItem:(id<UIDynamicItem>)item2 atPoint:(CGPoint)p
+{
+    [self checkBumperContactWithItem1:item1 item2:item2 atPoint:p];
+}
 
 @end
