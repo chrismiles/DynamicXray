@@ -225,15 +225,21 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 
 #pragma mark - UICollisionBehaviorDelegate
 
-//- (void)collisionBehavior:(__unused UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item withBoundaryIdentifier:(__unused id<NSCopying>)identifier atPoint:(CGPoint)p
-//{
-//    DLog(@"%@ item: %@ identifier: %@", behavior, item, identifier);
-//
-//}
-
-- (void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item1 withItem:(id<UIDynamicItem>)item2 atPoint:(CGPoint)p
+- (void)collisionBehavior:(__unused UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item withBoundaryIdentifier:(id<NSCopying>)identifier atPoint:(CGPoint)p
 {
-    [self checkBumperContactWithItem1:item1 item2:item2 atPoint:p];
+    //DLog(@"%@ item: %@ identifier: %@", behavior, item, identifier);
+
+    NSString *boundaryID = (NSString *)identifier;
+    if ([boundaryID isKindOfClass:[NSString class]]) {
+        if ([boundaryID hasPrefix:CMUIKitPinballBumperBoundaryIdentifierPrefix]) {
+            [self handleBumperContactWithBoundaryIdentifier:boundaryID item:item atPoint:p];
+        }
+    }
 }
+
+//- (void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item1 withItem:(id<UIDynamicItem>)item2 atPoint:(CGPoint)p
+//{
+//    [self checkBumperContactWithItem1:item1 item2:item2 atPoint:p];
+//}
 
 @end

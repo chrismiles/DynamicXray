@@ -10,11 +10,18 @@
 #import "CMUIKitPinballViewController_Private.h"
 
 
+static NSString *const CMUIKitPinballEdgeBoundaryIdentifierBorders = @"Borders";
+static NSString *const CMUIKitPinballEdgeBoundaryIdentifierLauncherBase = @"Launcher Base";
+static NSString *const CMUIKitPinballEdgeBoundaryIdentifierLauncherWall = @"LauncherWall";
+
+
 @implementation CMUIKitPinballViewController (Edges)
 
 - (void)setupEdges
 {
-    [self.collisionBehavior removeAllBoundaries];
+    [self.collisionBehavior removeBoundaryWithIdentifier:CMUIKitPinballEdgeBoundaryIdentifierBorders];
+    [self.collisionBehavior removeBoundaryWithIdentifier:CMUIKitPinballEdgeBoundaryIdentifierLauncherBase];
+    [self.collisionBehavior removeBoundaryWithIdentifier:CMUIKitPinballEdgeBoundaryIdentifierLauncherWall];
 
     [self setupBorderEdges];
     [self setupLauncherBase];
@@ -26,7 +33,7 @@
 - (void)setupBorderEdges
 {
     UIBezierPath *path = [self borderEdgesPath];
-    [self.collisionBehavior addBoundaryWithIdentifier:@"Borders" forPath:path];
+    [self.collisionBehavior addBoundaryWithIdentifier:CMUIKitPinballEdgeBoundaryIdentifierBorders forPath:path];
 }
 
 - (UIBezierPath *)borderEdgesPath
@@ -57,7 +64,7 @@
     CGFloat maxX = CGRectGetMaxX(bounds);
     CGFloat maxY = CGRectGetMaxY(bounds);
 
-    [self.collisionBehavior addBoundaryWithIdentifier:@"Launcher Base"
+    [self.collisionBehavior addBoundaryWithIdentifier:CMUIKitPinballEdgeBoundaryIdentifierLauncherBase
                                             fromPoint:CGPointMake(maxX - self.launcherWidth, maxY)
                                               toPoint:CGPointMake(maxX, maxY)];
 }
@@ -65,7 +72,7 @@
 - (void)setupLauncherWall
 {
     UIBezierPath *path = [self launcherWallPath];
-    [self.collisionBehavior addBoundaryWithIdentifier:@"LauncherWall" forPath:path];
+    [self.collisionBehavior addBoundaryWithIdentifier:CMUIKitPinballEdgeBoundaryIdentifierLauncherWall forPath:path];
 }
 
 - (UIBezierPath *)launcherWallPath

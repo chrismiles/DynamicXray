@@ -43,7 +43,7 @@
 @property (strong, nonatomic) CMUIKitPinballEdgesView *edgesView;
 
 @property (strong, nonatomic) NSMutableArray *bumperViews;
-@property (strong, nonatomic) UIDynamicItemBehavior *bumperItemBehavior;
+@property (strong, nonatomic) NSMutableDictionary *bumperPushBehaviors;
 
 @property (assign, nonatomic) CGSize lastBoundsSize;
 

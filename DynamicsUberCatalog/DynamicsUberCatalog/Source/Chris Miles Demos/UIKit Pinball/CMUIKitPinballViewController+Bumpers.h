@@ -8,10 +8,13 @@
 
 #import "CMUIKitPinballViewController.h"
 
+extern NSString * const CMUIKitPinballBumperBoundaryIdentifierPrefix;
+
+
 @interface CMUIKitPinballViewController (Bumpers)
 
 - (void)setupBumpers;
 
-- (void)checkBumperContactWithItem1:(id<UIDynamicItem>)item1 item2:(id<UIDynamicItem>)item2 atPoint:(CGPoint)p;
+- (void)handleBumperContactWithBoundaryIdentifier:(NSString *)boundaryID item:(id<UIDynamicItem>)item atPoint:(CGPoint)p;
 
 @end

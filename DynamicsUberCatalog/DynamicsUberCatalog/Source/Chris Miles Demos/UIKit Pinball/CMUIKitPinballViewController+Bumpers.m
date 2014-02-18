@@ -10,72 +10,66 @@
 #import "CMUIKitPinballViewController_Private.h"
 #import "CMUIKitPinballBumperView.h"
 
+
+NSString * const CMUIKitPinballBumperBoundaryIdentifierPrefix = @"bumper";
+
+
 @implementation CMUIKitPinballViewController (Bumpers)
 
 - (void)setupBumpers
 {
+    CGRect bounds = self.view.bounds;
+    CGFloat width = CGRectGetWidth(bounds);
+    CGFloat height = CGRectGetHeight(bounds);
+
+    NSArray *bumperPositions = @[
+                                 @[@(width * 0.3f), @(height * 0.14f)],
+                                 @[@(width * 0.7f), @(height * 0.14f)],
+                                 ];
+
     if (self.bumperViews == nil) {
         self.bumperViews = [NSMutableArray array];
+
+        for (NSArray *bumperPosValue in bumperPositions) {
+            CGPoint position;
+            position.x = [bumperPosValue[0] floatValue];
+            position.y = [bumperPosValue[1] floatValue];
+
+            UIView *bumperView = [self newBumperView];
+            [self.view addSubview:bumperView];
+            [self.bumperViews addObject:bumperView];
+        }
     }
 
-    for (UIView *bumperView in self.bumperViews) {
-        [bumperView removeFromSuperview];
-        [self.bumperItemBehavior removeItem:bumperView];
-        [self.collisionBehavior removeItem:bumperView];
-    }
-    [self.bumperViews removeAllObjects];
-
-    if (self.bumperItemBehavior == nil) {
-        UIDynamicItemBehavior *bumperBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[]];
-        bumperBehavior.allowsRotation = NO;
-        bumperBehavior.density = 0.1f;
-
-        __weak CMUIKitPinballViewController *weakSelf = self;
-
-        bumperBehavior.action = ^{
-            __strong CMUIKitPinballViewController *strongSelf = weakSelf;
-
-            for (CMUIKitPinballBumperView *bumperView in strongSelf.bumperViews) {
-                bumperView.center = bumperView.originalCenterPosition;
-                [strongSelf.dynamicAnimator updateItemUsingCurrentState:bumperView];
-
-                CGPoint velocity = [strongSelf.launchSpringItemBehavior linearVelocityForItem:bumperView];
-                velocity.x = -velocity.x;
-                velocity.y = -velocity.y;
-                [strongSelf.launchSpringItemBehavior addLinearVelocity:velocity forItem:bumperView];
-            }
-        };
-        [self.dynamicAnimator addBehavior:bumperBehavior];
-
-        self.bumperItemBehavior = bumperBehavior;
+    if (self.bumperPushBehaviors == nil) {
+        self.bumperPushBehaviors = [NSMutableDictionary dictionary];
     }
 
-    {
-        UIView *bumper1View = [self newBumperViewAtPosition:CGPointMake(100.0f, 100.0f)];
-        [self.view addSubview:bumper1View];
-
-        [self.bumperItemBehavior addItem:bumper1View];
-        [self.collisionBehavior addItem:bumper1View];
-        [self.bumperViews addObject:bumper1View];
+    for (NSString *boundaryID in [self.collisionBehavior.boundaryIdentifiers copy]) {
+        if ([boundaryID hasPrefix:CMUIKitPinballBumperBoundaryIdentifierPrefix]) {
+            [self.collisionBehavior removeBoundaryWithIdentifier:boundaryID];
+        }
     }
 
-    {
-        UIView *bumper2View = [self newBumperViewAtPosition:CGPointMake(200.0f, 100.0f)];
-        [self.view addSubview:bumper2View];
+    [self.bumperViews enumerateObjectsUsingBlock:^(UIView *bumperView, NSUInteger idx, __unused BOOL *stop) {
+        NSArray *bumperPosValue = bumperPositions[idx];
+        CGPoint position;
+        position.x = [bumperPosValue[0] floatValue];
+        position.y = [bumperPosValue[1] floatValue];
 
-        [self.bumperItemBehavior addItem:bumper2View];
-        [self.collisionBehavior addItem:bumper2View];
-        [self.bumperViews addObject:bumper2View];
-    }
+        bumperView.center = position;
+
+        NSString *boundaryID = [NSString stringWithFormat:@"%@%lu", CMUIKitPinballBumperBoundaryIdentifierPrefix, (unsigned long)idx];
+        UIBezierPath *bumperPath = [UIBezierPath bezierPathWithOvalInRect:bumperView.frame];
+        [self.collisionBehavior addBoundaryWithIdentifier:boundaryID forPath:bumperPath];
+    }];
 }
 
-- (UIView *)newBumperViewAtPosition:(CGPoint)position
+- (UIView *)newBumperView
 {
     CGFloat const bumperRadius = 15.0f;
 
-    CMUIKitPinballBumperView *bumperView = [[CMUIKitPinballBumperView alloc] initWithFrame:CGRectMake(0, 0, bumperRadius * 2.0f, bumperRadius * 2.0f)];
-    bumperView.originalCenterPosition = position;
-    bumperView.center = position;
+    UIView *bumperView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, bumperRadius * 2.0f, bumperRadius * 2.0f)];
     bumperView.backgroundColor = [UIColor greenColor];
     bumperView.layer.cornerRadius = bumperRadius;
     bumperView.layer.masksToBounds = YES;
@@ -83,24 +77,29 @@
     return bumperView;
 }
 
-- (void)checkBumperContactWithItem1:(id<UIDynamicItem>)item1 item2:(id<UIDynamicItem>)item2 atPoint:(CGPoint)p
+- (void)handleBumperContactWithBoundaryIdentifier:(NSString *)boundaryID item:(id<UIDynamicItem>)item atPoint:(__unused CGPoint)p
 {
-    if ([item1 isKindOfClass:[CMUIKitPinballBumperView class]]) {
-        [self handleContactWithBumper:(CMUIKitPinballBumperView *)item1 ballView:(UIView *)item2 atPoint:p];
-    }
-    else if ([item2 isKindOfClass:[CMUIKitPinballBumperView class]]) {
-        [self handleContactWithBumper:(CMUIKitPinballBumperView *)item2 ballView:(UIView *)item1 atPoint:p];
-    }
-}
+    UIView *bumperView = [self bumperViewForBoundaryIdentifier:boundaryID];
+    UIView *ballView = (UIView *)item;
 
-- (void)handleContactWithBumper:(CMUIKitPinballBumperView *)bumperView ballView:(UIView *)ballView atPoint:(__unused CGPoint)p
-{
-    CGFloat bumpAngle = atan2(ballView.center.x - bumperView.center.x, ballView.center.y - bumperView.center.y);
+    CGFloat bumpAngle = atan2(item.center.y - bumperView.center.y, item.center.x - bumperView.center.x);
 
-    UIPushBehavior *bumpBehavior = [[UIPushBehavior alloc] initWithItems:@[ballView] mode:UIPushBehaviorModeInstantaneous];
-    bumpBehavior.magnitude = 1.0f;
-    bumpBehavior.angle = bumpAngle;
+    CGPoint itemBumpPoint = [ballView convertPoint:p fromView:self.dynamicAnimator.referenceView];
+
+    UIOffset bumpOffset = UIOffsetMake(itemBumpPoint.x - CGRectGetWidth(ballView.bounds)/2.0f,
+                                       itemBumpPoint.y - CGRectGetWidth(ballView.bounds)/2.0f);
+
+    UIPushBehavior *bumpBehavior = self.bumperPushBehaviors[boundaryID];
+    if (bumpBehavior) {
+        [self.dynamicAnimator removeBehavior:bumpBehavior];
+    }
+    bumpBehavior = [[UIPushBehavior alloc] initWithItems:@[item] mode:UIPushBehaviorModeInstantaneous];
     [self.dynamicAnimator addBehavior:bumpBehavior];
+    self.bumperPushBehaviors[boundaryID] = bumpBehavior;
+    bumpBehavior.magnitude = 0.5f;
+    bumpBehavior.angle = bumpAngle;
+    [bumpBehavior setTargetOffsetFromCenter:bumpOffset forItem:item];
+    bumpBehavior.active = YES;
 
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform"];
     animation.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
@@ -108,6 +107,13 @@
     animation.duration = 0.1;
     animation.autoreverses = YES;
     [bumperView.layer addAnimation:animation forKey:@"transform"];
+}
+
+- (UIView *)bumperViewForBoundaryIdentifier:(NSString *)boundaryID
+{
+    NSInteger index = [[boundaryID substringFromIndex:[CMUIKitPinballBumperBoundaryIdentifierPrefix length]] integerValue];
+    UIView *bumperView = self.bumperViews[index];
+    return bumperView;
 }
 
 @end
