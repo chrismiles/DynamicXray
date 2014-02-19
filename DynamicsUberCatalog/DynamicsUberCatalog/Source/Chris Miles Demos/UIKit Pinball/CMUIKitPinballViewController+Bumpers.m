@@ -24,8 +24,8 @@ NSString * const CMUIKitPinballBumperBoundaryIdentifierPrefix = @"bumper";
     CGFloat height = CGRectGetHeight(bounds);
 
     NSArray *bumperPositions = @[
-                                 @[@(width * 0.3f), @(height * 0.14f)],
-                                 @[@(width * 0.7f), @(height * 0.14f)],
+                                 @[@(width * 0.3f), @(height * 0.15f)],
+                                 @[@(width * 0.7f), @(height * 0.15f)],
                                  ];
 
     if (self.bumperViews == nil) {
