@@ -24,6 +24,9 @@ extern CGSize              const CMUIKitPinballFlipperSizePadLandscape;
 extern CGFloat             const CMUIKitPinballFlipperAnglePhone;
 extern CGFloat             const CMUIKitPinballFlipperAnglePad;
 
+extern CGFloat             const CMUIKitPinballTopEdgeCornerRadiusPhone;
+extern CGFloat             const CMUIKitPinballTopEdgeCornerRadiusPad;
+
 
 #define ConfigValueForIdiom(padIdiomValue, phoneIdiomValue) ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ? padIdiomValue : phoneIdiomValue)
 

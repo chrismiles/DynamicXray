@@ -7,6 +7,7 @@
 //
 
 #import "CMUIKitPinballViewController+Edges.h"
+#import "CMUIKitPinballViewController+Configuration.h"
 #import "CMUIKitPinballViewController_Private.h"
 
 
@@ -46,7 +47,7 @@ static NSString *const CMUIKitPinballEdgeBoundaryIdentifierLauncherWall = @"Laun
     CGFloat height = CGRectGetHeight(bounds);
 
     // Left/right/top borders
-    CGFloat topCornerRadius = 90.0f;
+    CGFloat topCornerRadius = ConfigValueForIdiom(CMUIKitPinballTopEdgeCornerRadiusPad, CMUIKitPinballTopEdgeCornerRadiusPhone);
     UIBezierPath *borders = [UIBezierPath bezierPath];
     [borders moveToPoint:CGPointMake(minX, maxY + height)];
     [borders addLineToPoint:CGPointMake(minX, topCornerRadius)];

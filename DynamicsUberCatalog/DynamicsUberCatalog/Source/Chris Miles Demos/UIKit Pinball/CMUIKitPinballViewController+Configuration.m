@@ -23,3 +23,7 @@ CGSize              const CMUIKitPinballFlipperSizePadLandscape = {350.0f, 40.0f
 
 CGFloat             const CMUIKitPinballFlipperAnglePhone       = 25.0f;
 CGFloat             const CMUIKitPinballFlipperAnglePad         = 15.0f;
+
+
+CGFloat             const CMUIKitPinballTopEdgeCornerRadiusPhone = 90.0f;
+CGFloat             const CMUIKitPinballTopEdgeCornerRadiusPad  = 160.0f;
