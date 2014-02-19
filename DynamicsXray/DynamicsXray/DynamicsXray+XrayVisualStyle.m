@@ -32,7 +32,7 @@
     UIColor *backgroundColor;
 
     if (self.crossFade > 0) {
-        backgroundColor = [UIColor colorWithWhite:1.0f alpha:fabsf(self.crossFade)];
+        backgroundColor = [UIColor colorWithWhite:0 alpha:fabsf(self.crossFade)];
     }
     else {
         backgroundColor = [UIColor clearColor];
