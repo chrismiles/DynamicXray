@@ -8,6 +8,7 @@
 
 #import "CMUIKitPinballViewController+Bumpers.h"
 #import "CMUIKitPinballViewController_Private.h"
+#import "CMUIKitPinballViewController+Configuration.h"
 #import "CMUIKitPinballBumperView.h"
 
 
@@ -67,7 +68,7 @@ NSString * const CMUIKitPinballBumperBoundaryIdentifierPrefix = @"bumper";
 
 - (UIView *)newBumperView
 {
-    CGFloat const bumperRadius = 15.0f;
+    CGFloat const bumperRadius = ConfigValueForIdiom(CMUIKitPinballBumperRadiusPad, CMUIKitPinballBumperRadiusPhone);
 
     UIView *bumperView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, bumperRadius * 2.0f, bumperRadius * 2.0f)];
     bumperView.backgroundColor = [UIColor greenColor];

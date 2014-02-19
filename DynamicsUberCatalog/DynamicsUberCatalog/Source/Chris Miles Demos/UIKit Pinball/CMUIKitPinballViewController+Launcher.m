@@ -7,6 +7,7 @@
 //
 
 #import "CMUIKitPinballViewController+Launcher.h"
+#import "CMUIKitPinballViewController+Configuration.h"
 #import "CMUIKitPinballViewController_Private.h"
 
 
@@ -75,8 +76,9 @@
 {
     UIView *launcherView = self.launchButton;
 
+    CGFloat launchMagnitude = ConfigValueForIdiom(CMUIKitPinballLaunchMagnitudePad, CMUIKitPinballLaunchMagnitudePhone);
     UIPushBehavior *pushBehavior = [[UIPushBehavior alloc] initWithItems:@[launcherView] mode:UIPushBehaviorModeContinuous];
-    [pushBehavior setAngle:-M_PI_2 magnitude:20.0f];
+    [pushBehavior setAngle:-M_PI_2 magnitude:launchMagnitude];
 
     __weak UIPushBehavior *weakPushBehavior = pushBehavior;
     __weak CMUIKitPinballViewController *weakSelf = self;
@@ -119,7 +121,7 @@
     CGFloat width = CGRectGetWidth(bounds);
     CGFloat height = CGRectGetHeight(bounds);
     CGSize wallSize = self.launcherWallSize;
-    CGSize flapSize = CGSizeMake(wallSize.width, self.launcherWidth * 1.5f);
+    CGSize flapSize = CGSizeMake(wallSize.width, self.launcherWidth * 1.7f);
 
     CGRect flapFrame = CGRectMake(width - self.launcherWidth - flapSize.width*1.5f,
                                   height - wallSize.height - wallSize.width*2.0f - flapSize.height,
@@ -155,6 +157,7 @@
         self.flapCollisionBehavior = flapCollisionBehavior;
     }
 
+    self.flapView.transform = CGAffineTransformIdentity;
     self.flapView.frame = flapFrame;
     [self.dynamicAnimator updateItemUsingCurrentState:self.flapView];
 

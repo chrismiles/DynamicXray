@@ -9,6 +9,7 @@
 #import "CMUIKitPinballViewController.h"
 #import "CMUIKitPinballViewController_Private.h"
 #import "CMUIKitPinballViewController+Bumpers.h"
+#import "CMUIKitPinballViewController+Configuration.h"
 #import "CMUIKitPinballViewController+Edges.h"
 #import "CMUIKitPinballViewController+Flippers.h"
 #import "CMUIKitPinballViewController+Launcher.h"
@@ -62,6 +63,8 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
         [self setupEdges];
         [self setupLauncher];
         [self layoutFlippers];
+        [self setupFlipperButtons];
+        [self setupBumpers];
     }
 }
 
@@ -70,10 +73,13 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
     self.launcherWidth = ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad ? 120.0f : 60.0f);
     self.launchButtonHeight = 60.0f;
     self.launchSpringHeight = 180.0f;
-    self.flipperSize = CGSizeMake(100.0f, 30.0f);
-    self.flipperAngle = 25.0f * M_PI / 180.0f;
+    self.flipperAngle = ConfigValueForIdiom(CMUIKitPinballFlipperAnglePad, CMUIKitPinballFlipperAnglePhone) * M_PI / 180.0f;
 
-    self.launcherWallSize = CGSizeMake(4.0f, CGRectGetHeight(bounds) * 0.6f);
+    CGSize flipperSize = ConfigValueForIdiom((UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation) ? CMUIKitPinballFlipperSizePadLandscape : CMUIKitPinballFlipperSizePadPortrait), CMUIKitPinballFlipperSizePhone);
+
+    self.flipperSize = flipperSize;
+
+    self.launcherWallSize = CGSizeMake(4.0f, CGRectGetHeight(bounds) * 0.5f);
 }
 
 

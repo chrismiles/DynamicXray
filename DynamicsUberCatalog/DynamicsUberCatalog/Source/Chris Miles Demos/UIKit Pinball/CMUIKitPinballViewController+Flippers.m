@@ -96,6 +96,8 @@
                                          height - flipperSize.height*3.0f,
                                          flipperSize.width,
                                          flipperSize.height);
+
+        self.leftFlipper.transform = CGAffineTransformIdentity;
         self.leftFlipper.frame = flipperFrame;
         [self.dynamicAnimator updateItemUsingCurrentState:self.leftFlipper];
 
@@ -117,6 +119,7 @@
                                          flipperSize.width,
                                          flipperSize.height);
 
+        self.rightFlipper.transform = CGAffineTransformIdentity;
         self.rightFlipper.frame = flipperFrame;
         [self.dynamicAnimator updateItemUsingCurrentState:self.rightFlipper];
 

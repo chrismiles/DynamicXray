@@ -18,6 +18,7 @@
 		834EEC1818A4BD3200914CBB /* CMUIKitPinballViewController+Launcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 834EEC1718A4BD3200914CBB /* CMUIKitPinballViewController+Launcher.m */; };
 		834EEC1C18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.m in Sources */ = {isa = PBXBuildFile; fileRef = 834EEC1B18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.m */; };
 		835D57E5187BE1C7006CB05B /* libDynamicsXray.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 835D57E4187BE1C7006CB05B /* libDynamicsXray.a */; };
+		836FC39D18B495830041869D /* CMUIKitPinballViewController+Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 836FC39C18B495830041869D /* CMUIKitPinballViewController+Configuration.m */; };
 		8399905118A823E700EFC3BC /* CMUIKitPinballViewController+Flippers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8399905018A823E700EFC3BC /* CMUIKitPinballViewController+Flippers.m */; };
 		83BA61891829D0FC00341483 /* DUCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61691829D0FC00341483 /* DUCAppDelegate.m */; };
 		83BA618A1829D0FC00341483 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA616A1829D0FC00341483 /* main.m */; };
@@ -64,6 +65,8 @@
 		834EEC1A18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMUIKitPinballViewController+Edges.h"; sourceTree = "<group>"; };
 		834EEC1B18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CMUIKitPinballViewController+Edges.m"; sourceTree = "<group>"; };
 		835D57E4187BE1C7006CB05B /* libDynamicsXray.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDynamicsXray.a; path = "../DynamicsXray/build/Debug-iphoneos/libDynamicsXray.a"; sourceTree = "<group>"; };
+		836FC39B18B495830041869D /* CMUIKitPinballViewController+Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMUIKitPinballViewController+Configuration.h"; sourceTree = "<group>"; };
+		836FC39C18B495830041869D /* CMUIKitPinballViewController+Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CMUIKitPinballViewController+Configuration.m"; sourceTree = "<group>"; };
 		8399904F18A823E700EFC3BC /* CMUIKitPinballViewController+Flippers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMUIKitPinballViewController+Flippers.h"; sourceTree = "<group>"; };
 		8399905018A823E700EFC3BC /* CMUIKitPinballViewController+Flippers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CMUIKitPinballViewController+Flippers.m"; sourceTree = "<group>"; };
 		83BA61681829D0FC00341483 /* DUCAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DUCAppDelegate.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				834EEC1918A4BD5F00914CBB /* CMUIKitPinballViewController_Private.h */,
 				83EAB3A218B2B98400D3F59F /* CMUIKitPinballViewController+Bumpers.h */,
 				83EAB3A318B2B98400D3F59F /* CMUIKitPinballViewController+Bumpers.m */,
+				836FC39B18B495830041869D /* CMUIKitPinballViewController+Configuration.h */,
+				836FC39C18B495830041869D /* CMUIKitPinballViewController+Configuration.m */,
 				834EEC1A18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.h */,
 				834EEC1B18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.m */,
 				8399904F18A823E700EFC3BC /* CMUIKitPinballViewController+Flippers.h */,
@@ -402,6 +407,7 @@
 				8399905118A823E700EFC3BC /* CMUIKitPinballViewController+Flippers.m in Sources */,
 				834EEC1818A4BD3200914CBB /* CMUIKitPinballViewController+Launcher.m in Sources */,
 				83BA61921829D0FC00341483 /* APLSnapViewController.m in Sources */,
+				836FC39D18B495830041869D /* CMUIKitPinballViewController+Configuration.m in Sources */,
 				83BA61911829D0FC00341483 /* APLItemPropertiesViewController.m in Sources */,
 				83FC942718436026009CABEE /* TLViewController.m in Sources */,
 				83C4FFBF184348ED00383892 /* TLWobblySpringViewController.m in Sources */,
