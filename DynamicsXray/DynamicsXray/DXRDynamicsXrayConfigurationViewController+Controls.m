@@ -50,6 +50,11 @@
     titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [contentsView addSubview:titleLabel];
 
+    UILabel *byLabel = [self byLabel];
+    byLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [contentsView addSubview:byLabel];
+
+
     // Controls
 
     UISwitch *activeToggleSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 0, 0)];
@@ -79,7 +84,7 @@
     [contentsView addConstraint:[NSLayoutConstraint constraintWithItem:activeLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:activeToggleSwitch attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0]];
     [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[faderView(==faderViewHeight)]" options:0 metrics:layoutMetrics views:layoutViews]];
 
-    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[titleLabel]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(titleLabel)]];
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[titleLabel][byLabel]" options:NSLayoutFormatAlignAllBaseline metrics:nil views:NSDictionaryOfVariableBindings(titleLabel, byLabel)]];
     [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[titleLabel]-(2)-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(titleLabel)]];
 
     return controlsView;
@@ -132,25 +137,40 @@
 - (UILabel *)titleLabel
 {
     NSString *name = @"DynamicsXray";
-    NSString *version = [NSString stringWithFormat:@"(v%@)", DynamicsXrayVersion];
-    NSString *byLine = @"by Chris Miles";
 
-    NSString *title = [NSString stringWithFormat:@"%@ %@ %@", name, byLine, version];
-
-    UIFont *titleFont = [UIFont systemFontOfSize:7.0f];
-
+    UIFont *titleFont = [UIFont systemFontOfSize:17.0f];
     NSDictionary *textAttributes = @{ NSForegroundColorAttributeName : [UIColor colorWithWhite:0.8f alpha:1.0f],
                                       NSFontAttributeName : titleFont,
                                       NSTextEffectAttributeName : NSTextEffectLetterpressStyle
                                       };
 
-    NSMutableAttributedString *attributedTitled = [[NSMutableAttributedString alloc] initWithString:title attributes:textAttributes];
-    [attributedTitled addAttribute:NSFontAttributeName value:[titleFont fontWithSize:12.0f] range:NSMakeRange(0, [name length])];
+    NSMutableAttributedString *attributedTitled = [[NSMutableAttributedString alloc] initWithString:name attributes:textAttributes];
 
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    titleLabel.attributedText = attributedTitled;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.attributedText = attributedTitled;
 
-    return titleLabel;
+    return label;
+}
+
+- (UILabel *)byLabel
+{
+    NSString *version = [NSString stringWithFormat:@"v%@", DynamicsXrayVersion];
+    NSString *byLine = @"by Chris Miles";
+
+    NSString *byText = [NSString stringWithFormat:@"%@\n%@", version, byLine];
+
+    UIFont *titleFont = [UIFont systemFontOfSize:7.0f];
+    NSDictionary *textAttributes = @{ NSForegroundColorAttributeName : [UIColor colorWithWhite:0.8f alpha:1.0f],
+                                      NSFontAttributeName : titleFont,
+                                      NSTextEffectAttributeName : NSTextEffectLetterpressStyle
+                                      };
+    NSMutableAttributedString *attributedTitled = [[NSMutableAttributedString alloc] initWithString:byText attributes:textAttributes];
+
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.numberOfLines = 2;
+    label.attributedText = attributedTitled;
+
+    return label;
 }
 
 
