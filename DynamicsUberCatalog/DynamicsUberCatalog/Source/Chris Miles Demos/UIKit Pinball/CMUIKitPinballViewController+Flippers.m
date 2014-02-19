@@ -96,6 +96,8 @@
                                          height - flipperSize.height*3.0f,
                                          flipperSize.width,
                                          flipperSize.height);
+        self.leftFlipper.frame = flipperFrame;
+        [self.dynamicAnimator updateItemUsingCurrentState:self.leftFlipper];
 
         CGPoint rotationAnchorPoint = CGPointMake(flipperFrame.origin.x + flipperSize.height/2.0f,
                                                   flipperFrame.origin.y + flipperSize.height/2.0f);
@@ -114,6 +116,9 @@
                                          height - flipperSize.height*3.0f,
                                          flipperSize.width,
                                          flipperSize.height);
+
+        self.rightFlipper.frame = flipperFrame;
+        [self.dynamicAnimator updateItemUsingCurrentState:self.rightFlipper];
 
         CGPoint rotationAnchorPoint = CGPointMake(CGRectGetMaxX(flipperFrame) - flipperSize.height/2.0f,
                                                   flipperFrame.origin.y + flipperSize.height/2.0f);
