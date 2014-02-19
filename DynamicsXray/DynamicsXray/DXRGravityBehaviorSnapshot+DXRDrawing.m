@@ -42,7 +42,7 @@ static CGFloat const arrowHeadPointOffsetAngle = 0.25f;
     CGContextDrawPath(context, kCGPathStroke);
 
     // Draw label inside circle
-    NSString *label = [NSString stringWithFormat:@"%gg", self.magnitude];
+    NSString *label = [NSString stringWithFormat:@"%0.1fg", self.magnitude];
     
     NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     [style setAlignment:NSTextAlignmentCenter];
