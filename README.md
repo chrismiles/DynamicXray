@@ -7,6 +7,10 @@ Ever wanted to see under the hood of the UIKit Dynamics physics engine?
 Now you can! With DynamicsXray you can visualise your dynamic animator live at
 runtime, exposing all dynamic behaviours and dynamic items.
 
+DynamicsXray includes a suite of UIKit Dynamics demonstrations in a universal iOS app:
+DynamicsUberCatalog. All of the demos allow DynamicsXray introspection to be enabled.
+
+
 
 Quick Start
 ===========
@@ -43,6 +47,21 @@ For example:
     DynamicsXray *xray = [[DynamicsXray alloc] init];
     [self.dynamicAnimator addBehavior:xray];
     [xray presentConfigurationViewController];
+
+
+DynamicsUberCatalog
+===================
+
+The included project DynamicsUberCatalog is a universal iOS app containing a suite
+of various UIKit Dynamics demonstrations. The demos include DynamicsXray pre-loaded
+so introspection can be enabled on any demo to see the inner workings.
+
+The demos in DynamicsUberCatalog were created by various authors and all are open
+source.
+
+Submit a pull request if you would like to contribute a demo to DynamicsUberCatalog.
+Please make sure that your demo includes an option to enable DynamicsXray.
+
 
 
 License
