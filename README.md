@@ -34,8 +34,8 @@ For more control, the DynamicsXray behaviour exposes options such as temporarily
 the overlay, adjusting the cross fade between app and overlay, whether to draw dynamic
 item outlines, and more. Refer to the DynamicsXray header.
 
-DynamicsXray includes a built-in control panel that slides up from the bottom of the
-screen. The control panel provides access to some options at runtime. The control panel
+DynamicsXray includes a built-in configuration panel that slides up from the bottom of the
+screen. The configuration panel provides access to some options at runtime. The configuration panel
 can be presented by calling -presentConfigurationViewController.
 
 For example:
