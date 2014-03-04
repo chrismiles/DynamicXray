@@ -31,9 +31,11 @@
     controlsView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin);
     controlsView.backgroundColor = [UIColor clearColor];
 
+    controlsView.tintColor = [UIColor colorWithRed:0 green:0.639216f blue:0.85098f alpha:1.0f];
+
     // Add a UIToolbar simply to get its nice blur
     UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:controlsView.bounds];
-    toolbar.barStyle = UIBarStyleDefault;
+    toolbar.barStyle = UIBarStyleBlackTranslucent;
     toolbar.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     [controlsView addSubview:toolbar];
 
@@ -60,6 +62,7 @@
     UISwitch *activeToggleSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(20.0f, 20.0f, 0, 0)];
     [activeToggleSwitch sizeToFit];
     [activeToggleSwitch setOn:self.dynamicsXray.isActive];
+    [activeToggleSwitch setOnTintColor:controlsView.tintColor];
     [activeToggleSwitch addTarget:self action:@selector(activeToggleAction:) forControlEvents:UIControlEventValueChanged];
 
     UILabel *activeLabel = [[UILabel alloc] initWithFrame:CGRectZero];
