@@ -67,5 +67,12 @@ Please make sure that your demo includes an option to enable DynamicsXray.
 License
 =======
 
-DynamicsXray is Copyright (c) Chris Miles 2013-2014.
+DynamicsXray is Copyright (c) Chris Miles 2013-2014 and available for use under a GPL-3.0 license.
 
+The DynamicsXray icon and any other included artwork is Copyright (c) Chris Miles 2013-2014 and available for use under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
+
+DynamicsUberCatalog is Copyright (c) Chris Miles 2013-2014 and others. DynamicsUberCatalog contains source code copyrighted by others and included within the terms of the respective licenses. See the source code for more details.
+
+DynamicsUberCatalog is available for use under a BSD (2-Clause) License, except for where included source code specifies alternative license details, then that code remains available under the original license terms. Refer to the source code for more details.
+
+See LICENSE.txt for more details.
