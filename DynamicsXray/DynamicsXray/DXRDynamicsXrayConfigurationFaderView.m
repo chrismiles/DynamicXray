@@ -43,6 +43,18 @@
                                                                      options:NSLayoutFormatAlignAllCenterY
                                                                      metrics:layoutMetrics
                                                                        views:layoutViews]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[faderAppLabel]-(>=0)-|"
+                                                                     options:0
+                                                                     metrics:layoutMetrics
+                                                                       views:layoutViews]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[faderSlider]-(>=0)-|"
+                                                                     options:0
+                                                                     metrics:layoutMetrics
+                                                                       views:layoutViews]];
+        [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[faderXrayLabel]-(>=0)-|"
+                                                                     options:0
+                                                                     metrics:layoutMetrics
+                                                                       views:layoutViews]];
 
         self.faderSlider = faderSlider;
     }
