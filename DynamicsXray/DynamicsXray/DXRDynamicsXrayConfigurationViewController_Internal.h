@@ -7,6 +7,7 @@
 //
 
 #import "DXRDynamicsXrayConfigurationViewController.h"
+#import "DXRDynamicsXrayConfigurationControlsView.h"
 #import "DynamicsXray.h"
 
 @interface DXRDynamicsXrayConfigurationViewController ()
@@ -16,7 +17,7 @@
 @property (assign, nonatomic) BOOL animateAppearance;
 
 @property (assign, nonatomic) BOOL initialAppearanceWasAnimated;
-@property (strong, nonatomic) UIView *controlsView;
+@property (strong, nonatomic) DXRDynamicsXrayConfigurationControlsView *controlsView;
 
 - (void)transitionOutAnimatedWithCompletion:(void (^)(void))completion;
 
