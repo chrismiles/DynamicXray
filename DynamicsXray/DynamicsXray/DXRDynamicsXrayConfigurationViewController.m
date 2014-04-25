@@ -19,9 +19,19 @@
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
         _dynamicsXray = dynamicsXray;
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillChangeStatusBarOrientationNotification:) name:UIApplicationWillChangeStatusBarOrientationNotification object:nil];
     }
     return self;
 }
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillChangeStatusBarOrientationNotification object:nil];
+}
+
+
+#pragma mark - View Lifecycle
 
 - (void)viewDidLoad
 {
@@ -56,6 +66,19 @@
     if (self.animateAppearance && self.initialAppearanceWasAnimated == NO) {
         self.initialAppearanceWasAnimated = YES;
         [self transitionInAnimatedWithCompletion:NULL];
+    }
+}
+
+
+#pragma mark - Rotation
+
+- (void)applicationWillChangeStatusBarOrientationNotification:(NSNotification *)notification
+{
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        [self.controlsView removeFromSuperview];
+        UIInterfaceOrientation toInterfaceOrientation = [notification.userInfo[UIApplicationStatusBarOrientationUserInfoKey] integerValue];
+        [self setupControlsViewWithInterfaceOrientation:toInterfaceOrientation];
+        [self.view layoutIfNeeded];
     }
 }
 

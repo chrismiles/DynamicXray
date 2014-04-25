@@ -30,7 +30,22 @@
 
 - (void)setupControlsView
 {
-    DXRDynamicsXrayConfigurationControlsView *controlsView = [[DXRDynamicsXrayConfigurationControlsView alloc] initWithFrame:CGRectZero];
+    [self setupControlsViewWithInterfaceOrientation:[UIApplication sharedApplication].statusBarOrientation];
+}
+
+- (void)setupControlsViewWithInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    DXRDynamicsXrayConfigurationControlsLayoutStyle layoutStyle;
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone && UIInterfaceOrientationIsPortrait(interfaceOrientation))
+    {
+        layoutStyle = DXRDynamicsXrayConfigurationControlsLayoutStyleNarrow;
+    }
+    else
+    {
+        layoutStyle = DXRDynamicsXrayConfigurationControlsLayoutStyleWide;
+    }
+
+    DXRDynamicsXrayConfigurationControlsView *controlsView = [[DXRDynamicsXrayConfigurationControlsView alloc] initWithLayoutStyle:layoutStyle];
     controlsView.translatesAutoresizingMaskIntoConstraints = NO;
     controlsView.backgroundColor = [UIColor clearColor];
 

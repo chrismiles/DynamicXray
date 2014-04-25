@@ -71,7 +71,7 @@
 
     unsigned char *imageBytes = (scale >= 2.0 ? DXRAssetBytesIconNoOverlay2xPNG : DXRAssetBytesIconNoOverlayPNG);
     unsigned long imageBytesCount = (scale >= 2.0 ? DXRAssetBytesIconNoOverlay2xPNG_size : DXRAssetBytesIconNoOverlayPNG_size);
-    NSData *imageData = [NSData dataWithBytesNoCopy:imageBytes length:imageBytesCount];
+    NSData *imageData = [NSData dataWithBytes:imageBytes length:imageBytesCount];
     UIImage *image = [UIImage imageWithData:imageData scale:scale];
     return image;
 }
@@ -83,7 +83,7 @@
 
     unsigned char *imageBytes = (scale >= 2.0 ? DXRAssetBytesIconOverlay2xPNG : DXRAssetBytesIconOverlayPNG);
     unsigned long imageBytesCount = (scale >= 2.0 ? DXRAssetBytesIconOverlay2xPNG_size : DXRAssetBytesIconOverlayPNG_size);
-    NSData *imageData = [NSData dataWithBytesNoCopy:imageBytes length:imageBytesCount];
+    NSData *imageData = [NSData dataWithBytes:imageBytes length:imageBytesCount];
     UIImage *image = [UIImage imageWithData:imageData scale:scale];
     return image;
 }

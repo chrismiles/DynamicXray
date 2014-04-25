@@ -27,11 +27,11 @@
 
 @implementation DXRDynamicsXrayConfigurationControlsView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithLayoutStyle:(DXRDynamicsXrayConfigurationControlsLayoutStyle)layoutStyle
 {
-    self = [super initWithFrame:frame];
-    if (self) {
-
+    self = [super initWithFrame:CGRectZero];
+    if (self)
+    {
         // Add a UIToolbar simply to get its nice blur :)
 
         UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:self.bounds];
@@ -50,22 +50,30 @@
 
         self.titleView = [self newTitleView];
         self.activeView = [self newActiveView];
-        self.titleFaderSeparatorView = [self newTitleFaderSeparatorView];
         self.faderView = [self newFaderView];
 
-        [contentsView addSubview:self.titleFaderSeparatorView];
         [contentsView addSubview:self.titleView];
         [contentsView addSubview:self.faderView];
         [contentsView addSubview:self.activeView];
 
+        if (layoutStyle == DXRDynamicsXrayConfigurationControlsLayoutStyleNarrow) {
+            self.titleFaderSeparatorView = [self newTitleFaderSeparatorView];
+            [contentsView addSubview:self.titleFaderSeparatorView];
+        }
+
         self.contentsView = contentsView;
 
-        [self configureLayout];
+        if (layoutStyle == DXRDynamicsXrayConfigurationControlsLayoutStyleNarrow) {
+            [self configureLayoutForNarrowLayoutStyle];
+        }
+        else {
+            [self configureLayoutForWideLayoutStyle];
+        }
     }
     return self;
 }
 
-- (void)configureLayout
+- (void)configureLayoutForNarrowLayoutStyle
 {
     UIView *activeView = self.activeView;
     UIView *contentsView = self.contentsView;
@@ -92,6 +100,29 @@
 
     [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(sm)-[faderView]-(faderSeparatorSpace)-[titleFaderSeparatorView(separatorLineHeight)]-(>=5)-[titleView(titleViewHeight)]-(>=sm)-|" options:0 metrics:metrics views:layoutViews]];
     [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[titleFaderSeparatorView]-(>=5)-[activeView]-(>=sm)-|" options:0 metrics:metrics views:layoutViews]];
+}
+
+- (void)configureLayoutForWideLayoutStyle
+{
+    UIView *activeView = self.activeView;
+    UIView *contentsView = self.contentsView;
+    UIView *faderView = self.faderView;
+    UIView *titleView = self.titleView;
+
+    NSDictionary *layoutViews = NSDictionaryOfVariableBindings(activeView, faderView, titleView);
+
+    CGSize titleViewSize = [titleView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    NSDictionary *metrics = @{
+                              @"titleViewWidth": @(titleViewSize.width),
+                              @"titleViewHeight": @(titleViewSize.height),
+                              @"sm": @(10.0f),  // side margin
+                              };
+
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(sm)-[titleView(titleViewWidth)]-(30)-[faderView]-(30)-[activeView]-(sm)-|" options:NSLayoutFormatAlignAllCenterY metrics:metrics views:layoutViews]];
+
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=sm)-[faderView]-(>=sm)-|" options:0 metrics:metrics views:layoutViews]];
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=sm)-[activeView]-(>=sm)-|" options:0 metrics:metrics views:layoutViews]];
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=sm)-[titleView(titleViewHeight)]-(>=sm)-|" options:0 metrics:metrics views:layoutViews]];
 }
 
 

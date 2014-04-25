@@ -11,7 +11,16 @@
 @class DXRDynamicsXrayConfigurationFaderView;
 
 
+typedef NS_ENUM(NSInteger, DXRDynamicsXrayConfigurationControlsLayoutStyle)
+{
+    DXRDynamicsXrayConfigurationControlsLayoutStyleWide,
+    DXRDynamicsXrayConfigurationControlsLayoutStyleNarrow,
+};
+
+
 @interface DXRDynamicsXrayConfigurationControlsView : UIView
+
+- (id)initWithLayoutStyle:(DXRDynamicsXrayConfigurationControlsLayoutStyle)layoutStyle;
 
 @property (strong, nonatomic, readonly) DXRDynamicsXrayConfigurationActiveView *activeView;
 @property (strong, nonatomic, readonly) DXRDynamicsXrayConfigurationFaderView *faderView;

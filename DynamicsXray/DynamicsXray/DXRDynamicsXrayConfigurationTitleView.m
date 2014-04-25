@@ -44,7 +44,7 @@
 
     unsigned char *imageBytes = (scale >= 2.0 ? DXRAssetBytesLogo2xPNG : DXRAssetBytesLogoPNG);
     unsigned long imageBytesCount = (scale >= 2.0 ? DXRAssetBytesLogo2xPNG_size : DXRAssetBytesLogoPNG_size);
-    NSData *logoData = [NSData dataWithBytesNoCopy:imageBytes length:imageBytesCount];
+    NSData *logoData = [NSData dataWithBytes:imageBytes length:imageBytesCount];
     UIImage *logoImage = [UIImage imageWithData:logoData scale:scale];
 
     UIImageView *logoView = [[UIImageView alloc] initWithImage:logoImage];
