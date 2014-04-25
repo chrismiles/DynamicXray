@@ -31,7 +31,7 @@
     self = [super initWithFrame:frame];
     if (self) {
 
-        // Add a UIToolbar simply to get its nice blur
+        // Add a UIToolbar simply to get its nice blur :)
 
         UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:self.bounds];
         toolbar.barStyle = UIBarStyleBlackTranslucent;
@@ -92,7 +92,7 @@
     DXRDynamicsXrayConfigurationActiveView *activeView = [[DXRDynamicsXrayConfigurationActiveView alloc] initWithFrame:CGRectZero];
     activeView.translatesAutoresizingMaskIntoConstraints = NO;
 
-    activeView.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.3f];//DEBUG
+    // activeView.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.3f];//DEBUG
 
     return activeView;
 }
@@ -112,7 +112,7 @@
     DXRDynamicsXrayConfigurationFaderView *faderView = [[DXRDynamicsXrayConfigurationFaderView alloc] initWithFrame:CGRectZero];
     faderView.translatesAutoresizingMaskIntoConstraints = NO;
 
-    faderView.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.3f];//DEBUG
+    // faderView.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.3f];//DEBUG
     
     return faderView;
 }
