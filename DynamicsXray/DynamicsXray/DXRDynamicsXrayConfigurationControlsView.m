@@ -20,6 +20,7 @@
 @property (strong, nonatomic) DXRDynamicsXrayConfigurationActiveView *activeView;
 @property (strong, nonatomic) DXRDynamicsXrayConfigurationFaderView *faderView;
 @property (strong, nonatomic) DXRDynamicsXrayConfigurationTitleView *titleView;
+@property (strong, nonatomic) UIView *titleFaderSeparatorView;
 
 @end
 
@@ -49,8 +50,10 @@
 
         self.titleView = [self newTitleView];
         self.activeView = [self newActiveView];
+        self.titleFaderSeparatorView = [self newTitleFaderSeparatorView];
         self.faderView = [self newFaderView];
 
+        [contentsView addSubview:self.titleFaderSeparatorView];
         [contentsView addSubview:self.titleView];
         [contentsView addSubview:self.faderView];
         [contentsView addSubview:self.activeView];
@@ -67,23 +70,29 @@
     UIView *activeView = self.activeView;
     UIView *contentsView = self.contentsView;
     UIView *faderView = self.faderView;
+    UIView *titleFaderSeparatorView = self.titleFaderSeparatorView;
     UIView *titleView = self.titleView;
 
-    NSDictionary *layoutViews = NSDictionaryOfVariableBindings(activeView, faderView, titleView);
+    NSDictionary *layoutViews = NSDictionaryOfVariableBindings(activeView, faderView, titleFaderSeparatorView, titleView);
 
+    UIScreen *screen = (self.window.screen ?: [UIScreen mainScreen]);
+    CGFloat scale = screen.scale;
     CGSize titleViewSize = [titleView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     NSDictionary *metrics = @{
                               @"titleViewWidth": @(titleViewSize.width),
                               @"titleViewHeight": @(titleViewSize.height),
-                              @"sm": @(10),  // side margin
+                              @"sm": @(10.0f),  // side margin
+                              @"separatorLineHeight": @(1.0f / scale),
                               };
 
-    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(sm)-[titleView(titleViewWidth)]-(>=10)-[activeView]-(sm)-|" options:0 metrics:metrics views:layoutViews]];
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(sm)-[titleView(titleViewWidth)]-(>=10)-[activeView]-(sm)-|" options:NSLayoutFormatAlignAllCenterY metrics:metrics views:layoutViews]];
     [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(sm)-[faderView]-(sm)-|" options:0 metrics:metrics views:layoutViews]];
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(sm)-[titleFaderSeparatorView]-(sm)-|" options:0 metrics:metrics views:layoutViews]];
 
-    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(sm)-[faderView]-(>=10)-[titleView(titleViewHeight)]-(sm)-|" options:0 metrics:metrics views:layoutViews]];
-    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[activeView]-(sm)-|" options:0 metrics:metrics views:layoutViews]];
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(sm)-[faderView]-(10)-[titleFaderSeparatorView(separatorLineHeight)]-(>=5)-[titleView(titleViewHeight)]-(>=sm)-|" options:0 metrics:metrics views:layoutViews]];
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[titleFaderSeparatorView]-(>=5)-[activeView]-(>=sm)-|" options:0 metrics:metrics views:layoutViews]];
 }
+
 
 #pragma mark - Subview Creation
 
@@ -91,9 +100,6 @@
 {
     DXRDynamicsXrayConfigurationActiveView *activeView = [[DXRDynamicsXrayConfigurationActiveView alloc] initWithFrame:CGRectZero];
     activeView.translatesAutoresizingMaskIntoConstraints = NO;
-
-    // activeView.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.3f];//DEBUG
-
     return activeView;
 }
 
@@ -101,9 +107,6 @@
 {
     DXRDynamicsXrayConfigurationTitleView *titleView = [[DXRDynamicsXrayConfigurationTitleView alloc] initWithFrame:CGRectZero];
     titleView.translatesAutoresizingMaskIntoConstraints = NO;
-
-    //    titleView.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.3f];//DEBUG
-
     return titleView;
 }
 
@@ -111,10 +114,15 @@
 {
     DXRDynamicsXrayConfigurationFaderView *faderView = [[DXRDynamicsXrayConfigurationFaderView alloc] initWithFrame:CGRectZero];
     faderView.translatesAutoresizingMaskIntoConstraints = NO;
-
-    // faderView.backgroundColor = [[UIColor greenColor] colorWithAlphaComponent:0.3f];//DEBUG
-    
     return faderView;
+}
+
+- (UIView *)newTitleFaderSeparatorView
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
+    view.backgroundColor = [UIColor colorWithRed:0.192157f green:0.192157f blue:0.192157f alpha:1.0f];
+    view.translatesAutoresizingMaskIntoConstraints = NO;
+    return view;
 }
 
 @end
