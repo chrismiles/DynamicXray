@@ -34,4 +34,8 @@
 - (DXRDynamicsXrayWindowController *)xrayWindowController;
 - (DXRDynamicsXrayView *)xrayView;
 
++ (UIColor *)xrayStrokeColor;
++ (UIColor *)xrayFillColor;
++ (UIColor *)xrayContactColor;
+
 @end

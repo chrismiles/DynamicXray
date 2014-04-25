@@ -279,13 +279,15 @@
 			name = "Xray Window Controller";
 			sourceTree = "<group>";
 		};
-		830AA51F183064E500608E3A /* Xray Util */ = {
+		830AA51F183064E500608E3A /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				83DEA937188E4CDE00B725C1 /* DXRDecayingLifetime.h */,
+				83DEA938188E4CDE00B725C1 /* DXRDecayingLifetime.m */,
 				83849DF317AE242A00D6DD3C /* DXRDynamicsXrayUtil.h */,
 				83E6D61D187C1799005ECBA5 /* DXRDynamicsXrayUtil.m */,
 			);
-			name = "Xray Util";
+			name = Utility;
 			sourceTree = "<group>";
 		};
 		8317A749180E8F2A00F4B954 /* Configuration View Controller */ = {
@@ -434,11 +436,8 @@
 				8315E8BE1887371200947F12 /* DynamicsXray+XrayVisualiseBehaviors.h */,
 				8315E8BF1887371200947F12 /* DynamicsXray+XrayVisualiseBehaviors.m */,
 				83E6D61B187C178E005ECBA5 /* DynamicsXray_Internal.h */,
-				83DEA937188E4CDE00B725C1 /* DXRDecayingLifetime.h */,
-				83DEA938188E4CDE00B725C1 /* DXRDecayingLifetime.m */,
 				834A42C2187F6E2600493BBE /* Contact Introspection */,
 				833F36C619090AE7007305BB /* Embedded Assets */,
-				830AA51F183064E500608E3A /* Xray Util */,
 				8317A756180EA87A00F4B954 /* Xray View Controller */,
 				830AA51E183064B100608E3A /* Xray Window Controller */,
 				8317A749180E8F2A00F4B954 /* Configuration View Controller */,
@@ -446,6 +445,7 @@
 				83A68DD0182B5B9D00F21AC1 /* Dynamics Item Snapshot */,
 				834F2DC218922A6E00D2CA35 /* Push Behavior Introspection */,
 				83849DBC17AE022300D6DD3C /* Supporting Files */,
+				830AA51F183064E500608E3A /* Utility */,
 			);
 			path = DynamicsXRay;
 			sourceTree = "<group>";
