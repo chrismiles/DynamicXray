@@ -39,6 +39,9 @@
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[activeLabel]-(>=0)-|" options:0 metrics:nil views:layoutViews]];
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=0)-[activeToggleSwitch]-(>=0)-|" options:0 metrics:nil views:layoutViews]];
 
+        [activeLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+        [activeToggleSwitch setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+
         self.activeToggleSwitch = activeToggleSwitch;
     }
     return self;

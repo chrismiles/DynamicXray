@@ -118,7 +118,8 @@
                               @"sm": @(10.0f),  // side margin
                               };
 
-    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(sm)-[titleView(titleViewWidth)]-(30)-[faderView]-(30)-[activeView]-(sm)-|" options:NSLayoutFormatAlignAllCenterY metrics:metrics views:layoutViews]];
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(sm)-[titleView(titleViewWidth)]-(20@751,>=20)-[faderView(<=340)]-(20@751,>=20)-[activeView]-(sm)-|" options:NSLayoutFormatAlignAllCenterY metrics:metrics views:layoutViews]];
+    [contentsView addConstraint:[NSLayoutConstraint constraintWithItem:faderView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:faderView.superview attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0]];
 
     [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=sm)-[faderView]-(>=sm)-|" options:0 metrics:metrics views:layoutViews]];
     [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=sm)-[activeView]-(>=sm)-|" options:0 metrics:metrics views:layoutViews]];
