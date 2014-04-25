@@ -18,6 +18,7 @@
 
 @property (assign, nonatomic) BOOL initialAppearanceWasAnimated;
 @property (strong, nonatomic) DXRDynamicsXrayConfigurationControlsView *controlsView;
+@property (strong, nonatomic) NSLayoutConstraint *controlsBottomLayoutConstraint;
 
 - (void)transitionOutAnimatedWithCompletion:(void (^)(void))completion;
 

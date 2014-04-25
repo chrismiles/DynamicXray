@@ -13,6 +13,6 @@
 @interface DXRDynamicsXrayConfigurationViewController (Controls)
 
 - (UIButton *)newDismissButtonWithFrame:(CGRect)frame;
-- (DXRDynamicsXrayConfigurationControlsView *)newControlsViewWithFrame:(CGRect)frame;
+- (void)setupControlsView;
 
 @end

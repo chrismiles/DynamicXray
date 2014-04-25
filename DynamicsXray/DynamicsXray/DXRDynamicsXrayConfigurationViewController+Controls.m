@@ -28,10 +28,10 @@
     return dismissButton;
 }
 
-- (DXRDynamicsXrayConfigurationControlsView *)newControlsViewWithFrame:(CGRect)frame
+- (void)setupControlsView
 {
-    DXRDynamicsXrayConfigurationControlsView *controlsView = [[DXRDynamicsXrayConfigurationControlsView alloc] initWithFrame:frame];
-    controlsView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin);
+    DXRDynamicsXrayConfigurationControlsView *controlsView = [[DXRDynamicsXrayConfigurationControlsView alloc] initWithFrame:CGRectZero];
+    controlsView.translatesAutoresizingMaskIntoConstraints = NO;
     controlsView.backgroundColor = [UIColor clearColor];
 
     controlsView.tintColor = [self controlsTintColor];
@@ -45,7 +45,16 @@
 
     [self.view addSubview:controlsView];
 
-    return controlsView;
+    // Contraints
+
+    NSDictionary *layoutViews = NSDictionaryOfVariableBindings(controlsView);
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[controlsView]|" options:0 metrics:nil views:layoutViews]];
+
+    NSLayoutConstraint *bottomConstraint = [NSLayoutConstraint constraintWithItem:controlsView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:controlsView.superview attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0];
+    [self.view addConstraint:bottomConstraint];
+    self.controlsBottomLayoutConstraint = bottomConstraint;
+
+    self.controlsView = controlsView;
 }
 
 

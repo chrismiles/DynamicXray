@@ -83,13 +83,14 @@
                               @"titleViewHeight": @(titleViewSize.height),
                               @"sm": @(10.0f),  // side margin
                               @"separatorLineHeight": @(1.0f / scale),
+                              @"faderSeparatorSpace": @(9.0f + 1.0f / scale),
                               };
 
     [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(sm)-[titleView(titleViewWidth)]-(>=10)-[activeView]-(sm)-|" options:NSLayoutFormatAlignAllCenterY metrics:metrics views:layoutViews]];
     [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(sm)-[faderView]-(sm)-|" options:0 metrics:metrics views:layoutViews]];
     [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(sm)-[titleFaderSeparatorView]-(sm)-|" options:0 metrics:metrics views:layoutViews]];
 
-    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(sm)-[faderView]-(10)-[titleFaderSeparatorView(separatorLineHeight)]-(>=5)-[titleView(titleViewHeight)]-(>=sm)-|" options:0 metrics:metrics views:layoutViews]];
+    [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(sm)-[faderView]-(faderSeparatorSpace)-[titleFaderSeparatorView(separatorLineHeight)]-(>=5)-[titleView(titleViewHeight)]-(>=sm)-|" options:0 metrics:metrics views:layoutViews]];
     [contentsView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[titleFaderSeparatorView]-(>=5)-[activeView]-(>=sm)-|" options:0 metrics:metrics views:layoutViews]];
 }
 
