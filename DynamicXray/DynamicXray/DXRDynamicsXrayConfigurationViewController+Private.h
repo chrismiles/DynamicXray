@@ -8,11 +8,11 @@
 
 #import "DXRDynamicsXrayConfigurationViewController.h"
 
-@class DynamicsXray;
+@class DynamicXray;
 
 @interface DXRDynamicsXrayConfigurationViewController (Private)
 
-- (id)initWithDynamicsXray:(DynamicsXray *)dynamicsXray;
+- (id)initWithDynamicsXray:(DynamicXray *)dynamicsXray;
 
 - (void)setAnimateAppearance:(BOOL)animateAppearance;
 

@@ -21,7 +21,7 @@
 #import "DXRDecayingLifetime.h"
 #import "DXRContactVisualise.h"
 
-#import "DynamicsXray_Internal.h"
+#import "DynamicXray_Internal.h"
 
 
 @interface DXRDynamicsXrayView ()
@@ -254,9 +254,9 @@
 {
     //[self calcFPS];
 
-    UIColor *strokeColor = [DynamicsXray xrayStrokeColor];
-    UIColor *fillColor = [DynamicsXray xrayFillColor];
-    UIColor *contactColor = [DynamicsXray xrayContactColor];
+    UIColor *strokeColor = [DynamicXray xrayStrokeColor];
+    UIColor *fillColor = [DynamicXray xrayFillColor];
+    UIColor *contactColor = [DynamicXray xrayContactColor];
 
     CGContextRef context = UIGraphicsGetCurrentContext();
 

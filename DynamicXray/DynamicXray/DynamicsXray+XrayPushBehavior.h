@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
 //
 
-#import "DynamicsXray.h"
+#import "DynamicXray.h"
 #import "DynamicsXray+XrayPushBehavior.h"
 #import "UIPushBehavior+DynamicsXrayIntrospection.h"
 
-@interface DynamicsXray (XrayPushBehavior)
+@interface DynamicXray (XrayPushBehavior)
 
 - (void)instantaneousPushBehaviorDidBecomeActiveNotification:(NSNotification *)notification;
 

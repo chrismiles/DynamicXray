@@ -12,7 +12,7 @@
 
 @implementation DXRDynamicsXrayViewController
 
-- (id)initDynamicsXray:(DynamicsXray *)dynamicsXray
+- (id)initDynamicsXray:(DynamicXray *)dynamicsXray
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {

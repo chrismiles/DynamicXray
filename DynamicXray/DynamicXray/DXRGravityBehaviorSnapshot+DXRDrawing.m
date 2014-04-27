@@ -7,7 +7,7 @@
 //
 
 #import "DXRGravityBehaviorSnapshot+DXRDrawing.h"
-#import "DynamicsXray_Internal.h"
+#import "DynamicXray_Internal.h"
 @import UIKit;
 
 static CGFloat const circleDiameter = 40.0f;
@@ -50,7 +50,7 @@ static CGFloat const arrowHeadPointOffsetAngle = 0.25f;
     NSDictionary *attr = @{
                            NSParagraphStyleAttributeName: style,
                            NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue" size:11.0f],
-                           NSForegroundColorAttributeName: [DynamicsXray xrayStrokeColor],
+                           NSForegroundColorAttributeName: [DynamicXray xrayStrokeColor],
                            };
 
     CGSize labelSize = [label sizeWithAttributes:attr];

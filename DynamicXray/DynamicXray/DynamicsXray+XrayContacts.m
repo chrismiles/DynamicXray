@@ -7,11 +7,11 @@
 //
 
 #import "DynamicsXray+XrayContacts.h"
-#import "DynamicsXray_Internal.h"
+#import "DynamicXray_Internal.h"
 #import "DXRDecayingLifetime.h"
 
 
-@implementation DynamicsXray (XrayContacts)
+@implementation DynamicXray (XrayContacts)
 
 #pragma mark - Contact Notifications
 

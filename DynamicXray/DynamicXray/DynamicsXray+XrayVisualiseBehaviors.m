@@ -7,12 +7,12 @@
 //
 
 #import "DynamicsXray+XrayVisualiseBehaviors.h"
-#import "DynamicsXray_Internal.h"
+#import "DynamicXray_Internal.h"
 
 #import "DXRDynamicsXrayView.h"
 
 
-@implementation DynamicsXray (XrayVisualiseBehaviors)
+@implementation DynamicXray (XrayVisualiseBehaviors)
 
 #pragma mark - Attachment Behavior
 

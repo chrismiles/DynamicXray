@@ -7,7 +7,7 @@
 //
 
 @import UIKit;
-@class DynamicsXray;
+@class DynamicXray;
 @class DXRDynamicsXrayViewController;
 
 
@@ -41,7 +41,7 @@
     
     Note that configuration views will always be added on top of dynamics xray views.
  */
-- (void)presentConfigViewControllerWithDynamicsXray:(DynamicsXray *)dynamicsXray animated:(BOOL)animated;
+- (void)presentConfigViewControllerWithDynamicsXray:(DynamicXray *)dynamicsXray animated:(BOOL)animated;
 
 /** Dismiss the DXRDynamicsXrayConfigurationViewController's view if one is visible.
  */

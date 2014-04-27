@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
 //
 
-#import "DynamicsXray.h"
+#import "DynamicXray.h"
 
-@interface DynamicsXray (XrayContacts)
+@interface DynamicXray (XrayContacts)
 
 - (void)dynamicsXrayContactDidBeginNotification:(NSNotification *)notification;
 - (void)dynamicsXrayContactDidEndNotification:(NSNotification *)notification;

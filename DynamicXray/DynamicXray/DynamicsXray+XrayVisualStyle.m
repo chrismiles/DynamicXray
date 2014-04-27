@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
 //
 
-#import "DynamicsXray.h"
-#import "DynamicsXray_Internal.h"
+#import "DynamicXray.h"
+#import "DynamicXray_Internal.h"
 #import "DXRDynamicsXrayView.h"
 
 
-@implementation DynamicsXray (XrayVisualStyle)
+@implementation DynamicXray (XrayVisualStyle)
 
 #pragma mark - Cross Fade
 

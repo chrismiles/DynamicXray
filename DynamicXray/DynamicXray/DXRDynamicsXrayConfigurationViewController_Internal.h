@@ -8,11 +8,11 @@
 
 #import "DXRDynamicsXrayConfigurationViewController.h"
 #import "DXRDynamicsXrayConfigurationControlsView.h"
-#import "DynamicsXray.h"
+#import "DynamicXray.h"
 
 @interface DXRDynamicsXrayConfigurationViewController ()
 
-@property (weak, nonatomic) DynamicsXray *dynamicsXray;
+@property (weak, nonatomic) DynamicXray *dynamicsXray;
 
 @property (assign, nonatomic) BOOL animateAppearance;
 

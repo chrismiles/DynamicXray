@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
 //
 
-#import "DynamicsXray.h"
+#import "DynamicXray.h"
 
-@interface DynamicsXray (XrayVisualiseBehaviors)
+@interface DynamicXray (XrayVisualiseBehaviors)
 
 - (void)visualiseAttachmentBehavior:(UIAttachmentBehavior *)attachmentBehavior;
 

@@ -9,7 +9,7 @@
 #import "DXRDynamicsXrayConfigurationTitleView.h"
 #import "DXRAssetBytesLogo.png.h"
 #import "DXRAssetBytesLogo@2x.png.h"
-#import "DynamicsXray.h"
+#import "DynamicXray.h"
 
 
 @implementation DXRDynamicsXrayConfigurationTitleView
@@ -76,7 +76,7 @@
 
 - (UILabel *)titleLabel
 {
-    NSString *title = [NSString stringWithFormat:@"DynamicsXray %@", DynamicsXrayVersion];
+    NSString *title = [NSString stringWithFormat:@"DynamicsXray %@", DynamicXrayVersion];
 
     UIFont *titleFont = [UIFont fontWithName:@"Avenir Next Condensed Demi Bold" size:13.0f];
     UIFont *versionFont = [UIFont fontWithName:@"Avenir Next Condensed" size:13.0f];
@@ -86,7 +86,7 @@
     NSMutableAttributedString *attributedTitled = [[NSMutableAttributedString alloc] initWithString:title attributes:textAttributes];
 
     NSDictionary *versionAttributes = @{NSFontAttributeName : versionFont};
-    NSUInteger versionLength = [DynamicsXrayVersion length];
+    NSUInteger versionLength = [DynamicXrayVersion length];
     NSRange versionRange = NSMakeRange([title length] - versionLength, versionLength);
     [attributedTitled setAttributes:versionAttributes range:versionRange];
 

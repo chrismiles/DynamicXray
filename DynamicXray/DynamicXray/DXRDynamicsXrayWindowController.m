@@ -11,7 +11,7 @@
 #import "DXRDynamicsXrayWindow.h"
 #import "DXRDynamicsXrayConfigurationViewController.h"
 #import "DXRDynamicsXrayConfigurationViewController+Private.h"
-#import "DynamicsXray_Internal.h"
+#import "DynamicXray_Internal.h"
 
 
 static CGFloat
@@ -106,7 +106,7 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 #pragma mark - Config View Controller Presentation
 
-- (void)presentConfigViewControllerWithDynamicsXray:(DynamicsXray *)dynamicsXray animated:(BOOL)animated
+- (void)presentConfigViewControllerWithDynamicsXray:(DynamicXray *)dynamicsXray animated:(BOOL)animated
 {
     if (self.configurationViewController == nil) {
         DXRDynamicsXrayConfigurationViewController *configViewController = [[DXRDynamicsXrayConfigurationViewController alloc] initWithDynamicsXray:dynamicsXray];

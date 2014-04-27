@@ -6,8 +6,8 @@
 //  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 
-#import "DynamicsXray.h"
-#import "DynamicsXray_Internal.h"
+#import "DynamicXray.h"
+#import "DynamicXray_Internal.h"
 #import "DynamicsXray+XrayContacts.h"
 #import "DynamicsXray+XrayPushBehavior.h"
 #import "DynamicsXray+XrayVisualiseBehaviors.h"
@@ -45,7 +45,7 @@ static NSTimeInterval const DynamicsXrayRedrawCheckInterval = 0.25;     // secon
 /*
  * Globals
  */
-NSString *const DynamicsXrayVersion = @"0.1";
+NSString *const DynamicXrayVersion = @"0.1";
 
 
 /*
@@ -54,14 +54,14 @@ NSString *const DynamicsXrayVersion = @"0.1";
 static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
 
-@interface DynamicsXray (XRayVisualStyleInternals)
+@interface DynamicXray (XRayVisualStyleInternals)
 
 - (void)updateDynamicsViewTransparencyLevels;
 
 @end
 
 
-@implementation DynamicsXray
+@implementation DynamicXray
 
 - (id)init
 {
@@ -93,9 +93,9 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
         [self setDrawDynamicItemsEnabled:YES];
 
-        __weak DynamicsXray *weakSelf = self;
+        __weak DynamicXray *weakSelf = self;
         self.action = ^{
-            __strong DynamicsXray *strongSelf = weakSelf;
+            __strong DynamicXray *strongSelf = weakSelf;
             [strongSelf redraw];
         };
 
@@ -180,7 +180,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 - (void)scheduleDelayedRedrawCheckRepeats:(BOOL)repeats
 {
     if (DynamicsXrayRedrawCheckInterval > 0) {
-        __weak DynamicsXray *weakSelf = self;
+        __weak DynamicXray *weakSelf = self;
         double delayInSeconds = DynamicsXrayRedrawCheckInterval;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){

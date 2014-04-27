@@ -7,7 +7,7 @@
 //
 
 #import "DynamicsXray+XrayPushBehavior.h"
-#import "DynamicsXray_Internal.h"
+#import "DynamicXray_Internal.h"
 #import "DynamicsXray+XrayVisualiseBehaviors.h"
 #import "DXRDecayingLifetime.h"
 
@@ -15,7 +15,7 @@
 static NSString * const DXRXrayPushBehaviorPushPointsKey = @"pushPoints";
 
 
-@implementation DynamicsXray (XrayPushBehavior)
+@implementation DynamicXray (XrayPushBehavior)
 
 - (void)instantaneousPushBehaviorDidBecomeActiveNotification:(NSNotification *)notification
 {

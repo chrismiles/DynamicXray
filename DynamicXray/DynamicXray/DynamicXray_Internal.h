@@ -6,12 +6,12 @@
 //  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 
-#import "DynamicsXray.h"
+#import "DynamicXray.h"
 #import "DXRDynamicsXrayViewController.h"
 @class DXRDynamicsXrayWindowController;
 
 
-@interface DynamicsXray () {
+@interface DynamicXray () {
     CGFloat _crossFade;
     BOOL _drawDynamicItemsEnabled;
 }

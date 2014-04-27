@@ -1,53 +1,53 @@
 //
-//  DynamicsXray
+//  DynamicXray
 //
 //  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 
 /*
-    DynamicsXray
-    ============
+    DynamicXray
+    ===========
 
-    DynamicsXray is a UIKit Dynamics runtime visualisation and introspection library.
+    DynamicXray is a UIKit Dynamics runtime visualisation and introspection library.
 
     Ever wanted to see under the hood of the UIKit Dynamics physics engine?
-    Now you can! With DynamicsXray you can visualise your dynamic animator live at
+    Now you can! With DynamicXray you can visualise your dynamic animator live at
     runtime, exposing all dynamic behaviours and dynamic items.
 
 
     Quick Start
     ===========
 
-    Open DynamicsXray.xcworkspace, select the Framework scheme, build the framework.
+    Open DynamicXray.xcworkspace, select the Framework scheme, build the framework.
 
-    Add DynamicsXray.framework to your iOS project.
+    Add DynamicXray.framework to your iOS project.
 
-    In your code, import the header and add an instance of DynamicsXray to your dynamic animator.
+    In your code, import the header and add an instance of DynamicXray to your dynamic animator.
 
-        #import <DynamicsXray/DynamicsXray.h>
+        #import <DynamicXray/DynamicXray.h>
         ...
-        DynamicsXray *xray = [[DynamicsXray alloc] init];
+        DynamicXray *xray = [[DynamicXray alloc] init];
         [self.dynamicAnimator addBehavior:xray];
 
 
     Overview
     ========
 
-    DynamicsXray is built as a UIDynamicBehavior. This means it can be simply added to any
+    DynamicXray is built as a UIDynamicBehavior. This means it can be simply added to any
     UIDynamicAnimator to enable the introspection overlay. By default, all behaviours added
     to the animator will be visualised.
 
-    For more control, the DynamicsXray behaviour exposes options such as temporarily disabling
+    For more control, the DynamicXray behaviour exposes options such as temporarily disabling
     the overlay, adjusting the cross fade between app and overlay, whether to draw dynamic
-    item outlines, and more. Refer to the DynamicsXray header.
+    item outlines, and more. Refer to the DynamicXray header.
 
-    DynamicsXray includes a built-in configuration panel that slides up from the bottom of the
+    DynamicXray includes a built-in configuration panel that slides up from the bottom of the
     screen. The configuration panel provides access to some options at runtime. The configuration
     panel can be presented by calling -presentConfigurationViewController.
 
     For example:
 
-        DynamicsXray *xray = [[DynamicsXray alloc] init];
+        DynamicXray *xray = [[DynamicXray alloc] init];
         [self.dynamicAnimator addBehavior:xray];
         [xray presentConfigurationViewController];
 
@@ -56,17 +56,17 @@
 
 @import UIKit;
 
-extern NSString *const DynamicsXrayVersion;
+extern NSString *const DynamicXrayVersion;
 
 
-/** DynamicsXray provides real time UIKit Dynamics introspection and visualisation.
+/** DynamicXray provides real time UIKit Dynamics introspection and visualisation.
  
-    DynamicsXray is a UIDynamicBehavior. Add an instance of DynamicsXray to
+    DynamicXray is a UIDynamicBehavior. Add an instance of DynamicXray to
     a UIDynamicAnimator to enable the introspection overlay.
  */
-@interface DynamicsXray : UIDynamicBehavior
+@interface DynamicXray : UIDynamicBehavior
 
-/** Toggles whether DynamicsXray is active.
+/** Toggles whether DynamicXray is active.
  
     Set to NO to temporarily disable overlay drawing.
  */
@@ -75,9 +75,9 @@ extern NSString *const DynamicsXrayVersion;
 @end
 
 
-@interface DynamicsXray (XrayUserInterface)
+@interface DynamicXray (XrayUserInterface)
 
-/** Present the DynamicsXray configuration panel.
+/** Present the DynamicXray configuration panel.
  
     The configuration panel allows for options to be changed at
     run-time.
@@ -87,7 +87,7 @@ extern NSString *const DynamicsXrayVersion;
 @end
 
 
-@interface DynamicsXray (XrayVisualStyle)
+@interface DynamicXray (XrayVisualStyle)
 
 /** Controls the opacity of both the Xray overlay and the application windows.
  
