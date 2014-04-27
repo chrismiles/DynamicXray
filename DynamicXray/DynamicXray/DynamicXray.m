@@ -8,11 +8,11 @@
 
 #import "DynamicXray.h"
 #import "DynamicXray_Internal.h"
-#import "DynamicsXray+XrayContacts.h"
-#import "DynamicsXray+XrayPushBehavior.h"
-#import "DynamicsXray+XrayVisualiseBehaviors.h"
+#import "DynamicXray+XrayContacts.h"
+#import "DynamicXray+XrayPushBehavior.h"
+#import "DynamicXray+XrayVisualiseBehaviors.h"
 
-#import "DXRDynamicsXrayView.h"
+#import "DXRDynamicXrayView.h"
 #import "DXRDynamicsXrayWindowController.h"
 #import "DXRContactHandler.h"
 
@@ -143,7 +143,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
 #pragma mark - Xray View
 
-- (DXRDynamicsXrayView *)xrayView
+- (DXRDynamicXrayView *)xrayView
 {
     return self.xrayViewController.xrayView;
 }
@@ -277,7 +277,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
 - (void)introspectBehaviors:(NSArray *)behaviors
 {
-    DXRDynamicsXrayView *xrayView = [self xrayView];
+    DXRDynamicXrayView *xrayView = [self xrayView];
     xrayView.dynamicsReferenceView = self.referenceView;
 
     [self.dynamicItemsToDraw removeAllObjects];

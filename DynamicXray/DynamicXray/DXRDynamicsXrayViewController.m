@@ -7,7 +7,7 @@
 //
 
 #import "DXRDynamicsXrayViewController.h"
-#import "DXRDynamicsXrayView.h"
+#import "DXRDynamicXrayView.h"
 
 
 @implementation DXRDynamicsXrayViewController
@@ -23,13 +23,13 @@
 
 - (void)loadView
 {
-    self.view = [[DXRDynamicsXrayView alloc] initWithFrame:CGRectMake(0, 0, 320.0f, 568.0f)];
+    self.view = [[DXRDynamicXrayView alloc] initWithFrame:CGRectMake(0, 0, 320.0f, 568.0f)];
     self.view.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 }
 
-- (DXRDynamicsXrayView *)xrayView
+- (DXRDynamicXrayView *)xrayView
 {
-    return (DXRDynamicsXrayView *)self.view;
+    return (DXRDynamicXrayView *)self.view;
 }
 
 @end

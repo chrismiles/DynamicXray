@@ -1,6 +1,6 @@
 //
-//  DynamicsXray+XrayUserInterface.m
-//  DynamicsXray
+//  DynamicXray+XrayUserInterface.m
+//  DynamicXray
 //
 //  Created by Chris Miles on 16/01/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.

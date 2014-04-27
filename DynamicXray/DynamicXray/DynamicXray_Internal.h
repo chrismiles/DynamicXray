@@ -32,7 +32,7 @@
 
 - (void)redraw;
 - (DXRDynamicsXrayWindowController *)xrayWindowController;
-- (DXRDynamicsXrayView *)xrayView;
+- (DXRDynamicXrayView *)xrayView;
 
 + (UIColor *)xrayStrokeColor;
 + (UIColor *)xrayFillColor;

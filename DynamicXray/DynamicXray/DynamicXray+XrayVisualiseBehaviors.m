@@ -1,15 +1,15 @@
 //
-//  DynamicsXray+XrayVisualiseBehaviors.m
-//  DynamicsXray
+//  DynamicXray+XrayVisualiseBehaviors.m
+//  DynamicXray
 //
 //  Created by Chris Miles on 16/01/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
 //
 
-#import "DynamicsXray+XrayVisualiseBehaviors.h"
+#import "DynamicXray+XrayVisualiseBehaviors.h"
 #import "DynamicXray_Internal.h"
 
-#import "DXRDynamicsXrayView.h"
+#import "DXRDynamicXrayView.h"
 
 
 @implementation DynamicXray (XrayVisualiseBehaviors)
@@ -33,7 +33,7 @@
     }
 
     CGPoint anchorPoint, attachmentPoint;
-    DXRDynamicsXrayView *xrayView = [self xrayView];
+    DXRDynamicXrayView *xrayView = [self xrayView];
     UIView *referenceView = self.referenceView;
 
     if (itemB) {
@@ -79,7 +79,7 @@
 
 - (void)visualiseCollisionBehavior:(UICollisionBehavior *)collisionBehavior
 {
-    DXRDynamicsXrayView *xrayView = [self xrayView];
+    DXRDynamicXrayView *xrayView = [self xrayView];
     UIView *referenceView = collisionBehavior.dynamicAnimator.referenceView;
     CGRect referenceBoundaryFrame = referenceView.frame;
 
@@ -142,7 +142,7 @@
 
 - (void)visualisePushBehavior:(UIPushBehavior *)pushBehavior withTransparency:(CGFloat)transparency
 {
-    DXRDynamicsXrayView *xrayView = [self xrayView];
+    DXRDynamicXrayView *xrayView = [self xrayView];
 
     NSArray *items = pushBehavior.items;
     if ([items count] > 0) {
@@ -168,7 +168,7 @@
 
 - (void)visualiseInstantaneousPushBehavior:(UIPushBehavior *)pushBehavior atLocations:(NSArray *)pushLocations withTransparency:(CGFloat)transparency
 {
-    DXRDynamicsXrayView *xrayView = [self xrayView];
+    DXRDynamicXrayView *xrayView = [self xrayView];
 
     for (NSValue *value in pushLocations) {
         CGPoint pushLocation = [xrayView convertPoint:[value CGPointValue] fromReferenceView:self.referenceView];

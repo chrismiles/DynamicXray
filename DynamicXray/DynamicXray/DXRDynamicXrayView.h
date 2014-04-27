@@ -1,5 +1,5 @@
 //
-//  DXRDynamicsXrayView.h
+//  DXRDynamicXrayView.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 4/08/13.
@@ -8,7 +8,7 @@
 
 @import UIKit;
 
-@interface DXRDynamicsXrayView : UIView
+@interface DXRDynamicXrayView : UIView
 
 - (void)drawAttachmentFromAnchor:(CGPoint)anchorPoint toPoint:(CGPoint)attachmentPoint length:(CGFloat)length isSpring:(BOOL)isSpring;
 

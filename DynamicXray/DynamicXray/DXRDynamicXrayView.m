@@ -1,12 +1,12 @@
 //
-//  DXRDynamicsXrayView.m
+//  DXRDynamicXrayView.m
 //  DynamicsXray
 //
 //  Created by Chris Miles on 4/08/13.
 //  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXrayView.h"
+#import "DXRDynamicXrayView.h"
 
 #import "DXRBehaviorSnapshotDrawing.h"
 #import "DXRAttachmentBehaviorSnapshot.h"
@@ -24,7 +24,7 @@
 #import "DynamicXray_Internal.h"
 
 
-@interface DXRDynamicsXrayView ()
+@interface DXRDynamicXrayView ()
 
 @property (strong, nonatomic) NSMutableArray *behaviorsToDraw;
 @property (strong, nonatomic) NSMutableArray *contactPathsToDraw;
@@ -36,7 +36,7 @@
 @end
 
 
-@implementation DXRDynamicsXrayView
+@implementation DXRDynamicXrayView
 
 - (id)initWithFrame:(CGRect)frame
 {

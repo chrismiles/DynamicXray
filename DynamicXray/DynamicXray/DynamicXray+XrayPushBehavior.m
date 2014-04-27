@@ -1,14 +1,14 @@
 //
-//  DynamicsXray+XrayPushBehavior.m
-//  DynamicsXray
+//  DynamicXray+XrayPushBehavior.m
+//  DynamicXray
 //
 //  Created by Chris Miles on 24/01/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
 //
 
-#import "DynamicsXray+XrayPushBehavior.h"
+#import "DynamicXray+XrayPushBehavior.h"
 #import "DynamicXray_Internal.h"
-#import "DynamicsXray+XrayVisualiseBehaviors.h"
+#import "DynamicXray+XrayVisualiseBehaviors.h"
 #import "DXRDecayingLifetime.h"
 
 
