@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:DynamicsXray/DynamicXray.xcodeproj">
+      location = "group:DynamicXray/DynamicXray.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:DynamicsUberCatalog/DynamicsUberCatalog.xcodeproj">
