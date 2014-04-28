@@ -1,31 +1,31 @@
 //
-//  DXRDynamicsXrayConfigurationControlsView.m
+//  DXRDynamicXrayConfigurationControlsView.m
 //  DynamicsXray
 //
 //  Created by Chris Miles on 6/03/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXrayConfigurationControlsView.h"
+#import "DXRDynamicXrayConfigurationControlsView.h"
 
-#import "DXRDynamicsXrayConfigurationActiveView.h"
-#import "DXRDynamicsXrayConfigurationTitleView.h"
-#import "DXRDynamicsXrayConfigurationFaderView.h"
+#import "DXRDynamicXrayConfigurationActiveView.h"
+#import "DXRDynamicXrayConfigurationTitleView.h"
+#import "DXRDynamicXrayConfigurationFaderView.h"
 
 
-@interface DXRDynamicsXrayConfigurationControlsView ()
+@interface DXRDynamicXrayConfigurationControlsView ()
 
 @property (strong, nonatomic) UIView *contentsView;
 
-@property (strong, nonatomic) DXRDynamicsXrayConfigurationActiveView *activeView;
-@property (strong, nonatomic) DXRDynamicsXrayConfigurationFaderView *faderView;
-@property (strong, nonatomic) DXRDynamicsXrayConfigurationTitleView *titleView;
+@property (strong, nonatomic) DXRDynamicXrayConfigurationActiveView *activeView;
+@property (strong, nonatomic) DXRDynamicXrayConfigurationFaderView *faderView;
+@property (strong, nonatomic) DXRDynamicXrayConfigurationTitleView *titleView;
 @property (strong, nonatomic) UIView *titleFaderSeparatorView;
 
 @end
 
 
-@implementation DXRDynamicsXrayConfigurationControlsView
+@implementation DXRDynamicXrayConfigurationControlsView
 
 - (id)initWithLayoutStyle:(DXRDynamicsXrayConfigurationControlsLayoutStyle)layoutStyle
 {
@@ -129,23 +129,23 @@
 
 #pragma mark - Subview Creation
 
-- (DXRDynamicsXrayConfigurationActiveView *)newActiveView
+- (DXRDynamicXrayConfigurationActiveView *)newActiveView
 {
-    DXRDynamicsXrayConfigurationActiveView *activeView = [[DXRDynamicsXrayConfigurationActiveView alloc] initWithFrame:CGRectZero];
+    DXRDynamicXrayConfigurationActiveView *activeView = [[DXRDynamicXrayConfigurationActiveView alloc] initWithFrame:CGRectZero];
     activeView.translatesAutoresizingMaskIntoConstraints = NO;
     return activeView;
 }
 
-- (DXRDynamicsXrayConfigurationTitleView *)newTitleView
+- (DXRDynamicXrayConfigurationTitleView *)newTitleView
 {
-    DXRDynamicsXrayConfigurationTitleView *titleView = [[DXRDynamicsXrayConfigurationTitleView alloc] initWithFrame:CGRectZero];
+    DXRDynamicXrayConfigurationTitleView *titleView = [[DXRDynamicXrayConfigurationTitleView alloc] initWithFrame:CGRectZero];
     titleView.translatesAutoresizingMaskIntoConstraints = NO;
     return titleView;
 }
 
-- (DXRDynamicsXrayConfigurationFaderView *)newFaderView
+- (DXRDynamicXrayConfigurationFaderView *)newFaderView
 {
-    DXRDynamicsXrayConfigurationFaderView *faderView = [[DXRDynamicsXrayConfigurationFaderView alloc] initWithFrame:CGRectZero];
+    DXRDynamicXrayConfigurationFaderView *faderView = [[DXRDynamicXrayConfigurationFaderView alloc] initWithFrame:CGRectZero];
     faderView.translatesAutoresizingMaskIntoConstraints = NO;
     return faderView;
 }

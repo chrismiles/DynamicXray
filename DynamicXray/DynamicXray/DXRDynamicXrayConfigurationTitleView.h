@@ -1,5 +1,5 @@
 //
-//  DXRDynamicsXrayConfigurationTitleView.h
+//  DXRDynamicXrayConfigurationTitleView.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 5/03/2014.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DXRDynamicsXrayConfigurationTitleView : UIView
+@interface DXRDynamicXrayConfigurationTitleView : UIView
 
 @end

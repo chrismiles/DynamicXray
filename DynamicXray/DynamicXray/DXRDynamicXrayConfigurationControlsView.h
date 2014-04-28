@@ -1,5 +1,5 @@
 //
-//  DXRDynamicsXrayConfigurationControlsView.h
+//  DXRDynamicXrayConfigurationControlsView.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 6/03/2014.
@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class DXRDynamicsXrayConfigurationActiveView;
-@class DXRDynamicsXrayConfigurationFaderView;
+@class DXRDynamicXrayConfigurationActiveView;
+@class DXRDynamicXrayConfigurationFaderView;
 
 
 typedef NS_ENUM(NSInteger, DXRDynamicsXrayConfigurationControlsLayoutStyle)
@@ -18,11 +18,11 @@ typedef NS_ENUM(NSInteger, DXRDynamicsXrayConfigurationControlsLayoutStyle)
 };
 
 
-@interface DXRDynamicsXrayConfigurationControlsView : UIView
+@interface DXRDynamicXrayConfigurationControlsView : UIView
 
 - (id)initWithLayoutStyle:(DXRDynamicsXrayConfigurationControlsLayoutStyle)layoutStyle;
 
-@property (strong, nonatomic, readonly) DXRDynamicsXrayConfigurationActiveView *activeView;
-@property (strong, nonatomic, readonly) DXRDynamicsXrayConfigurationFaderView *faderView;
+@property (strong, nonatomic, readonly) DXRDynamicXrayConfigurationActiveView *activeView;
+@property (strong, nonatomic, readonly) DXRDynamicXrayConfigurationFaderView *faderView;
 
 @end

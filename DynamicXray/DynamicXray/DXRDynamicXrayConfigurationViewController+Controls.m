@@ -9,9 +9,9 @@
 #import "DXRDynamicXrayConfigurationViewController+Controls.h"
 #import "DXRDynamicXrayConfigurationViewController_Internal.h"
 
-#import "DXRDynamicsXrayConfigurationActiveView.h"
-#import "DXRDynamicsXrayConfigurationFaderView.h"
-#import "DXRDynamicsXrayConfigurationTitleView.h"
+#import "DXRDynamicXrayConfigurationActiveView.h"
+#import "DXRDynamicXrayConfigurationFaderView.h"
+#import "DXRDynamicXrayConfigurationTitleView.h"
 #import "DXRDynamicXrayWindowController.h"
 
 
@@ -45,7 +45,7 @@
         layoutStyle = DXRDynamicsXrayConfigurationControlsLayoutStyleWide;
     }
 
-    DXRDynamicsXrayConfigurationControlsView *controlsView = [[DXRDynamicsXrayConfigurationControlsView alloc] initWithLayoutStyle:layoutStyle];
+    DXRDynamicXrayConfigurationControlsView *controlsView = [[DXRDynamicXrayConfigurationControlsView alloc] initWithLayoutStyle:layoutStyle];
     controlsView.translatesAutoresizingMaskIntoConstraints = NO;
     controlsView.backgroundColor = [UIColor clearColor];
 

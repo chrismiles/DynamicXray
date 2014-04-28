@@ -1,5 +1,5 @@
 //
-//  DXRDynamicsXrayConfigurationFaderView.h
+//  DXRDynamicXrayConfigurationFaderView.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 5/03/2014.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DXRDynamicsXrayConfigurationFaderView : UIView
+@interface DXRDynamicXrayConfigurationFaderView : UIView
 
 @property (strong, nonatomic, readonly) UISlider *faderSlider;
 

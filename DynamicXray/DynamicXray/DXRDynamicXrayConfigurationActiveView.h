@@ -1,5 +1,5 @@
 //
-//  DXRDynamicsXrayConfigurationActiveView.h
+//  DXRDynamicXrayConfigurationActiveView.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 5/03/2014.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DXRDynamicsXrayConfigurationActiveView : UIView
+@interface DXRDynamicXrayConfigurationActiveView : UIView
 
 @property (strong, nonatomic, readonly) UISwitch *activeToggleSwitch;
 

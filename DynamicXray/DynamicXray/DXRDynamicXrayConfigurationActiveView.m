@@ -1,21 +1,21 @@
 //
-//  DXRDynamicsXrayConfigurationActiveView.m
+//  DXRDynamicXrayConfigurationActiveView.m
 //  DynamicsXray
 //
 //  Created by Chris Miles on 5/03/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXrayConfigurationActiveView.h"
+#import "DXRDynamicXrayConfigurationActiveView.h"
 
-@interface DXRDynamicsXrayConfigurationActiveView ()
+@interface DXRDynamicXrayConfigurationActiveView ()
 
 @property (strong, nonatomic, readwrite) UISwitch *activeToggleSwitch;
 
 @end
 
 
-@implementation DXRDynamicsXrayConfigurationActiveView
+@implementation DXRDynamicXrayConfigurationActiveView
 
 - (id)initWithFrame:(CGRect)frame
 {

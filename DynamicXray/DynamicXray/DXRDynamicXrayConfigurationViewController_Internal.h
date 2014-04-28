@@ -7,7 +7,7 @@
 //
 
 #import "DXRDynamicXrayConfigurationViewController.h"
-#import "DXRDynamicsXrayConfigurationControlsView.h"
+#import "DXRDynamicXrayConfigurationControlsView.h"
 #import "DynamicXray.h"
 
 @interface DXRDynamicXrayConfigurationViewController ()
@@ -17,7 +17,7 @@
 @property (assign, nonatomic) BOOL animateAppearance;
 
 @property (assign, nonatomic) BOOL initialAppearanceWasAnimated;
-@property (strong, nonatomic) DXRDynamicsXrayConfigurationControlsView *controlsView;
+@property (strong, nonatomic) DXRDynamicXrayConfigurationControlsView *controlsView;
 @property (strong, nonatomic) NSLayoutConstraint *controlsBottomLayoutConstraint;
 
 - (void)transitionOutAnimatedWithCompletion:(void (^)(void))completion;

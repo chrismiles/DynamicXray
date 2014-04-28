@@ -1,26 +1,26 @@
 //
-//  DXRDynamicsXrayConfigurationFaderView.m
+//  DXRDynamicXrayConfigurationFaderView.m
 //  DynamicsXray
 //
 //  Created by Chris Miles on 5/03/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXrayConfigurationFaderView.h"
+#import "DXRDynamicXrayConfigurationFaderView.h"
 #import "DXRAssetBytesIconNoOverlay.png.h"
 #import "DXRAssetBytesIconNoOverlay@2x.png.h"
 #import "DXRAssetBytesIconOverlay.png.h"
 #import "DXRAssetBytesIconOverlay@2x.png.h"
 
 
-@interface DXRDynamicsXrayConfigurationFaderView ()
+@interface DXRDynamicXrayConfigurationFaderView ()
 
 @property (strong, nonatomic, readwrite) UISlider *faderSlider;
 
 @end
 
 
-@implementation DXRDynamicsXrayConfigurationFaderView
+@implementation DXRDynamicXrayConfigurationFaderView
 
 - (id)initWithFrame:(CGRect)frame
 {

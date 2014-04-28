@@ -1,18 +1,18 @@
 //
-//  DXRDynamicsXrayConfigurationTitleView.m
+//  DXRDynamicXrayConfigurationTitleView.m
 //  DynamicsXray
 //
 //  Created by Chris Miles on 5/03/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXrayConfigurationTitleView.h"
+#import "DXRDynamicXrayConfigurationTitleView.h"
 #import "DXRAssetBytesLogo.png.h"
 #import "DXRAssetBytesLogo@2x.png.h"
 #import "DynamicXray.h"
 
 
-@implementation DXRDynamicsXrayConfigurationTitleView
+@implementation DXRDynamicXrayConfigurationTitleView
 
 - (id)initWithFrame:(CGRect)frame
 {

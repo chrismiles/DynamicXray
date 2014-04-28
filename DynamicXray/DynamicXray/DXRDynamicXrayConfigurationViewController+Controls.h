@@ -7,7 +7,7 @@
 //
 
 #import "DXRDynamicXrayConfigurationViewController.h"
-@class DXRDynamicsXrayConfigurationControlsView;
+@class DXRDynamicXrayConfigurationControlsView;
 
 
 @interface DXRDynamicXrayConfigurationViewController (Controls)
