@@ -1,16 +1,16 @@
 //
-//  DXRDynamicsXrayConfigurationViewController+Controls.h
+//  DXRDynamicXrayConfigurationViewController+Controls.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 24/10/13.
 //  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXrayConfigurationViewController.h"
+#import "DXRDynamicXrayConfigurationViewController.h"
 @class DXRDynamicsXrayConfigurationControlsView;
 
 
-@interface DXRDynamicsXrayConfigurationViewController (Controls)
+@interface DXRDynamicXrayConfigurationViewController (Controls)
 
 - (UIButton *)newDismissButtonWithFrame:(CGRect)frame;
 

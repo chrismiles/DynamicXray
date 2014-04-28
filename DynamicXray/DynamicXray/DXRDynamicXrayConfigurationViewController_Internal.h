@@ -1,16 +1,16 @@
 //
-//  DXRDynamicsXrayConfigurationViewController_Internal.h
+//  DXRDynamicXrayConfigurationViewController_Internal.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 24/10/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXrayConfigurationViewController.h"
+#import "DXRDynamicXrayConfigurationViewController.h"
 #import "DXRDynamicsXrayConfigurationControlsView.h"
 #import "DynamicXray.h"
 
-@interface DXRDynamicsXrayConfigurationViewController ()
+@interface DXRDynamicXrayConfigurationViewController ()
 
 @property (weak, nonatomic) DynamicXray *dynamicsXray;
 

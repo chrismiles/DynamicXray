@@ -1,13 +1,13 @@
 //
-//  DXRDynamicsXrayConfigurationViewController+Controls.m
+//  DXRDynamicXrayConfigurationViewController+Controls.m
 //  DynamicsXray
 //
 //  Created by Chris Miles on 24/10/13.
 //  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXrayConfigurationViewController+Controls.h"
-#import "DXRDynamicsXrayConfigurationViewController_Internal.h"
+#import "DXRDynamicXrayConfigurationViewController+Controls.h"
+#import "DXRDynamicXrayConfigurationViewController_Internal.h"
 
 #import "DXRDynamicsXrayConfigurationActiveView.h"
 #import "DXRDynamicsXrayConfigurationFaderView.h"
@@ -15,7 +15,7 @@
 #import "DXRDynamicXrayWindowController.h"
 
 
-@implementation DXRDynamicsXrayConfigurationViewController (Controls)
+@implementation DXRDynamicXrayConfigurationViewController (Controls)
 
 #pragma mark - View/Control Creation
 

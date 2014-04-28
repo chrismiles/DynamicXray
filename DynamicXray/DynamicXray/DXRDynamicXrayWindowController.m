@@ -9,8 +9,8 @@
 #import "DXRDynamicXrayWindowController.h"
 #import "DXRDynamicXrayViewController.h"
 #import "DXRDynamicXrayWindow.h"
-#import "DXRDynamicsXrayConfigurationViewController.h"
-#import "DXRDynamicsXrayConfigurationViewController+Private.h"
+#import "DXRDynamicXrayConfigurationViewController.h"
+#import "DXRDynamicXrayConfigurationViewController+Private.h"
 #import "DynamicXray_Internal.h"
 
 
@@ -20,7 +20,7 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 @interface DXRDynamicXrayWindowController () <DXRDynamicXrayWindowDelegate>
 
-@property (strong, nonatomic) DXRDynamicsXrayConfigurationViewController *configurationViewController;
+@property (strong, nonatomic) DXRDynamicXrayConfigurationViewController *configurationViewController;
 @property (strong, nonatomic) NSMutableArray *xrayViewControllers;
 
 @property (weak, nonatomic) DXRDynamicXrayWindow *window;
@@ -109,7 +109,7 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 - (void)presentConfigViewControllerWithDynamicsXray:(DynamicXray *)dynamicsXray animated:(BOOL)animated
 {
     if (self.configurationViewController == nil) {
-        DXRDynamicsXrayConfigurationViewController *configViewController = [[DXRDynamicsXrayConfigurationViewController alloc] initWithDynamicsXray:dynamicsXray];
+        DXRDynamicXrayConfigurationViewController *configViewController = [[DXRDynamicXrayConfigurationViewController alloc] initWithDynamicsXray:dynamicsXray];
         self.configurationViewController = configViewController;
 
         configViewController.animateAppearance = animated;

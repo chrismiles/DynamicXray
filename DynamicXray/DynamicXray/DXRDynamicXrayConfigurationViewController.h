@@ -1,5 +1,5 @@
 //
-//  DXRDynamicsXrayConfigurationViewController.h
+//  DXRDynamicXrayConfigurationViewController.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 16/10/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DXRDynamicsXrayConfigurationViewController : UIViewController
+@interface DXRDynamicXrayConfigurationViewController : UIViewController
 
 @end

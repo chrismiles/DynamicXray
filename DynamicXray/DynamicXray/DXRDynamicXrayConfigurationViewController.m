@@ -1,18 +1,18 @@
 //
-//  DXRDynamicsXrayConfigurationViewController.m
+//  DXRDynamicXrayConfigurationViewController.m
 //  DynamicsXray
 //
 //  Created by Chris Miles on 16/10/13.
 //  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXrayConfigurationViewController.h"
-#import "DXRDynamicsXrayConfigurationViewController_Internal.h"
-#import "DXRDynamicsXrayConfigurationViewController+Private.h"
-#import "DXRDynamicsXrayConfigurationViewController+Controls.h"
+#import "DXRDynamicXrayConfigurationViewController.h"
+#import "DXRDynamicXrayConfigurationViewController_Internal.h"
+#import "DXRDynamicXrayConfigurationViewController+Private.h"
+#import "DXRDynamicXrayConfigurationViewController+Controls.h"
 
 
-@implementation DXRDynamicsXrayConfigurationViewController
+@implementation DXRDynamicXrayConfigurationViewController
 
 - (id)initWithDynamicsXray:(DynamicXray *)dynamicsXray
 {
