@@ -1,5 +1,5 @@
 //
-//  DXRDynamicsXrayWindowController.h
+//  DXRDynamicXrayWindowController.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 14/10/13.
@@ -11,7 +11,7 @@
 @class DXRDynamicXrayViewController;
 
 
-@interface DXRDynamicsXrayWindowController : UIViewController
+@interface DXRDynamicXrayWindowController : UIViewController
 
 /** Returns a weak references UIWindow.
  

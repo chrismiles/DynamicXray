@@ -12,7 +12,7 @@
 #import "DXRDynamicsXrayConfigurationActiveView.h"
 #import "DXRDynamicsXrayConfigurationFaderView.h"
 #import "DXRDynamicsXrayConfigurationTitleView.h"
-#import "DXRDynamicsXrayWindowController.h"
+#import "DXRDynamicXrayWindowController.h"
 
 
 @implementation DXRDynamicsXrayConfigurationViewController (Controls)
@@ -77,7 +77,7 @@
 
 - (void)dismissAction:(__unused id)sender
 {
-    DXRDynamicsXrayWindowController *xrayWindowController = (DXRDynamicsXrayWindowController *)self.parentViewController;
+    DXRDynamicXrayWindowController *xrayWindowController = (DXRDynamicXrayWindowController *)self.parentViewController;
 
     void ((^completion)(void)) = ^{
         [xrayWindowController dismissConfigViewController];

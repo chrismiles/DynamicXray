@@ -13,7 +13,7 @@
 #import "DynamicXray+XrayVisualiseBehaviors.h"
 
 #import "DXRDynamicXrayView.h"
-#import "DXRDynamicsXrayWindowController.h"
+#import "DXRDynamicXrayWindowController.h"
 #import "DXRContactHandler.h"
 
 
@@ -51,7 +51,7 @@ NSString *const DynamicXrayVersion = @"0.1";
 /*
  * Shared Private
  */
-static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
+static DXRDynamicXrayWindowController *sharedXrayWindowController = nil;
 
 
 @interface DynamicXray (XRayVisualStyleInternals)
@@ -71,7 +71,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{
             if (sharedXrayWindowController == nil) {
-                sharedXrayWindowController = [[DXRDynamicsXrayWindowController alloc] init];
+                sharedXrayWindowController = [[DXRDynamicXrayWindowController alloc] init];
             }
         });
 
@@ -135,7 +135,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
 
 #pragma mark - Xray Window Controller
 
-- (DXRDynamicsXrayWindowController *)xrayWindowController
+- (DXRDynamicXrayWindowController *)xrayWindowController
 {
     return sharedXrayWindowController;
 }

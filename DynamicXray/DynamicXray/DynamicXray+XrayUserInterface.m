@@ -8,7 +8,7 @@
 
 #import "DynamicXray.h"
 #import "DynamicXray_Internal.h"
-#import "DXRDynamicsXrayWindowController.h"
+#import "DXRDynamicXrayWindowController.h"
 
 
 @implementation DynamicXray (XrayUserInterface)

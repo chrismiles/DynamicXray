@@ -8,7 +8,7 @@
 
 #import "DynamicXray.h"
 #import "DXRDynamicXrayViewController.h"
-@class DXRDynamicsXrayWindowController;
+@class DXRDynamicXrayWindowController;
 
 
 @interface DynamicXray () {
@@ -31,7 +31,7 @@
 @property (strong, nonatomic) NSMapTable *instantaneousPushBehaviorLifetimes;
 
 - (void)redraw;
-- (DXRDynamicsXrayWindowController *)xrayWindowController;
+- (DXRDynamicXrayWindowController *)xrayWindowController;
 - (DXRDynamicXrayView *)xrayView;
 
 + (UIColor *)xrayStrokeColor;

@@ -1,14 +1,14 @@
 //
-//  DXRDynamicsXrayWindowController.m
+//  DXRDynamicXrayWindowController.m
 //  DynamicsXray
 //
 //  Created by Chris Miles on 14/10/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXrayWindowController.h"
+#import "DXRDynamicXrayWindowController.h"
 #import "DXRDynamicXrayViewController.h"
-#import "DXRDynamicsXrayWindow.h"
+#import "DXRDynamicXrayWindow.h"
 #import "DXRDynamicsXrayConfigurationViewController.h"
 #import "DXRDynamicsXrayConfigurationViewController+Private.h"
 #import "DynamicXray_Internal.h"
@@ -18,17 +18,17 @@ static CGFloat
 AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 
-@interface DXRDynamicsXrayWindowController () <DXRDynamicsXrayWindowDelegate>
+@interface DXRDynamicXrayWindowController () <DXRDynamicXrayWindowDelegate>
 
 @property (strong, nonatomic) DXRDynamicsXrayConfigurationViewController *configurationViewController;
 @property (strong, nonatomic) NSMutableArray *xrayViewControllers;
 
-@property (weak, nonatomic) DXRDynamicsXrayWindow *window;
+@property (weak, nonatomic) DXRDynamicXrayWindow *window;
 
 @end
 
 
-@implementation DXRDynamicsXrayWindowController
+@implementation DXRDynamicXrayWindowController
 
 - (id)init
 {
@@ -50,13 +50,13 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 - (UIWindow *)xrayWindow
 {
-    DXRDynamicsXrayWindow *window = self.window;
+    DXRDynamicXrayWindow *window = self.window;
 
     if (window == nil) {
         CGRect screenBounds = [[UIScreen mainScreen] bounds];
 
         // Create a new shared UIWindow to host dynamics xray views
-        window = [[DXRDynamicsXrayWindow alloc] initWithFrame:screenBounds];
+        window = [[DXRDynamicXrayWindow alloc] initWithFrame:screenBounds];
         window.xrayWindowDelegate = self;
         window.windowLevel = UIWindowLevelStatusBar + 1;
         window.userInteractionEnabled = NO;
@@ -178,7 +178,7 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 #pragma mark - DXRDynamicsXrayWindowDelegate
 
-- (void)dynamicsXrayWindowNeedsToLayoutSubviews:(DXRDynamicsXrayWindow *)dynamicsXrayWindow
+- (void)dynamicsXrayWindowNeedsToLayoutSubviews:(DXRDynamicXrayWindow *)dynamicsXrayWindow
 {
     [self layoutRootViews];
 }
