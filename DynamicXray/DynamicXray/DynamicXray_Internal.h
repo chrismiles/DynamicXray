@@ -7,7 +7,7 @@
 //
 
 #import "DynamicXray.h"
-#import "DXRDynamicsXrayViewController.h"
+#import "DXRDynamicXrayViewController.h"
 @class DXRDynamicsXrayWindowController;
 
 
@@ -22,7 +22,7 @@
 @property (weak, nonatomic) UIWindow *previousReferenceViewWindow;
 @property (assign, nonatomic) CGRect previousReferenceViewFrame;
 
-@property (strong, nonatomic) DXRDynamicsXrayViewController *xrayViewController;
+@property (strong, nonatomic) DXRDynamicXrayViewController *xrayViewController;
 @property (strong, nonatomic) UIWindow *xrayWindow;
 
 @property (strong, nonatomic) NSMutableSet *dynamicItemsToDraw;

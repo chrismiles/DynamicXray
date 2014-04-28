@@ -7,7 +7,7 @@
 //
 
 #import "DXRDynamicsXrayWindowController.h"
-#import "DXRDynamicsXrayViewController.h"
+#import "DXRDynamicXrayViewController.h"
 #import "DXRDynamicsXrayWindow.h"
 #import "DXRDynamicsXrayConfigurationViewController.h"
 #import "DXRDynamicsXrayConfigurationViewController+Private.h"
@@ -75,7 +75,7 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 #pragma mark - Xray View Controller Presentation
 
-- (void)presentDynamicsXrayViewController:(DXRDynamicsXrayViewController *)dynamicsXrayViewController
+- (void)presentDynamicsXrayViewController:(DXRDynamicXrayViewController *)dynamicsXrayViewController
 {
     if ([self.xrayViewControllers containsObject:dynamicsXrayViewController] == NO) {
         [self.xrayViewControllers addObject:dynamicsXrayViewController];
@@ -96,7 +96,7 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
     }
 }
 
-- (void)dismissDynamicsXrayViewController:(DXRDynamicsXrayViewController *)xrayViewController
+- (void)dismissDynamicsXrayViewController:(DXRDynamicXrayViewController *)xrayViewController
 {
     [xrayViewController.view removeFromSuperview];
     [xrayViewController removeFromParentViewController];
@@ -168,8 +168,8 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
             rootView.transform = transform;
             rootView.frame = CGRectMake(0, 0, frameSize.width, frameSize.height);
 
-            if ([viewController isKindOfClass:[DXRDynamicsXrayViewController class]]) {
-                [[(DXRDynamicsXrayViewController *)viewController dynamicsXray] redraw];
+            if ([viewController isKindOfClass:[DXRDynamicXrayViewController class]]) {
+                [[(DXRDynamicXrayViewController *)viewController dynamicsXray] redraw];
             }
         }
     }

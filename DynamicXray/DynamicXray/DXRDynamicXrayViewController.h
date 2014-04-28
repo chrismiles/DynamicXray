@@ -1,5 +1,5 @@
 //
-//  DXRDynamicsXrayViewController.h
+//  DXRDynamicXrayViewController.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 16/10/13.
@@ -10,7 +10,7 @@
 @class DynamicXray;
 @class DXRDynamicXrayView;
 
-@interface DXRDynamicsXrayViewController : UIViewController
+@interface DXRDynamicXrayViewController : UIViewController
 
 - (id)initDynamicsXray:(DynamicXray *)dynamicsXray;
 

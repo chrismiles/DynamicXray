@@ -8,7 +8,7 @@
 
 @import UIKit;
 @class DynamicXray;
-@class DXRDynamicsXrayViewController;
+@class DXRDynamicXrayViewController;
 
 
 @interface DXRDynamicsXrayWindowController : UIViewController
@@ -27,11 +27,11 @@
  
     Note that dynamics Xray views are always added below any configuration view.
  */
-- (void)presentDynamicsXrayViewController:(DXRDynamicsXrayViewController *)dynamicsXrayViewController;
+- (void)presentDynamicsXrayViewController:(DXRDynamicXrayViewController *)dynamicsXrayViewController;
 
 /** Removes a DXRDynamicsXrayViewController's view from the window.
  */
-- (void)dismissDynamicsXrayViewController:(DXRDynamicsXrayViewController *)xrayViewController;
+- (void)dismissDynamicsXrayViewController:(DXRDynamicXrayViewController *)xrayViewController;
 
 
 /** Adds a DXRDynamicsXrayConfigurationViewController's view to the window.

@@ -84,7 +84,7 @@ static DXRDynamicsXrayWindowController *sharedXrayWindowController = nil;
         // Grab a strong reference to the shared XRay window (a new one is created on demand if needed)
         self.xrayWindow = sharedXrayWindowController.xrayWindow;
 
-        _xrayViewController = [[DXRDynamicsXrayViewController alloc] initDynamicsXray:self];
+        _xrayViewController = [[DXRDynamicXrayViewController alloc] initDynamicsXray:self];
 
         [sharedXrayWindowController presentDynamicsXrayViewController:_xrayViewController];
         [self.xrayWindow setHidden:NO];
