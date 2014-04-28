@@ -8,7 +8,7 @@
 
 #import "DynamicXray.h"
 #import "DynamicXray+XrayPushBehavior.h"
-#import "UIPushBehavior+DynamicsXrayIntrospection.h"
+#import "UIPushBehavior+DynamicXrayIntrospection.h"
 
 @interface DynamicXray (XrayPushBehavior)
 

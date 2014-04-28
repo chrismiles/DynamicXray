@@ -1,5 +1,5 @@
 //
-//  UIPushBehavior+DynamicsXrayIntrospection.h
+//  UIPushBehavior+DynamicXrayIntrospection.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 24/01/2014.
@@ -11,6 +11,6 @@
 extern NSString * const DXRDynamicsXrayInstantaneousPushBehaviorDidBecomeActiveNotification;
 
 
-@interface UIPushBehavior (DynamicsXrayIntrospection)
+@interface UIPushBehavior (DynamicXrayIntrospection)
 
 @end

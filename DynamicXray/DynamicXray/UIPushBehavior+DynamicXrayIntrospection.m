@@ -1,19 +1,19 @@
 //
-//  UIPushBehavior+DynamicsXrayIntrospection.m
+//  UIPushBehavior+DynamicXrayIntrospection.m
 //  DynamicsXray
 //
 //  Created by Chris Miles on 24/01/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
 //
 
-#import "UIPushBehavior+DynamicsXrayIntrospection.h"
+#import "UIPushBehavior+DynamicXrayIntrospection.h"
 #import "JRSwizzle.h"
 
 
 NSString * const DXRDynamicsXrayInstantaneousPushBehaviorDidBecomeActiveNotification = @"DXRDynamicsXrayInstantaneousPushBehaviorDidBecomeActiveNotification";
 
 
-@implementation UIPushBehavior (DynamicsXrayIntrospection)
+@implementation UIPushBehavior (DynamicXrayIntrospection)
 
 + (void)load
 {
