@@ -135,7 +135,7 @@
 		2806C636175BE66C00827B6B = {
 			isa = PBXGroup;
 			children = (
-				2806C648175BE66C00827B6B /* DynamicsUberCatalog */,
+				2806C648175BE66C00827B6B /* DynamicXrayCatalog */,
 				830DA09717FD7E6400A24B39 /* Libraries */,
 				2806C641175BE66C00827B6B /* Frameworks */,
 				2806C640175BE66C00827B6B /* Products */,
@@ -165,7 +165,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2806C648175BE66C00827B6B /* DynamicsUberCatalog */ = {
+		2806C648175BE66C00827B6B /* DynamicXrayCatalog */ = {
 			isa = PBXGroup;
 			children = (
 				2806C65A175BE66C00827B6B /* Images.xcassets */,
@@ -173,7 +173,7 @@
 				83BA61661829D0FC00341483 /* Source */,
 				2806C649175BE66C00827B6B /* Supporting Files */,
 			);
-			path = DynamicsUberCatalog;
+			path = DynamicXrayCatalog;
 			sourceTree = "<group>";
 		};
 		2806C649175BE66C00827B6B /* Supporting Files */ = {
@@ -364,7 +364,7 @@
 		2806C637175BE66C00827B6B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = CM;
+				CLASSPREFIX = DXC;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Chris Miles";
 			};
@@ -542,8 +542,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DynamicsUberCatalog/DynamicXrayCatalog-Prefix.pch";
-				INFOPLIST_FILE = "DynamicsUberCatalog/DynamicXrayCatalog-Info.plist";
+				GCC_PREFIX_HEADER = "DynamicXrayCatalog/DynamicXrayCatalog-Prefix.pch";
+				INFOPLIST_FILE = "DynamicXrayCatalog/DynamicXrayCatalog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = DynamicXrayCatalog;
@@ -558,8 +558,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DynamicsUberCatalog/DynamicXrayCatalog-Prefix.pch";
-				INFOPLIST_FILE = "DynamicsUberCatalog/DynamicXrayCatalog-Info.plist";
+				GCC_PREFIX_HEADER = "DynamicXrayCatalog/DynamicXrayCatalog-Prefix.pch";
+				INFOPLIST_FILE = "DynamicXrayCatalog/DynamicXrayCatalog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = DynamicXrayCatalog;
