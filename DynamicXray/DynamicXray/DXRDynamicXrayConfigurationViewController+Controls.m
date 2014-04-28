@@ -1,6 +1,6 @@
 //
 //  DXRDynamicXrayConfigurationViewController+Controls.m
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 24/10/13.
 //  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
@@ -35,14 +35,14 @@
 
 - (void)setupControlsViewWithInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    DXRDynamicsXrayConfigurationControlsLayoutStyle layoutStyle;
+    DXRDynamicXrayConfigurationControlsLayoutStyle layoutStyle;
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone && UIInterfaceOrientationIsPortrait(interfaceOrientation))
     {
-        layoutStyle = DXRDynamicsXrayConfigurationControlsLayoutStyleNarrow;
+        layoutStyle = DXRDynamicXrayConfigurationControlsLayoutStyleNarrow;
     }
     else
     {
-        layoutStyle = DXRDynamicsXrayConfigurationControlsLayoutStyleWide;
+        layoutStyle = DXRDynamicXrayConfigurationControlsLayoutStyleWide;
     }
 
     DXRDynamicXrayConfigurationControlsView *controlsView = [[DXRDynamicXrayConfigurationControlsView alloc] initWithLayoutStyle:layoutStyle];
@@ -51,11 +51,11 @@
 
     controlsView.tintColor = [self controlsTintColor];
 
-    [controlsView.activeView.activeToggleSwitch setOn:self.dynamicsXray.isActive];
+    [controlsView.activeView.activeToggleSwitch setOn:self.dynamicXray.isActive];
     [controlsView.activeView.activeToggleSwitch setOnTintColor:[self controlsTintColor]];
     [controlsView.activeView.activeToggleSwitch addTarget:self action:@selector(activeToggleAction:) forControlEvents:UIControlEventValueChanged];
 
-    [controlsView.faderView.faderSlider setValue:(self.dynamicsXray.crossFade+1.0f)/2.0f];
+    [controlsView.faderView.faderSlider setValue:(self.dynamicXray.crossFade+1.0f)/2.0f];
     [controlsView.faderView.faderSlider addTarget:self action:@selector(faderSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
 
     [self.view addSubview:controlsView];
@@ -93,13 +93,13 @@
 
 - (void)activeToggleAction:(UISwitch *)toggleSwitch
 {
-    [self.dynamicsXray setActive:toggleSwitch.on];
+    [self.dynamicXray setActive:toggleSwitch.on];
 }
 
 - (void)faderSliderValueChanged:(UISlider *)slider
 {
     CGFloat crossFade = slider.value * 2.0f - 1.0f;
-    self.dynamicsXray.crossFade = crossFade;
+    self.dynamicXray.crossFade = crossFade;
 }
 
 - (UIColor *)controlsTintColor

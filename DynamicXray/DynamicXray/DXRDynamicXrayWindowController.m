@@ -1,6 +1,6 @@
 //
 //  DXRDynamicXrayWindowController.m
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 14/10/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
@@ -75,28 +75,28 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 #pragma mark - Xray View Controller Presentation
 
-- (void)presentDynamicsXrayViewController:(DXRDynamicXrayViewController *)dynamicsXrayViewController
+- (void)presentDynamicXrayViewController:(DXRDynamicXrayViewController *)dynamicXrayViewController
 {
-    if ([self.xrayViewControllers containsObject:dynamicsXrayViewController] == NO) {
-        [self.xrayViewControllers addObject:dynamicsXrayViewController];
+    if ([self.xrayViewControllers containsObject:dynamicXrayViewController] == NO) {
+        [self.xrayViewControllers addObject:dynamicXrayViewController];
 
         UIView *rootView = self.window.rootViewController.view;
-        [dynamicsXrayViewController.view setTransform:rootView.transform];
-        [dynamicsXrayViewController.view setFrame:rootView.frame];
-        [dynamicsXrayViewController.view setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
+        [dynamicXrayViewController.view setTransform:rootView.transform];
+        [dynamicXrayViewController.view setFrame:rootView.frame];
+        [dynamicXrayViewController.view setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
 
         if (self.configurationViewController.view.superview == self.window) {
-            [self.window insertSubview:dynamicsXrayViewController.view belowSubview:self.configurationViewController.view];
+            [self.window insertSubview:dynamicXrayViewController.view belowSubview:self.configurationViewController.view];
         }
         else {
-            [self.window addSubview:dynamicsXrayViewController.view];
+            [self.window addSubview:dynamicXrayViewController.view];
         }
 
-        [self addChildViewController:dynamicsXrayViewController];
+        [self addChildViewController:dynamicXrayViewController];
     }
 }
 
-- (void)dismissDynamicsXrayViewController:(DXRDynamicXrayViewController *)xrayViewController
+- (void)dismissDynamicXrayViewController:(DXRDynamicXrayViewController *)xrayViewController
 {
     [xrayViewController.view removeFromSuperview];
     [xrayViewController removeFromParentViewController];
@@ -106,10 +106,10 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 #pragma mark - Config View Controller Presentation
 
-- (void)presentConfigViewControllerWithDynamicsXray:(DynamicXray *)dynamicsXray animated:(BOOL)animated
+- (void)presentConfigViewControllerWithDynamicXray:(DynamicXray *)dynamicXray animated:(BOOL)animated
 {
     if (self.configurationViewController == nil) {
-        DXRDynamicXrayConfigurationViewController *configViewController = [[DXRDynamicXrayConfigurationViewController alloc] initWithDynamicsXray:dynamicsXray];
+        DXRDynamicXrayConfigurationViewController *configViewController = [[DXRDynamicXrayConfigurationViewController alloc] initWithDynamicXray:dynamicXray];
         self.configurationViewController = configViewController;
 
         configViewController.animateAppearance = animated;
@@ -123,7 +123,7 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
         [self.window setUserInteractionEnabled:YES];
     }
     else {
-        NSLog(@"Warning: attempt to present a DynamicsXray Configuration view when one is already visible.");
+        NSLog(@"Warning: attempt to present a DynamicXray Configuration view when one is already visible.");
     }
 }
 
@@ -169,16 +169,16 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
             rootView.frame = CGRectMake(0, 0, frameSize.width, frameSize.height);
 
             if ([viewController isKindOfClass:[DXRDynamicXrayViewController class]]) {
-                [[(DXRDynamicXrayViewController *)viewController dynamicsXray] redraw];
+                [[(DXRDynamicXrayViewController *)viewController dynamicXray] redraw];
             }
         }
     }
 }
 
 
-#pragma mark - DXRDynamicsXrayWindowDelegate
+#pragma mark - DXRDynamicXrayWindowDelegate
 
-- (void)dynamicsXrayWindowNeedsToLayoutSubviews:(DXRDynamicXrayWindow *)dynamicsXrayWindow
+- (void)dynamicXrayWindowNeedsToLayoutSubviews:(DXRDynamicXrayWindow *)dynamicXrayWindow
 {
     [self layoutRootViews];
 }

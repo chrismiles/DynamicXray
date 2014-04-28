@@ -1,6 +1,6 @@
 //
 //  UIPushBehavior+DynamicXrayIntrospection.m
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 24/01/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
@@ -10,7 +10,7 @@
 #import "JRSwizzle.h"
 
 
-NSString * const DXRDynamicsXrayInstantaneousPushBehaviorDidBecomeActiveNotification = @"DXRDynamicsXrayInstantaneousPushBehaviorDidBecomeActiveNotification";
+NSString * const DXRDynamicXrayInstantaneousPushBehaviorDidBecomeActiveNotification = @"DXRDynamicXrayInstantaneousPushBehaviorDidBecomeActiveNotification";
 
 
 @implementation UIPushBehavior (DynamicXrayIntrospection)
@@ -31,7 +31,7 @@ NSString * const DXRDynamicsXrayInstantaneousPushBehaviorDidBecomeActiveNotifica
 - (void)_xraySetActive:(BOOL)active
 {
     if (active && self.mode == UIPushBehaviorModeInstantaneous) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:DXRDynamicsXrayInstantaneousPushBehaviorDidBecomeActiveNotification object:self userInfo:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:DXRDynamicXrayInstantaneousPushBehaviorDidBecomeActiveNotification object:self userInfo:nil];
     }
 
     // Pass to original method

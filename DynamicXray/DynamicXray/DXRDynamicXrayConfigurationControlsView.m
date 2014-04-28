@@ -1,6 +1,6 @@
 //
 //  DXRDynamicXrayConfigurationControlsView.m
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 6/03/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
@@ -27,7 +27,7 @@
 
 @implementation DXRDynamicXrayConfigurationControlsView
 
-- (id)initWithLayoutStyle:(DXRDynamicsXrayConfigurationControlsLayoutStyle)layoutStyle
+- (id)initWithLayoutStyle:(DXRDynamicXrayConfigurationControlsLayoutStyle)layoutStyle
 {
     self = [super initWithFrame:CGRectZero];
     if (self)
@@ -56,14 +56,14 @@
         [contentsView addSubview:self.faderView];
         [contentsView addSubview:self.activeView];
 
-        if (layoutStyle == DXRDynamicsXrayConfigurationControlsLayoutStyleNarrow) {
+        if (layoutStyle == DXRDynamicXrayConfigurationControlsLayoutStyleNarrow) {
             self.titleFaderSeparatorView = [self newTitleFaderSeparatorView];
             [contentsView addSubview:self.titleFaderSeparatorView];
         }
 
         self.contentsView = contentsView;
 
-        if (layoutStyle == DXRDynamicsXrayConfigurationControlsLayoutStyleNarrow) {
+        if (layoutStyle == DXRDynamicXrayConfigurationControlsLayoutStyleNarrow) {
             [self configureLayoutForNarrowLayoutStyle];
         }
         else {

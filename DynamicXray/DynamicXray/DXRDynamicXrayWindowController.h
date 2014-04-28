@@ -1,6 +1,6 @@
 //
 //  DXRDynamicXrayWindowController.h
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 14/10/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
@@ -23,27 +23,27 @@
 @property (weak, nonatomic, readonly) UIWindow *xrayWindow;
 
 
-/** Adds a DXRDynamicsXrayViewController's view to the window and makes it visible.
+/** Adds a DXRDynamicXrayViewController's view to the window and makes it visible.
  
     Note that dynamics Xray views are always added below any configuration view.
  */
-- (void)presentDynamicsXrayViewController:(DXRDynamicXrayViewController *)dynamicsXrayViewController;
+- (void)presentDynamicXrayViewController:(DXRDynamicXrayViewController *)dynamicXrayViewController;
 
-/** Removes a DXRDynamicsXrayViewController's view from the window.
+/** Removes a DXRDynamicXrayViewController's view from the window.
  */
-- (void)dismissDynamicsXrayViewController:(DXRDynamicXrayViewController *)xrayViewController;
+- (void)dismissDynamicXrayViewController:(DXRDynamicXrayViewController *)xrayViewController;
 
 
-/** Adds a DXRDynamicsXrayConfigurationViewController's view to the window.
+/** Adds a DXRDynamicXrayConfigurationViewController's view to the window.
  
     Only one configuration view can be visible at a time. Attempts to present another
     configuration view when one is already present will be ignored.
     
     Note that configuration views will always be added on top of dynamics xray views.
  */
-- (void)presentConfigViewControllerWithDynamicsXray:(DynamicXray *)dynamicsXray animated:(BOOL)animated;
+- (void)presentConfigViewControllerWithDynamicXray:(DynamicXray *)dynamicXray animated:(BOOL)animated;
 
-/** Dismiss the DXRDynamicsXrayConfigurationViewController's view if one is visible.
+/** Dismiss the DXRDynamicXrayConfigurationViewController's view if one is visible.
  */
 - (void)dismissConfigViewController;
 

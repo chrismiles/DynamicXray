@@ -1,19 +1,19 @@
 //
-//  UIDynamicAnimator+DynamicsXrayContactIntrospection.m
-//  DynamicsXray
+//  UIDynamicAnimator+DynamicXrayContactIntrospection.m
+//  DynamicXray
 //
 //  Created by Chris Miles on 9/01/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
 //
 
-#import "UIDynamicAnimator+DynamicsXrayContactIntrospection.h"
+#import "UIDynamicAnimator+DynamicXrayContactIntrospection.h"
 
 #import "DXRContactHandler.h"
 #import "JRSwizzle.h"
 
 
 
-@implementation UIDynamicAnimator (DynamicsXrayContactIntrospection)
+@implementation UIDynamicAnimator (DynamicXrayContactIntrospection)
 
 + (void)load
 {

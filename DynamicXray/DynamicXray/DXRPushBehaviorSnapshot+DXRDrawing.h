@@ -1,6 +1,6 @@
 //
 //  DXRPushBehaviorSnapshot+DXRDrawing.h
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 21/01/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.

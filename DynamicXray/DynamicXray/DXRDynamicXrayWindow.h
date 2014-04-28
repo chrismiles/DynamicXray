@@ -1,6 +1,6 @@
 //
 //  DXRDynamicXrayWindow.h
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 12/11/2013.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
@@ -20,6 +20,6 @@
 
 @protocol DXRDynamicXrayWindowDelegate <NSObject>
 
-- (void)dynamicsXrayWindowNeedsToLayoutSubviews:(DXRDynamicXrayWindow *)dynamicsXrayWindow;
+- (void)dynamicXrayWindowNeedsToLayoutSubviews:(DXRDynamicXrayWindow *)dynamicXrayWindow;
 
 @end

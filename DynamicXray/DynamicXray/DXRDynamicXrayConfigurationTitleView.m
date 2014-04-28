@@ -1,6 +1,6 @@
 //
 //  DXRDynamicXrayConfigurationTitleView.m
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 5/03/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
@@ -76,7 +76,7 @@
 
 - (UILabel *)titleLabel
 {
-    NSString *title = [NSString stringWithFormat:@"DynamicsXray %@", DynamicXrayVersion];
+    NSString *title = [NSString stringWithFormat:@"DynamicXray %@", DynamicXrayVersion];
 
     UIFont *titleFont = [UIFont fontWithName:@"Avenir Next Condensed Demi Bold" size:13.0f];
     UIFont *versionFont = [UIFont fontWithName:@"Avenir Next Condensed" size:13.0f];

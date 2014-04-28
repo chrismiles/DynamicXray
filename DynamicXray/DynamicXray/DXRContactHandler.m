@@ -1,6 +1,6 @@
 //
 //  DXRContactHandler.m
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 10/01/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
@@ -36,8 +36,8 @@ typedef NS_ENUM(NSInteger, DXRContactType)
 };
 
 
-NSString * const DXRDynamicsXrayContactDidBeginNotification = @"DXRDynamicsXrayContactDidBeginNotification";
-NSString * const DXRDynamicsXrayContactDidEndNotification = @"DXRDynamicsXrayContactDidEndNotification";
+NSString * const DXRDynamicXrayContactDidBeginNotification = @"DXRDynamicXrayContactDidBeginNotification";
+NSString * const DXRDynamicXrayContactDidEndNotification = @"DXRDynamicXrayContactDidEndNotification";
 
 
 @implementation DXRContactHandler
@@ -98,7 +98,7 @@ NSString * const DXRDynamicsXrayContactDidEndNotification = @"DXRDynamicsXrayCon
     if (object && [object conformsToProtocol:@protocol(UIDynamicItem)]) {
         //DLog(@"DynamicItem began contact %@", object);
 
-        NSString *notificationName = (contactType == DXRContactTypeBegin ? DXRDynamicsXrayContactDidBeginNotification : DXRDynamicsXrayContactDidEndNotification);
+        NSString *notificationName = (contactType == DXRContactTypeBegin ? DXRDynamicXrayContactDidBeginNotification : DXRDynamicXrayContactDidEndNotification);
         NSDictionary *userInfo = @{@"dynamicItem": object};
         [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self userInfo:userInfo];
     }
@@ -113,7 +113,7 @@ NSString * const DXRDynamicsXrayContactDidEndNotification = @"DXRDynamicsXrayCon
 + (void)handleContactWithShapePath:(CGPathRef)path type:(DXRContactType)contactType
 {
     if (path) {
-        NSString *notificationName = (contactType == DXRContactTypeBegin ? DXRDynamicsXrayContactDidBeginNotification : DXRDynamicsXrayContactDidEndNotification);
+        NSString *notificationName = (contactType == DXRContactTypeBegin ? DXRDynamicXrayContactDidBeginNotification : DXRDynamicXrayContactDidEndNotification);
         id obj = (__bridge id)(path);
         NSDictionary *userInfo = @{@"path": obj};
         [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self userInfo:userInfo];

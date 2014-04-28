@@ -15,7 +15,7 @@
 
 - (void)presentConfigurationViewController
 {
-    [[self xrayWindowController] presentConfigViewControllerWithDynamicsXray:self animated:YES];
+    [[self xrayWindowController] presentConfigViewControllerWithDynamicXray:self animated:YES];
 }
 
 @end

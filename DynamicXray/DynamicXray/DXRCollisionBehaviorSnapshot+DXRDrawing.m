@@ -1,6 +1,6 @@
 //
 //  DXRCollisionBehaviorSnapshot+DXRDrawing.m
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 5/02/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.

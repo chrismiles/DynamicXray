@@ -1,6 +1,6 @@
 //
 //  DXRDynamicXrayView.m
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 4/08/13.
 //  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
@@ -185,8 +185,8 @@
         result = [self pointTransformedFromDeviceOrientation:point];    // convert to app window coords
     }
 
-    result = [self.window convertPoint:result fromWindow:appWindow];    // convert to DynamicsXray window coords
-    result = [self convertPoint:result fromView:nil];                   // convert to DynamicsXray view coords
+    result = [self.window convertPoint:result fromWindow:appWindow];    // convert to DynamicXray window coords
+    result = [self convertPoint:result fromView:nil];                   // convert to DynamicXray view coords
 
     result.x += self.drawOffset.horizontal;
     result.y += self.drawOffset.vertical;

@@ -1,6 +1,6 @@
 //
 //  DXRDynamicXrayConfigurationViewController_Internal.h
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 24/10/13.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
@@ -12,7 +12,7 @@
 
 @interface DXRDynamicXrayConfigurationViewController ()
 
-@property (weak, nonatomic) DynamicXray *dynamicsXray;
+@property (weak, nonatomic) DynamicXray *dynamicXray;
 
 @property (assign, nonatomic) BOOL animateAppearance;
 

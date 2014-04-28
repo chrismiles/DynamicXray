@@ -1,6 +1,6 @@
 //
 //  DXRPhysicsKitPrivate.h
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 10/01/2014.
 //  Copyright (c) 2014 Chris Miles. All rights reserved.
@@ -16,7 +16,7 @@
 //@end
 //
 //
-//@interface UIDynamicAnimator (DynamicsXrayPrivateAccess)
+//@interface UIDynamicAnimator (DynamicXrayPrivateAccess)
 //
 //@property (strong, readonly) PKPhysicsWorld *_world;
 //

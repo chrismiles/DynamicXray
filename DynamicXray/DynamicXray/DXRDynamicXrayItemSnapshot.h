@@ -1,6 +1,6 @@
 //
 //  DXRDynamicXrayItemSnapshot.h
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 7/11/2013.
 //  Copyright (c) 2013-2014 Chris Miles. All rights reserved.

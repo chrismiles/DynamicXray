@@ -1,6 +1,6 @@
 //
 //  DXRDynamicXrayWindow.m
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 12/11/2013.
 //  Copyright (c) 2013 Chris Miles. All rights reserved.
@@ -22,7 +22,7 @@
 - (void)layoutSubviews
 {
     __strong id<DXRDynamicXrayWindowDelegate> delegate = self.xrayWindowDelegate;
-    [delegate dynamicsXrayWindowNeedsToLayoutSubviews:self];
+    [delegate dynamicXrayWindowNeedsToLayoutSubviews:self];
 }
 
 @end

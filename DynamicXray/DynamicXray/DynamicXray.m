@@ -1,6 +1,6 @@
 //
-//  DynamicsXray.m
-//  DynamicsXray
+//  DynamicXray.m
+//  DynamicXray
 //
 //  Created by Chris Miles on 4/08/13.
 //  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
@@ -19,7 +19,7 @@
 
 /*
     Enable one or both of these macro definitons to dump object information.
-    This is normally only needed by DynamicsXray developers.
+    This is normally only needed by DynamicXray developers.
  */
 //#define DYNAMIC_ANIMATOR_OBJECT_INTROSPECTION
 //#define DYNAMIC_BEHAVIOR_OBJECT_INTROSPECTION
@@ -39,7 +39,7 @@
 // Note: this is a secondary redraw check. Normally the xray view is redrawn on
 // every dynamic animator tick.
 // Set this to 0 to disable it.
-static NSTimeInterval const DynamicsXrayRedrawCheckInterval = 0.25;     // seconds
+static NSTimeInterval const DynamicXrayRedrawCheckInterval = 0.25;     // seconds
 
 
 /*
@@ -84,9 +84,9 @@ static DXRDynamicXrayWindowController *sharedXrayWindowController = nil;
         // Grab a strong reference to the shared XRay window (a new one is created on demand if needed)
         self.xrayWindow = sharedXrayWindowController.xrayWindow;
 
-        _xrayViewController = [[DXRDynamicXrayViewController alloc] initDynamicsXray:self];
+        _xrayViewController = [[DXRDynamicXrayViewController alloc] initDynamicXray:self];
 
-        [sharedXrayWindowController presentDynamicsXrayViewController:_xrayViewController];
+        [sharedXrayWindowController presentDynamicXrayViewController:_xrayViewController];
         [self.xrayWindow setHidden:NO];
 
         [self updateDynamicsViewTransparencyLevels];
@@ -101,9 +101,9 @@ static DXRDynamicXrayWindowController *sharedXrayWindowController = nil;
 
         [self scheduleDelayedRedrawCheckRepeats:YES];
 
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dynamicsXrayContactDidBeginNotification:) name:DXRDynamicsXrayContactDidBeginNotification object:[DXRContactHandler class]];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dynamicsXrayContactDidEndNotification:) name:DXRDynamicsXrayContactDidEndNotification object:[DXRContactHandler class]];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(instantaneousPushBehaviorDidBecomeActiveNotification:) name:DXRDynamicsXrayInstantaneousPushBehaviorDidBecomeActiveNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dynamicXrayContactDidBeginNotification:) name:DXRDynamicXrayContactDidBeginNotification object:[DXRContactHandler class]];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dynamicXrayContactDidEndNotification:) name:DXRDynamicXrayContactDidEndNotification object:[DXRContactHandler class]];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(instantaneousPushBehaviorDidBecomeActiveNotification:) name:DXRDynamicXrayInstantaneousPushBehaviorDidBecomeActiveNotification object:nil];
     }
     return self;
 }
@@ -112,7 +112,7 @@ static DXRDynamicXrayWindowController *sharedXrayWindowController = nil;
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 
-    [sharedXrayWindowController dismissDynamicsXrayViewController:self.xrayViewController];
+    [sharedXrayWindowController dismissDynamicXrayViewController:self.xrayViewController];
     [sharedXrayWindowController dismissConfigViewController];
 }
 
@@ -179,9 +179,9 @@ static DXRDynamicXrayWindowController *sharedXrayWindowController = nil;
 
 - (void)scheduleDelayedRedrawCheckRepeats:(BOOL)repeats
 {
-    if (DynamicsXrayRedrawCheckInterval > 0) {
+    if (DynamicXrayRedrawCheckInterval > 0) {
         __weak DynamicXray *weakSelf = self;
-        double delayInSeconds = DynamicsXrayRedrawCheckInterval;
+        double delayInSeconds = DynamicXrayRedrawCheckInterval;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             if (weakSelf) {
@@ -286,7 +286,7 @@ static DXRDynamicXrayWindowController *sharedXrayWindowController = nil;
     {
         
 #ifdef DYNAMIC_BEHAVIOR_OBJECT_INTROSPECTION
-        if ([behavior isKindOfClass:[DynamicsXray class]] == NO) {
+        if ([behavior isKindOfClass:[DynamicXray class]] == NO) {
             [behavior CMObjectIntrospectionDumpInfo];
         }
 #endif

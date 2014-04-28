@@ -1,6 +1,6 @@
 //
 //  DXRDynamicXrayConfigurationViewController.m
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 16/10/13.
 //  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
@@ -14,11 +14,11 @@
 
 @implementation DXRDynamicXrayConfigurationViewController
 
-- (id)initWithDynamicsXray:(DynamicXray *)dynamicsXray
+- (id)initWithDynamicXray:(DynamicXray *)dynamicXray
 {
     self = [super initWithNibName:nil bundle:nil];
     if (self) {
-        _dynamicsXray = dynamicsXray;
+        _dynamicXray = dynamicXray;
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillChangeStatusBarOrientationNotification:) name:UIApplicationWillChangeStatusBarOrientationNotification object:nil];
     }

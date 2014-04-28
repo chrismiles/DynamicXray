@@ -1,6 +1,6 @@
 //
 //  DXRDynamicXrayConfigurationViewController+Controls.h
-//  DynamicsXray
+//  DynamicXray
 //
 //  Created by Chris Miles on 24/10/13.
 //  Copyright (c) 2013-2014 Chris Miles. All rights reserved.

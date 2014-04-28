@@ -1,6 +1,6 @@
 //
-//  DynamicsXray_Internal.h
-//  DynamicsXray
+//  DynamicXray_Internal.h
+//  DynamicXray
 //
 //  Created by Chris Miles on 12/11/2013.
 //  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
