@@ -79,7 +79,7 @@
 		83849DED17AE103D00D6DD3C /* DXRBehaviorSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DEB17AE103D00D6DD3C /* DXRBehaviorSnapshot.m */; };
 		83849DF117AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DEF17AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.h */; };
 		83849DF217AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83849DF017AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.m */; };
-		83849DF517AE242A00D6DD3C /* DXRDynamicsXrayUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DF317AE242A00D6DD3C /* DXRDynamicsXrayUtil.h */; };
+		83849DF517AE242A00D6DD3C /* DXRDynamicXrayUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 83849DF317AE242A00D6DD3C /* DXRDynamicXrayUtil.h */; };
 		8392287C181885070047F7C4 /* DXRDynamicXrayConfigurationViewController+Controls.h in Headers */ = {isa = PBXBuildFile; fileRef = 8392287A181885070047F7C4 /* DXRDynamicXrayConfigurationViewController+Controls.h */; };
 		8392287D181885070047F7C4 /* DXRDynamicXrayConfigurationViewController+Controls.m in Sources */ = {isa = PBXBuildFile; fileRef = 8392287B181885070047F7C4 /* DXRDynamicXrayConfigurationViewController+Controls.m */; };
 		83976446188886C500558A97 /* DXRSnapBehaviorSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 83976444188886C500558A97 /* DXRSnapBehaviorSnapshot.h */; };
@@ -204,7 +204,7 @@
 		83849DEB17AE103D00D6DD3C /* DXRBehaviorSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRBehaviorSnapshot.m; sourceTree = "<group>"; };
 		83849DEF17AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRAttachmentBehaviorSnapshot.h; sourceTree = "<group>"; };
 		83849DF017AE105B00D6DD3C /* DXRAttachmentBehaviorSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRAttachmentBehaviorSnapshot.m; sourceTree = "<group>"; };
-		83849DF317AE242A00D6DD3C /* DXRDynamicsXrayUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXrayUtil.h; sourceTree = "<group>"; };
+		83849DF317AE242A00D6DD3C /* DXRDynamicXrayUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicXrayUtil.h; sourceTree = "<group>"; };
 		8392287A181885070047F7C4 /* DXRDynamicXrayConfigurationViewController+Controls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicXrayConfigurationViewController+Controls.h"; sourceTree = "<group>"; };
 		8392287B181885070047F7C4 /* DXRDynamicXrayConfigurationViewController+Controls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRDynamicXrayConfigurationViewController+Controls.m"; sourceTree = "<group>"; };
 		83976444188886C500558A97 /* DXRSnapBehaviorSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRSnapBehaviorSnapshot.h; sourceTree = "<group>"; };
@@ -284,7 +284,7 @@
 			children = (
 				83DEA937188E4CDE00B725C1 /* DXRDecayingLifetime.h */,
 				83DEA938188E4CDE00B725C1 /* DXRDecayingLifetime.m */,
-				83849DF317AE242A00D6DD3C /* DXRDynamicsXrayUtil.h */,
+				83849DF317AE242A00D6DD3C /* DXRDynamicXrayUtil.h */,
 				83E6D61D187C1799005ECBA5 /* DXRDynamicsXrayUtil.m */,
 			);
 			name = Utility;
@@ -602,7 +602,7 @@
 				830B852418A189920019E6F8 /* DXRCollisionBehaviorSnapshot+DXRDrawing.h in Headers */,
 				83DEA939188E4CDE00B725C1 /* DXRDecayingLifetime.h in Headers */,
 				83B61358180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.h in Headers */,
-				83849DF517AE242A00D6DD3C /* DXRDynamicsXrayUtil.h in Headers */,
+				83849DF517AE242A00D6DD3C /* DXRDynamicXrayUtil.h in Headers */,
 				834A42C9187F6F1F00493BBE /* DXRPhysicsKitPrivate.h in Headers */,
 				83DEA93D188E503F00B725C1 /* DXRPushBehaviorSnapshot+DXRDrawing.h in Headers */,
 				837BDD4A18C681FA0070BAD7 /* DXRDynamicXrayConfigurationActiveView.h in Headers */,

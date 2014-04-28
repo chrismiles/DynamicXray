@@ -7,7 +7,7 @@
 //
 
 #import "DXRAttachmentBehaviorSnapshot+DXRDrawing.h"
-#import "DXRDynamicsXrayUtil.h"
+#import "DXRDynamicXrayUtil.h"
 
 
 @implementation DXRAttachmentBehaviorSnapshot (DXRDrawing)

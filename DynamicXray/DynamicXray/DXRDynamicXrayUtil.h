@@ -1,5 +1,5 @@
 //
-//  DXRDynamicsXrayUtil.h
+//  DXRDynamicXrayUtil.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 4/08/13.
@@ -8,7 +8,7 @@
 
 @import CoreGraphics;
 
-@interface DXRDynamicsXrayUtil : NSObject
+@interface DXRDynamicXrayUtil : NSObject
 
 CGFloat DXRCGPointDistance(CGPoint point1, CGPoint point2);
 
