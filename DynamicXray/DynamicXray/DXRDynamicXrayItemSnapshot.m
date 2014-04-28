@@ -1,14 +1,14 @@
 //
-//  DXRDynamicsXrayItemSnapshot.m
+//  DXRDynamicXrayItemSnapshot.m
 //  DynamicsXray
 //
 //  Created by Chris Miles on 7/11/2013.
 //  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 
-#import "DXRDynamicsXrayItemSnapshot.h"
+#import "DXRDynamicXrayItemSnapshot.h"
 
-@interface DXRDynamicsXrayItemSnapshot ()
+@interface DXRDynamicXrayItemSnapshot ()
 
 @property (nonatomic, readwrite) CGPoint center;
 @property (nonatomic, readwrite) CGRect bounds;
@@ -18,11 +18,11 @@
 @end
 
 
-@implementation DXRDynamicsXrayItemSnapshot
+@implementation DXRDynamicXrayItemSnapshot
 
 + (instancetype)snapshotWithBounds:(CGRect)bounds center:(CGPoint)center transform:(CGAffineTransform)transform contacted:(BOOL)isContacted
 {
-    DXRDynamicsXrayItemSnapshot *snapshot = [[self alloc] init];
+    DXRDynamicXrayItemSnapshot *snapshot = [[self alloc] init];
     snapshot.center = center;
     snapshot.bounds = bounds;
     snapshot.transform = transform;

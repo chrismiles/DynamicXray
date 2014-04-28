@@ -15,8 +15,8 @@
 #import "DXRSnapBehaviorSnapshot.h"
 #import "DXRPushBehaviorSnapshot.h"
 
-#import "DXRDynamicsXrayItemSnapshot.h"
-#import "DXRDynamicsXrayItemSnapshot+DXRDrawing.h"
+#import "DXRDynamicXrayItemSnapshot.h"
+#import "DXRDynamicXrayItemSnapshot+DXRDrawing.h"
 
 #import "DXRDecayingLifetime.h"
 #import "DXRContactVisualise.h"
@@ -133,7 +133,7 @@
             DXRDecayingLifetime *contactLifetime = [contactedItems objectForKey:item];
             BOOL isContacted = (contactLifetime && contactLifetime.decay > 0);
 
-            DXRDynamicsXrayItemSnapshot *itemSnapshot = [DXRDynamicsXrayItemSnapshot snapshotWithBounds:itemBounds center:itemCenter transform:itemTransform contacted:isContacted];
+            DXRDynamicXrayItemSnapshot *itemSnapshot = [DXRDynamicXrayItemSnapshot snapshotWithBounds:itemBounds center:itemCenter transform:itemTransform contacted:isContacted];
             if (isContacted) itemSnapshot.contactedAlpha = contactLifetime.decay;
             [self.dynamicItemsToDraw addObject:itemSnapshot];
         }
@@ -267,7 +267,7 @@
     [strokeColor setStroke];
     [fillColor setFill];
 
-    for (DXRDynamicsXrayItemSnapshot *itemSnapshot in self.dynamicItemsToDraw) {
+    for (DXRDynamicXrayItemSnapshot *itemSnapshot in self.dynamicItemsToDraw) {
         CGContextSaveGState(context);
         [itemSnapshot drawInContext:context];
         CGContextRestoreGState(context);

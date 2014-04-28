@@ -1,5 +1,5 @@
 //
-//  DXRDynamicsXrayItemSnapshot.h
+//  DXRDynamicXrayItemSnapshot.h
 //  DynamicsXray
 //
 //  Created by Chris Miles on 7/11/2013.
@@ -8,7 +8,7 @@
 
 @import UIKit;
 
-@interface DXRDynamicsXrayItemSnapshot : NSObject
+@interface DXRDynamicXrayItemSnapshot : NSObject
 
 + (instancetype)snapshotWithBounds:(CGRect)bounds center:(CGPoint)center transform:(CGAffineTransform)transform contacted:(BOOL)isContacted;
 

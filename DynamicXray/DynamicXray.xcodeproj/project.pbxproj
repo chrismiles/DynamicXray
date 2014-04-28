@@ -90,10 +90,10 @@
 		839BD1DC190A83EB002F0E23 /* DXRAssetBytesIconNoOverlay@2x.png.c in Sources */ = {isa = PBXBuildFile; fileRef = 839BD1D8190A83EB002F0E23 /* DXRAssetBytesIconNoOverlay@2x.png.c */; };
 		839BD1DD190A83EB002F0E23 /* DXRAssetBytesIconOverlay.png.c in Sources */ = {isa = PBXBuildFile; fileRef = 839BD1D9190A83EB002F0E23 /* DXRAssetBytesIconOverlay.png.c */; };
 		839BD1DE190A83EB002F0E23 /* DXRAssetBytesIconOverlay@2x.png.c in Sources */ = {isa = PBXBuildFile; fileRef = 839BD1DA190A83EB002F0E23 /* DXRAssetBytesIconOverlay@2x.png.c */; };
-		83A68DCE182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 83A68DCC182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.h */; };
-		83A68DCF182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A68DCD182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.m */; };
-		83A68DD3182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83A68DD1182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.h */; };
-		83A68DD4182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A68DD2182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.m */; };
+		83A68DCE182B5B9600F21AC1 /* DXRDynamicXrayItemSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 83A68DCC182B5B9600F21AC1 /* DXRDynamicXrayItemSnapshot.h */; };
+		83A68DCF182B5B9600F21AC1 /* DXRDynamicXrayItemSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A68DCD182B5B9600F21AC1 /* DXRDynamicXrayItemSnapshot.m */; };
+		83A68DD3182B5D6300F21AC1 /* DXRDynamicXrayItemSnapshot+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83A68DD1182B5D6300F21AC1 /* DXRDynamicXrayItemSnapshot+DXRDrawing.h */; };
+		83A68DD4182B5D6300F21AC1 /* DXRDynamicXrayItemSnapshot+DXRDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A68DD2182B5D6300F21AC1 /* DXRDynamicXrayItemSnapshot+DXRDrawing.m */; };
 		83B61354180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B61352180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.h */; };
 		83B61355180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B61353180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.m */; };
 		83B61358180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 83B61356180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.h */; };
@@ -219,10 +219,10 @@
 		839BD1E0190A84A5002F0E23 /* DXRAssetBytesIconNoOverlay@2x.png.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DXRAssetBytesIconNoOverlay@2x.png.h"; sourceTree = "<group>"; };
 		839BD1E1190A84C6002F0E23 /* DXRAssetBytesIconOverlay.png.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DXRAssetBytesIconOverlay.png.h; sourceTree = "<group>"; };
 		839BD1E2190A84DE002F0E23 /* DXRAssetBytesIconOverlay@2x.png.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DXRAssetBytesIconOverlay@2x.png.h"; sourceTree = "<group>"; };
-		83A68DCC182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicsXrayItemSnapshot.h; sourceTree = "<group>"; };
-		83A68DCD182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicsXrayItemSnapshot.m; sourceTree = "<group>"; };
-		83A68DD1182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicsXrayItemSnapshot+DXRDrawing.h"; sourceTree = "<group>"; };
-		83A68DD2182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRDynamicsXrayItemSnapshot+DXRDrawing.m"; sourceTree = "<group>"; };
+		83A68DCC182B5B9600F21AC1 /* DXRDynamicXrayItemSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicXrayItemSnapshot.h; sourceTree = "<group>"; };
+		83A68DCD182B5B9600F21AC1 /* DXRDynamicXrayItemSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicXrayItemSnapshot.m; sourceTree = "<group>"; };
+		83A68DD1182B5D6300F21AC1 /* DXRDynamicXrayItemSnapshot+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicXrayItemSnapshot+DXRDrawing.h"; sourceTree = "<group>"; };
+		83A68DD2182B5D6300F21AC1 /* DXRDynamicXrayItemSnapshot+DXRDrawing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DXRDynamicXrayItemSnapshot+DXRDrawing.m"; sourceTree = "<group>"; };
 		83B61352180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRGravityBehaviorSnapshot.h; sourceTree = "<group>"; };
 		83B61353180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRGravityBehaviorSnapshot.m; sourceTree = "<group>"; };
 		83B61356180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRGravityBehaviorSnapshot+DXRDrawing.h"; sourceTree = "<group>"; };
@@ -514,10 +514,10 @@
 		83A68DD0182B5B9D00F21AC1 /* Dynamics Item Snapshot */ = {
 			isa = PBXGroup;
 			children = (
-				83A68DCC182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.h */,
-				83A68DCD182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.m */,
-				83A68DD1182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.h */,
-				83A68DD2182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.m */,
+				83A68DCC182B5B9600F21AC1 /* DXRDynamicXrayItemSnapshot.h */,
+				83A68DCD182B5B9600F21AC1 /* DXRDynamicXrayItemSnapshot.m */,
+				83A68DD1182B5D6300F21AC1 /* DXRDynamicXrayItemSnapshot+DXRDrawing.h */,
+				83A68DD2182B5D6300F21AC1 /* DXRDynamicXrayItemSnapshot+DXRDrawing.m */,
 			);
 			name = "Dynamics Item Snapshot";
 			sourceTree = "<group>";
@@ -591,14 +591,14 @@
 				837BDD4618C67F100070BAD7 /* DXRDynamicXrayConfigurationFaderView.h in Headers */,
 				834F2DC518922A9C00D2CA35 /* UIPushBehavior+DynamicsXrayIntrospection.h in Headers */,
 				83584D0F17FC201600F09FF1 /* NSObject+CMObjectIntrospection.h in Headers */,
-				83A68DD3182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.h in Headers */,
+				83A68DD3182B5D6300F21AC1 /* DXRDynamicXrayItemSnapshot+DXRDrawing.h in Headers */,
 				834F2DCA18923BD900D2CA35 /* DynamicXray+XrayPushBehavior.h in Headers */,
 				83849DE717AE069400D6DD3C /* DynamicXray.h in Headers */,
 				8358001718837E27003209F5 /* DXRContactVisualise.h in Headers */,
 				8315E8C01887371200947F12 /* DynamicXray+XrayVisualiseBehaviors.h in Headers */,
 				83B61354180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.h in Headers */,
 				837BDD6B18C8763F0070BAD7 /* DXRDynamicXrayConfigurationControlsView.h in Headers */,
-				83A68DCE182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.h in Headers */,
+				83A68DCE182B5B9600F21AC1 /* DXRDynamicXrayItemSnapshot.h in Headers */,
 				830B852418A189920019E6F8 /* DXRCollisionBehaviorSnapshot+DXRDrawing.h in Headers */,
 				83DEA939188E4CDE00B725C1 /* DXRDecayingLifetime.h in Headers */,
 				83B61358180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.h in Headers */,
@@ -735,9 +735,9 @@
 				8315E8B91887350200947F12 /* DynamicXray+XrayUserInterface.m in Sources */,
 				839BD1DB190A83EB002F0E23 /* DXRAssetBytesIconNoOverlay.png.c in Sources */,
 				8392287D181885070047F7C4 /* DXRDynamicXrayConfigurationViewController+Controls.m in Sources */,
-				83A68DCF182B5B9600F21AC1 /* DXRDynamicsXrayItemSnapshot.m in Sources */,
+				83A68DCF182B5B9600F21AC1 /* DXRDynamicXrayItemSnapshot.m in Sources */,
 				833F36CA19090AE7007305BB /* DXRAssetBytesLogo@2x.png.c in Sources */,
-				83A68DD4182B5D6300F21AC1 /* DXRDynamicsXrayItemSnapshot+DXRDrawing.m in Sources */,
+				83A68DD4182B5D6300F21AC1 /* DXRDynamicXrayItemSnapshot+DXRDrawing.m in Sources */,
 				83976447188886C500558A97 /* DXRSnapBehaviorSnapshot.m in Sources */,
 				83B61355180BBD4C0006BBA3 /* DXRGravityBehaviorSnapshot.m in Sources */,
 				8317A75A180EA89800F4B954 /* DXRDynamicXrayViewController.m in Sources */,
