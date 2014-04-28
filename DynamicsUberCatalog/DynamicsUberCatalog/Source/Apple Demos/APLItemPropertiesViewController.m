@@ -96,7 +96,7 @@
  */
 
 #import "APLItemPropertiesViewController.h"
-#import <DynamicsXray/DynamicsXray.h>
+#import <DynamicXray/DynamicXray.h>
 
 @interface APLItemPropertiesViewController ()
 
@@ -132,7 +132,7 @@
     [animator addBehavior:gravityBeahvior];
     [animator addBehavior:collisionBehavior];
     
-    DynamicsXray *xray = [[DynamicsXray alloc] init];
+    DynamicXray *xray = [[DynamicXray alloc] init];
     [animator addBehavior:xray];
 
     self.animator = animator;

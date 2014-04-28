@@ -35,13 +35,13 @@
 @property (nonatomic, assign, getter = isGravityByDeviceMotionEnabled) BOOL gravityByDeviceMotionEnabled;
 @property (nonatomic, assign, readonly) BOOL isDeviceMotionAvailable;
 @property (nonatomic, assign) BOOL smoothed;
-@property (nonatomic, assign, getter = isDynamicsXrayEnabled) BOOL dynamicsXrayEnabled;
+@property (nonatomic, assign, getter = isDynamicXrayEnabled) BOOL dynamicXrayEnabled;
 
 - (void)touchBeganAtLocation:(CGPoint)location;
 - (void)touchMovedAtLocation:(CGPoint)location;
 - (void)touchEndedAtLocation:(CGPoint)location;
 - (void)touchCancelledAtLocation:(CGPoint)location;
 
-- (void)presentDynamicsXrayConfigViewController;
+- (void)presentDynamicXrayConfigViewController;
 
 @end

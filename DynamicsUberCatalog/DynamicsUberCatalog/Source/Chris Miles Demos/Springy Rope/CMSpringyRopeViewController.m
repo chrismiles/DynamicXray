@@ -86,7 +86,7 @@
     
     [self.springyRopeView setFpsLabel:self.fpsLabel];
 
-    [self.springyRopeView setDynamicsXrayEnabled:NO];
+    [self.springyRopeView setDynamicXrayEnabled:NO];
 }
 
 - (CMSpringyRopeView *)springyRopeView
@@ -106,7 +106,7 @@
 
 - (void)xrayAction:(__unused id)sender
 {
-    [self.springyRopeView presentDynamicsXrayConfigViewController];
+    [self.springyRopeView presentDynamicXrayConfigViewController];
 }
 
 @end

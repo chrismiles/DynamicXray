@@ -7,7 +7,7 @@
 //
 
 #import "CMSwingViewController.h"
-#import <DynamicsXray/DynamicsXray.h>
+#import <DynamicXray/DynamicXray.h>
 
 
 @interface CMSwingViewController ()
@@ -17,7 +17,7 @@
 @property (strong, nonatomic) UIDynamicAnimator *animator;
 @property (strong, nonatomic) UIPushBehavior *pushBehavior;
 
-@property (strong, nonatomic) DynamicsXray *dynamicsXray;
+@property (strong, nonatomic) DynamicXray *dynamicXray;
 
 @end
 
@@ -123,23 +123,23 @@
 }
 
 
-#pragma mark - DynamicsXray
+#pragma mark - DynamicXray
 
-- (DynamicsXray *)dynamicsXray
+- (DynamicXray *)dynamicXray
 {
-    if (_dynamicsXray == nil) {
-        _dynamicsXray = [[DynamicsXray alloc] init];
-        _dynamicsXray.active = NO;
+    if (_dynamicXray == nil) {
+        _dynamicXray = [[DynamicXray alloc] init];
+        _dynamicXray.active = NO;
 
-        [self.animator addBehavior:_dynamicsXray];
+        [self.animator addBehavior:_dynamicXray];
     }
 
-    return _dynamicsXray;
+    return _dynamicXray;
 }
 
 - (void)xrayAction:(__unused id)sender
 {
-    [self.dynamicsXray presentConfigurationViewController];
+    [self.dynamicXray presentConfigurationViewController];
 }
 
 @end

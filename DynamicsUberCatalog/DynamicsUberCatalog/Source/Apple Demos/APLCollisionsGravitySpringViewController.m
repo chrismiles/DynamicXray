@@ -96,7 +96,7 @@
  */
 
 #import "APLCollisionsGravitySpringViewController.h"
-#import <DynamicsXray/DynamicsXray.h>
+#import <DynamicXray/DynamicXray.h>
 
 @interface APLCollisionsGravitySpringViewController ()
 
@@ -138,7 +138,7 @@
 
     self.attachmentBehavior = attachmentBehavior;
     
-    DynamicsXray *xray = [[DynamicsXray alloc] init];
+    DynamicXray *xray = [[DynamicXray alloc] init];
     [self.animator addBehavior:xray];
 }
 

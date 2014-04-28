@@ -42,7 +42,7 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
     [self setupFlipperButtons];
     [self setupBumpers];
 
-    //[self.dynamicsXray setActive:YES];
+    //[self.dynamicXray setActive:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -209,23 +209,23 @@ static NSString * const LaunchButtonBoundary = @"LaunchButtonBoundary";
 }
 
 
-#pragma mark - DynamicsXray
+#pragma mark - DynamicXray
 
-- (DynamicsXray *)dynamicsXray
+- (DynamicXray *)dynamicXray
 {
-    if (_dynamicsXray == nil) {
-        _dynamicsXray = [[DynamicsXray alloc] init];
-        _dynamicsXray.active = NO;
+    if (_dynamicXray == nil) {
+        _dynamicXray = [[DynamicXray alloc] init];
+        _dynamicXray.active = NO;
 
-        [self.dynamicAnimator addBehavior:_dynamicsXray];
+        [self.dynamicAnimator addBehavior:_dynamicXray];
     }
 
-    return _dynamicsXray;
+    return _dynamicXray;
 }
 
 - (void)xrayAction:(__unused id)sender
 {
-    [self.dynamicsXray presentConfigurationViewController];
+    [self.dynamicXray presentConfigurationViewController];
 }
 
 

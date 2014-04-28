@@ -15,7 +15,7 @@
 
 #pragma mark - Contact Notifications
 
-- (void)dynamicsXrayContactDidBeginNotification:(NSNotification *)notification
+- (void)dynamicXrayContactDidBeginNotification:(NSNotification *)notification
 {
     id<UIDynamicItem> dynamicItem = notification.userInfo[@"dynamicItem"];
     if (dynamicItem) {
@@ -40,7 +40,7 @@
     }
 }
 
-- (void)dynamicsXrayContactDidEndNotification:(NSNotification *)notification
+- (void)dynamicXrayContactDidEndNotification:(NSNotification *)notification
 {
     id<UIDynamicItem> dynamicItem = notification.userInfo[@"dynamicItem"];
     if (dynamicItem) {

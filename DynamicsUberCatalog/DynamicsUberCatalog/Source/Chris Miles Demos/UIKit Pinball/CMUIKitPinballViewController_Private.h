@@ -47,7 +47,7 @@
 
 @property (assign, nonatomic) CGSize lastBoundsSize;
 
-@property (strong, nonatomic) DynamicsXray *dynamicsXray;
+@property (strong, nonatomic) DynamicXray *dynamicXray;
 
 - (UIColor *)wallColour;
 

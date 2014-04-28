@@ -5,7 +5,7 @@
 //  Created by Ash Furrow on 2013-07-31.
 //  Copyright (c) 2013 Teehan+Lax. All rights reserved.
 //
-//  DynamicsXray added by Chris Miles
+//  DynamicXray added by Chris Miles
 //
 
 #import "TLSpringFlowLayout.h"
@@ -13,7 +13,7 @@
 @interface TLSpringFlowLayout ()
 
 @property (nonatomic, strong) UIDynamicAnimator *dynamicAnimator;
-@property (nonatomic, strong) DynamicsXray *dynamicsXray;
+@property (nonatomic, strong) DynamicXray *dynamicXray;
 
 // Needed for tiling
 @property (nonatomic, strong) NSMutableSet *visibleIndexPathsSet;
@@ -34,10 +34,10 @@
     
     self.dynamicAnimator = [[UIDynamicAnimator alloc] initWithCollectionViewLayout:self];
     self.visibleIndexPathsSet = [NSMutableSet set];
-    
-    self.dynamicsXray = [[DynamicsXray alloc] init];
-    self.dynamicsXray.active = NO;
-    [self.dynamicAnimator addBehavior:self.dynamicsXray];
+
+    self.dynamicXray = [[DynamicXray alloc] init];
+    self.dynamicXray.active = NO;
+    [self.dynamicAnimator addBehavior:self.dynamicXray];
 
     return self;
 }
@@ -47,9 +47,9 @@
     
     if ([[UIApplication sharedApplication] statusBarOrientation] != self.interfaceOrientation) {
         
-        // Remove all behaviors, except DynamicsXray
+        // Remove all behaviors, except DynamicXray
         [self.dynamicAnimator.behaviors enumerateObjectsUsingBlock:^(UIDynamicBehavior *behavior, __unused NSUInteger idx, __unused BOOL *stop) {
-            if ([behavior isKindOfClass:[DynamicsXray class]] == NO) {
+            if ([behavior isKindOfClass:[DynamicXray class]] == NO) {
                 [self.dynamicAnimator removeBehavior:behavior];
             }
         }];

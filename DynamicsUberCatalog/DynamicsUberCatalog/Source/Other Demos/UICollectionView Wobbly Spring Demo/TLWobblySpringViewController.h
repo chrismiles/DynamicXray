@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Teehan+Lax. All rights reserved.
 //
 //  Modified by Gerald Kim
-//  DynamicsXray added by Chris Miles
+//  DynamicXray added by Chris Miles
 //
 
 #import <UIKit/UIKit.h>

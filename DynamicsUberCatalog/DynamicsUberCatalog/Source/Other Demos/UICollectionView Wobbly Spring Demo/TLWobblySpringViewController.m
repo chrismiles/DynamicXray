@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Teehan+Lax. All rights reserved.
 //
 //  Modified by Gerald Kim
-//  DynamicsXray added by Chris Miles
+//  DynamicXray added by Chris Miles
 //
 
 #import "TLWobblySpringViewController.h"
@@ -51,7 +51,7 @@ static NSString * CellIdentifier = @"CellIdentifier";
 - (void)xrayAction:(__unused id)sender
 {
     TLWobblySpringFlowLayout *layout = (TLWobblySpringFlowLayout *)self.collectionViewLayout;
-    [layout.dynamicsXray presentConfigurationViewController];
+    [layout.dynamicXray presentConfigurationViewController];
 }
 
 

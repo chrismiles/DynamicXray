@@ -10,7 +10,7 @@
 
 @interface DynamicXray (XrayContacts)
 
-- (void)dynamicsXrayContactDidBeginNotification:(NSNotification *)notification;
-- (void)dynamicsXrayContactDidEndNotification:(NSNotification *)notification;
+- (void)dynamicXrayContactDidBeginNotification:(NSNotification *)notification;
+- (void)dynamicXrayContactDidEndNotification:(NSNotification *)notification;
 
 @end

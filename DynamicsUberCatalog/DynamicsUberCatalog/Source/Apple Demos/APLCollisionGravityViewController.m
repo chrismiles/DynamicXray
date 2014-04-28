@@ -96,7 +96,7 @@
  */
 
 #import "APLCollisionGravityViewController.h"
-#import <DynamicsXray/DynamicsXray.h>
+#import <DynamicXray/DynamicXray.h>
 
 @interface APLCollisionGravityViewController () <UICollisionBehaviorDelegate>
 
@@ -122,7 +122,7 @@
     [animator addBehavior:collisionBehavior];
     collisionBehavior.collisionDelegate = self;
     
-    DynamicsXray *xray = [[DynamicsXray alloc] init];
+    DynamicXray *xray = [[DynamicXray alloc] init];
     [animator addBehavior:xray];
 
     self.animator = animator;

@@ -119,6 +119,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Tld-26-C42" kind="push" id="53z-4a-o52"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>

@@ -96,13 +96,13 @@
  */
 
 #import "APLGravityViewController.h"
-#import <DynamicsXray/DynamicsXray.h>
+#import <DynamicXray/DynamicXray.h>
 
 @interface APLGravityViewController ()
 
 @property (nonatomic, weak) IBOutlet UIView *square1;
 @property (nonatomic) UIDynamicAnimator* animator;
-@property (nonatomic, strong) DynamicsXray *dynamicsXray;
+@property (nonatomic, strong) DynamicXray *dynamicXray;
 
 @end
 
@@ -118,15 +118,15 @@
     UIGravityBehavior* gravityBeahvior = [[UIGravityBehavior alloc] initWithItems:@[self.square1]];
     [animator addBehavior:gravityBeahvior];
     self.animator = animator;
-    
-    [self setupDynamicsXray];
+
+    [self setupDynamicXray];
 }
 
-- (void)setupDynamicsXray
+- (void)setupDynamicXray
 {
-    self.dynamicsXray = [[DynamicsXray alloc] init];
-    self.dynamicsXray.active = YES;
-    [self.animator addBehavior:self.dynamicsXray];
+    self.dynamicXray = [[DynamicXray alloc] init];
+    self.dynamicXray.active = YES;
+    [self.animator addBehavior:self.dynamicXray];
 
     UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *xrayItem = [[UIBarButtonItem alloc] initWithTitle:@"XRay" style:UIBarButtonItemStyleBordered target:self action:@selector(xrayAction:)];
@@ -137,7 +137,7 @@
 
 - (void)xrayAction:(__unused id)sender
 {
-    [self.dynamicsXray presentConfigurationViewController];
+    [self.dynamicXray presentConfigurationViewController];
 }
 
 @end

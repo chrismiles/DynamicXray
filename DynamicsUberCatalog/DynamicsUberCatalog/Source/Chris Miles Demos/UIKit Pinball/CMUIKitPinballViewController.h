@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <DynamicsXray/DynamicsXray.h>
+#import <DynamicXray/DynamicXray.h>
 
 @interface CMUIKitPinballViewController : UIViewController
 

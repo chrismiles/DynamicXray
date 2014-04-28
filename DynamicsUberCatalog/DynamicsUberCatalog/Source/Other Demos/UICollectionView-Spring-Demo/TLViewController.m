@@ -5,7 +5,7 @@
 //  Created by Ash Furrow on 2013-07-31.
 //  Copyright (c) 2013 Teehan+Lax. All rights reserved.
 //
-//  DynamicsXray added by Chris Miles
+//  DynamicXray added by Chris Miles
 //
 
 #import "TLViewController.h"
@@ -45,7 +45,7 @@ static NSString * CellIdentifier = @"CellIdentifier";
 - (void)xrayAction:(__unused id)sender
 {
     TLSpringFlowLayout *layout = (TLSpringFlowLayout *)self.collectionViewLayout;
-    [layout.dynamicsXray presentConfigurationViewController];
+    [layout.dynamicXray presentConfigurationViewController];
 }
 
 #pragma mark - UICollectionView Methods

@@ -96,7 +96,7 @@
  */
 
 #import "APLSnapViewController.h"
-#import <DynamicsXray/DynamicsXray.h>
+#import <DynamicXray/DynamicXray.h>
 
 @interface APLSnapViewController ()
 
@@ -119,7 +119,7 @@
     UISnapBehavior* snapBehavior = [[UISnapBehavior alloc] initWithItem:self.square1 snapToPoint:point];
     [self.animator addBehavior:snapBehavior];
     
-    DynamicsXray *xray = [[DynamicsXray alloc] init];
+    DynamicXray *xray = [[DynamicXray alloc] init];
     [self.animator addBehavior:xray];
 }
 

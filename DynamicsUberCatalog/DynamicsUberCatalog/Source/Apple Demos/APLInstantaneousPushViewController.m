@@ -97,7 +97,7 @@
  */
 
 #import "APLInstantaneousPushViewController.h"
-#import <DynamicsXray/DynamicsXray.h>
+#import <DynamicXray/DynamicXray.h>
 
 @interface APLInstantaneousPushViewController ()
 
@@ -129,7 +129,7 @@
     self.pushBehavior = pushBehavior;
     [animator addBehavior:self.pushBehavior];
 
-    DynamicsXray *xray = [[DynamicsXray alloc] init];
+    DynamicXray *xray = [[DynamicXray alloc] init];
     [animator addBehavior:xray];
 
     self.animator = animator;

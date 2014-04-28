@@ -17,7 +17,7 @@
 		83457ADF189F694200677C99 /* CMUIKitPinballViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83457ADE189F694200677C99 /* CMUIKitPinballViewController.m */; };
 		834EEC1818A4BD3200914CBB /* CMUIKitPinballViewController+Launcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 834EEC1718A4BD3200914CBB /* CMUIKitPinballViewController+Launcher.m */; };
 		834EEC1C18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.m in Sources */ = {isa = PBXBuildFile; fileRef = 834EEC1B18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.m */; };
-		835D57E5187BE1C7006CB05B /* libDynamicsXray.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 835D57E4187BE1C7006CB05B /* libDynamicsXray.a */; };
+		8361D252190E51850065407C /* libDynamicXray.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8361D251190E51850065407C /* libDynamicXray.a */; };
 		836FC39D18B495830041869D /* CMUIKitPinballViewController+Configuration.m in Sources */ = {isa = PBXBuildFile; fileRef = 836FC39C18B495830041869D /* CMUIKitPinballViewController+Configuration.m */; };
 		8399905118A823E700EFC3BC /* CMUIKitPinballViewController+Flippers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8399905018A823E700EFC3BC /* CMUIKitPinballViewController+Flippers.m */; };
 		83BA61891829D0FC00341483 /* DUCAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BA61691829D0FC00341483 /* DUCAppDelegate.m */; };
@@ -65,6 +65,7 @@
 		834EEC1A18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMUIKitPinballViewController+Edges.h"; sourceTree = "<group>"; };
 		834EEC1B18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CMUIKitPinballViewController+Edges.m"; sourceTree = "<group>"; };
 		835D57E4187BE1C7006CB05B /* libDynamicsXray.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDynamicsXray.a; path = "../DynamicsXray/build/Debug-iphoneos/libDynamicsXray.a"; sourceTree = "<group>"; };
+		8361D251190E51850065407C /* libDynamicXray.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDynamicXray.a; path = "../DynamicXray/build/Release-iphoneos/libDynamicXray.a"; sourceTree = "<group>"; };
 		836FC39B18B495830041869D /* CMUIKitPinballViewController+Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMUIKitPinballViewController+Configuration.h"; sourceTree = "<group>"; };
 		836FC39C18B495830041869D /* CMUIKitPinballViewController+Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CMUIKitPinballViewController+Configuration.m"; sourceTree = "<group>"; };
 		8399904F18A823E700EFC3BC /* CMUIKitPinballViewController+Flippers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMUIKitPinballViewController+Flippers.h"; sourceTree = "<group>"; };
@@ -121,7 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				835D57E5187BE1C7006CB05B /* libDynamicsXray.a in Frameworks */,
+				8361D252190E51850065407C /* libDynamicXray.a in Frameworks */,
 				2806C645175BE66C00827B6B /* CoreGraphics.framework in Frameworks */,
 				2806C647175BE66C00827B6B /* UIKit.framework in Frameworks */,
 				2806C643175BE66C00827B6B /* Foundation.framework in Frameworks */,
@@ -155,6 +156,7 @@
 		2806C641175BE66C00827B6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8361D251190E51850065407C /* libDynamicXray.a */,
 				835D57E4187BE1C7006CB05B /* libDynamicsXray.a */,
 				2806C642175BE66C00827B6B /* Foundation.framework */,
 				2806C644175BE66C00827B6B /* CoreGraphics.framework */,
@@ -543,7 +545,6 @@
 				GCC_PREFIX_HEADER = "DynamicsUberCatalog/DynamicsUberCatalog-Prefix.pch";
 				INFOPLIST_FILE = "DynamicsUberCatalog/DynamicsUberCatalog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = DynamicsUberCatalog;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -560,7 +561,6 @@
 				GCC_PREFIX_HEADER = "DynamicsUberCatalog/DynamicsUberCatalog-Prefix.pch";
 				INFOPLIST_FILE = "DynamicsUberCatalog/DynamicsUberCatalog-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = DynamicsUberCatalog;
 				TARGETED_DEVICE_FAMILY = "1,2";

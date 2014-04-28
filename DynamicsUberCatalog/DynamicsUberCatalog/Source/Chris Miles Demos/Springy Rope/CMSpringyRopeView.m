@@ -92,19 +92,19 @@
     return [self.springyRopeLayer isGravityByDeviceMotionEnabled];
 }
 
-- (BOOL)isDynamicsXrayEnabled
+- (BOOL)isDynamicXrayEnabled
 {
-    return [self.springyRopeLayer isDynamicsXrayEnabled];
+    return [self.springyRopeLayer isDynamicXrayEnabled];
 }
 
-- (void)setDynamicsXrayEnabled:(BOOL)dynamicsXrayEnabled
+- (void)setDynamicXrayEnabled:(BOOL)dynamicXrayEnabled
 {
-    [self.springyRopeLayer setDynamicsXrayEnabled:dynamicsXrayEnabled];
+    [self.springyRopeLayer setDynamicXrayEnabled:dynamicXrayEnabled];
 }
 
-- (void)presentDynamicsXrayConfigViewController
+- (void)presentDynamicXrayConfigViewController
 {
-    [self.springyRopeLayer presentDynamicsXrayConfigViewController];
+    [self.springyRopeLayer presentDynamicXrayConfigViewController];
 }
 
 
