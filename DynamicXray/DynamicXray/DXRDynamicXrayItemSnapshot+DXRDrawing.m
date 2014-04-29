@@ -7,6 +7,7 @@
 //
 
 #import "DXRDynamicXrayItemSnapshot+DXRDrawing.h"
+#import "DynamicXray_Internal.h"
 
 @implementation DXRDynamicXrayItemSnapshot (DXRDrawing)
 
@@ -32,7 +33,7 @@
         if (self.isContacted)
         {
             CGContextSaveGState(context);
-            CGContextSetStrokeColorWithColor(context, [[UIColor redColor] colorWithAlphaComponent:self.contactedAlpha].CGColor);
+            CGContextSetStrokeColorWithColor(context, [[DynamicXray xrayContactColor] colorWithAlphaComponent:self.contactedAlpha].CGColor);
         }
 
         CGContextStrokePath(context);
