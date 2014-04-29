@@ -64,7 +64,6 @@
 		834EEC1918A4BD5F00914CBB /* CMUIKitPinballViewController_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMUIKitPinballViewController_Private.h; sourceTree = "<group>"; };
 		834EEC1A18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMUIKitPinballViewController+Edges.h"; sourceTree = "<group>"; };
 		834EEC1B18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CMUIKitPinballViewController+Edges.m"; sourceTree = "<group>"; };
-		835D57E4187BE1C7006CB05B /* libDynamicsXray.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDynamicsXray.a; path = "../DynamicsXray/build/Debug-iphoneos/libDynamicsXray.a"; sourceTree = "<group>"; };
 		8361D251190E51850065407C /* libDynamicXray.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libDynamicXray.a; path = "../DynamicXray/build/Release-iphoneos/libDynamicXray.a"; sourceTree = "<group>"; };
 		836FC39B18B495830041869D /* CMUIKitPinballViewController+Configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMUIKitPinballViewController+Configuration.h"; sourceTree = "<group>"; };
 		836FC39C18B495830041869D /* CMUIKitPinballViewController+Configuration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CMUIKitPinballViewController+Configuration.m"; sourceTree = "<group>"; };
@@ -157,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				8361D251190E51850065407C /* libDynamicXray.a */,
-				835D57E4187BE1C7006CB05B /* libDynamicsXray.a */,
 				2806C642175BE66C00827B6B /* Foundation.framework */,
 				2806C644175BE66C00827B6B /* CoreGraphics.framework */,
 				2806C646175BE66C00827B6B /* UIKit.framework */,
