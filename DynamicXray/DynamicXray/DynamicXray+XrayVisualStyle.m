@@ -92,22 +92,4 @@
     return [[self xrayView] allowsAntialiasing];
 }
 
-
-#pragma mark - Color
-
-+ (UIColor *)xrayStrokeColor
-{
-    return [UIColor colorWithRed:0 green:0.639216f blue:0.85098f alpha:1.0f];
-}
-
-+ (UIColor *)xrayFillColor
-{
-    return [self xrayStrokeColor];
-}
-
-+ (UIColor *)xrayContactColor
-{
-    return [UIColor redColor];
-}
-
 @end
