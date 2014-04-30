@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D6C7AC94-7E05-4481-ABE7-7A8A84BEC024</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DynamicXray</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1720E7D6-6952-4F62-8042-FEEDFDF25784</key>
+		<string>ssh://github.com/chrismiles/DynamicXray.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DynamicXray.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1720E7D6-6952-4F62-8042-FEEDFDF25784</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/chrismiles/DynamicXray.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1720E7D6-6952-4F62-8042-FEEDFDF25784</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1720E7D6-6952-4F62-8042-FEEDFDF25784</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DynamicXray</string>
+		</dict>
+	</array>
+</dict>
+</plist>
