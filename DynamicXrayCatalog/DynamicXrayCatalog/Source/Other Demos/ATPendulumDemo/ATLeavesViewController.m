@@ -50,8 +50,6 @@
     [[self animator] addBehavior:[self bouncyBehavior]];
     [[self animator] addBehavior:[self windBehavior]];
     [[self animator] addBehavior:[self squareBehavior]];
-
-    [[self animator] addBehavior:[[DynamicXray alloc] init]];
 }
 
 

@@ -515,6 +515,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Loading Patty" id="YIE-cU-yzP"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zqz-pG-WIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -530,6 +531,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Pendulum Wind Oscillation" id="igx-oE-cM9"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zyd-4y-wnR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
