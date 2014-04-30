@@ -31,7 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[self view] setBackgroundColor:[UIColor blackColor]];
 
     [self setGreenSquare:[[UIView alloc] initWithFrame:CGRectMake([[self view] center].x, [[self view] center].y + 100., 25., 25.)]];
     [[self greenSquare] setBackgroundColor:[UIColor greenColor]];
