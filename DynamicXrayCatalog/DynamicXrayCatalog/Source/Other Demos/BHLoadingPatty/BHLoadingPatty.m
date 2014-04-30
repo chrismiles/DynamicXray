@@ -55,8 +55,6 @@ static NSString *const kPattyBoundaryIdentifier = @"PattyBoundary";
 
 - (void)setupDynamics
 {
-    [self.animator addBehavior:[[DynamicXray alloc] init]];
-
     srand48(time(0));
 
     [self setPattyPositions];
@@ -113,7 +111,10 @@ static NSString *const kPattyBoundaryIdentifier = @"PattyBoundary";
 
 - (void)resetSystem
 {
-    [self.animator removeAllBehaviors];
+    [[self.animator behaviors] enumerateObjectsUsingBlock:^(UIDynamicBehavior *behaviour, __unused NSUInteger idx, __unused BOOL *stop) {
+        if ([behaviour isEqual:self.dynamicXray]) return;
+        [self.animator removeBehavior:behaviour];
+    }];
     [self setupDynamics];
 }
 
@@ -121,9 +122,21 @@ static NSString *const kPattyBoundaryIdentifier = @"PattyBoundary";
 {
     [UIView animateWithDuration:kDuration animations:^{
         self.alpha = 0.;
-    } completion:^(BOOL finished) {
+    } completion:^(__unused BOOL finished) {
         [self removeFromSuperview];
     }];
+}
+
+- (DynamicXray *)dynamicXray
+{
+    if (_dynamicXray == nil) {
+        _dynamicXray = [[DynamicXray alloc] init];
+        _dynamicXray.active = NO;
+
+        [self.animator addBehavior:_dynamicXray];
+    }
+
+    return _dynamicXray;
 }
 
 @end

@@ -6,7 +6,11 @@
 //  Copyright (c) 2014 Burgerhead. All rights reserved.
 //
 
+@class DynamicXray;
+
 @interface BHLoadingPatty : UIView
+
+@property (nonatomic) DynamicXray *dynamicXray;
 
 + (instancetype)instanceShownInView:(UIView *)view;
 
