@@ -15,6 +15,12 @@
 		2806C65B175BE66C00827B6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2806C65A175BE66C00827B6B /* Images.xcassets */; };
 		404F6B4619119E96002B6E41 /* BHLoadingPatty.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F6B4319119E96002B6E41 /* BHLoadingPatty.m */; };
 		404F6B4719119E96002B6E41 /* DXCLoadingPattyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F6B4519119E96002B6E41 /* DXCLoadingPattyViewController.m */; };
+		404F6B531911A476002B6E41 /* ATBouncyBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F6B4A1911A476002B6E41 /* ATBouncyBehavior.m */; };
+		404F6B541911A476002B6E41 /* ATOscillationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F6B4C1911A476002B6E41 /* ATOscillationItem.m */; };
+		404F6B551911A476002B6E41 /* ATPendulumBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F6B4E1911A476002B6E41 /* ATPendulumBehavior.m */; };
+		404F6B561911A476002B6E41 /* ATPendulumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F6B501911A476002B6E41 /* ATPendulumViewController.m */; };
+		404F6B571911A476002B6E41 /* ATWindBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F6B521911A476002B6E41 /* ATWindBehavior.m */; };
+		404F6B5A1911A510002B6E41 /* ATLeavesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F6B591911A510002B6E41 /* ATLeavesViewController.m */; };
 		830DA09B17FD7E8D00A24B39 /* CMLabelledSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 830DA09A17FD7E8D00A24B39 /* CMLabelledSwitch.m */; };
 		83457ADF189F694200677C99 /* CMUIKitPinballViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83457ADE189F694200677C99 /* CMUIKitPinballViewController.m */; };
 		834EEC1818A4BD3200914CBB /* CMUIKitPinballViewController+Launcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 834EEC1718A4BD3200914CBB /* CMUIKitPinballViewController+Launcher.m */; };
@@ -61,6 +67,18 @@
 		404F6B4319119E96002B6E41 /* BHLoadingPatty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHLoadingPatty.m; sourceTree = "<group>"; };
 		404F6B4419119E96002B6E41 /* DXCLoadingPattyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXCLoadingPattyViewController.h; sourceTree = "<group>"; };
 		404F6B4519119E96002B6E41 /* DXCLoadingPattyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXCLoadingPattyViewController.m; sourceTree = "<group>"; };
+		404F6B491911A476002B6E41 /* ATBouncyBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATBouncyBehavior.h; sourceTree = "<group>"; };
+		404F6B4A1911A476002B6E41 /* ATBouncyBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATBouncyBehavior.m; sourceTree = "<group>"; };
+		404F6B4B1911A476002B6E41 /* ATOscillationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATOscillationItem.h; sourceTree = "<group>"; };
+		404F6B4C1911A476002B6E41 /* ATOscillationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATOscillationItem.m; sourceTree = "<group>"; };
+		404F6B4D1911A476002B6E41 /* ATPendulumBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATPendulumBehavior.h; sourceTree = "<group>"; };
+		404F6B4E1911A476002B6E41 /* ATPendulumBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATPendulumBehavior.m; sourceTree = "<group>"; };
+		404F6B4F1911A476002B6E41 /* ATPendulumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATPendulumViewController.h; sourceTree = "<group>"; };
+		404F6B501911A476002B6E41 /* ATPendulumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATPendulumViewController.m; sourceTree = "<group>"; };
+		404F6B511911A476002B6E41 /* ATWindBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATWindBehavior.h; sourceTree = "<group>"; };
+		404F6B521911A476002B6E41 /* ATWindBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATWindBehavior.m; sourceTree = "<group>"; };
+		404F6B581911A510002B6E41 /* ATLeavesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLeavesViewController.h; sourceTree = "<group>"; };
+		404F6B591911A510002B6E41 /* ATLeavesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLeavesViewController.m; sourceTree = "<group>"; };
 		830DA09917FD7E8D00A24B39 /* CMLabelledSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMLabelledSwitch.h; sourceTree = "<group>"; };
 		830DA09A17FD7E8D00A24B39 /* CMLabelledSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMLabelledSwitch.m; sourceTree = "<group>"; };
 		83457ADD189F694200677C99 /* CMUIKitPinballViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMUIKitPinballViewController.h; sourceTree = "<group>"; };
@@ -201,6 +219,25 @@
 			path = BHLoadingPatty;
 			sourceTree = "<group>";
 		};
+		404F6B481911A476002B6E41 /* ATPendulumDemo */ = {
+			isa = PBXGroup;
+			children = (
+				404F6B491911A476002B6E41 /* ATBouncyBehavior.h */,
+				404F6B4A1911A476002B6E41 /* ATBouncyBehavior.m */,
+				404F6B4B1911A476002B6E41 /* ATOscillationItem.h */,
+				404F6B4C1911A476002B6E41 /* ATOscillationItem.m */,
+				404F6B4D1911A476002B6E41 /* ATPendulumBehavior.h */,
+				404F6B4E1911A476002B6E41 /* ATPendulumBehavior.m */,
+				404F6B511911A476002B6E41 /* ATWindBehavior.h */,
+				404F6B521911A476002B6E41 /* ATWindBehavior.m */,
+				404F6B581911A510002B6E41 /* ATLeavesViewController.h */,
+				404F6B591911A510002B6E41 /* ATLeavesViewController.m */,
+				404F6B4F1911A476002B6E41 /* ATPendulumViewController.h */,
+				404F6B501911A476002B6E41 /* ATPendulumViewController.m */,
+			);
+			path = ATPendulumDemo;
+			sourceTree = "<group>";
+		};
 		830DA09717FD7E6400A24B39 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +347,7 @@
 		83C5149E1841F3C500469029 /* Other Demos */ = {
 			isa = PBXGroup;
 			children = (
+				404F6B481911A476002B6E41 /* ATPendulumDemo */,
 				404F6B4119119E96002B6E41 /* BHLoadingPatty */,
 				83FC941F18436026009CABEE /* UICollectionView-Spring-Demo */,
 				83C4FFB9184348ED00383892 /* UICollectionView Wobbly Spring Demo */,
@@ -420,8 +458,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				404F6B561911A476002B6E41 /* ATPendulumViewController.m in Sources */,
 				83FC94391843690D009CABEE /* CMSpringyRopeSmoothedPath.m in Sources */,
+				404F6B571911A476002B6E41 /* ATWindBehavior.m in Sources */,
 				83BA618D1829D0FC00341483 /* APLCollisionsGravitySpringViewController.m in Sources */,
+				404F6B531911A476002B6E41 /* ATBouncyBehavior.m in Sources */,
 				8399905118A823E700EFC3BC /* CMUIKitPinballViewController+Flippers.m in Sources */,
 				834EEC1818A4BD3200914CBB /* CMUIKitPinballViewController+Launcher.m in Sources */,
 				83BA61921829D0FC00341483 /* APLSnapViewController.m in Sources */,
@@ -431,10 +472,13 @@
 				83FC942718436026009CABEE /* TLViewController.m in Sources */,
 				83C4FFBF184348ED00383892 /* TLWobblySpringViewController.m in Sources */,
 				83BA618B1829D0FC00341483 /* APLAttachmentsViewController.m in Sources */,
+				404F6B541911A476002B6E41 /* ATOscillationItem.m in Sources */,
 				404F6B4719119E96002B6E41 /* DXCLoadingPattyViewController.m in Sources */,
 				83FC942618436026009CABEE /* TLSpringFlowLayout.m in Sources */,
 				83EAB3A418B2B98400D3F59F /* CMUIKitPinballViewController+Bumpers.m in Sources */,
+				404F6B551911A476002B6E41 /* ATPendulumBehavior.m in Sources */,
 				83FC94371843690D009CABEE /* CMSpringyRopeLayer.m in Sources */,
+				404F6B5A1911A510002B6E41 /* ATLeavesViewController.m in Sources */,
 				83FC942B184365FE009CABEE /* CMSwingViewController.m in Sources */,
 				830DA09B17FD7E8D00A24B39 /* CMLabelledSwitch.m in Sources */,
 				83C4FFBE184348ED00383892 /* TLWobblySpringFlowLayout.m in Sources */,
