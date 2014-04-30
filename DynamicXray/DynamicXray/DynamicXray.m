@@ -343,7 +343,7 @@ static DXRDynamicXrayWindowController *sharedXrayWindowController = nil;
 
 + (UIColor *)xrayContactColor
 {
-    return [UIColor orangeColor];
+    return [UIColor colorWithRed:1.0f green:0.478431f blue:0.0941176f alpha:1.0f];
 }
 
 @end
