@@ -10,7 +10,7 @@
 
 @implementation ATBouncyBehavior
 
-- (id)initWithItems:(NSArray *)items;
+- (id)initWithItems:(NSArray *)items
 {
   self = [super init];
   if (self)
