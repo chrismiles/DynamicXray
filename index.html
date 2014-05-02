@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="DynamicXray : UIKit Dynamics runtime visualisation and introspection library for iOS." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>DynamicXray</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/chrismiles/DynamicXray">View on GitHub</a>
+
+          <h1 id="project_title">DynamicXray</h1>
+          <h2 id="project_tagline">UIKit Dynamics runtime visualisation and introspection library for iOS.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/chrismiles/DynamicXray/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/chrismiles/DynamicXray/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a name="dynamicxray" class="anchor" href="#dynamicxray"><span class="octicon octicon-link"></span></a>DynamicXray</h3>
+
+<p>DynamicXray is a UIKit Dynamics runtime visualisation and introspection library.</p>
+
+<p>Ever wanted to see under the hood of the UIKit Dynamics physics engine?
+Now you can! With DynamicXray you can visualise your dynamic animator live at
+runtime, exposing all dynamic behaviours and dynamic items.</p>
+
+<p>DynamicXray includes a suite of UIKit Dynamics demonstrations in a universal iOS app:
+DynamicXrayCatalog. All of the demos allow DynamicXray introspection to be enabled.</p>
+
+<h2>
+<a name="quick-start" class="anchor" href="#quick-start"><span class="octicon octicon-link"></span></a>Quick Start</h2>
+
+<p>Open DynamicXray.xcworkspace, select the Framework scheme, build the framework.</p>
+
+<p>If successful, a Finder window should open at the location of the DynamicXray.framework.</p>
+
+<p>Add DynamicXray.framework to your iOS project.</p>
+
+<p>In your code, import the header and add an instance of DynamicXray to your dynamic animator.</p>
+
+<pre><code>#import &lt;DynamicXray/DynamicXray.h&gt;
+...
+DynamicXray *xray = [[DynamicXray alloc] init];
+[self.dynamicAnimator addBehavior:xray];
+</code></pre>
+
+<h2>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>DynamicXray is built as a UIDynamicBehavior. This means it can be simply added to any
+UIDynamicAnimator to enable the introspection overlay. By default, all behaviours added
+to the animator will be visualised.</p>
+
+<p>For more control, the DynamicXray behaviour exposes options such as temporarily disabling
+the overlay, adjusting the cross fade between app and overlay, whether to draw dynamic
+item outlines, and more. Refer to the DynamicXray header.</p>
+
+<p>DynamicXray includes a built-in configuration panel that slides up from the bottom of the
+screen. The configuration panel provides access to some options at runtime. The configuration panel
+can be presented by calling -presentConfigurationViewController.</p>
+
+<p>For example:</p>
+
+<pre><code>DynamicXray *xray = [[DynamicXray alloc] init];
+[self.dynamicAnimator addBehavior:xray];
+[xray presentConfigurationViewController];
+</code></pre>
+
+<h2>
+<a name="dynamicxraycatalog" class="anchor" href="#dynamicxraycatalog"><span class="octicon octicon-link"></span></a>DynamicXrayCatalog</h2>
+
+<p>The included project DynamicXrayCatalog is a universal iOS app containing a suite
+of various UIKit Dynamics demonstrations. The demos include DynamicXray pre-loaded
+so introspection can be enabled on any demo to see the inner workings.</p>
+
+<p>The demos in DynamicXrayCatalog were created by various authors and all are open
+source.</p>
+
+<p>Submit a pull request if you would like to contribute a demo to DynamicXrayCatalog.
+Please make sure that your demo includes an option to enable DynamicXray.</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>DynamicXray is Copyright (c) Chris Miles 2013-2014 and available for use under a GPL-3.0 license.</p>
+
+<p>The DynamicXray icon and any other included artwork is Copyright (c) Chris Miles 2013-2014 and available for use under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License only when used along with the DynamicXray library.</p>
+
+<p>DynamicXrayCatalog is Copyright (c) Chris Miles 2013-2014 and others. DynamicXrayCatalog contains source code copyrighted by others and included within the terms of the respective licenses. See the source code for more details.</p>
+
+<p>DynamicXrayCatalog is available for use under a BSD (2-Clause) License, except for where included source code specifies alternative license details, then that code remains available under the original license terms. Refer to the source code for more details.</p>
+
+<p>See LICENSE.txt for more details.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">DynamicXray maintained by <a href="https://github.com/chrismiles">chrismiles</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-50612556-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
