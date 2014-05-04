@@ -137,7 +137,7 @@ img {
   position: relative;
   margin: 0 auto;
   max-width: 739px;
-  padding: 5px;
+  /*padding: 5px;*/
   margin: 10px 0 10px 0;
   border: 1px solid #ebebeb;
 
@@ -300,15 +300,17 @@ Full-Width Styles
 #project_title {
   margin: 0;
   color: #fff;
-  font-size: 42px;
-  font-weight: 700;
-  text-shadow: #111 0px 0px 10px;
+  font-size: 56px;
+  font-weight: 300;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  #text-shadow: #111 0px 0px 10px;
 }
 
 #project_tagline {
   color: #fff;
   font-size: 24px;
   font-weight: 300;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: none;
   text-shadow: #111 0px 0px 10px;
 }
