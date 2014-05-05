@@ -19,13 +19,13 @@
  */
 typedef NS_ENUM(NSInteger, DXRPhysicsBodyShapeType)
 {
-    DXRPhysicsBodyShapeTypeUnknown0 = 0,
+    DXRPhysicsBodyShapeTypeUnknown0     = 0,
     DXRPhysicsBodyShapeTypeUnknown1,
-    DXRPhysicsBodyShapeTypeRectangle,
+    DXRPhysicsBodyShapeTypeRectangle    = 2,
     DXRPhysicsBodyShapeTypeUnknown3,
-    DXRPhysicsBodyShapeTypeUnknown4,
+    DXRPhysicsBodyShapeTypeEdge         = 4,
     DXRPhysicsBodyShapeTypeUnknown5,
-    DXRPhysicsBodyShapeTypeEdgeLoop,
+    DXRPhysicsBodyShapeTypeEdgeLoop     = 6,
 };
 
 
@@ -79,6 +79,20 @@ NSString * const DXRDynamicXrayContactDidEndNotification = @"DXRDynamicXrayConta
             if (path) {
                 [self handleContactWithShapePath:path type:contactType contactsCount:bodyContactsCount];
             }
+        }
+    }
+    else if (shapeType == DXRPhysicsBodyShapeTypeEdge) {
+        NSValue *p0obj = [body valueForKey:@"p0"];
+        NSValue *p1obj = [body valueForKey:@"p1"];
+        if (p0obj && p1obj) {
+            CGPoint p0 = [p0obj CGPointValue];
+            CGPoint p1 = [p1obj CGPointValue];
+
+            UIBezierPath *path = [UIBezierPath bezierPath];
+            [path moveToPoint:p0];
+            [path addLineToPoint:p1];
+
+            [self handleContactWithShapePath:path.CGPath type:contactType contactsCount:bodyContactsCount];
         }
     }
 
