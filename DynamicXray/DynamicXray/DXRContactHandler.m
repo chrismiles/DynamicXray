@@ -67,6 +67,7 @@ NSString * const DXRDynamicXrayContactDidEndNotification = @"DXRDynamicXrayConta
 
 + (void)handleContactWithPhysicsBody:(PKPhysicsBody *)body type:(DXRContactType)contactType
 {
+    NSUInteger bodyContactsCount = [[body allContactedBodies] count];
     NSInteger shapeType = [[body valueForKey:@"_shapeType"] integerValue];
 
     if (shapeType == DXRPhysicsBodyShapeTypeEdgeLoop) {
@@ -76,7 +77,7 @@ NSString * const DXRDynamicXrayContactDidEndNotification = @"DXRDynamicXrayConta
             // object_getIvar() crashes on 7.0; works on 7.1
             CGPathRef path = CFBridgingRetain([body getValueForIvarWithName:@"_path" class:bodyClass]);
             if (path) {
-                [self handleContactWithShapePath:path type:contactType];
+                [self handleContactWithShapePath:path type:contactType contactsCount:bodyContactsCount];
             }
         }
     }
@@ -87,19 +88,22 @@ NSString * const DXRDynamicXrayContactDidEndNotification = @"DXRDynamicXrayConta
     //NSInteger dynamicType = [[body valueForKey:@"_dynamicType"] integerValue];
     //DLog(@"body: %@ object: %@ dynamicType=%ld shapeType=%ld", body, object, (long)dynamicType, (long)shapeType);
 
-    if (object) [self handleContactWithObject:object type:contactType];
+    if (object) {
+        [self handleContactWithObject:object type:contactType contactsCount:bodyContactsCount];
+    }
+
 }
 
 
 #pragma mark - Handle Contact with Objects
 
-+ (void)handleContactWithObject:(id)object type:(DXRContactType)contactType
++ (void)handleContactWithObject:(id)object type:(DXRContactType)contactType contactsCount:(NSUInteger)contactsCount
 {
     if (object && [object conformsToProtocol:@protocol(UIDynamicItem)]) {
         //DLog(@"DynamicItem began contact %@", object);
 
         NSString *notificationName = (contactType == DXRContactTypeBegin ? DXRDynamicXrayContactDidBeginNotification : DXRDynamicXrayContactDidEndNotification);
-        NSDictionary *userInfo = @{@"dynamicItem": object};
+        NSDictionary *userInfo = @{@"dynamicItem": object, @"contactsCount": @(contactsCount)};
         [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self userInfo:userInfo];
     }
     else {
@@ -110,12 +114,12 @@ NSString * const DXRDynamicXrayContactDidEndNotification = @"DXRDynamicXrayConta
 
 #pragma mark - Handle Contact with Shape Path
 
-+ (void)handleContactWithShapePath:(CGPathRef)path type:(DXRContactType)contactType
++ (void)handleContactWithShapePath:(CGPathRef)path type:(DXRContactType)contactType contactsCount:(NSUInteger)contactsCount
 {
     if (path) {
         NSString *notificationName = (contactType == DXRContactTypeBegin ? DXRDynamicXrayContactDidBeginNotification : DXRDynamicXrayContactDidEndNotification);
         id obj = (__bridge id)(path);
-        NSDictionary *userInfo = @{@"path": obj};
+        NSDictionary *userInfo = @{@"path": obj, @"contactsCount": @(contactsCount)};
         [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:self userInfo:userInfo];
     }
 }

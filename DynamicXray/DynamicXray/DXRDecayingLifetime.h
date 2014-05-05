@@ -20,5 +20,6 @@
 
 - (void)incrementReferenceCount;
 - (void)decrementReferenceCount;
+- (void)zeroReferenceCount;
 
 @end

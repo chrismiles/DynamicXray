@@ -24,7 +24,7 @@
 
 @interface PKPhysicsBody : NSObject <NSCopying, NSCoding>
 
-//- (id)allContactedBodies;
+- (NSArray *)allContactedBodies;
 
 @property(nonatomic) __weak id <NSObject> representedObject;
 

@@ -156,8 +156,10 @@
         DXRDecayingLifetime *contactLifetime = [contactPaths objectForKey:key];
         float alpha = [contactLifetime decay];
 
-        DXRContactVisualise *contactVisualise = [[DXRContactVisualise alloc] initWithObjToDraw:key alpha:alpha];
-        [pathsToDraw addObject:contactVisualise];
+        if (alpha > 0) {
+            DXRContactVisualise *contactVisualise = [[DXRContactVisualise alloc] initWithObjToDraw:key alpha:alpha];
+            [pathsToDraw addObject:contactVisualise];
+        }
     }
 
     [self.contactPathsToDraw addObjectsFromArray:pathsToDraw];

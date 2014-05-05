@@ -44,6 +44,12 @@ static NSTimeInterval const DXRDefaultDecayTime = 0.2;    // decay time in secon
     if (self.referenceCount == 0 && self.allReferencesEndedTime <= 0) self.allReferencesEndedTime = [[NSDate date] timeIntervalSinceReferenceDate];
 }
 
+- (void)zeroReferenceCount
+{
+    self.referenceCount = 0;
+    if (self.allReferencesEndedTime <= 0) self.allReferencesEndedTime = [[NSDate date] timeIntervalSinceReferenceDate];
+}
+
 - (float)decay
 {
     float decay = 1.0;

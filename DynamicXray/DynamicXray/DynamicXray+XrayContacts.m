@@ -43,10 +43,16 @@
 - (void)dynamicXrayContactDidEndNotification:(NSNotification *)notification
 {
     id<UIDynamicItem> dynamicItem = notification.userInfo[@"dynamicItem"];
+    NSUInteger contactsCount = [notification.userInfo[@"contactsCount"] unsignedIntegerValue];
     if (dynamicItem) {
-        //DLog(@"DynamicItem did end contact: %@", dynamicItem);
         DXRDecayingLifetime *contactLifetime = [self.dynamicItemContactLifetimes objectForKey:dynamicItem];
-        [contactLifetime decrementReferenceCount];
+
+        if (contactsCount == 0) {
+            [contactLifetime zeroReferenceCount];
+        }
+        else {
+            [contactLifetime decrementReferenceCount];
+        }
 
         if ([contactLifetime decay] <= 0) {
             [self.dynamicItemContactLifetimes removeObjectForKey:dynamicItem];
@@ -57,7 +63,13 @@
     if (path) {
         id key = CFBridgingRelease(path);
         DXRDecayingLifetime *contactLifetime = [self.pathContactLifetimes objectForKey:key];
-        [contactLifetime decrementReferenceCount];
+
+        if (contactsCount == 0) {
+            [contactLifetime zeroReferenceCount];
+        }
+        else {
+            [contactLifetime decrementReferenceCount];
+        }
 
         if ([contactLifetime decay] <= 0) {
             [self.pathContactLifetimes removeObjectForKey:key];
