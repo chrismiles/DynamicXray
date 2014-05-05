@@ -9,7 +9,9 @@
 #import "DXRPushBehaviorSnapshot+DXRDrawing.h"
 
 static CGFloat const DXRPushBehaviorLineMagnitudeScaleFactor = 50.0f;
-static CGFloat const DXRPushBehaviorMinimalLineLength = 10.0f;
+static CGFloat const DXRPushBehaviorLineWidth = 3.0f;
+static CGFloat const DXRPushBehaviorMaxArrowHeadLength = 40.0f;
+static CGFloat const DXRPushBehaviorMinimalLineLength = 20.0f;
 
 
 @implementation DXRPushBehaviorSnapshot (DXRDrawing)
@@ -24,7 +26,7 @@ static CGFloat const DXRPushBehaviorMinimalLineLength = 10.0f;
 
         CGPoint lineStartLocation = CGPointMake(pushLocation.x - lineLength * cosf(lineAngle), pushLocation.y - lineLength * sinf(lineAngle));
 
-        CGFloat arrowHeadLength = lineLength * 0.3f;
+        CGFloat arrowHeadLength = fminf(lineLength * 0.3f, DXRPushBehaviorMaxArrowHeadLength);
         CGFloat arrowHeadAngle1 = lineAngle + (150.0f * M_PI / 180.0f);
         CGFloat arrowHeadAngle2 = lineAngle - (150.0f * M_PI / 180.0f);
         CGPoint arrowHeadEndPoint1 = CGPointMake(pushLocation.x + cosf(arrowHeadAngle1)*arrowHeadLength, pushLocation.y + sinf(arrowHeadAngle1)*arrowHeadLength);
@@ -37,6 +39,8 @@ static CGFloat const DXRPushBehaviorMinimalLineLength = 10.0f;
             CGContextAddEllipseInRect(context, CGRectMake(pushLocation.x - circleRadius, pushLocation.y - circleRadius, circleRadius*2.0f, circleRadius*2.0f));
             CGContextDrawPath(context, kCGPathFillStroke);
         }
+
+        CGContextSetLineWidth(context, DXRPushBehaviorLineWidth);
 
         // Animate the line dash
         CGFloat dashPhase = -fmod([[NSDate date] timeIntervalSinceReferenceDate] * 20.0, 6.0);

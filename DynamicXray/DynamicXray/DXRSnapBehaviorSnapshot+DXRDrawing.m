@@ -8,6 +8,9 @@
 
 #import "DXRSnapBehaviorSnapshot+DXRDrawing.h"
 
+static CGFloat const DXRSnapBehaviorLineWidth = 3.0f;
+
+
 @implementation DXRSnapBehaviorSnapshot (DXRDrawing)
 
 - (void)drawInContext:(CGContextRef)context
@@ -24,6 +27,8 @@
     CGFloat arrowHeadAngle2 = lineAngle - (150.0f * M_PI / 180.0f);
     CGPoint arrowHeadEndPoint1 = CGPointMake(anchorPoint.x + cosf(arrowHeadAngle1)*arrowHeadLength, anchorPoint.y + sinf(arrowHeadAngle1)*arrowHeadLength);
     CGPoint arrowHeadEndPoint2 = CGPointMake(anchorPoint.x + cosf(arrowHeadAngle2)*arrowHeadLength, anchorPoint.y + sinf(arrowHeadAngle2)*arrowHeadLength);
+
+    CGContextSetLineWidth(context, DXRSnapBehaviorLineWidth);
 
     const CGFloat dashPattern[2] = {3.0f, 3.0f};
     CGContextSetLineDash(context, 3, dashPattern, 2);
