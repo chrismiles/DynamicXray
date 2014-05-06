@@ -252,7 +252,7 @@
 
 #pragma mark - Drawing
 
-- (void)drawRect:(CGRect)rect
+- (void)drawRect:(__unused CGRect)rect
 {
     //[self calcFPS];
 

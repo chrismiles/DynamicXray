@@ -93,7 +93,7 @@
 
         self.controlsBottomLayoutConstraint.constant = 0;
         [self.view layoutIfNeeded];
-    } completion:^(BOOL finished) {
+    } completion:^(__unused BOOL finished) {
         if (completion) completion();
     }];
 }
@@ -108,7 +108,7 @@
 
         self.controlsBottomLayoutConstraint.constant = CGRectGetHeight(controlsFrame);
         [self.view layoutIfNeeded];
-    } completion:^(BOOL finished) {
+    } completion:^(__unused BOOL finished) {
         if (completion) completion();
     }];
 }

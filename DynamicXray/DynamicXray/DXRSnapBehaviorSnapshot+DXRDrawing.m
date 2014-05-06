@@ -20,13 +20,13 @@ static CGFloat const DXRSnapBehaviorLineWidth = 3.0f;
 
     CGFloat xDiff = self.anchorPoint.x - self.itemCenter.x;
     CGFloat yDiff = self.anchorPoint.y - self.itemCenter.y;
-    CGFloat lineLength = sqrtf(xDiff*xDiff + yDiff*yDiff);
+    CGFloat lineLength = (CGFloat)sqrt(xDiff*xDiff + yDiff*yDiff);
     CGFloat arrowHeadLength = lineLength * 0.2f;
-    CGFloat lineAngle = atan2f(yDiff, xDiff);
-    CGFloat arrowHeadAngle1 = lineAngle + (150.0f * M_PI / 180.0f);
-    CGFloat arrowHeadAngle2 = lineAngle - (150.0f * M_PI / 180.0f);
-    CGPoint arrowHeadEndPoint1 = CGPointMake(anchorPoint.x + cosf(arrowHeadAngle1)*arrowHeadLength, anchorPoint.y + sinf(arrowHeadAngle1)*arrowHeadLength);
-    CGPoint arrowHeadEndPoint2 = CGPointMake(anchorPoint.x + cosf(arrowHeadAngle2)*arrowHeadLength, anchorPoint.y + sinf(arrowHeadAngle2)*arrowHeadLength);
+    CGFloat lineAngle = (CGFloat)atan2(yDiff, xDiff);
+    CGFloat arrowHeadAngle1 = lineAngle + (150.0f * (CGFloat)M_PI / 180.0f);
+    CGFloat arrowHeadAngle2 = lineAngle - (150.0f * (CGFloat)M_PI / 180.0f);
+    CGPoint arrowHeadEndPoint1 = CGPointMake(anchorPoint.x + (CGFloat)cos(arrowHeadAngle1)*arrowHeadLength, anchorPoint.y + (CGFloat)sin(arrowHeadAngle1)*arrowHeadLength);
+    CGPoint arrowHeadEndPoint2 = CGPointMake(anchorPoint.x + (CGFloat)cos(arrowHeadAngle2)*arrowHeadLength, anchorPoint.y + (CGFloat)sin(arrowHeadAngle2)*arrowHeadLength);
 
     CGContextSetLineWidth(context, DXRSnapBehaviorLineWidth);
 

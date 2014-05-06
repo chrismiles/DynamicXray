@@ -80,16 +80,17 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
     if ([self.xrayViewControllers containsObject:dynamicXrayViewController] == NO) {
         [self.xrayViewControllers addObject:dynamicXrayViewController];
 
-        UIView *rootView = self.window.rootViewController.view;
+        __strong DXRDynamicXrayWindow *window = self.window;
+        UIView *rootView = window.rootViewController.view;
         [dynamicXrayViewController.view setTransform:rootView.transform];
         [dynamicXrayViewController.view setFrame:rootView.frame];
         [dynamicXrayViewController.view setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
 
-        if (self.configurationViewController.view.superview == self.window) {
-            [self.window insertSubview:dynamicXrayViewController.view belowSubview:self.configurationViewController.view];
+        if (self.configurationViewController.view.superview == window) {
+            [window insertSubview:dynamicXrayViewController.view belowSubview:self.configurationViewController.view];
         }
         else {
-            [self.window addSubview:dynamicXrayViewController.view];
+            [window addSubview:dynamicXrayViewController.view];
         }
 
         [self addChildViewController:dynamicXrayViewController];
@@ -109,18 +110,20 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 - (void)presentConfigViewControllerWithDynamicXray:(DynamicXray *)dynamicXray animated:(BOOL)animated
 {
     if (self.configurationViewController == nil) {
+        __strong DXRDynamicXrayWindow *window = self.window;
+
         DXRDynamicXrayConfigurationViewController *configViewController = [[DXRDynamicXrayConfigurationViewController alloc] initWithDynamicXray:dynamicXray];
         self.configurationViewController = configViewController;
 
         configViewController.animateAppearance = animated;
-        [configViewController.view setFrame:self.window.bounds];
+        [configViewController.view setFrame:window.bounds];
         [configViewController.view setAutoresizingMask:(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
 
-        [self.window addSubview:configViewController.view];
+        [window addSubview:configViewController.view];
 
         [self addChildViewController:configViewController];
 
-        [self.window setUserInteractionEnabled:YES];
+        [window setUserInteractionEnabled:YES];
     }
     else {
         NSLog(@"Warning: attempt to present a DynamicXray Configuration view when one is already visible.");
@@ -132,31 +135,33 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
     [self.configurationViewController.view removeFromSuperview];
     self.configurationViewController = nil;
 
-    [self.window setUserInteractionEnabled:NO];
+    __strong DXRDynamicXrayWindow *window = self.window;
+    [window setUserInteractionEnabled:NO];
 }
 
 
 #pragma mark - Status Bar Frame & Orientation Changes
 
-- (void)applicationDidChangeStatusBarFrameNotification:(NSNotification *)notification
+- (void)applicationDidChangeStatusBarFrameNotification:(__unused NSNotification *)notification
 {
     [self layoutRootViews];
 }
 
-- (void)applicationDidChangeStatusBarOrientationNotification:(NSNotification *)notification
+- (void)applicationDidChangeStatusBarOrientationNotification:(__unused NSNotification *)notification
 {
     [self layoutRootViews];
 }
 
 - (void)layoutRootViews
 {
-    if (self.window == nil) return;
+    __strong DXRDynamicXrayWindow *window = self.window;
+    if (window == nil) return;
 
     UIInterfaceOrientation statusBarOrientation = [UIApplication sharedApplication].statusBarOrientation;
     CGFloat angle = AngleForUIInterfaceOrientation(statusBarOrientation);
 
     CGAffineTransform transform = CGAffineTransformMakeRotation(angle);
-    CGSize frameSize = self.window.frame.size;
+    CGSize frameSize = window.frame.size;
     CGRect frame = CGRectMake(0, 0, frameSize.width, frameSize.height);
 
     NSArray *viewControllers = self.childViewControllers;
@@ -169,7 +174,8 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
             rootView.frame = CGRectMake(0, 0, frameSize.width, frameSize.height);
 
             if ([viewController isKindOfClass:[DXRDynamicXrayViewController class]]) {
-                [[(DXRDynamicXrayViewController *)viewController dynamicXray] redraw];
+                DynamicXray *dynamicXray = [(DXRDynamicXrayViewController *)viewController dynamicXray];
+                [dynamicXray redraw];
             }
         }
     }
@@ -178,7 +184,7 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation);
 
 #pragma mark - DXRDynamicXrayWindowDelegate
 
-- (void)dynamicXrayWindowNeedsToLayoutSubviews:(DXRDynamicXrayWindow *)dynamicXrayWindow
+- (void)dynamicXrayWindowNeedsToLayoutSubviews:(__unused DXRDynamicXrayWindow *)dynamicXrayWindow
 {
     [self layoutRootViews];
 }
@@ -192,13 +198,13 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation)
     CGFloat angle;
 
     if (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
-        angle = M_PI;
+        angle = (CGFloat)M_PI;
     }
     else if (interfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
-        angle = -M_PI_2;
+        angle = -(CGFloat)M_PI_2;
     }
     else if (interfaceOrientation == UIInterfaceOrientationLandscapeRight) {
-        angle = M_PI_2;
+        angle = (CGFloat)M_PI_2;
     }
     else {
         angle = 0;

@@ -51,11 +51,13 @@
 
     controlsView.tintColor = [self controlsTintColor];
 
-    [controlsView.activeView.activeToggleSwitch setOn:self.dynamicXray.isActive];
+    __strong DynamicXray *dynamicXray = self.dynamicXray;
+
+    [controlsView.activeView.activeToggleSwitch setOn:dynamicXray.isActive];
     [controlsView.activeView.activeToggleSwitch setOnTintColor:[self controlsTintColor]];
     [controlsView.activeView.activeToggleSwitch addTarget:self action:@selector(activeToggleAction:) forControlEvents:UIControlEventValueChanged];
 
-    [controlsView.faderView.faderSlider setValue:(self.dynamicXray.crossFade+1.0f)/2.0f];
+    [controlsView.faderView.faderSlider setValue:(float)((dynamicXray.crossFade+1.0f)/2.0f)];
     [controlsView.faderView.faderSlider addTarget:self action:@selector(faderSliderValueChanged:) forControlEvents:UIControlEventValueChanged];
 
     [self.view addSubview:controlsView];
@@ -93,13 +95,15 @@
 
 - (void)activeToggleAction:(UISwitch *)toggleSwitch
 {
-    [self.dynamicXray setActive:toggleSwitch.on];
+    __strong DynamicXray *dynamicXray = self.dynamicXray;
+    [dynamicXray setActive:toggleSwitch.on];
 }
 
 - (void)faderSliderValueChanged:(UISlider *)slider
 {
     CGFloat crossFade = slider.value * 2.0f - 1.0f;
-    self.dynamicXray.crossFade = crossFade;
+    __strong DynamicXray *dynamicXray = self.dynamicXray;
+    dynamicXray.crossFade = crossFade;
 }
 
 - (UIColor *)controlsTintColor

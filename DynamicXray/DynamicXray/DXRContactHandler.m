@@ -78,6 +78,7 @@ NSString * const DXRDynamicXrayContactDidEndNotification = @"DXRDynamicXrayConta
             CGPathRef path = CFBridgingRetain([body getValueForIvarWithName:@"_path" class:bodyClass]);
             if (path) {
                 [self handleContactWithShapePath:path type:contactType contactsCount:bodyContactsCount];
+                CFRelease(path);
             }
         }
     }

@@ -24,13 +24,13 @@ static CGFloat const DXRPushBehaviorMinimalLineLength = 20.0f;
         CGFloat lineLength = self.magnitude * DXRPushBehaviorLineMagnitudeScaleFactor;
         if (lineLength < DXRPushBehaviorMinimalLineLength) lineLength = DXRPushBehaviorMinimalLineLength;
 
-        CGPoint lineStartLocation = CGPointMake(pushLocation.x - lineLength * cosf(lineAngle), pushLocation.y - lineLength * sinf(lineAngle));
+        CGPoint lineStartLocation = CGPointMake(pushLocation.x - lineLength * (CGFloat)cos(lineAngle), pushLocation.y - lineLength * (CGFloat)sin(lineAngle));
 
-        CGFloat arrowHeadLength = fminf(lineLength * 0.3f, DXRPushBehaviorMaxArrowHeadLength);
-        CGFloat arrowHeadAngle1 = lineAngle + (150.0f * M_PI / 180.0f);
-        CGFloat arrowHeadAngle2 = lineAngle - (150.0f * M_PI / 180.0f);
-        CGPoint arrowHeadEndPoint1 = CGPointMake(pushLocation.x + cosf(arrowHeadAngle1)*arrowHeadLength, pushLocation.y + sinf(arrowHeadAngle1)*arrowHeadLength);
-        CGPoint arrowHeadEndPoint2 = CGPointMake(pushLocation.x + cosf(arrowHeadAngle2)*arrowHeadLength, pushLocation.y + sinf(arrowHeadAngle2)*arrowHeadLength);
+        CGFloat arrowHeadLength = (CGFloat)fmin(lineLength * 0.3f, DXRPushBehaviorMaxArrowHeadLength);
+        CGFloat arrowHeadAngle1 = lineAngle + (150.0f * (CGFloat)M_PI / 180.0f);
+        CGFloat arrowHeadAngle2 = lineAngle - (150.0f * (CGFloat)M_PI / 180.0f);
+        CGPoint arrowHeadEndPoint1 = CGPointMake(pushLocation.x + (CGFloat)cos(arrowHeadAngle1)*arrowHeadLength, pushLocation.y + (CGFloat)sin(arrowHeadAngle1)*arrowHeadLength);
+        CGPoint arrowHeadEndPoint2 = CGPointMake(pushLocation.x + (CGFloat)cos(arrowHeadAngle2)*arrowHeadLength, pushLocation.y + (CGFloat)sin(arrowHeadAngle2)*arrowHeadLength);
 
         CGFloat circleRadius = 0.5f;
 
@@ -43,7 +43,7 @@ static CGFloat const DXRPushBehaviorMinimalLineLength = 20.0f;
         CGContextSetLineWidth(context, DXRPushBehaviorLineWidth);
 
         // Animate the line dash
-        CGFloat dashPhase = -fmod([[NSDate date] timeIntervalSinceReferenceDate] * 20.0, 6.0);
+        CGFloat dashPhase = (CGFloat) -fmod([[NSDate date] timeIntervalSinceReferenceDate] * 20.0, 6.0);
         const CGFloat dashPattern[2] = {3.0f, 3.0f};
         CGContextSetLineDash(context, dashPhase, dashPattern, 2);
 

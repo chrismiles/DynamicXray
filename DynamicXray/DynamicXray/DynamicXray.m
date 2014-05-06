@@ -185,10 +185,11 @@ static DXRDynamicXrayWindowController *sharedXrayWindowController = nil;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             if (weakSelf) {
-                [weakSelf redrawIfNeeded];
+                __strong DynamicXray *strongSelf = weakSelf;
+                [strongSelf redrawIfNeeded];
 
                 if (repeats) {
-                    [weakSelf scheduleDelayedRedrawCheckRepeats:repeats];
+                    [strongSelf scheduleDelayedRedrawCheckRepeats:repeats];
                 }
             }
         });
@@ -200,17 +201,18 @@ static DXRDynamicXrayWindowController *sharedXrayWindowController = nil;
     // Only redraws if the reference view has changed
 
     [self findReferenceView];
+    __strong UIView *referenceView = self.referenceView;
 
     BOOL needsRedraw = NO;
 
-    if (self.referenceView != self.previousReferenceView) {
+    if (referenceView != self.previousReferenceView) {
         needsRedraw = YES;
     }
-    else if (self.referenceView) {
-        if (self.referenceView.window != self.previousReferenceViewWindow) {
+    else if (referenceView) {
+        if (referenceView.window != self.previousReferenceViewWindow) {
             needsRedraw = YES;
         }
-        else if (CGRectEqualToRect(self.referenceView.frame, self.previousReferenceViewFrame) == NO) {
+        else if (CGRectEqualToRect(referenceView.frame, self.previousReferenceViewFrame) == NO) {
             needsRedraw = YES;
         }
     }
@@ -219,9 +221,9 @@ static DXRDynamicXrayWindowController *sharedXrayWindowController = nil;
         [self redraw];
     }
 
-    self.previousReferenceViewFrame = self.referenceView.frame;
-    self.previousReferenceViewWindow = self.referenceView.window;
-    self.previousReferenceView = self.referenceView;
+    self.previousReferenceViewFrame = referenceView.frame;
+    self.previousReferenceViewWindow = referenceView.window;
+    self.previousReferenceView = referenceView;
 }
 
 
@@ -249,7 +251,8 @@ static DXRDynamicXrayWindowController *sharedXrayWindowController = nil;
 
 - (BOOL)referenceViewIsVisible
 {
-    if (self.referenceView && self.referenceView.window == nil) {
+    __strong UIView *referenceView = self.referenceView;
+    if (referenceView && referenceView.window == nil) {
         // If reference view is available, but it is not attached to a window, then it is not visible
         return NO;
     }

@@ -23,12 +23,12 @@ static CGFloat const arrowHeadPointOffsetAngle = 0.25f;
 
     CGFloat angle = self.angle;
     CGFloat arrowRadius = circleDiameter / 2.0f - 1.0f;
-    CGPoint arrowEndPoint = CGPointMake(circleCenter.x + arrowRadius * cosf(angle), circleCenter.y + arrowRadius * sinf(angle));
+    CGPoint arrowEndPoint = CGPointMake(circleCenter.x + arrowRadius * (CGFloat)cos(angle), circleCenter.y + arrowRadius * (CGFloat)sin(angle));
     CGFloat arrowHeadPointEndRadius = arrowRadius * 0.7f;
-    CGPoint arrowHeadPoint1 = CGPointMake(circleCenter.x + arrowHeadPointEndRadius * cosf(angle-arrowHeadPointOffsetAngle),
-                                          circleCenter.y + arrowHeadPointEndRadius * sinf(angle-arrowHeadPointOffsetAngle));
-    CGPoint arrowHeadPoint2 = CGPointMake(circleCenter.x + arrowHeadPointEndRadius * cosf(angle+arrowHeadPointOffsetAngle),
-                                          circleCenter.y + arrowHeadPointEndRadius * sinf(angle+arrowHeadPointOffsetAngle));
+    CGPoint arrowHeadPoint1 = CGPointMake(circleCenter.x + arrowHeadPointEndRadius * (CGFloat)cos(angle-arrowHeadPointOffsetAngle),
+                                          circleCenter.y + arrowHeadPointEndRadius * (CGFloat)sin(angle-arrowHeadPointOffsetAngle));
+    CGPoint arrowHeadPoint2 = CGPointMake(circleCenter.x + arrowHeadPointEndRadius * (CGFloat)cos(angle+arrowHeadPointOffsetAngle),
+                                          circleCenter.y + arrowHeadPointEndRadius * (CGFloat)sin(angle+arrowHeadPointOffsetAngle));
 
     // Draw circle
     CGContextSetLineWidth(context, 1.0f);

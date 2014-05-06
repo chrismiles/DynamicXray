@@ -30,8 +30,8 @@
         CGFloat lineLength = DXRCGPointDistance(self.anchorPoint, self.attachmentPoint);
         CGFloat itemLength = (self.length > 0 ? self.length : 1.0f);
         CGFloat lineRatio = lineLength / itemLength;
-        CGFloat dashBaseSize = fminf(3.0f, itemLength / 10.0f);
-        CGFloat dashSize = fmaxf(0.5f, dashBaseSize * lineRatio);
+        CGFloat dashBaseSize = (CGFloat)fmin(3.0f, itemLength / 10.0f);
+        CGFloat dashSize = (CGFloat)fmax(0.5f, dashBaseSize * lineRatio);
         const CGFloat dashPattern[2] = {dashSize, dashSize};
         CGContextSetLineDash(context, 3, dashPattern, 2);
     }

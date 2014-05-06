@@ -64,7 +64,7 @@ static NSTimeInterval const DXRDefaultDecayTime = 0.2;    // decay time in secon
             decay = 0;
         }
         else {
-            decay = 1.0f - (currentTime - self.allReferencesEndedTime) / decayTime;
+            decay = (float)(1.0f - (currentTime - self.allReferencesEndedTime) / decayTime);
         }
     }
 

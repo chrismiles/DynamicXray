@@ -12,5 +12,5 @@ CGFloat DXRCGPointDistance(CGPoint point1, CGPoint point2)
 {
     CGFloat dx = point2.x - point1.x;
     CGFloat dy = point2.y - point1.y;
-    return sqrtf(dx*dx + dy*dy);
+    return (CGFloat)sqrt(dx*dx + dy*dy);
 }
