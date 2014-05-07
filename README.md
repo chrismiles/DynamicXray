@@ -7,9 +7,13 @@ Ever wanted to see under the hood of the UIKit Dynamics physics engine?
 Now you can! With DynamicXray you can visualise your dynamic animator live at
 runtime, exposing all dynamic behaviours and dynamic items.
 
-DynamicXray includes a suite of UIKit Dynamics demonstrations in a universal iOS app:
-DynamicXrayCatalog. All of the demos allow DynamicXray introspection to be enabled.
+The DynamicXray project includes a catalog of open source UIKit Dynamics demonstrations, all with DynamicXray already integrated. See <a href="DynamicXrayCatalog">DynamicXrayCatalog</a>.
 
+<img src="https://lh4.googleusercontent.com/-dxUVFNprkmw/U2n8jHTS1jI/AAAAAAAAAiU/isgqsFLkv7g/s512/DynamicXrayUIKitPinball1.png" alt="DynamicXray + UIKit Pinball" height="480" />
+<img src="https://lh3.googleusercontent.com/-YHqpnhXBKgE/U2n8u21qlQI/AAAAAAAAAic/X_Zm3_1CFMw/s512/DynamicXrayUIKitPinball2.png" alt="DynamicXray + UIKit Pinball" height="480" />
+<img src="https://lh4.googleusercontent.com/-Ju24n7OG-14/U2n8xR5pvhI/AAAAAAAAAik/lRt_udRsD2U/s512/DynamicXrayUIKitPinball4.png" alt="DynamicXray + UIKit Pinball" height="480" />
+<img src="https://lh5.googleusercontent.com/-dPCksSQFVv4/U2n8iYHel1I/AAAAAAAAAiM/o2lexHYurEw/s512/DynamicXrayLoadingPatty1.png" alt="DynamicXray + UIKit Pinball" height="480" />
+<img src="https://lh6.googleusercontent.com/-Fgl4e0wa4ww/U2n8glJWs0I/AAAAAAAAAiE/7nuaM9hjL3o/s512/DynamicXrayCollisionsGravitySpring1.png" alt="DynamicXray + UIKit Pinball" height="480" />
 
 
 Quick Start
@@ -32,9 +36,9 @@ In your code, import the header and add an instance of DynamicXray to your dynam
 Overview
 ========
 
-DynamicXray is built as a UIDynamicBehavior. This means it can be simply added to any
-UIDynamicAnimator to enable the introspection overlay. By default, all behaviours added
-to the animator will be visualised.
+DynamicXray is implemented as a UIDynamicBehavior. This means it can simply be added to any
+UIDynamicAnimator to enable the introspection overlay. By default, all behaviours owned
+by the animator will be visualised.
 
 For more control, the DynamicXray behaviour exposes options such as temporarily disabling
 the overlay, adjusting the cross fade between app and overlay, whether to draw dynamic
@@ -49,6 +53,22 @@ For example:
     DynamicXray *xray = [[DynamicXray alloc] init];
     [self.dynamicAnimator addBehavior:xray];
     [xray presentConfigurationViewController];
+
+
+Features
+========
+
+* Easy and controllable integration. Simply add the DynamicXray behavior to your dynamic animator.
+
+* All UIKit Dynamic behaviours are visualised, including collision boundaries.
+
+* All dynamic item bodies in the scene are visualised.
+
+* Any contacts between dynamic items and other items or collision boundaries are visualised by an orange flash.
+
+* Configurable overlay cross fade control, between all of the application visible throught to only the DynamicXray overlay visible.
+
+* Built-in configuration panel for user to control run-time options.
 
 
 DynamicXrayCatalog
