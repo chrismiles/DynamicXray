@@ -3,7 +3,7 @@
 //  DynamicXrayCatalog
 //
 //  Created by Chris Miles on 30/09/13.
-//  Copyright (c) 2013 Apple Inc. All rights reserved.
+//  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 //  Based on CMTraerPhysics demo by Chris Miles, https://github.com/chrismiles/CMTraerPhysics
 //

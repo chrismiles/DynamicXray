@@ -3,7 +3,7 @@
 //  DynamicXrayCatalog
 //
 //  Created by Chris Miles on 30/09/13.
-//  Copyright (c) 2013 Chris Miles. All rights reserved.
+//  Copyright (c) 2013-2014 Chris Miles. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
