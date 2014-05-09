@@ -7,7 +7,7 @@ Ever wanted to see under the hood of the UIKit Dynamics physics engine?
 Now you can! With DynamicXray you can visualise your dynamic animator live at
 runtime, exposing all dynamic behaviours and dynamic items.
 
-The DynamicXray project includes a catalog of open source UIKit Dynamics demonstrations, all with DynamicXray already integrated. See <a href="DynamicXrayCatalog">DynamicXrayCatalog</a>.
+The DynamicXray project includes a catalog of open source UIKit Dynamics demonstrations, all with DynamicXray already integrated. See <a href="#dynamicxraycatalog">DynamicXrayCatalog</a>.
 
 <img src="https://lh4.googleusercontent.com/-dxUVFNprkmw/U2n8jHTS1jI/AAAAAAAAAiU/isgqsFLkv7g/s512/DynamicXrayUIKitPinball1.png" alt="DynamicXray + UIKit Pinball" height="480" />
 <img src="https://lh3.googleusercontent.com/-YHqpnhXBKgE/U2n8u21qlQI/AAAAAAAAAic/X_Zm3_1CFMw/s512/DynamicXrayUIKitPinball2.png" alt="DynamicXray + UIKit Pinball" height="480" />
@@ -19,7 +19,7 @@ The DynamicXray project includes a catalog of open source UIKit Dynamics demonst
 Quick Start
 ===========
 
-Open DynamicXray.xcworkspace, select the Framework scheme, build the framework.
+Open `DynamicXray.xcworkspace`, select the Framework scheme, build the framework.
 
 If successful, a Finder window should open at the location of the DynamicXray.framework.
 
