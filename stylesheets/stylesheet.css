@@ -148,6 +148,20 @@ img {
   -ms-box-shadow: 0 0 5px #ebebeb;
 }
 
+.headerimg {
+    height: 64px;
+    vertical-align: middle;
+
+    margin: 0 0 0 0;
+    border: 0;
+
+    box-shadow: 0 0 0 #ebebeb;
+    -webkit-box-shadow: 0 0 0 #ebebeb;
+    -moz-box-shadow: 0 0 0 #ebebeb;
+    -o-box-shadow: 0 0 0 #ebebeb;
+    -ms-box-shadow: 0 0 0 #ebebeb;
+}
+
 p img {
   display: inline;
   margin: 0;
@@ -300,19 +314,26 @@ Full-Width Styles
 #project_title {
   margin: 0;
   color: #fff;
-  font-size: 56px;
-  font-weight: 300;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  #text-shadow: #111 0px 0px 10px;
+  /*font-size: 56px;*/
+  /*font-weight: 300;*/
+  /*font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  /*#text-shadow: #111 0px 0px 10px;*/
+
+  width:640px;
+  height:74px;
+  background-image: url("../images/dynamicxray-header-text.svg");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: left bottom;
 }
 
 #project_tagline {
   color: #fff;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 300;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "HelveticaNeue-UltraLight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: none;
-  text-shadow: #111 0px 0px 10px;
+  /*text-shadow: #111 0px 0px 10px;*/
 }
 
 #downloads {
