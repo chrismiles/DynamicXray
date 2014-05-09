@@ -21,6 +21,7 @@
 
 #import "DynamicXray.h"
 #import "DynamicXray_Internal.h"
+#import "DynamicXray+XrayView.h"
 #import "DXRDynamicXrayView.h"
 
 
@@ -31,29 +32,15 @@
 - (void)setCrossFade:(CGFloat)crossFade
 {
     _crossFade = crossFade;
-    [self updateDynamicsViewTransparencyLevels];
+
+    if (self.isActive) {
+        [self updateDynamicsViewTransparencyLevels];
+    }
 }
 
 - (CGFloat)crossFade
 {
     return _crossFade;
-}
-
-- (void)updateDynamicsViewTransparencyLevels
-{
-    CGFloat xrayViewAlpha = 1.0f;
-    UIColor *backgroundColor;
-
-    if (self.crossFade > 0) {
-        backgroundColor = [UIColor colorWithWhite:0 alpha:(CGFloat)fabs(self.crossFade)];
-    }
-    else {
-        backgroundColor = [UIColor clearColor];
-        xrayViewAlpha = 1.0f + self.crossFade;
-    }
-
-    self.xrayViewController.view.alpha = xrayViewAlpha;
-    self.xrayWindow.backgroundColor = backgroundColor;
 }
 
 

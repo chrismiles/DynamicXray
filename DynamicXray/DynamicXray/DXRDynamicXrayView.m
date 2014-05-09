@@ -34,7 +34,7 @@
 #import "DXRDecayingLifetime.h"
 #import "DXRContactVisualise.h"
 
-#import "DynamicXray_Internal.h"
+#import "DynamicXray+XrayView.h"
 
 
 @interface DXRDynamicXrayView ()

@@ -39,6 +39,8 @@
 		8317A754180E95CB00F4B954 /* DXRDynamicXrayConfigurationViewController+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 8317A752180E95CB00F4B954 /* DXRDynamicXrayConfigurationViewController+Private.h */; };
 		8317A759180EA89800F4B954 /* DXRDynamicXrayViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 8317A757180EA89800F4B954 /* DXRDynamicXrayViewController.h */; };
 		8317A75A180EA89800F4B954 /* DXRDynamicXrayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8317A758180EA89800F4B954 /* DXRDynamicXrayViewController.m */; };
+		83271193191C64F900D2475A /* DynamicXray+XrayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 83271191191C64F900D2475A /* DynamicXray+XrayView.h */; };
+		83271194191C64F900D2475A /* DynamicXray+XrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83271192191C64F900D2475A /* DynamicXray+XrayView.m */; };
 		833F36C919090AE7007305BB /* DXRAssetBytesLogo.png.c in Sources */ = {isa = PBXBuildFile; fileRef = 833F36C719090AE7007305BB /* DXRAssetBytesLogo.png.c */; };
 		833F36CA19090AE7007305BB /* DXRAssetBytesLogo@2x.png.c in Sources */ = {isa = PBXBuildFile; fileRef = 833F36C819090AE7007305BB /* DXRAssetBytesLogo@2x.png.c */; };
 		834A42B8187E820D00493BBE /* JRSwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 834A42B6187E820D00493BBE /* JRSwizzle.h */; };
@@ -162,6 +164,8 @@
 		8317A752180E95CB00F4B954 /* DXRDynamicXrayConfigurationViewController+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXRDynamicXrayConfigurationViewController+Private.h"; sourceTree = "<group>"; };
 		8317A757180EA89800F4B954 /* DXRDynamicXrayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXRDynamicXrayViewController.h; sourceTree = "<group>"; };
 		8317A758180EA89800F4B954 /* DXRDynamicXrayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXRDynamicXrayViewController.m; sourceTree = "<group>"; };
+		83271191191C64F900D2475A /* DynamicXray+XrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DynamicXray+XrayView.h"; sourceTree = "<group>"; };
+		83271192191C64F900D2475A /* DynamicXray+XrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DynamicXray+XrayView.m"; sourceTree = "<group>"; };
 		833F36C719090AE7007305BB /* DXRAssetBytesLogo.png.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = DXRAssetBytesLogo.png.c; sourceTree = "<group>"; };
 		833F36C819090AE7007305BB /* DXRAssetBytesLogo@2x.png.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "DXRAssetBytesLogo@2x.png.c"; sourceTree = "<group>"; };
 		833F36CB19090B2E007305BB /* DXRAssetBytesLogo.png.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DXRAssetBytesLogo.png.h; sourceTree = "<group>"; };
@@ -317,6 +321,33 @@
 			name = "Xray View Controller";
 			sourceTree = "<group>";
 		};
+		8327118F191C649800D2475A /* DynamicXray Public */ = {
+			isa = PBXGroup;
+			children = (
+				83849DBE17AE022300D6DD3C /* DynamicXray.h */,
+				83849DC017AE022300D6DD3C /* DynamicXray.m */,
+				8315E8B71887350200947F12 /* DynamicXray+XrayUserInterface.m */,
+				8315E8B3188733BC00947F12 /* DynamicXray+XrayVisualStyle.m */,
+			);
+			name = "DynamicXray Public";
+			sourceTree = "<group>";
+		};
+		83271190191C64A400D2475A /* DynamicXray Private */ = {
+			isa = PBXGroup;
+			children = (
+				83E6D61B187C178E005ECBA5 /* DynamicXray_Internal.h */,
+				8315E8BA188735EE00947F12 /* DynamicXray+XrayContacts.h */,
+				8315E8BB188735EE00947F12 /* DynamicXray+XrayContacts.m */,
+				834F2DC818923BD900D2CA35 /* DynamicXray+XrayPushBehavior.h */,
+				834F2DC918923BD900D2CA35 /* DynamicXray+XrayPushBehavior.m */,
+				83271191191C64F900D2475A /* DynamicXray+XrayView.h */,
+				83271192191C64F900D2475A /* DynamicXray+XrayView.m */,
+				8315E8BE1887371200947F12 /* DynamicXray+XrayVisualiseBehaviors.h */,
+				8315E8BF1887371200947F12 /* DynamicXray+XrayVisualiseBehaviors.m */,
+			);
+			name = "DynamicXray Private";
+			sourceTree = "<group>";
+		};
 		833F36C619090AE7007305BB /* Embedded Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -424,17 +455,8 @@
 		83849DBB17AE022300D6DD3C /* DynamicXray */ = {
 			isa = PBXGroup;
 			children = (
-				83849DBE17AE022300D6DD3C /* DynamicXray.h */,
-				83849DC017AE022300D6DD3C /* DynamicXray.m */,
-				8315E8BA188735EE00947F12 /* DynamicXray+XrayContacts.h */,
-				8315E8BB188735EE00947F12 /* DynamicXray+XrayContacts.m */,
-				8315E8B71887350200947F12 /* DynamicXray+XrayUserInterface.m */,
-				8315E8B3188733BC00947F12 /* DynamicXray+XrayVisualStyle.m */,
-				834F2DC818923BD900D2CA35 /* DynamicXray+XrayPushBehavior.h */,
-				834F2DC918923BD900D2CA35 /* DynamicXray+XrayPushBehavior.m */,
-				8315E8BE1887371200947F12 /* DynamicXray+XrayVisualiseBehaviors.h */,
-				8315E8BF1887371200947F12 /* DynamicXray+XrayVisualiseBehaviors.m */,
-				83E6D61B187C178E005ECBA5 /* DynamicXray_Internal.h */,
+				8327118F191C649800D2475A /* DynamicXray Public */,
+				83271190191C64A400D2475A /* DynamicXray Private */,
 				834A42C2187F6E2600493BBE /* Contact Introspection */,
 				833F36C619090AE7007305BB /* Embedded Assets */,
 				8317A756180EA87A00F4B954 /* Xray View Controller */,
@@ -604,6 +626,7 @@
 				83B61358180BBDC10006BBA3 /* DXRGravityBehaviorSnapshot+DXRDrawing.h in Headers */,
 				83849DF517AE242A00D6DD3C /* DXRDynamicXrayUtil.h in Headers */,
 				834A42C9187F6F1F00493BBE /* DXRPhysicsKitPrivate.h in Headers */,
+				83271193191C64F900D2475A /* DynamicXray+XrayView.h in Headers */,
 				83DEA93D188E503F00B725C1 /* DXRPushBehaviorSnapshot+DXRDrawing.h in Headers */,
 				837BDD4A18C681FA0070BAD7 /* DXRDynamicXrayConfigurationActiveView.h in Headers */,
 				83E6D61C187C178E005ECBA5 /* DynamicXray_Internal.h in Headers */,
@@ -759,6 +782,7 @@
 				8317A74D180E8F6300F4B954 /* DXRDynamicXrayConfigurationViewController.m in Sources */,
 				83DEA93E188E503F00B725C1 /* DXRPushBehaviorSnapshot+DXRDrawing.m in Sources */,
 				837BDD6C18C8763F0070BAD7 /* DXRDynamicXrayConfigurationControlsView.m in Sources */,
+				83271194191C64F900D2475A /* DynamicXray+XrayView.m in Sources */,
 				834A42B9187E820D00493BBE /* JRSwizzle.m in Sources */,
 				834A42C6187F6E5000493BBE /* DXRContactHandler.m in Sources */,
 				839BD1DC190A83EB002F0E23 /* DXRAssetBytesIconNoOverlay@2x.png.c in Sources */,

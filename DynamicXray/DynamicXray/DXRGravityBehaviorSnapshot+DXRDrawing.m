@@ -20,7 +20,7 @@
 //
 
 #import "DXRGravityBehaviorSnapshot+DXRDrawing.h"
-#import "DynamicXray_Internal.h"
+#import "DynamicXray+XrayView.h"
 @import UIKit;
 
 static CGFloat const circleDiameter = 40.0f;

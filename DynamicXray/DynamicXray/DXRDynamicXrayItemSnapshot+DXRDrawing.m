@@ -20,7 +20,7 @@
 //
 
 #import "DXRDynamicXrayItemSnapshot+DXRDrawing.h"
-#import "DynamicXray_Internal.h"
+#import "DynamicXray+XrayView.h"
 
 @implementation DXRDynamicXrayItemSnapshot (DXRDrawing)
 

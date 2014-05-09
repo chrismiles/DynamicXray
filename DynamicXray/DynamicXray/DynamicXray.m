@@ -23,6 +23,7 @@
 #import "DynamicXray_Internal.h"
 #import "DynamicXray+XrayContacts.h"
 #import "DynamicXray+XrayPushBehavior.h"
+#import "DynamicXray+XrayView.h"
 #import "DynamicXray+XrayVisualiseBehaviors.h"
 
 #import "DXRDynamicXrayView.h"
@@ -138,7 +139,11 @@ static DXRDynamicXrayWindowController *sharedXrayWindowController = nil;
         _active = active;
 
         if (active) {
+            [self updateDynamicsViewTransparencyLevels];
             [self introspectDynamicAnimator:self.dynamicAnimator];
+        }
+        else {
+            [self resetDynamicsViewTransparencyLevels];
         }
     }
 
@@ -342,24 +347,6 @@ static DXRDynamicXrayWindowController *sharedXrayWindowController = nil;
 
     // Draw any contact paths above all else
     [xrayView drawContactPaths:self.pathContactLifetimes];
-}
-
-
-#pragma mark - Color
-
-+ (UIColor *)xrayStrokeColor
-{
-    return [UIColor colorWithRed:0 green:0.639216f blue:0.85098f alpha:1.0f];
-}
-
-+ (UIColor *)xrayFillColor
-{
-    return [self xrayStrokeColor];
-}
-
-+ (UIColor *)xrayContactColor
-{
-    return [UIColor colorWithRed:1.0f green:0.478431f blue:0.0941176f alpha:1.0f];
 }
 
 @end
