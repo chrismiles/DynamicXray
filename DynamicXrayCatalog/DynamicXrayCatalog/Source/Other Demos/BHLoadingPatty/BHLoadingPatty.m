@@ -69,12 +69,16 @@ static NSString *const kPattyBoundaryIdentifier = @"PattyBoundary";
     self.collisions = [[UICollisionBehavior alloc] initWithItems:self.pattyViews];
     [self addHalfwayCollision];
 
+    __weak BHLoadingPatty *weakSelf = self;
+
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self removePattyBoundary];
+        __strong BHLoadingPatty *strongSelf = weakSelf;
+        [strongSelf removePattyBoundary];
     });
 
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self resetSystem];
+        __strong BHLoadingPatty *strongSelf = weakSelf;
+        [strongSelf resetSystem];
     });
 }
 
