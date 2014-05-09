@@ -35,21 +35,28 @@
 
 <p>DynamicXray is a UIKit Dynamics runtime visualisation and introspection library for iOS.</p>
 
-<p>Ever wanted to see under the hood of the UIKit Dynamics physics engine?
-Now you can! With DynamicXray you can visualise your dynamic animator live at
-runtime, exposing all dynamic behaviours and dynamic items.</p>
+<p>Ever wanted to see under the hood of the UIKit Dynamics physics engine? Now you can! With DynamicXray you can visualise your dynamic animator live at runtime, exposing all dynamic behaviours and dynamic items.</p>
 
-<p>DynamicXray includes a suite of UIKit Dynamics demonstrations in a universal iOS app called
-<em>DynamicXrayCatalog</em>. All of the demos allow DynamicXray introspection to be enabled.</p>
+<p>The DynamicXray project includes a catalog of open source UIKit Dynamics demonstrations, all with DynamicXray already integrated. See <a href="#dynamicxraycatalog">DynamicXrayCatalog</a>.</p>
+
+          <img src="https://lh4.googleusercontent.com/-dxUVFNprkmw/U2n8jHTS1jI/AAAAAAAAAiU/isgqsFLkv7g/s512/DynamicXrayUIKitPinball1.png" alt="DynamicXray + UIKit Pinball" height="480" />
+          <img src="https://lh3.googleusercontent.com/-YHqpnhXBKgE/U2n8u21qlQI/AAAAAAAAAic/X_Zm3_1CFMw/s512/DynamicXrayUIKitPinball2.png" alt="DynamicXray + UIKit Pinball" height="480" />
+          <img src="https://lh4.googleusercontent.com/-Ju24n7OG-14/U2n8xR5pvhI/AAAAAAAAAik/lRt_udRsD2U/s512/DynamicXrayUIKitPinball4.png" alt="DynamicXray + UIKit Pinball" height="480" />
+          <img src="https://lh5.googleusercontent.com/-dPCksSQFVv4/U2n8iYHel1I/AAAAAAAAAiM/o2lexHYurEw/s512/DynamicXrayLoadingPatty1.png" alt="DynamicXray + UIKit Pinball" height="480" />
+          <img src="https://lh6.googleusercontent.com/-Fgl4e0wa4ww/U2n8glJWs0I/AAAAAAAAAiE/7nuaM9hjL3o/s512/DynamicXrayCollisionsGravitySpring1.png" alt="DynamicXray + UIKit Pinball" height="480" />
+          <img src="https://lh3.googleusercontent.com/-DqGKvvee6ZI/U2x6pnJUb4I/AAAAAAAAAj0/EJGg3Wd3mKA/s512/DynamicXraySpringyRope1.png" alt="DynamicXray + Springy Rope" height="480" />
+
 
 <h2>
 <a name="quick-start" class="anchor" href="#quick-start"><span class="octicon octicon-link"></span></a>Quick Start</h2>
 
 <p>Open <code>DynamicXray.xcworkspace</code>, select the Framework scheme, build the framework.</p>
 
-<p>If successful, a Finder window should open at the location of the <code>DynamicXray.framework</code>.</p>
+<p>If successful, a Finder window should open at the location of <code>DynamicXray.framework</code>.</p>
 
 <p>Add <code>DynamicXray.framework</code> to your iOS project.</p>
+
+<p>Open your target's build settings, search for "Other Linker Flags" and add <code>-ObjC</code> if not already specified.</p>
 
 <p>In your code, import the header and add an instance of DynamicXray to your dynamic animator.</p>
 
@@ -72,7 +79,7 @@ item outlines, and more. Refer to the DynamicXray header.</p>
 
 <p>DynamicXray includes a built-in configuration panel that slides up from the bottom of the
 screen. The configuration panel provides access to some options at runtime. The configuration panel
-can be presented by calling -presentConfigurationViewController.</p>
+can be presented by calling <code>-[DynamicXray presentConfigurationViewController]</code>.</p>
 
 <p>For example:</p>
 
@@ -80,6 +87,26 @@ can be presented by calling -presentConfigurationViewController.</p>
 [self.dynamicAnimator addBehavior:xray];
 [xray presentConfigurationViewController];
 </code></pre>
+
+          <h2>
+              <a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
+
+          <p>
+          <ul>
+              <li> Easy and controllable integration. Simply add the DynamicXray behavior to your dynamic animator.</li>
+
+              <li> All UIKit Dynamic behaviours are visualised, including collision boundaries.</li>
+
+              <li> All dynamic item bodies in the scene are visualised.</li>
+
+              <li> Any contacts between dynamic items and other items or collision boundaries are highlighted.</li>
+
+              <li> Configurable overlay cross fade control, between all of the application visible through to only the DynamicXray overlay visible.</li>
+
+              <li> Built-in configuration panel for user to control run-time options.</li>
+          </ul>
+          </p>
+
 
 <h2>
 <a name="dynamicxraycatalog" class="anchor" href="#dynamicxraycatalog"><span class="octicon octicon-link"></span></a>DynamicXrayCatalog</h2>
@@ -91,21 +118,22 @@ so introspection can be enabled on any demo to see the inner workings.</p>
 <p>The demos in DynamicXrayCatalog were created by various authors and all are open
 source.</p>
 
-<p>Submit a pull request if you would like to contribute a demo to DynamicXrayCatalog.
-Please make sure that your demo includes an option to enable DynamicXray.</p>
+<p>Contributions are welcome! Submit a pull request if you would like to contribute a demo to DynamicXrayCatalog. Please make sure that your demo includes an option to enable DynamicXray.</p>
+
+          <img src="https://lh3.googleusercontent.com/-Fnc1O28nYsg/U2x2QVwNU7I/AAAAAAAAAjo/U3jzC9DJi24/s512/DynamicXrayCatalogIndex.png" alt="DynamicXray Catalog Index" height="480" style="text-align:center" />
+
 
 <h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>Copyright and Licenses</h2>
 
 <p>DynamicXray is Copyright (c) Chris Miles 2013-2014 and available for use under a GPL-3.0 license.</p>
 
 <p>The DynamicXray icon and any other included artwork is Copyright (c) Chris Miles 2013-2014 and available for use under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License only when used along with the DynamicXray library.</p>
 
-<p>DynamicXrayCatalog is Copyright (c) Chris Miles 2013-2014 and others. DynamicXrayCatalog contains source code copyrighted by others and included within the terms of the respective licenses. See the source code for more details.</p>
+<p>DynamicXrayCatalog is Copyright (c) Chris Miles 2013-2014 and others. DynamicXrayCatalog contains source code copyrighted by others and included within the terms of the respective licenses. See the included project sources for more details.</p>
 
 <p>DynamicXrayCatalog is available for use under a BSD (2-Clause) License, except for where included source code specifies alternative license details, then that code remains available under the original license terms. Refer to the source code for more details.</p>
 
-<p>See LICENSE.txt for more details.</p>
       </section>
     </div>
 
