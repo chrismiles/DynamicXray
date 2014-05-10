@@ -97,6 +97,18 @@ enable DynamicXray.
 <img src="https://lh3.googleusercontent.com/-Fnc1O28nYsg/U2x2QVwNU7I/AAAAAAAAAjo/U3jzC9DJi24/s512/DynamicXrayCatalogIndex.png" alt="DynamicXray Catalog Index" height="480" style="text-align:center" />
 
 
+Videos
+======
+
+See DynamicXray demonstration [videos on YouTube][201].
+
+[201]: https://www.youtube.com/playlist?list=PLijtl-wBLFKLtGN3go4zwrzzWMdRC4hmA "DynamicXray videos on YouTube"
+
+<p style="text-align: center">
+  <iframe width="640" height="360" src="http://www.youtube.com/embed/videoseries?list=PLijtl-wBLFKLtGN3go4zwrzzWMdRC4hmA" frameborder="0" allowfullscreen></iframe>
+</p>
+
+
 Copyright and Licenses
 ======================
 
