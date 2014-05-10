@@ -37,6 +37,11 @@ DynamicXray *xray = [[DynamicXray alloc] init];
 [self.dynamicAnimator addBehavior:xray];
 ```
 
+### Dynamic Library
+
+For advanced users, the Framework script also builds `DynamicXray.dylib`. The dylib
+can be used for conditional loading at runtime, or injecting into other processes, etc.
+
 
 Overview
 ========
