@@ -59,7 +59,7 @@ static NSTimeInterval const DynamicXrayRedrawCheckInterval = 0.25;     // second
 /*
  * Globals
  */
-NSString *const DynamicXrayVersion = @"0.1";
+NSString *const DynamicXrayVersion = @"0.2";
 
 
 /*
