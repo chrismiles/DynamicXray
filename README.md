@@ -104,9 +104,7 @@ See DynamicXray demonstration [videos on YouTube][201].
 
 [201]: https://www.youtube.com/playlist?list=PLijtl-wBLFKLtGN3go4zwrzzWMdRC4hmA "DynamicXray videos on YouTube"
 
-<p style="text-align: center">
-  <iframe width="640" height="360" src="http://www.youtube.com/embed/videoseries?list=PLijtl-wBLFKLtGN3go4zwrzzWMdRC4hmA" frameborder="0" allowfullscreen></iframe>
-</p>
+<a href="https://www.youtube.com/watch?v=rcwK4zP_v_E&list=PLijtl-wBLFKLtGN3go4zwrzzWMdRC4hmA"><img src="https://lh5.googleusercontent.com/-cGJQx1LSpzA/U22WoX9ScUI/AAAAAAAAAkE/KVEaQRbq3F8/s720/DynamicXray%2520YouTube.png" alt="DynamicXray Videos" height="430" style="text-align:center" /></a>
 
 
 Copyright and Licenses
