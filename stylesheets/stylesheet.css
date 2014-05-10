@@ -175,6 +175,20 @@ p img {
   border: none;
 }
 
+.imageset {
+  text-align: center;
+}
+
+.videobordered {
+    border: 1px solid #ebebeb;
+
+    box-shadow: 0 0 5px #ebebeb;
+    -webkit-box-shadow: 0 0 5px #ebebeb;
+    -moz-box-shadow: 0 0 5px #ebebeb;
+    -o-box-shadow: 0 0 5px #ebebeb;
+    -ms-box-shadow: 0 0 5px #ebebeb;
+}
+
 pre, code {
   width: 100%;
   color: #222;
@@ -282,7 +296,7 @@ Full-Width Styles
 
 .inner {
   position: relative;
-  max-width: 640px;
+  max-width: 720px;
   padding: 20px 10px;
   margin: 0 auto;
 }
@@ -333,7 +347,7 @@ Full-Width Styles
 
 #project_tagline {
   color: #fff;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 300;
   font-family: "HelveticaNeue-UltraLight", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: none;
