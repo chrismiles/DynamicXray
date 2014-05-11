@@ -45,7 +45,7 @@
 
 
 
-          <p>The DynamicXray project includes a catalog of open source UIKit Dynamics demonstrations, all with DynamicXray already integrated. See <a href="#dynamicxraycatalog">DynamicXrayCatalog</a>.</p>
+          <p>The DynamicXray project includes a catalog of open source UIKit Dynamics demonstrations, all with DynamicXray already integrated. See <a href="#dynamicxraycatalog">DynamicXray Catalog</a>.</p>
 
           <p class="imageset">
           <img src="https://lh4.googleusercontent.com/-dxUVFNprkmw/U2n8jHTS1jI/AAAAAAAAAiU/isgqsFLkv7g/s512/DynamicXrayUIKitPinball1.png" alt="DynamicXray + UIKit Pinball" height="480" />
@@ -60,9 +60,21 @@
 <h2>
 <a name="quick-start" class="anchor" href="#quick-start"><span class="octicon octicon-link"></span></a>Quick Start</h2>
 
-<p>Open <code>DynamicXray.xcworkspace</code>, select the Framework scheme, build the framework.</p>
+          <h4>Download the Framework binary:</h4>
 
-<p>If successful, a Finder window should open at the location of <code>DynamicXray.framework</code>.</p>
+          <p><a href="https://github.com/chrismiles/DynamicXray/releases">Download</a> the latest binary release.</p>
+
+
+          <h4>Or build the Framework from source:</h4>
+
+          <p><a href="https://github.com/chrismiles/DynamicXray/releases">Download</a> or <a href="https://github.com/chrismiles/DynamicXray">clone</a> the source code.</p>
+
+          <p>Open <code>DynamicXray.xcworkspace</code>, select the Framework scheme, build the framework.</p>
+
+          <p>If successful, a Finder window should open at the location of <code>DynamicXray.framework</code>.</p>
+
+
+          <h4>Add to your project:</h4>
 
 <p>Add <code>DynamicXray.framework</code> to your iOS project.</p>
 
@@ -75,6 +87,13 @@
 DynamicXray *xray = [[DynamicXray alloc] init];
 [self.dynamicAnimator addBehavior:xray];
 </code></pre>
+
+          <h3>Dynamic Library</h3>
+
+          <p>For advanced users, the Framework script also builds <code>DynamicXray.dylib</code>. The dylib
+              can be used for conditional loading at runtime, or injecting into other processes, etc.</p>
+
+
 
 <h2>
 <a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
@@ -107,11 +126,19 @@ can be presented by calling <code>-[DynamicXray presentConfigurationViewControll
 
               <li> All UIKit Dynamic behaviours are visualised, including collision boundaries.</li>
 
+              <li>Visually differentiate between springy and rigid attachment behaviours.</li>
+
+          <li>Push behaviours are visualised by arrows representing the location, magnitude and direction of the push force.</li>
+
+          <li>Snap behaviours are visualised by arrows showing where the item is snapping to.</li>
+
+          <li>Gravity behaviours are visualised by an overlay showing magnitude and direction.</li>
+
               <li> All dynamic item bodies in the scene are visualised.</li>
 
               <li> Any contacts between dynamic items and other items or collision boundaries are highlighted.</li>
 
-              <li> Configurable overlay cross fade control, between all of the application visible through to only the DynamicXray overlay visible.</li>
+              <li> Configurable overlay cross fade control, fading between 100% application to 100% DynamicXray overlay.</li>
 
               <li> Built-in configuration panel for user to control run-time options.</li>
           </ul>
@@ -119,16 +146,16 @@ can be presented by calling <code>-[DynamicXray presentConfigurationViewControll
 
 
 <h2>
-<a name="dynamicxraycatalog" class="anchor" href="#dynamicxraycatalog"><span class="octicon octicon-link"></span></a>DynamicXrayCatalog</h2>
+<a name="dynamicxraycatalog" class="anchor" href="#dynamicxraycatalog"><span class="octicon octicon-link"></span></a>DynamicXray Catalog</h2>
 
-<p>The included project DynamicXrayCatalog is a universal iOS app containing a suite
+<p>The included project <code>DynamicXrayCatalog</code> is a universal iOS app containing a suite
 of various UIKit Dynamics demonstrations. The demos include DynamicXray pre-loaded
 so introspection can be enabled on any demo to see the inner workings.</p>
 
-<p>The demos in DynamicXrayCatalog were created by various authors and all are open
+<p>The demos in DynamicXray Catalog were created by various authors and all are open
 source.</p>
 
-<p>Contributions are welcome! Submit a pull request if you would like to contribute a demo to DynamicXrayCatalog. Please make sure that your demo includes an option to enable DynamicXray.</p>
+<p>Contributions are welcome! Submit a pull request if you would like to contribute a demo to DynamicXray Catalog. Please make sure that your demo includes an option to enable DynamicXray.</p>
 
           <p class="imageset">
           <img src="https://lh3.googleusercontent.com/-Fnc1O28nYsg/U2x2QVwNU7I/AAAAAAAAAjo/U3jzC9DJi24/s512/DynamicXrayCatalogIndex.png" alt="DynamicXray Catalog Index" height="480" style="text-align:center" />
