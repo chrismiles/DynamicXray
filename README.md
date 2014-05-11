@@ -7,7 +7,7 @@ Ever wanted to see under the hood of the UIKit Dynamics physics engine?
 Now you can! With DynamicXray you can visualise your dynamic animator live at
 runtime, exposing all dynamic behaviours and dynamic items.
 
-The DynamicXray project includes a catalog of open source UIKit Dynamics demonstrations, all with DynamicXray already integrated. See <a href="#dynamicxraycatalog">DynamicXrayCatalog</a>.
+The DynamicXray project includes a catalog of open source UIKit Dynamics demonstrations, all with DynamicXray already integrated. See <a href="#dynamicxraycatalog">DynamicXray Catalog</a>.
 
 <img src="https://lh4.googleusercontent.com/-dxUVFNprkmw/U2n8jHTS1jI/AAAAAAAAAiU/isgqsFLkv7g/s512/DynamicXrayUIKitPinball1.png" alt="DynamicXray + UIKit Pinball" height="480" />
 <img src="https://lh3.googleusercontent.com/-YHqpnhXBKgE/U2n8u21qlQI/AAAAAAAAAic/X_Zm3_1CFMw/s512/DynamicXrayUIKitPinball2.png" alt="DynamicXray + UIKit Pinball" height="480" />
@@ -20,9 +20,24 @@ The DynamicXray project includes a catalog of open source UIKit Dynamics demonst
 Quick Start
 ===========
 
+#### Download the Framework binary:
+
+[Download][20] the latest binary release.
+
+
+#### Or build the Framework from source:
+
+[Download][20] or [clone][21] the source code.
+
 Open `DynamicXray.xcworkspace`, select the Framework scheme, build the framework.
 
 If successful, a Finder window should open at the location of `DynamicXray.framework`.
+
+[20]: https://github.com/chrismiles/DynamicXray/releases "DynamicXray Releases"
+[21]: https://github.com/chrismiles/DynamicXray "DynamicXray Source"
+
+
+#### Add to your project:
 
 Add `DynamicXray.framework` to your iOS project.
 
@@ -76,17 +91,25 @@ Features
 
 * All UIKit Dynamic behaviours are visualised, including collision boundaries.
 
+* Visually differentiate between springy and rigid attachment behaviours.
+
+* Push behaviours are visualised by arrows representing the location, magnitude and direction of the push force.
+
+* Snap behaviours are visualised by arrows showing where the item is snapping to.
+
+* Gravity behaviours are visualised by an overlay showing magnitude and direction.
+
 * All dynamic item bodies in the scene are visualised.
 
 * Any contacts between dynamic items and other items or collision boundaries are highlighted.
 
-* Configurable overlay cross fade control, between all of the application visible through to only the DynamicXray overlay visible.
+* Configurable overlay cross fade control, fading between 100% application to 100% DynamicXray overlay.
 
 * Built-in configuration panel for user to control run-time options.
 
 
-DynamicXrayCatalog
-==================
+DynamicXray Catalog
+===================
 
 The included project DynamicXrayCatalog is a universal iOS app containing a suite
 of various UIKit Dynamics demonstrations. The demos include DynamicXray pre-loaded
