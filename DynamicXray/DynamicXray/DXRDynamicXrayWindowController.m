@@ -212,11 +212,11 @@ AngleForUIInterfaceOrientation(UIInterfaceOrientation interfaceOrientation)
     BOOL ignoreOrientation = NO;
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 80000
     if ([[NSProcessInfo processInfo] respondsToSelector:@selector(operatingSystemVersion)]) {
-      ignoreOrientation = YES;
+        ignoreOrientation = YES;
     }
 #endif
     if (ignoreOrientation) {
-      return 0;
+        return 0;
     }
 
     if (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
