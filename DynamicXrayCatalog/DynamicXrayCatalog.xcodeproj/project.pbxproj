@@ -23,6 +23,7 @@
 		404F6B5A1911A510002B6E41 /* ATLeavesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 404F6B591911A510002B6E41 /* ATLeavesViewController.m */; };
 		830DA09B17FD7E8D00A24B39 /* CMLabelledSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 830DA09A17FD7E8D00A24B39 /* CMLabelledSwitch.m */; };
 		83457ADF189F694200677C99 /* CMUIKitPinballViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83457ADE189F694200677C99 /* CMUIKitPinballViewController.m */; };
+		83483A9419D6936200DE49C0 /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83483A9319D6936200DE49C0 /* Launch Screen.xib */; };
 		834EEC1818A4BD3200914CBB /* CMUIKitPinballViewController+Launcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 834EEC1718A4BD3200914CBB /* CMUIKitPinballViewController+Launcher.m */; };
 		834EEC1C18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.m in Sources */ = {isa = PBXBuildFile; fileRef = 834EEC1B18A4BF2900914CBB /* CMUIKitPinballViewController+Edges.m */; };
 		8361D252190E51850065407C /* libDynamicXray.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8361D251190E51850065407C /* libDynamicXray.a */; };
@@ -83,6 +84,7 @@
 		830DA09A17FD7E8D00A24B39 /* CMLabelledSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMLabelledSwitch.m; sourceTree = "<group>"; };
 		83457ADD189F694200677C99 /* CMUIKitPinballViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMUIKitPinballViewController.h; sourceTree = "<group>"; };
 		83457ADE189F694200677C99 /* CMUIKitPinballViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMUIKitPinballViewController.m; sourceTree = "<group>"; };
+		83483A9319D6936200DE49C0 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		834EEC1618A4BD3200914CBB /* CMUIKitPinballViewController+Launcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CMUIKitPinballViewController+Launcher.h"; sourceTree = "<group>"; };
 		834EEC1718A4BD3200914CBB /* CMUIKitPinballViewController+Launcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CMUIKitPinballViewController+Launcher.m"; sourceTree = "<group>"; };
 		834EEC1918A4BD5F00914CBB /* CMUIKitPinballViewController_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMUIKitPinballViewController_Private.h; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 			children = (
 				2806C65A175BE66C00827B6B /* Images.xcassets */,
 				2806C654175BE66C00827B6B /* Main.storyboard */,
+				83483A9319D6936200DE49C0 /* Launch Screen.xib */,
 				83BA61661829D0FC00341483 /* Source */,
 				2806C649175BE66C00827B6B /* Supporting Files */,
 			);
@@ -446,6 +449,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2806C65B175BE66C00827B6B /* Images.xcassets in Resources */,
+				83483A9419D6936200DE49C0 /* Launch Screen.xib in Resources */,
 				2806C64D175BE66C00827B6B /* InfoPlist.strings in Resources */,
 				2806C656175BE66C00827B6B /* Main.storyboard in Resources */,
 			);
